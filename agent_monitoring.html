@@ -1,0 +1,2723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Prototype styles -->
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/slds2_agentic.css" />
+  <link rel="stylesheet" href="/styles/gc.css" />
+  
+  
+  <link rel="stylesheet" href="/styles/prospect_list.css" />
+  <link rel="stylesheet" href="/styles/agent_monitoring.css" />
+
+</head>
+<body>
+
+  
+  <script>
+    (function () {
+      try {
+        if (window.self !== window.top) {
+          document.body.setAttribute('data-embedded', 'salesforce');
+        }
+      } catch (e) {
+        // Cross-origin frame access can throw; that's ALSO a signal we're embedded.
+        document.body.setAttribute('data-embedded', 'salesforce');
+      }
+    })();
+  </script>
+
+  <header class="slds-global-header_container">
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Navigation</a>
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Main Content</a>
+      <div class="slds-global-header slds-grid slds-grid_align-spread">
+        <div class="slds-global-header__item">
+          <div class="slds-global-header__logo">
+            <img src="/assets/images/logo-noname.svg" style= "width: 12.5rem;height: 2.5rem;background-size: contain;background-repeat: no-repeat;background-position: left center;"alt="Salesforce Logo" />
+          </div>
+        </div>
+        
+        <div class="slds-global-header__item slds-global-header__item_search slds-subtheme-agentic app-global-search">
+          <div class="slds-form-element app-global-search__input">
+            <label class="slds-form-element__label slds-assistive-text" for="app-global-search-input">Search or ask anything</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+              <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left" aria-hidden="true">
+                <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                </svg>
+              </span>
+              <input
+                type="search"
+                id="app-global-search-input"
+                class="slds-input"
+                placeholder="Search or ask anything..."
+                aria-label="Search or ask anything"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button type="button" class="slds-button slds-button_neutral app-global-search__ask">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkles"></use>
+            </svg>
+            <span>Ask</span>
+          </button>
+        </div>
+        
+        <div class="slds-global-header__item">
+          <ul class="slds-global-actions">
+            <li class="slds-global-actions__item">
+              <div class="slds-global-actions__favorites slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-button-group">
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-action slds-button_icon slds-button_icon-border slds-button_icon-small" aria-pressed="false" title="Toggle Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle Favorite</span>
+                  </button>
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-more slds-button_icon slds-button_icon-border slds-button_icon-small" title="View Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true" style="height:12px;width:12px;">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                    <span class="slds-assistive-text">View Favorites</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__task slds-global-actions__item-action" aria-haspopup="true" title="Global Actions">
+                  <svg class="slds-button__icon" aria-hidden="true" style="fill:white;">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Global Actions</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__help slds-global-actions__item-action" aria-haspopup="true" title="Help and Training">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help and Training</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__setup slds-global-actions__item-action" aria-haspopup="true" title="Setup">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Setup</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__notifications slds-global-actions__item-action" title="no new notifications" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use>
+                  </svg>
+                  <span class="slds-assistive-text">no new notifications</span>
+                </button>
+                <span aria-hidden="true" class="slds-notification-badge">0</span>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action" title="person name" aria-haspopup="true">
+                  <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                    <img alt="Person name" src="/assets/images/user-avatar.png" title="User avatar" />
+                  </span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+
+ 
+  <div class="app-header-placeholder"></div>
+
+
+  <div style="height: 16rem;">
+      <div class="slds-context-bar" style="padding-left: 0px;">
+        <div class="slds-context-bar__primary">
+          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+            <div class="slds-context-bar__icon-action">
+              <button class="slds-button slds-icon-waffle_container slds-context-bar__button" title="Description of the icon when needed">
+                <span class="slds-icon-waffle">
+                  <span class="slds-r1"></span>
+                  <span class="slds-r2"></span>
+                  <span class="slds-r3"></span>
+                  <span class="slds-r4"></span>
+                  <span class="slds-r5"></span>
+                  <span class="slds-r6"></span>
+                  <span class="slds-r7"></span>
+                  <span class="slds-r8"></span>
+                  <span class="slds-r9"></span>
+                </span>
+                <span class="slds-assistive-text">Open App Launcher</span>
+              </button>
+            </div>
+            <span class="slds-context-bar__label-action slds-context-bar__app-name">
+              <span class="slds-truncate" title="App Name">Sales</span>
+            </span>
+          </div>
+        </div>
+        <nav class="slds-context-bar__secondary" role="navigation">
+          <ul class="slds-grid">
+            
+            <li class="slds-context-bar__item">
+              <a href="/home.html" class="slds-context-bar__label-action" title="Home">
+                <span class="slds-assistive-text">Current Page:</span>
+                <span class="slds-truncate" title="Home">Home</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/prospect_list.html" class="slds-context-bar__label-action" title="Prospecting">
+                <span class="slds-truncate" title="Prospecting">Prospecting</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="/index.html" class="slds-context-bar__label-action" title="Agent Builder">
+                <span class="slds-truncate" title="Agent Builder">Agent Builder</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Leads</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Accounts</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item slds-is-active">
+              <a href="/agent_monitoring.html" class="slds-context-bar__label-action" title="Agent Monitoring">
+                <span class="slds-truncate" title="Agent Monitoring">Agent Monitoring</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  <main class="app-wrapper slds-template_default">
+    
+
+
+
+
+
+
+
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+
+  
+    
+    
+    
+    
+  
+
+  
+    
+    
+    
+    
+  
+
+  
+    
+    
+    
+    
+  
+
+  
+    
+    
+    
+    
+      
+    
+  
+
+  
+    
+    
+    
+    
+  
+
+  
+    
+    
+    
+    
+  
+
+  
+    
+    
+    
+    
+      
+    
+  
+
+
+
+
+
+
+
+<div class="slds-page-header slds-page-header_record-home slds-m-bottom_small">
+  <div class="slds-page-header__row">
+    <div class="slds-page-header__col-title">
+      <div class="slds-media">
+        <div class="slds-media__figure">
+          <span class="slds-icon_container slds-icon-standard-prospect">
+            <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#prospect"></use>
+            </svg>
+          </span>
+        </div>
+        <div class="slds-media__body">
+          <div class="slds-page-header__name">
+            <div class="slds-page-header__name-title">
+              <h1>
+                <span>Hunter</span>
+                <span class="slds-page-header__title slds-truncate" title="Agent Monitoring">Agent Monitoring</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slds-page-header__col-actions">
+      <div class="slds-page-header__controls">
+        <div class="slds-page-header__control">
+          
+          <button class="slds-button slds-button_neutral"> View Agents</button>
+          
+          <button class="slds-button slds-button_neutral" onclick="window.location.href='/index.html'"> New Agent </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="agent-monitoring">
+
+  
+  <div class="slds-grid agent-monitoring__layout">
+
+  
+  <article class="slds-card-uplift slds-scrollable_y agent-monitoring__card">
+    <div class="slds-card-uplift-body">
+
+      
+      <div class="agent-monitoring__toolbar">
+        
+        <div class="agent-monitoring__filter slds-form-element slds-grid slds-grid_vertical-align-center">
+          <label class="slds-form-element__label" for="am-combobox-agent">Agent</label>
+          <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+              <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                  <div id="am-combobox-agent" role="combobox" tabindex="0" class="slds-input_faux slds-combobox__input"
+                       aria-controls="am-listbox-agent" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="slds-truncate">All Agents</span>
+                  </div>
+                  <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+                    <svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                  </span>
+                </div>
+                <div id="am-listbox-agent" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" role="listbox" aria-label="Agent" tabindex="0">
+                  <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected" role="option" aria-selected="true">
+                        <span class="slds-media__body"><span title="All Agents">All Agents</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="Prospecting Agent 1">Prospecting Agent 1</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="Prospecting Agent 2">Prospecting Agent 2</span></span>
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="agent-monitoring__filter slds-form-element slds-grid slds-grid_vertical-align-center">
+          <label class="slds-form-element__label" for="am-combobox-generated">Generated on</label>
+          <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+              <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                  <div id="am-combobox-generated" role="combobox" tabindex="0" class="slds-input_faux slds-combobox__input"
+                       aria-controls="am-listbox-generated" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="slds-truncate">This Week</span>
+                  </div>
+                  <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+                    <svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                  </span>
+                </div>
+                <div id="am-listbox-generated" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" role="listbox" aria-label="Generated on" tabindex="0">
+                  <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected" role="option" aria-selected="true">
+                        <span class="slds-media__body"><span title="This Week">This Week</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="This Month">This Month</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="Last Week">Last Week</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="Last Month">Last Month</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="Last 90 Days">Last 90 Days</span></span>
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="agent-monitoring__filter slds-form-element slds-grid slds-grid_vertical-align-center">
+          <label class="slds-form-element__label" for="am-combobox-viewas">View as</label>
+          <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+              <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                  <div id="am-combobox-viewas" role="combobox" tabindex="0" class="slds-input_faux slds-combobox__input"
+                       aria-controls="am-listbox-viewas" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="slds-truncate">Me</span>
+                  </div>
+                  <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+                    <svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                  </span>
+                </div>
+                <div id="am-listbox-viewas" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" role="listbox" aria-label="View as" tabindex="0">
+                  <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected" role="option" aria-selected="true">
+                        <span class="slds-media__body"><span title="Me">Me</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="My Team">My Team</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="Everyone">Everyone</span></span>
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="agent-monitoring__filter slds-form-element slds-grid slds-grid_vertical-align-center">
+          <label class="slds-form-element__label" for="am-combobox-object">Object</label>
+          <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+              <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                  <div id="am-combobox-object" role="combobox" tabindex="0" class="slds-input_faux slds-combobox__input"
+                       aria-controls="am-listbox-object" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="slds-truncate">Prospects</span>
+                  </div>
+                  <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+                    <svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                  </span>
+                </div>
+                <div id="am-listbox-object" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" role="listbox" aria-label="Object" tabindex="0">
+                  <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected" role="option" aria-selected="true">
+                        <span class="slds-media__body"><span title="Prospects">Prospects</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="Accounts">Accounts</span></span>
+                      </div>
+                    </li>
+                    
+                    <li role="presentation" class="slds-listbox__item">
+                      <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false">
+                        <span class="slds-media__body"><span title="Leads">Leads</span></span>
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <button type="button" class="slds-button slds-button_icon slds-button_icon-border-filled agent-monitoring__filter-icon-btn" title="More filters" aria-label="More filters">
+          <svg class="slds-button__icon slds-button__icon_small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#filterList"></use>
+          </svg>
+          <span class="slds-assistive-text">More filters</span>
+        </button>
+      </div>
+
+      
+      <div class="agent-monitoring__metrics">
+        <button type="button" class="agent-monitoring__metric is-active" data-metric="all">
+          <span class="agent-monitoring__metric-label">Records Assigned</span>
+          <span class="agent-monitoring__metric-count">10</span>
+          <span class="agent-monitoring__metric-delta">
+            <svg class="agent-monitoring__metric-delta-icon" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowup"></use>
+            </svg>
+            <span class="agent-monitoring__metric-delta-value">15%</span>
+            <span class="agent-monitoring__metric-delta-description" title="New signals from Hunter research">New signals from Hunter research</span>
+          </span>
+        </button>
+
+        <button type="button" class="agent-monitoring__metric" data-metric="active">
+          <span class="agent-monitoring__metric-label">Active Outreach</span>
+          <span class="agent-monitoring__metric-count">5</span>
+          <span class="agent-monitoring__metric-delta">
+            <svg class="agent-monitoring__metric-delta-icon" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowup"></use>
+            </svg>
+            <span class="agent-monitoring__metric-delta-value">14%</span>
+            <span class="agent-monitoring__metric-delta-description" title="Increased after lowering account threshold">Increased after lowering account threshold</span>
+          </span>
+        </button>
+
+        <button type="button" class="agent-monitoring__metric" data-metric="completed">
+          <span class="agent-monitoring__metric-label">Completed Outreach</span>
+          <span class="agent-monitoring__metric-count">3</span>
+          <span class="agent-monitoring__metric-delta">
+            <svg class="agent-monitoring__metric-delta-icon" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowup"></use>
+            </svg>
+            <span class="agent-monitoring__metric-delta-value">8%</span>
+            <span class="agent-monitoring__metric-delta-description" title="Higher engagement this week">Higher engagement this week</span>
+          </span>
+        </button>
+
+        <button type="button" class="agent-monitoring__metric" data-metric="incomplete">
+          <span class="agent-monitoring__metric-label">Incomplete Outreach</span>
+          <span class="agent-monitoring__metric-count">2</span>
+          <span class="agent-monitoring__metric-delta">
+            <svg class="agent-monitoring__metric-delta-icon" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+            </svg>
+            <span class="agent-monitoring__metric-delta-value">4%</span>
+            <span class="agent-monitoring__metric-delta-description" title="Fewer stalled outreaches">Fewer stalled outreaches</span>
+          </span>
+        </button>
+      </div>
+
+      
+      <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-m-horizontal_medium slds-m-vertical_medium agent-monitoring__meta">
+        <div class="slds-text-body_small slds-text-color_weak">
+          <span class="js-agent-monitoring-count">10</span>
+          <span class="js-agent-monitoring-count-label">records</span>
+          &bull; Sorted by Records Researched &bull; Filtered by Agent, Generated on, View as
+        </div>
+        <div class="agent-monitoring__bulk-actions">
+          <button type="button" class="slds-button slds-button_neutral js-agent-monitoring-approve" disabled>Approve</button>
+          <button type="button" class="slds-button slds-button_neutral js-agent-monitoring-cancel" disabled>Cancel Outreach</button>
+        </div>
+      </div>
+
+      
+      <div class="agent-monitoring__table-scroll">
+      <table id="agent_monitoring_table"
+             class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols slds-table-uplift agent-monitoring__table"
+             role="grid"
+             aria-label="Agent Monitoring">
+        <colgroup>
+          <col class="col-errors" />
+          <col class="col-check" />
+          <col class="col-record" />
+          <col class="col-account" />
+          <col class="col-agent" />
+          <col class="col-rating" />
+          <col class="col-owner" />
+          <col class="col-outreaches" />
+          <col class="col-why" />
+          <col class="col-last" />
+          <col class="col-next" />
+          <col class="col-reply" />
+          <col class="col-sent" />
+          <col class="col-source" />
+          <col class="col-details" />
+        </colgroup>
+        <thead>
+          <tr class="slds-line-height_reset">
+            
+<th class="" scope="col" style="width:2rem">
+  <div class="slds-truncate slds-assistive-text" title="Errors">Errors</div>
+</th>
+
+            
+<th class="slds-text-align_right slds-cell_action-mode" scope="col" style="width:2rem">
+  <span id="agent-monitoring-select-all-header" class="slds-assistive-text">Choose a row</span>
+  <div class="slds-th__action slds-th__action_form">
+    <div class="slds-checkbox">
+      <input type="checkbox" name="options" id="agent-monitoring-select-all" value="agent-monitoring-select-all" tabindex="0" aria-labelledby="agent-monitoring-select-all-label agent-monitoring-select-all-header" />
+      <label class="slds-checkbox__label" for="agent-monitoring-select-all" id="agent-monitoring-select-all-label">
+        <span class="slds-checkbox_faux"></span>
+        <span class="slds-form-element__label slds-assistive-text">Select All</span>
+      </label>
+    </div>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Record">Record</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Record column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Account">Account</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Account column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Agent">Agent</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Agent column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Rating">Rating</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Rating column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Lead Owner">Lead Owner</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Lead Owner column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Outreaches">Outreaches</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Outreaches column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Why this prospect?">Why this prospect?</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Why this prospect? column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Last Outreach">Last Outreach</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Last Outreach column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Next Outreach">Next Outreach</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Next Outreach column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Reply">Reply</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Reply column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Sent From">Sent From</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Sent From column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Lead Source">Lead Source</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Lead Source column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+            
+            <th scope="col">
+              <span class="slds-assistive-text">View Details</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          
+          
+            
+            
+            
+            
+            
+            
+            
+          <tr class="slds-hint-parent agent-monitoring__row_prospect"
+              data-account-id="acct-cirrus"
+              data-account-name="Cirrus"
+              data-account-logo="/assets/images/company-logos/cirrus.png"
+              data-prospect-id="p-alicia-burton"
+              data-prospect-name="Alicia Burton"
+              data-prospect-title="VP of Sales"
+              data-prospect-agent="Welo Engagement Assistant Agent"
+              data-row-type="prospect"
+              data-outreach-status="active">
+            
+            <td class="slds-cell-edit slds-cell-error slds-m-horizontal_xxx-small" role="gridcell">
+              <span class="slds-row-number slds-text-body_small slds-text-color_weak slds-td-formatter slds-p-vertical_x-small js-agent-monitoring-row-num"></span>
+            </td>
+            <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+              <div class="slds-checkbox slds-td-formatter slds-p-vertical_x-small">
+                <input type="checkbox" name="options" id="agent-monitoring-check-1-acct-cirrus" class="agent-monitoring__row-check" aria-label="Select Alicia Burton" />
+                <label class="slds-checkbox__label" for="agent-monitoring-check-1-acct-cirrus">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">Select Alicia Burton</span>
+                </label>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-td-formatter slds-truncate slds-has-flexi-truncate">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <div class="slds-icon-standard-contact slds-icon_container" title="">
+                    <span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, #9050E9)" part="boundary">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Alicia Burton">Alicia Burton</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="VP of Sales">VP of Sales</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="mailto:a.burton@cirrus.com" class="slds-text-link">a.burton@cirrus.com</a>
+                  </div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="tel:(147) 523-1344" class="slds-text-link">(147) 523-1344</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-truncate slds-has-flexi-truncate slds-td-formatter">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <span part="boundary">
+                    <img alt="Cirrus" src="/assets/images/company-logos/cirrus.png" title="Cirrus" />
+                  </span>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Cirrus">Cirrus</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="456 Employees">456 Employees</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Software Development">Software Development</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="United States">United States</div>
+                  
+                </div>
+              </div>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              
+              <span class="slds-badge agent-monitoring__rating_hot">Hot</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <a href="javascript:void(0);" class="agent-monitoring__record-name">Ziggy PM</a>
+              
+            </td>
+            <td class="slds-cell_action-mode agent-monitoring__outreaches" role="gridcell">1 of 2</td>
+            <td class="slds-cell_action-mode agent-monitoring__cell_align-top" role="gridcell">
+              <span class="agent-monitoring__why" title="VP-level leader — short path to a buying decision. Firmographics line up with the ICP focus on growing companies. GTM is a priority function on the target account plan.">VP-level leader — short path to a buying decision. Firmographics line up with the ICP focus on growing companies. GTM is a priority function on the target account plan.</span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use></svg>
+                2 days ago
+              </span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use></svg>
+                In 3 days
+              </span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__muted">&mdash;</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Ziggy PM">Ziggy PM</span></td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Hunter">Hunter</span></td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <a href="javascript:void(0);" class="agent-monitoring__view-details js-am-view-details" aria-label="View details for Alicia Burton">View Details</a>
+            </td>
+          </tr>
+          
+            
+            
+            
+            
+            
+            
+            
+          <tr class="slds-hint-parent agent-monitoring__row_prospect"
+              data-account-id="acct-cirrus"
+              data-account-name="Cirrus"
+              data-account-logo="/assets/images/company-logos/cirrus.png"
+              data-prospect-id="p-adam-blitzer"
+              data-prospect-name="Adam Blitzer"
+              data-prospect-title="VP of Innovation"
+              data-prospect-agent="Welo Engagement Assistant Agent"
+              data-row-type="prospect"
+              data-outreach-status="completed">
+            
+            <td class="slds-cell-edit slds-cell-error slds-m-horizontal_xxx-small" role="gridcell">
+              <span class="slds-row-number slds-text-body_small slds-text-color_weak slds-td-formatter slds-p-vertical_x-small js-agent-monitoring-row-num"></span>
+            </td>
+            <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+              <div class="slds-checkbox slds-td-formatter slds-p-vertical_x-small">
+                <input type="checkbox" name="options" id="agent-monitoring-check-2-acct-cirrus" class="agent-monitoring__row-check" aria-label="Select Adam Blitzer" />
+                <label class="slds-checkbox__label" for="agent-monitoring-check-2-acct-cirrus">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">Select Adam Blitzer</span>
+                </label>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-td-formatter slds-truncate slds-has-flexi-truncate">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <div class="slds-icon-standard-contact slds-icon_container" title="">
+                    <span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, #9050E9)" part="boundary">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Adam Blitzer">Adam Blitzer</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="VP of Innovation">VP of Innovation</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="mailto:a.blitzer@cirrus.com" class="slds-text-link">a.blitzer@cirrus.com</a>
+                  </div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="tel:(147) 523-1207" class="slds-text-link">(147) 523-1207</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-truncate slds-has-flexi-truncate slds-td-formatter">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <span part="boundary">
+                    <img alt="Cirrus" src="/assets/images/company-logos/cirrus.png" title="Cirrus" />
+                  </span>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Cirrus">Cirrus</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="456 Employees">456 Employees</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Software Development">Software Development</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="United States">United States</div>
+                  
+                </div>
+              </div>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              
+              <span class="slds-badge agent-monitoring__rating_warm">Warm</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <a href="javascript:void(0);" class="agent-monitoring__record-name">Ziggy PM</a>
+              
+            </td>
+            <td class="slds-cell_action-mode agent-monitoring__outreaches" role="gridcell">2 of 2</td>
+            <td class="slds-cell_action-mode agent-monitoring__cell_align-top" role="gridcell">
+              <span class="agent-monitoring__why" title="Technology org showing a recent funding round (last 90 days). VP-level leader — short path to a buying decision. Self-driven inbound interest via the website in the last 30 days.">Technology org showing a recent funding round (last 90 days). VP-level leader — short path to a buying decision. Self-driven inbound interest via the website in the last 30 days.</span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use></svg>
+                5 days ago
+              </span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__muted">&mdash;</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__reply agent-monitoring__reply_yes">Yes</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Ziggy PM">Ziggy PM</span></td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="ZoomInfo">ZoomInfo</span></td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <a href="javascript:void(0);" class="agent-monitoring__view-details js-am-view-details" aria-label="View details for Adam Blitzer">View Details</a>
+            </td>
+          </tr>
+          
+            
+            
+            
+            
+            
+            
+            
+          <tr class="slds-hint-parent agent-monitoring__row_prospect"
+              data-account-id="acct-cirrus"
+              data-account-name="Cirrus"
+              data-account-logo="/assets/images/company-logos/cirrus.png"
+              data-prospect-id="p-akhil-veipuri"
+              data-prospect-name="Akhil Veipuri"
+              data-prospect-title="Manager, Growth"
+              data-prospect-agent="Welo Engagement Assistant Agent"
+              data-row-type="prospect"
+              data-outreach-status="completed">
+            
+            <td class="slds-cell-edit slds-cell-error slds-m-horizontal_xxx-small" role="gridcell">
+              <span class="slds-row-number slds-text-body_small slds-text-color_weak slds-td-formatter slds-p-vertical_x-small js-agent-monitoring-row-num"></span>
+            </td>
+            <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+              <div class="slds-checkbox slds-td-formatter slds-p-vertical_x-small">
+                <input type="checkbox" name="options" id="agent-monitoring-check-3-acct-cirrus" class="agent-monitoring__row-check" aria-label="Select Akhil Veipuri" />
+                <label class="slds-checkbox__label" for="agent-monitoring-check-3-acct-cirrus">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">Select Akhil Veipuri</span>
+                </label>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-td-formatter slds-truncate slds-has-flexi-truncate">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <div class="slds-icon-standard-contact slds-icon_container" title="">
+                    <span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, #9050E9)" part="boundary">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Akhil Veipuri">Akhil Veipuri</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Manager, Growth">Manager, Growth</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="mailto:a.veipuri@cirrus.com" class="slds-text-link">a.veipuri@cirrus.com</a>
+                  </div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="tel:(147) 523-1892" class="slds-text-link">(147) 523-1892</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-truncate slds-has-flexi-truncate slds-td-formatter">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <span part="boundary">
+                    <img alt="Cirrus" src="/assets/images/company-logos/cirrus.png" title="Cirrus" />
+                  </span>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Cirrus">Cirrus</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="456 Employees">456 Employees</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Software Development">Software Development</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="United States">United States</div>
+                  
+                </div>
+              </div>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              
+              <span class="slds-badge agent-monitoring__rating_cool">Cool</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <a href="javascript:void(0);" class="agent-monitoring__record-name">Ziggy PM</a>
+              
+            </td>
+            <td class="slds-cell_action-mode agent-monitoring__outreaches" role="gridcell">2 of 2</td>
+            <td class="slds-cell_action-mode agent-monitoring__cell_align-top" role="gridcell">
+              <span class="agent-monitoring__why" title="Frontline manager — short path to a buying decision. Firmographics line up with the ICP focus on growing companies.">Frontline manager — short path to a buying decision. Firmographics line up with the ICP focus on growing companies.</span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use></svg>
+                21 days ago
+              </span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__muted">&mdash;</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__reply agent-monitoring__reply_no">No</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Ziggy PM">Ziggy PM</span></td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Salesforce">Salesforce</span></td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <a href="javascript:void(0);" class="agent-monitoring__view-details js-am-view-details" aria-label="View details for Akhil Veipuri">View Details</a>
+            </td>
+          </tr>
+          
+          
+          
+            
+            
+            
+            
+            
+            
+            
+          <tr class="slds-hint-parent agent-monitoring__row_prospect"
+              data-account-id="acct-walker-media"
+              data-account-name="Walker Media"
+              data-account-logo="/assets/images/company-logos/Flux%20Media.png"
+              data-prospect-id="p-abigail-mercer"
+              data-prospect-name="Abigail Mercer"
+              data-prospect-title="VP of Trust"
+              data-prospect-agent="Welo Engagement Assistant Agent"
+              data-row-type="prospect"
+              data-outreach-status="active">
+            
+            <td class="slds-cell-edit slds-cell-error slds-m-horizontal_xxx-small" role="gridcell">
+              <span class="slds-row-number slds-text-body_small slds-text-color_weak slds-td-formatter slds-p-vertical_x-small js-agent-monitoring-row-num"></span>
+            </td>
+            <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+              <div class="slds-checkbox slds-td-formatter slds-p-vertical_x-small">
+                <input type="checkbox" name="options" id="agent-monitoring-check-1-acct-walker-media" class="agent-monitoring__row-check" aria-label="Select Abigail Mercer" />
+                <label class="slds-checkbox__label" for="agent-monitoring-check-1-acct-walker-media">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">Select Abigail Mercer</span>
+                </label>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-td-formatter slds-truncate slds-has-flexi-truncate">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <div class="slds-icon-standard-contact slds-icon_container" title="">
+                    <span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, #9050E9)" part="boundary">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Abigail Mercer">Abigail Mercer</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="VP of Trust">VP of Trust</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="mailto:a.mercer@walkermedia.com" class="slds-text-link">a.mercer@walkermedia.com</a>
+                  </div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="tel:(415) 782-4501" class="slds-text-link">(415) 782-4501</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-truncate slds-has-flexi-truncate slds-td-formatter">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <span part="boundary">
+                    <img alt="Walker Media" src="/assets/images/company-logos/Flux%20Media.png" title="Walker Media" />
+                  </span>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Walker Media">Walker Media</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="210 Employees">210 Employees</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Media Production">Media Production</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="United States">United States</div>
+                  
+                </div>
+              </div>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              
+              <span class="slds-badge agent-monitoring__rating_warm">Warm</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <a href="javascript:void(0);" class="agent-monitoring__record-name">Ziggy PM</a>
+              
+            </td>
+            <td class="slds-cell_action-mode agent-monitoring__outreaches" role="gridcell">1 of 2</td>
+            <td class="slds-cell_action-mode agent-monitoring__cell_align-top" role="gridcell">
+              <span class="agent-monitoring__why" title="VP-level leader — short path to a buying decision. Firmographics line up with the ICP focus on growing companies. GTM is a priority function on the target account plan.">VP-level leader — short path to a buying decision. Firmographics line up with the ICP focus on growing companies. GTM is a priority function on the target account plan.</span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use></svg>
+                73 days ago
+              </span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use></svg>
+                In 1 day
+              </span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__muted">&mdash;</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Ziggy PM">Ziggy PM</span></td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Website">Website</span></td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <a href="javascript:void(0);" class="agent-monitoring__view-details js-am-view-details" aria-label="View details for Abigail Mercer">View Details</a>
+            </td>
+          </tr>
+          
+          
+          
+            
+            
+            
+            
+            
+            
+            
+          <tr class="slds-hint-parent agent-monitoring__row_prospect"
+              data-account-id="acct-crona"
+              data-account-name="Crona Inc"
+              data-account-logo="/assets/images/company-logos/Copper%20Line.png"
+              data-prospect-id="p-abigail-mercer-crona"
+              data-prospect-name="Abigail Mercer"
+              data-prospect-title="VP of Marketing"
+              data-prospect-agent="Welo Engagement Assistant Agent"
+              data-row-type="prospect"
+              data-outreach-status="active">
+            
+            <td class="slds-cell-edit slds-cell-error slds-m-horizontal_xxx-small" role="gridcell">
+              <span class="slds-row-number slds-text-body_small slds-text-color_weak slds-td-formatter slds-p-vertical_x-small js-agent-monitoring-row-num"></span>
+            </td>
+            <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+              <div class="slds-checkbox slds-td-formatter slds-p-vertical_x-small">
+                <input type="checkbox" name="options" id="agent-monitoring-check-1-acct-crona" class="agent-monitoring__row-check" aria-label="Select Abigail Mercer" />
+                <label class="slds-checkbox__label" for="agent-monitoring-check-1-acct-crona">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">Select Abigail Mercer</span>
+                </label>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-td-formatter slds-truncate slds-has-flexi-truncate">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <div class="slds-icon-standard-contact slds-icon_container" title="">
+                    <span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, #9050E9)" part="boundary">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Abigail Mercer">Abigail Mercer</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="VP of Marketing">VP of Marketing</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="mailto:abigail.mercer@cronainc.com" class="slds-text-link">abigail.mercer@cronainc.com</a>
+                  </div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="tel:(628) 991-5723" class="slds-text-link">(628) 991-5723</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-truncate slds-has-flexi-truncate slds-td-formatter">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <span part="boundary">
+                    <img alt="Crona Inc" src="/assets/images/company-logos/Copper%20Line.png" title="Crona Inc" />
+                  </span>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Crona Inc">Crona Inc</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="1,240 Employees">1,240 Employees</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Software Development">Software Development</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Ireland">Ireland</div>
+                  
+                </div>
+              </div>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              
+              <span class="slds-badge agent-monitoring__rating_warm">Warm</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <a href="javascript:void(0);" class="agent-monitoring__record-name">Ziggy PM</a>
+              
+            </td>
+            <td class="slds-cell_action-mode agent-monitoring__outreaches" role="gridcell">1 of 2</td>
+            <td class="slds-cell_action-mode agent-monitoring__cell_align-top" role="gridcell">
+              <span class="agent-monitoring__why" title="Technology org showing a recent funding round (last 90 days). VP-level leader — short path to a buying decision. Firmographics line up with the ICP focus on growing companies.">Technology org showing a recent funding round (last 90 days). VP-level leader — short path to a buying decision. Firmographics line up with the ICP focus on growing companies.</span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use></svg>
+                73 days ago
+              </span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use></svg>
+                In 4 days
+              </span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__muted">&mdash;</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Ziggy PM">Ziggy PM</span></td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Hunter">Hunter</span></td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <a href="javascript:void(0);" class="agent-monitoring__view-details js-am-view-details" aria-label="View details for Abigail Mercer">View Details</a>
+            </td>
+          </tr>
+          
+          
+          
+            
+            
+            
+            
+            
+            
+            
+          <tr class="slds-hint-parent agent-monitoring__row_prospect"
+              data-account-id="acct-travis-mckee"
+              data-account-name="Travis-Mckee"
+              data-account-logo="/assets/images/company-logos/Orbital.png"
+              data-prospect-id="p-adam-blitzer-travis"
+              data-prospect-name="Adam Blitzer"
+              data-prospect-title="VP Sales"
+              data-prospect-agent="Welo Engagement Assistant Agent"
+              data-row-type="prospect"
+              data-outreach-status="active">
+            
+            <td class="slds-cell-edit slds-cell-error slds-m-horizontal_xxx-small" role="gridcell">
+              <span class="slds-row-number slds-text-body_small slds-text-color_weak slds-td-formatter slds-p-vertical_x-small js-agent-monitoring-row-num"></span>
+            </td>
+            <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+              <div class="slds-checkbox slds-td-formatter slds-p-vertical_x-small">
+                <input type="checkbox" name="options" id="agent-monitoring-check-1-acct-travis-mckee" class="agent-monitoring__row-check" aria-label="Select Adam Blitzer" />
+                <label class="slds-checkbox__label" for="agent-monitoring-check-1-acct-travis-mckee">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">Select Adam Blitzer</span>
+                </label>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-td-formatter slds-truncate slds-has-flexi-truncate">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <div class="slds-icon-standard-contact slds-icon_container" title="">
+                    <span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, #9050E9)" part="boundary">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Adam Blitzer">Adam Blitzer</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="VP Sales">VP Sales</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="mailto:adam.b@travis-mckee.com" class="slds-text-link">adam.b@travis-mckee.com</a>
+                  </div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="tel:(212) 447-2018" class="slds-text-link">(212) 447-2018</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-truncate slds-has-flexi-truncate slds-td-formatter">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <span part="boundary">
+                    <img alt="Travis-Mckee" src="/assets/images/company-logos/Orbital.png" title="Travis-Mckee" />
+                  </span>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Travis-Mckee">Travis-Mckee</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="3,800 Employees">3,800 Employees</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Cloud Services">Cloud Services</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Canada">Canada</div>
+                  
+                </div>
+              </div>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              
+              <span class="slds-badge agent-monitoring__rating_hot">Hot</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <a href="javascript:void(0);" class="agent-monitoring__record-name">Ziggy PM</a>
+              
+            </td>
+            <td class="slds-cell_action-mode agent-monitoring__outreaches" role="gridcell">1 of 2</td>
+            <td class="slds-cell_action-mode agent-monitoring__cell_align-top" role="gridcell">
+              <span class="agent-monitoring__why" title="VP Sales sits in our Sales buyer profile — owns the revenue plan. Timing trigger: an expanding cloud &amp; AI footprint at Travis-Mckee. Authority confirmed: VP-level leader with real budget control.">VP Sales sits in our Sales buyer profile — owns the revenue plan. Timing trigger: an expanding cloud &amp; AI footprint at Travis-Mckee. Authority confirmed: VP-level leader with real budget control.</span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use></svg>
+                73 days ago
+              </span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use></svg>
+                In 2 days
+              </span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__muted">&mdash;</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Ziggy PM">Ziggy PM</span></td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Salesforce">Salesforce</span></td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <a href="javascript:void(0);" class="agent-monitoring__view-details js-am-view-details" aria-label="View details for Adam Blitzer">View Details</a>
+            </td>
+          </tr>
+          
+          
+          
+            
+            
+            
+            
+            
+            
+            
+          <tr class="slds-hint-parent agent-monitoring__row_prospect"
+              data-account-id="acct-hirthe-russel"
+              data-account-name="Hirthe, Russel and Runolfsson"
+              data-account-logo="/assets/images/company-logos/Astral%20Link.png"
+              data-prospect-id="p-adam-blitzer-hirthe"
+              data-prospect-name="Adam Blitzer"
+              data-prospect-title="VP of Innovation"
+              data-prospect-agent="Welo Engagement Assistant Agent"
+              data-row-type="prospect"
+              data-outreach-status="paused">
+            
+            <td class="slds-cell-edit slds-cell-error slds-m-horizontal_xxx-small" role="gridcell">
+              <span class="slds-row-number slds-text-body_small slds-text-color_weak slds-td-formatter slds-p-vertical_x-small js-agent-monitoring-row-num"></span>
+            </td>
+            <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+              <div class="slds-checkbox slds-td-formatter slds-p-vertical_x-small">
+                <input type="checkbox" name="options" id="agent-monitoring-check-1-acct-hirthe-russel" class="agent-monitoring__row-check" aria-label="Select Adam Blitzer" />
+                <label class="slds-checkbox__label" for="agent-monitoring-check-1-acct-hirthe-russel">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">Select Adam Blitzer</span>
+                </label>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-td-formatter slds-truncate slds-has-flexi-truncate">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <div class="slds-icon-standard-contact slds-icon_container" title="">
+                    <span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, #9050E9)" part="boundary">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Adam Blitzer">Adam Blitzer</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="VP of Innovation">VP of Innovation</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="mailto:a.blitzer@hirtherussel.com" class="slds-text-link">a.blitzer@hirtherussel.com</a>
+                  </div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="tel:(303) 668-3391" class="slds-text-link">(303) 668-3391</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-truncate slds-has-flexi-truncate slds-td-formatter">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <span part="boundary">
+                    <img alt="Hirthe, Russel and Runolfsson" src="/assets/images/company-logos/Astral%20Link.png" title="Hirthe, Russel and Runolfsson" />
+                  </span>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Hirthe, Russel and Runolfsson">Hirthe, Russel and Runolfsson</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="87 Employees">87 Employees</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Technology">Technology</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Iceland">Iceland</div>
+                  
+                </div>
+              </div>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              
+              <span class="slds-badge agent-monitoring__rating_warm">Warm</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <a href="javascript:void(0);" class="agent-monitoring__record-name">Ziggy PM</a>
+              
+            </td>
+            <td class="slds-cell_action-mode agent-monitoring__outreaches" role="gridcell">1 of 2</td>
+            <td class="slds-cell_action-mode agent-monitoring__cell_align-top" role="gridcell">
+              <span class="agent-monitoring__why" title="Technology org showing a recent funding round (last 90 days). VP-level leader — short path to a buying decision. Self-driven inbound interest via the website in the last 30 days.">Technology org showing a recent funding round (last 90 days). VP-level leader — short path to a buying decision. Self-driven inbound interest via the website in the last 30 days.</span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use></svg>
+                73 days ago
+              </span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use></svg>
+                Paused
+              </span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__muted">&mdash;</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Ziggy PM">Ziggy PM</span></td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="ZoomInfo">ZoomInfo</span></td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <a href="javascript:void(0);" class="agent-monitoring__view-details js-am-view-details" aria-label="View details for Adam Blitzer">View Details</a>
+            </td>
+          </tr>
+          
+          
+          
+            
+            
+            
+            
+            
+            
+            
+          <tr class="slds-hint-parent agent-monitoring__row_prospect"
+              data-account-id="acct-tc"
+              data-account-name="TC"
+              data-account-logo="/assets/images/company-logos/Titan%20Form.png"
+              data-prospect-id="p-akhil-veipuri-tc"
+              data-prospect-name="Akhil Veipuri"
+              data-prospect-title="Manager"
+              data-prospect-agent="Welo Engagement Assistant Agent"
+              data-row-type="prospect"
+              data-outreach-status="completed">
+            
+            <td class="slds-cell-edit slds-cell-error slds-m-horizontal_xxx-small" role="gridcell">
+              <span class="slds-row-number slds-text-body_small slds-text-color_weak slds-td-formatter slds-p-vertical_x-small js-agent-monitoring-row-num"></span>
+            </td>
+            <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+              <div class="slds-checkbox slds-td-formatter slds-p-vertical_x-small">
+                <input type="checkbox" name="options" id="agent-monitoring-check-1-acct-tc" class="agent-monitoring__row-check" aria-label="Select Akhil Veipuri" />
+                <label class="slds-checkbox__label" for="agent-monitoring-check-1-acct-tc">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">Select Akhil Veipuri</span>
+                </label>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-td-formatter slds-truncate slds-has-flexi-truncate">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <div class="slds-icon-standard-contact slds-icon_container" title="">
+                    <span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, #9050E9)" part="boundary">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Akhil Veipuri">Akhil Veipuri</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Manager">Manager</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="mailto:akhil.v@tc.io" class="slds-text-link">akhil.v@tc.io</a>
+                  </div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="tel:(650) 234-1170" class="slds-text-link">(650) 234-1170</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-truncate slds-has-flexi-truncate slds-td-formatter">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <span part="boundary">
+                    <img alt="TC" src="/assets/images/company-logos/Titan%20Form.png" title="TC" />
+                  </span>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="TC">TC</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="620 Employees">620 Employees</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Enterprise Software">Enterprise Software</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="United Kingdom">United Kingdom</div>
+                  
+                </div>
+              </div>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              
+              <span class="slds-badge agent-monitoring__rating_cool">Cool</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <a href="javascript:void(0);" class="agent-monitoring__record-name">Ziggy PM</a>
+              
+            </td>
+            <td class="slds-cell_action-mode agent-monitoring__outreaches" role="gridcell">2 of 2</td>
+            <td class="slds-cell_action-mode agent-monitoring__cell_align-top" role="gridcell">
+              <span class="agent-monitoring__why" title="Frontline manager — short path to a buying decision. Firmographics line up with the ICP focus on growing companies. GTM is a priority function on the target account plan.">Frontline manager — short path to a buying decision. Firmographics line up with the ICP focus on growing companies. GTM is a priority function on the target account plan.</span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use></svg>
+                21 days ago
+              </span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__muted">&mdash;</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__reply agent-monitoring__reply_no">No</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Ziggy PM">Ziggy PM</span></td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Hunter">Hunter</span></td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <a href="javascript:void(0);" class="agent-monitoring__view-details js-am-view-details" aria-label="View details for Akhil Veipuri">View Details</a>
+            </td>
+          </tr>
+          
+          
+          
+            
+            
+            
+            
+            
+            
+            
+          <tr class="slds-hint-parent agent-monitoring__row_prospect"
+              data-account-id="acct-cummerata"
+              data-account-name="Cummerata Inc"
+              data-account-logo="/assets/images/company-logos/Gravity%20Labs.png"
+              data-prospect-id="p-alejandrin-bruce"
+              data-prospect-name="Alejandrin Bruce"
+              data-prospect-title="Manager"
+              data-prospect-agent="Welo Engagement Assistant Agent"
+              data-row-type="prospect"
+              data-outreach-status="active">
+            
+            <td class="slds-cell-edit slds-cell-error slds-m-horizontal_xxx-small" role="gridcell">
+              <span class="slds-row-number slds-text-body_small slds-text-color_weak slds-td-formatter slds-p-vertical_x-small js-agent-monitoring-row-num"></span>
+            </td>
+            <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+              <div class="slds-checkbox slds-td-formatter slds-p-vertical_x-small">
+                <input type="checkbox" name="options" id="agent-monitoring-check-1-acct-cummerata" class="agent-monitoring__row-check" aria-label="Select Alejandrin Bruce" />
+                <label class="slds-checkbox__label" for="agent-monitoring-check-1-acct-cummerata">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">Select Alejandrin Bruce</span>
+                </label>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-td-formatter slds-truncate slds-has-flexi-truncate">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <div class="slds-icon-standard-contact slds-icon_container" title="">
+                    <span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, #9050E9)" part="boundary">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Alejandrin Bruce">Alejandrin Bruce</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Manager">Manager</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="mailto:a.bruce@cummerata.com" class="slds-text-link">a.bruce@cummerata.com</a>
+                  </div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="tel:(720) 512-6708" class="slds-text-link">(720) 512-6708</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-truncate slds-has-flexi-truncate slds-td-formatter">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <span part="boundary">
+                    <img alt="Cummerata Inc" src="/assets/images/company-logos/Gravity%20Labs.png" title="Cummerata Inc" />
+                  </span>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Cummerata Inc">Cummerata Inc</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="152 Employees">152 Employees</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Software Development">Software Development</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Australia">Australia</div>
+                  
+                </div>
+              </div>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              
+              <span class="slds-badge agent-monitoring__rating_warm">Warm</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <a href="javascript:void(0);" class="agent-monitoring__record-name">Ziggy PM</a>
+              
+            </td>
+            <td class="slds-cell_action-mode agent-monitoring__outreaches" role="gridcell">1 of 2</td>
+            <td class="slds-cell_action-mode agent-monitoring__cell_align-top" role="gridcell">
+              <span class="agent-monitoring__why" title="Cummerata Inc is in Technology and showing a recent funding round (last 90 days). Frontline manager — short path to a buying decision, so the buying committee stays small. Firmographics line up with the ICP focus on growing companies.">Cummerata Inc is in Technology and showing a recent funding round (last 90 days). Frontline manager — short path to a buying decision, so the buying committee stays small. Firmographics line up with the ICP focus on growing companies.</span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use></svg>
+                73 days ago
+              </span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use></svg>
+                In 5 days
+              </span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__muted">&mdash;</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Ziggy PM">Ziggy PM</span></td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Hunter">Hunter</span></td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <a href="javascript:void(0);" class="agent-monitoring__view-details js-am-view-details" aria-label="View details for Alejandrin Bruce">View Details</a>
+            </td>
+          </tr>
+          
+          
+          
+            
+            
+            
+            
+            
+            
+            
+          <tr class="slds-hint-parent agent-monitoring__row_prospect"
+              data-account-id="acct-kerluke"
+              data-account-name="Kerluke Group"
+              data-account-logo="/assets/images/company-logos/Kinetic%20Labs.png"
+              data-prospect-id="p-alejandrin-bruce-kerluke"
+              data-prospect-name="Alejandrin Bruce"
+              data-prospect-title="VP of Marketing"
+              data-prospect-agent="Welo Engagement Assistant Agent"
+              data-row-type="prospect"
+              data-outreach-status="pending">
+            
+            <td class="slds-cell-edit slds-cell-error slds-m-horizontal_xxx-small" role="gridcell">
+              <span class="slds-row-number slds-text-body_small slds-text-color_weak slds-td-formatter slds-p-vertical_x-small js-agent-monitoring-row-num"></span>
+            </td>
+            <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+              <div class="slds-checkbox slds-td-formatter slds-p-vertical_x-small">
+                <input type="checkbox" name="options" id="agent-monitoring-check-1-acct-kerluke" class="agent-monitoring__row-check" aria-label="Select Alejandrin Bruce" />
+                <label class="slds-checkbox__label" for="agent-monitoring-check-1-acct-kerluke">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">Select Alejandrin Bruce</span>
+                </label>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-td-formatter slds-truncate slds-has-flexi-truncate">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <div class="slds-icon-standard-contact slds-icon_container" title="">
+                    <span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, #9050E9)" part="boundary">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Alejandrin Bruce">Alejandrin Bruce</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="VP of Marketing">VP of Marketing</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="mailto:alejandrin.b@kerlukegroup.com" class="slds-text-link">alejandrin.b@kerlukegroup.com</a>
+                  </div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate">
+                    <a href="tel:(206) 883-9927" class="slds-text-link">(206) 883-9927</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <div class="slds-grid slds-truncate slds-has-flexi-truncate slds-td-formatter">
+                <span class="slds-no-flex slds-m-right_small slds-avatar slds-avatar_small slds-avatar_circle" part="avatar">
+                  <span part="boundary">
+                    <img alt="Kerluke Group" src="/assets/images/company-logos/Kinetic%20Labs.png" title="Kerluke Group" />
+                  </span>
+                </span>
+                
+                <div class="slds-has-flexi-truncate">
+                  <div class="cell_text_link slds-truncate">
+                    <a href="javascript:void(0);" title="Kerluke Group">Kerluke Group</a>
+                  </div>
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="65 Employees">65 Employees</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="Marketing Services">Marketing Services</div>
+                  
+                  
+                  <div class="slds-text-body_regular slds-text-color_weak slds-truncate" title="United States">United States</div>
+                  
+                </div>
+              </div>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Welo Engagement Assistant Agent">Welo Engagement Assistant Agent</span></td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              
+              <span class="slds-badge agent-monitoring__rating_warm">Warm</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <a href="javascript:void(0);" class="agent-monitoring__record-name">Ziggy PM</a>
+              
+            </td>
+            <td class="slds-cell_action-mode agent-monitoring__outreaches" role="gridcell">1 of 2</td>
+            <td class="slds-cell_action-mode agent-monitoring__cell_align-top" role="gridcell">
+              <span class="agent-monitoring__why" title="VP-level leader, so the buying committee stays small. Firmographics line up with the ICP focus on growing companies. Marketing is a priority function on the target account plan.">VP-level leader, so the buying committee stays small. Firmographics line up with the ICP focus on growing companies. Marketing is a priority function on the target account plan.</span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use></svg>
+                73 days ago
+              </span>
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__timing">
+                <svg class="slds-icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use></svg>
+                Tomorrow
+              </span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell">
+              
+              <span class="agent-monitoring__muted">&mdash;</span>
+              
+            </td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Ziggy PM">Ziggy PM</span></td>
+            <td class="slds-cell_action-mode" role="gridcell"><span class="slds-truncate" title="Website">Website</span></td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <a href="javascript:void(0);" class="agent-monitoring__view-details js-am-view-details" aria-label="View details for Alejandrin Bruce">View Details</a>
+            </td>
+          </tr>
+          
+          
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </article>
+
+  
+  <div role="dialog" aria-modal="false" id="am-side-panel"
+       class="inspector-side-panel slds-panel slds-grid slds-grid_vertical agent-monitoring__side-panel"
+       aria-labelledby="am-panel-header-name">
+
+    
+    <div class="slds-container_fluid slds-shrink agent-monitoring__panel-header-wrap">
+      <div class="slds-panel__header panelHeader agent-monitoring__panel-header">
+        
+        <span class="slds-col slds-no-flex slds-m-right_small slds-avatar slds-avatar_medium slds-avatar_circle agent-monitoring__panel-avatar" part="avatar">
+          <abbr class="slds-avatar__initials agent-monitoring__panel-initials" id="am-panel-header-initials" title="—">—</abbr>
+        </span>
+        <h2 class="slds-col slds-panel__header-title slds-truncate">
+          <span class="slds-truncate">
+            <a id="am-panel-header-name" href="javascript:void(0);">—</a>
+          </span>
+          
+          <span id="am-panel-header-subtitle" class="subTitle slds-text-heading_x-small slds-truncate">—</span>
+        </h2>
+
+        <div class="slds-float_right agent-monitoring__panel-header-actions" variant="bare">
+          <div class="slds-grid slds-grid_vertical-align-center">
+            <button type="button" class="slds-button slds-button_icon slds-button_icon-bare slds-m-right_xx-small" title="Refresh">
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#refresh"></use>
+              </svg>
+              <span class="slds-assistive-text">Refresh</span>
+            </button>
+            <button type="button" class="slds-button slds-button_icon slds-button_icon-bare slds-m-right_xx-small" title="Expand">
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#expand_alt"></use>
+              </svg>
+              <span class="slds-assistive-text">Expand</span>
+            </button>
+            <button type="button" class="slds-button slds-button_icon slds-button_icon-bare js-am-panel-close" title="Close Side Panel">
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+              </svg>
+              <span class="slds-assistive-text">Close Side Panel</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="agent-monitoring__panel-filters">
+      <div class="slds-combobox_container agent-monitoring__panel-filter">
+        <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" role="combobox">
+          <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+            <input type="text" class="slds-input slds-combobox__input" value="All Activity" readonly aria-label="Activity filter" />
+            <span class="slds-icon_container slds-input__icon slds-input__icon_right">
+              <svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="slds-combobox_container agent-monitoring__panel-filter">
+        <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" role="combobox">
+          <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+            <input type="text" class="slds-input slds-combobox__input" value="Last 30 Days" readonly aria-label="Time range filter" />
+            <span class="slds-icon_container slds-input__icon slds-input__icon_right">
+              <svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="slds-button agent-monitoring__panel-scope-btn agent-monitoring__panel-filter">
+        <span class="agent-monitoring__panel-scope-label">Upcoming &amp; Overdue</span>
+        <svg class="slds-button__icon slds-button__icon_right" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+        </svg>
+      </button>
+    </div>
+
+    
+    <div class="agent-monitoring__panel-body slds-grow slds-scrollable_y">
+      
+      <div class="agent-monitoring__timeline-section is-open js-am-timeline-section">
+        <button type="button" class="agent-monitoring__timeline-section-header js-am-timeline-section-toggle" aria-expanded="true">
+          <svg class="slds-button__icon slds-button__icon_x-small agent-monitoring__timeline-chevron" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+          </svg>
+          <span class="slds-text-title_caps">Earlier — June 2026</span>
+        </button>
+
+        
+        <ul class="slds-timeline agent-monitoring__timeline">
+          
+          <li>
+            <div class="slds-timeline__item_expandable agent-monitoring__timeline-item agent-monitoring__timeline-item_system">
+              <span class="slds-assistive-text">Activity</span>
+              <div class="slds-media">
+                <div class="slds-media__figure">
+                  <button class="slds-button slds-button_icon js-am-timeline-expand" title="Toggle details for Outreach canceled" aria-controls="am-tl-details-1" aria-expanded="false">
+                    <svg class="slds-button__icon slds-timeline__details-action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details for Outreach canceled</span>
+                  </button>
+                  <div class="slds-icon_container slds-timeline__icon agent-monitoring__timeline-icon agent-monitoring__timeline-icon_system" title="Outreach canceled">
+                    <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#task"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="slds-media__body">
+                  <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                    <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                      <h3 class="slds-truncate" title="Outreach canceled">
+                        <a href="javascript:void(0);"><strong>Outreach canceled</strong></a>
+                      </h3>
+                    </div>
+                    <div class="slds-timeline__actions slds-timeline__actions_inline">
+                      <p class="slds-timeline__date">Jun 20, 2026</p>
+                      <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" title="More Options for this item">
+                        <svg class="slds-button__icon" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                        </svg>
+                        <span class="slds-assistive-text">More Options for this item</span>
+                      </button>
+                    </div>
+                  </div>
+                  <p class="slds-m-horizontal_xx-small">
+                    <a href="javascript:void(0);">System</a> canceled the outreach sequence for
+                    <a href="javascript:void(0);" class="js-am-panel-company">—</a>.
+                  </p>
+                  <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small" id="am-tl-details-1" hidden>
+                    <ul class="slds-list_horizontal slds-wrap">
+                      <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                        <span class="slds-text-title slds-p-bottom_x-small">When</span>
+                        <span class="slds-text-body_medium slds-truncate" title="Jun 20, 2026">Jun 20, 2026</span>
+                      </li>
+                      <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                        <span class="slds-text-title slds-p-bottom_x-small">Reason</span>
+                        <span class="slds-text-body_medium slds-truncate" title="Approval window lapsed">Approval window lapsed</span>
+                      </li>
+                    </ul>
+                    <div>
+                      <span class="slds-text-title">Description</span>
+                      <p class="slds-p-top_x-small">Sequence canceled after the approval window lapsed.</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          
+          <li>
+            <div class="slds-timeline__item_expandable agent-monitoring__timeline-item agent-monitoring__timeline-item_agent">
+              <span class="slds-assistive-text">Activity</span>
+              <div class="slds-media">
+                <div class="slds-media__figure">
+                  <button class="slds-button slds-button_icon js-am-timeline-expand" title="Toggle details for Agent scheduled outreach" aria-controls="am-tl-details-2" aria-expanded="false">
+                    <svg class="slds-button__icon slds-timeline__details-action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details for Agent scheduled outreach</span>
+                  </button>
+                  <div class="slds-icon_container slds-timeline__icon agent-monitoring__timeline-icon agent-monitoring__timeline-icon_agent" title="Agent scheduled outreach">
+                    <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="slds-media__body">
+                  <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                    <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                      <h3 class="slds-truncate" title="Agent scheduled outreach">
+                        <a href="javascript:void(0);"><strong>Agent scheduled outreach</strong></a>
+                      </h3>
+                      
+                      <div class="slds-no-flex">
+                        <span class="slds-icon_container slds-icon-utility-email" title="Email channel">
+                          <svg class="slds-icon slds-icon_xx-small slds-icon-text-default slds-m-left_x-small" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#email"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Email channel</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="slds-timeline__actions slds-timeline__actions_inline">
+                      <p class="slds-timeline__date">Jun 18, 2026</p>
+                      <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" title="More Options for this item">
+                        <svg class="slds-button__icon" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                        </svg>
+                        <span class="slds-assistive-text">More Options for this item</span>
+                      </button>
+                    </div>
+                  </div>
+                  <p class="slds-m-horizontal_xx-small">
+                    <a href="javascript:void(0);">Ziggy PM</a> queued the first email in the sequence for
+                    <a href="javascript:void(0);" class="js-am-panel-company">—</a>.
+                  </p>
+                  <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small" id="am-tl-details-2" hidden>
+                    <ul class="slds-list_horizontal slds-wrap">
+                      <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                        <span class="slds-text-title slds-p-bottom_x-small">When</span>
+                        <span class="slds-text-body_medium slds-truncate" title="Jun 18, 2026">Jun 18, 2026</span>
+                      </li>
+                      <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                        <span class="slds-text-title slds-p-bottom_x-small">Channel</span>
+                        <span class="slds-text-body_medium slds-truncate" title="Email">Email</span>
+                      </li>
+                    </ul>
+                    <div>
+                      <span class="slds-text-title">Description</span>
+                      <p class="slds-p-top_x-small">Queued the first touch in the sequence.</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          
+          <li>
+            <div class="slds-timeline__item_expandable agent-monitoring__timeline-item agent-monitoring__timeline-item_agent">
+              <span class="slds-assistive-text">Activity</span>
+              <div class="slds-media">
+                <div class="slds-media__figure">
+                  <button class="slds-button slds-button_icon js-am-timeline-expand" title="Toggle details for Agent researched account" aria-controls="am-tl-details-3" aria-expanded="false">
+                    <svg class="slds-button__icon slds-timeline__details-action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details for Agent researched account</span>
+                  </button>
+                  <div class="slds-icon_container slds-timeline__icon agent-monitoring__timeline-icon agent-monitoring__timeline-icon_agent" title="Agent researched account">
+                    <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="slds-media__body">
+                  <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                    <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                      <h3 class="slds-truncate" title="Agent researched account">
+                        <a href="javascript:void(0);"><strong>Agent researched account</strong></a>
+                      </h3>
+                    </div>
+                    <div class="slds-timeline__actions slds-timeline__actions_inline">
+                      <p class="slds-timeline__date">Jun 12, 2026</p>
+                      <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" title="More Options for this item">
+                        <svg class="slds-button__icon" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                        </svg>
+                        <span class="slds-assistive-text">More Options for this item</span>
+                      </button>
+                    </div>
+                  </div>
+                  <p class="slds-m-horizontal_xx-small">
+                    <a href="javascript:void(0);">Ziggy PM</a> gathered firmographics and intent signals for
+                    <a href="javascript:void(0);" class="js-am-panel-company">—</a>.
+                  </p>
+                  <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small" id="am-tl-details-3" hidden>
+                    <ul class="slds-list_horizontal slds-wrap">
+                      <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                        <span class="slds-text-title slds-p-bottom_x-small">When</span>
+                        <span class="slds-text-body_medium slds-truncate" title="Jun 12, 2026">Jun 12, 2026</span>
+                      </li>
+                      <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                        <span class="slds-text-title slds-p-bottom_x-small">Type</span>
+                        <span class="slds-text-body_medium slds-truncate" title="Research">Research</span>
+                      </li>
+                    </ul>
+                    <div>
+                      <span class="slds-text-title">Description</span>
+                      <p class="slds-p-top_x-small">Gathered firmographics and intent signals.</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          
+          <li>
+            <div class="slds-timeline__item_expandable agent-monitoring__timeline-item agent-monitoring__timeline-item_system">
+              <span class="slds-assistive-text">Activity</span>
+              <div class="slds-media">
+                <div class="slds-media__figure">
+                  <button class="slds-button slds-button_icon js-am-timeline-expand" title="Toggle details for Lead assigned" aria-controls="am-tl-details-4" aria-expanded="false">
+                    <svg class="slds-button__icon slds-timeline__details-action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details for Lead assigned</span>
+                  </button>
+                  <div class="slds-icon_container slds-timeline__icon agent-monitoring__timeline-icon agent-monitoring__timeline-icon_system" title="Lead assigned">
+                    <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#task"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="slds-media__body">
+                  <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                    <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                      <h3 class="slds-truncate" title="Lead assigned">
+                        <a href="javascript:void(0);"><strong>Lead assigned</strong></a>
+                      </h3>
+                    </div>
+                    <div class="slds-timeline__actions slds-timeline__actions_inline">
+                      <p class="slds-timeline__date">Jun 5, 2026</p>
+                      <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" title="More Options for this item">
+                        <svg class="slds-button__icon" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                        </svg>
+                        <span class="slds-assistive-text">More Options for this item</span>
+                      </button>
+                    </div>
+                  </div>
+                  <p class="slds-m-horizontal_xx-small">
+                    <a href="javascript:void(0);">System</a> assigned this lead to
+                    <a href="javascript:void(0);" class="js-am-panel-agent">Welo Engagement Assistant Agent</a>.
+                  </p>
+                  <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small" id="am-tl-details-4" hidden>
+                    <ul class="slds-list_horizontal slds-wrap">
+                      <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                        <span class="slds-text-title slds-p-bottom_x-small">When</span>
+                        <span class="slds-text-body_medium slds-truncate" title="Jun 5, 2026">Jun 5, 2026</span>
+                      </li>
+                      <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                        <span class="slds-text-title slds-p-bottom_x-small">Agent</span>
+                        <span class="slds-text-body_medium slds-truncate js-am-panel-agent">Welo Engagement Assistant Agent</span>
+                      </li>
+                    </ul>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          
+          <li>
+            <div class="slds-timeline__item_expandable agent-monitoring__timeline-item agent-monitoring__timeline-item_system agent-monitoring__timeline-item_last">
+              <span class="slds-assistive-text">Activity</span>
+              <div class="slds-media">
+                <div class="slds-media__figure">
+                  <button class="slds-button slds-button_icon js-am-timeline-expand" title="Toggle details for Lead created" aria-controls="am-tl-details-5" aria-expanded="false">
+                    <svg class="slds-button__icon slds-timeline__details-action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details for Lead created</span>
+                  </button>
+                  <div class="slds-icon_container slds-timeline__icon agent-monitoring__timeline-icon agent-monitoring__timeline-icon_system" title="Lead created">
+                    <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#task"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="slds-media__body">
+                  <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                    <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                      <h3 class="slds-truncate" title="Lead created">
+                        <a href="javascript:void(0);"><strong>Lead created</strong></a>
+                      </h3>
+                    </div>
+                    <div class="slds-timeline__actions slds-timeline__actions_inline">
+                      <p class="slds-timeline__date">Jun 4, 2026</p>
+                      <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" title="More Options for this item">
+                        <svg class="slds-button__icon" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                        </svg>
+                        <span class="slds-assistive-text">More Options for this item</span>
+                      </button>
+                    </div>
+                  </div>
+                  <p class="slds-m-horizontal_xx-small">
+                    <a href="javascript:void(0);">System</a> created the lead from Web.
+                  </p>
+                  <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small" id="am-tl-details-5" hidden>
+                    <ul class="slds-list_horizontal slds-wrap">
+                      <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                        <span class="slds-text-title slds-p-bottom_x-small">When</span>
+                        <span class="slds-text-body_medium slds-truncate" title="Jun 4, 2026">Jun 4, 2026</span>
+                      </li>
+                      <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                        <span class="slds-text-title slds-p-bottom_x-small">Source</span>
+                        <span class="slds-text-body_medium slds-truncate" title="Web">Web</span>
+                      </li>
+                    </ul>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <div class="agent-monitoring__panel-meta slds-shrink">
+      <span class="agent-monitoring__panel-meta-count">5 activities • 2 from agent</span>
+      <button type="button" class="slds-button slds-button_neutral agent-monitoring__panel-log-btn">
+        <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+        </svg>
+        Log Activity
+      </button>
+    </div>
+
+    
+    <div class="agent-monitoring__panel-footer slds-shrink">
+      <button type="button" class="slds-button slds-button_neutral agent-monitoring__panel-footer-btn">Cancel SDR Outreach</button>
+      <button type="button" class="slds-button slds-button_brand agent-monitoring__panel-footer-btn">Approve All</button>
+    </div>
+  </div>
+
+  </div>
+
+</div>
+
+  </main>
+  <script src="/scripts/data/accounts.js"></script>
+  <script src="/scripts/data/prospects.js"></script>
+  <script src="/scripts/data/cadences.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/vendor/svg4everybody.min.js"></script>
+  <script>svg4everybody();</script>
+
+  
+  <script src="/scripts/hunter_accounts.js"></script>
+
+  
+  <script src="/scripts/cadence-progress.js"></script>
+  <script src="/scripts/email-preview.js"></script>
+  <script src="/scripts/step_01_preview.js"></script>
+  <script type="module" src="/scripts/aop-editor/js/preview.js"></script>
+  <script src="/scripts/preview-unified.js"></script>
+  
+  <script src="/scripts/agent-monitoring.js"></script>
+
+  <script>
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector('.layout-container');
+        if (el) el.classList.add('is-ready');
+      });
+    });
+  </script>
+</body>
+</html>

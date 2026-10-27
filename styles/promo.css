@@ -1,0 +1,188 @@
+main {
+  background-color: white;
+  border-top: 1px solid var(--slds-g-color-border-1);
+}
+
+.promo-page-container {
+  width: 900px;
+  margin: auto;
+  padding-top: var(--slds-g-spacing-5);
+}
+
+.promo-title {
+  color: var(--slds-g-color-on-surface-3);
+  text-align: center;
+  font-size: var(--slds-g-font-scale-6);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+}
+
+.promo-description {
+  color: var(--slds-g-color-on-surface-2);
+  text-align: center;
+  font-size: var(--slds-g-font-size-base);
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.promo-tab-bar {
+  width: inherit;
+  background-color: var(--slds-g-color-surface-2);
+  padding: 0.5rem;
+  border-radius: var(--slds-g-radius-border-2);
+}
+.promo-tab-bar > .slds-col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+  position: relative;
+}
+
+.promo-tab-button {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0.5rem;
+  border: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  border-radius: var(--slds-g-radius-border-2);
+  color: var(--slds-g-color-on-surface-2);
+  text-align: center;
+  font-size: var(--slds-g-font-scale-1);
+  font-style: normal;
+  font-weight: 590;
+  line-height: 17px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.promo-tab-button::after {
+  content: attr(data-text);
+  font-weight: 590;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  pointer-events: none;
+}
+.promo-tab-button:hover {
+  color: var(--slds-g-color-on-surface-2);
+}
+.promo-tab-button:disabled, .promo-tab-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.promo-tab-button.is-active {
+  font-weight: 590;
+  background-color: transparent;
+}
+
+.promo-tab-prog {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--slds-g-radius-border-2);
+  overflow: hidden;
+  pointer-events: none;
+  background-color: transparent;
+}
+.promo-tab-prog.is-running {
+  background-color: white;
+}
+.promo-tab-prog::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: var(--Indigo-90, #E0E5F8);
+  border-radius: 0 0 0 var(--slds-g-radius-border-2);
+}
+.promo-tab-prog.is-running::before {
+  -webkit-animation: promo-progress 6s linear forwards;
+          animation: promo-progress 6s linear forwards;
+}
+
+@-webkit-keyframes promo-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes promo-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.promo-gallery {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 900/500;
+  margin-top: var(--slds-g-spacing-3, 0.75rem);
+}
+
+.promo-gallery__panel {
+  position: absolute;
+  inset: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 12px;
+  border: 1px solid #e1e1e1;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transform-origin: 50% 50% 0px;
+          transform-origin: 50% 50% 0px;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.promo-gallery__panel img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fit;
+     object-fit: fit;
+  border-radius: 8px;
+}
+.promo-gallery__panel.is-visible {
+  opacity: 1;
+  will-change: transform;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transform-origin: 50% 50% 0px;
+          transform-origin: 50% 50% 0px;
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.4s ease;
+  transition: opacity 0.3s ease, -webkit-transform 0.4s ease;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+  transition: opacity 0.3s ease, transform 0.4s ease, -webkit-transform 0.4s ease;
+  pointer-events: auto;
+}
+/*# sourceMappingURL=promo.css.map */

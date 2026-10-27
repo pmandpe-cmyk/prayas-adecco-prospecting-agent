@@ -1,0 +1,1370 @@
+@charset "UTF-8";
+/* ============================================================================
+   Knowledge Document editor page
+   ---------------------------------------------------------------------------
+   Standalone page linked from the Knowledge tab on the Prospect List. The
+   editor lives here (not inline under the table) so it can claim the full
+   viewport height and keep its own scroll context without fighting the
+   `slds-card-uplift` container that hosts the tab table.
+
+   Structure inside `.kdoc-layout`:
+     • `.kdoc-page-header` — record-home style: breadcrumb + title + badge
+       + right-aligned Regenerate primary + Actions dropdown.
+     • `.kdoc-shell` — single-column flex wrapping `.kdoc-main` (sections
+       + markdown editor). Previously a two-column grid with an
+       Overview/Sources/History sidebar; the sidebar was removed for
+       being more chrome than value with only two body sections.
+     • `.kdoc-banner` — inline warning surface, hidden by default; shown
+       when Hunter detects source changes.
+     • `.kdoc-editor` — sticky toolbar + contenteditable body.
+
+   All colors reference SLDS 2 tokens with hex fallbacks so themed
+   customizations (dark mode, brand palette overrides) still apply
+   without local overrides.
+   ============================================================================ */
+.kdoc-layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: var(--slds-g-spacing-4, 1rem) var(--slds-g-spacing-5, 1.5rem);
+  gap: var(--slds-g-spacing-4, 1rem);
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: calc(100vh - 8rem);
+}
+
+/* ── Page header ─────────────────────────────────────────────────────
+   Implements the Figma "Page Header" spec (design node 23307:65323).
+   Tokens sourced from the Figma variable defs; hex fallbacks match
+   the token values exactly so themed builds still route through the
+   design system.
+     • surface: `--slds-g-color-surface-container-2` (#f3f3f3)
+     • padding: `--slds-g-spacing-4` (16px)
+     • icon:    32px circle (`--slds-g-sizing-9` + `--slds-g-radius-border-circle`)
+     • title:   28px / weight 400 / line-height 35 / color #001e5b
+     • gap:     icon→title = 12px, title→badge = 12px
+   Border removed — the surface color alone provides the affordance,
+   matching the Figma reference where the header sits on the page
+   background as a flat gray strip. */
+.kdoc-page-header {
+  background: var(--slds-g-color-surface-container-2, #f3f3f3);
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+  border: 0;
+  padding: var(--slds-g-spacing-4, 1rem);
+}
+
+/* Row layout matches Figma: `Icon + title section` left, `Actions`
+   right, min-height 51px so the title stays vertically centered even
+   without a subtitle row. */
+.kdoc-page-header .slds-page-header__row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.kdoc-page-header .slds-media {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-3, 0.75rem);
+}
+
+/* 32px purple circle avatar with a white knowledge glyph. Uses the
+   SLDS accent color reserved for AI/agent surfaces (#9050E9 — same
+   purple the Prospects tab uses for the Contact avatar in
+   `_macros.html:78`) so knowledge documents visually belong to the
+   agentic feature family alongside the Hunter Generated badge. */
+.kdoc-page-header__icon {
+  width: var(--slds-g-sizing-9, 32px);
+  height: var(--slds-g-sizing-9, 32px);
+  background: #9050E9;
+  border-radius: var(--slds-g-radius-border-circle, 9999px);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.kdoc-page-header__icon .slds-icon {
+  width: 18px;
+  height: 18px;
+  fill: #ffffff;
+  color: #ffffff;
+}
+
+.kdoc-page-header .slds-media__figure {
+  -webkit-margin-end: 0;
+          margin-inline-end: 0;
+}
+
+.kdoc-page-header__title-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-3, 0.75rem);
+  margin-top: var(--slds-g-spacing-1, 0.25rem);
+  margin-bottom: 0;
+}
+
+.kdoc-page-header__title-row .slds-page-header__title {
+  font-family: var(--slds-g-font-family-base, "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0;
+  color: #001e5b;
+}
+
+/* -- Breadcrumb --
+   Figma spec: 13px SF Pro Regular / line-height 18 / letter-spacing 0.
+   Parent items get the accent-2 link color (`#0250d9`); the current
+   item is neutral on-surface-2 text. Separator is a proper
+   chevron-right utility icon (see `<svg class="kdoc-breadcrumb__separator">`
+   inline in the markup) — the SLDS 2 default `::before "> "` pseudo is
+   suppressed below so we don't render both. */
+.kdoc-breadcrumb {
+  /* Total spacing between the breadcrumb and the record title is
+     controlled entirely by `.kdoc-page-header__title-row`'s
+     `margin-top: var(--slds-g-spacing-1)` (4px) below — zeroing the
+     breadcrumb's own margin-bottom keeps the two rows exactly 4px
+     apart. Any margin here would stack on top of the title's
+     margin-top since they're separated by inline-level ancestors
+     (no vertical margin collapse). */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.kdoc-breadcrumb .slds-breadcrumb {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0;
+  font-family: var(--slds-g-font-family-base, "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  color: var(--slds-g-color-on-surface-2, #2e2e2e);
+  text-transform: none;
+}
+
+/* Suppress SLDS 2's default `::before ">"` separator (see
+   slds2_agentic.scss:5142). We render our own chevron SVG inline
+   after each anchor so the icon is sharp at any zoom + inherits
+   current color for hover/focus states. */
+.kdoc-breadcrumb .slds-breadcrumb__item::before {
+  content: none;
+}
+
+.kdoc-breadcrumb .slds-breadcrumb__item {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Zero out SLDS's default inline padding on the anchor — the Figma
+   design uses spacing-1 (4px) on either side of the chevron, not the
+   SLDS default of spacing-2 (8px). We also drop the padding-inline
+   overrides SLDS ships on `.slds-breadcrumb__item > a` so the
+   flex-inline layout handles gap uniformly. */
+.kdoc-breadcrumb .slds-breadcrumb__item > a {
+  padding: 0;
+}
+
+.kdoc-breadcrumb__link {
+  color: var(--slds-g-color-accent-2, #0250d9);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.kdoc-breadcrumb__link:hover,
+.kdoc-breadcrumb__link:focus-visible {
+  text-decoration: underline;
+  outline: 0;
+}
+
+.kdoc-breadcrumb__current {
+  color: var(--slds-g-color-on-surface-2, #2e2e2e);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Chevron-right separator between crumb items. Sized to match the
+   text cap-height (12px) so the arrow reads as a punctuation glyph
+   rather than a decorative icon. Inherits the neutral on-surface-2
+   color from the parent. */
+.kdoc-breadcrumb__separator {
+  width: 12px;
+  height: 12px;
+  margin: 0 var(--slds-g-spacing-1, 4px);
+  fill: currentColor;
+  color: var(--slds-g-color-on-surface-1, #747474);
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+/* -- Title badge (Hunter Generated / Custom Uploaded) --
+   Implements the Figma "Badge - Agentic Content Label" spec
+   (design node 23304:89086). Design tokens sourced from Figma's
+   variables API:
+     • background: agentic-container-1  → #ECE1F9 (lavender)
+     • foreground: on-agentic-1         → #032D60 (deep navy)
+     • radius:     --slds-g-radius-border-1 → 4px
+     • padding:    --slds-g-spacing-1 (4px block) / -2 (8px inline)
+     • font:       Body/font-scale-neg-1/Regular (12px / weight 400 /
+                   line-height 17px)
+   No border in the Figma spec — the container color carries the
+   affordance on its own. The `slds-badge` base class ships a stock
+   pill radius (999px) + a default background token, so we override
+   both with the design values below rather than layer on top. */
+.kdoc-type-badge {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-1, 4px);
+  padding: 2px var(--slds-g-spacing-2, 8px);
+  border: 0;
+  border-radius: var(--slds-g-radius-border-1, 4px);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.kdoc-type-badge .slds-badge__icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+}
+
+.kdoc-type-badge .slds-icon,
+.kdoc-type-badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Hunter Generated → Agentic Content Label
+   Lavender container + navy foreground. The Figma spec uses this exact
+   pair (`agentic-container-1` + `on-agentic-1`) for any AI-authored
+   surface label — same tokens the LWC `<lightning-badge>` picks up via
+   its "agentic" variant. */
+.kdoc-type-badge_hunter {
+  background: #ECE1F9;
+  color: #032D60;
+}
+
+.kdoc-type-badge_hunter .slds-icon {
+  fill: #032D60;
+}
+
+/* Custom Uploaded → user-authored content.
+   Not part of the Figma "Agentic" family (this content isn't AI-
+   generated), so it deliberately breaks from the lavender/navy pair
+   with a distinct purple that mirrors `.knowledge-badge_custom` on the
+   table. Keeps the "AI vs user" visual read at a glance without
+   introducing a third color family. */
+.kdoc-type-badge_custom {
+  background: #F0E7FF;
+  color: #5B23B6;
+}
+
+.kdoc-type-badge_custom .slds-icon {
+  fill: #5B23B6;
+}
+
+/* Header button group — Figma reference tints each button's label
+   with accent-2 blue (`#0250d9`) so the group reads as a strip of
+   grouped link-actions rather than a wall of brand-filled CTAs. The
+   group stays inside SLDS's `slds-button-group` shell (shared borders,
+   end radii, focus-in-front z-index), we only override text color +
+   the trailing icon-only button's fixed width so it doesn't dwarf the
+   labeled buttons. */
+.kdoc-btn-group .slds-button {
+  color: var(--slds-g-color-accent-2, #0250d9);
+  background: var(--slds-g-color-surface-container-1, #ffffff);
+}
+
+.kdoc-btn-group .slds-button:hover,
+.kdoc-btn-group .slds-button:focus-visible {
+  color: var(--slds-g-color-accent-2, #0250d9);
+  background: var(--slds-g-color-surface-container-2, #f3f3f3);
+}
+
+.kdoc-btn-group .slds-button__icon {
+  fill: var(--slds-g-color-accent-2, #0250d9);
+}
+
+/* Trailing icon-only chevron button. SLDS's `.slds-button_icon-container`
+   variant already zeroes padding for icon-only buttons, but doesn't set
+   a width — pin it so the chevron sits in a square end-cap rather than
+   inheriting the wide "Regenerate/Download/Clone" cell width. */
+.kdoc-btn-group .js-kdoc-actions-toggle {
+  width: 36px;
+  padding: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.kdoc-btn-group .js-kdoc-actions-toggle .slds-button__icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Body shell ──────────────────────────────────────────────────────
+   Originally a two-column grid (`220px 1fr`) with an Overview/Sources/
+   History anchor list on the left. The sidebar was removed once the
+   body sections shrank to two + editor — with that little to jump
+   between, the nav column was more chrome than value. The shell is
+   preserved as a single-column flex container so we can add a
+   sidebar back later without re-wrapping the DOM. */
+.kdoc-shell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* Row (was `column`) so the Add-Knowledge-Source side panel can sit
+     inline beside `.kdoc-main` — same pattern prospect_list.html uses
+     for `.prospect-list-layout > article.slds-card-uplift + panel`.
+     `.kdoc-main` below sets `flex: 1 1 0` + `min-width: 0` so it takes
+     remaining space and shrinks when the panel opens. */
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  /* No gap between `.kdoc-main` and the Add-Knowledge-Source side panel —
+     the panel sits flush against the main card so the two surfaces read
+     as a single joined workspace rather than separate cards floating
+     side-by-side. Paired with the `.kdoc-main_panel-is-open` modifier
+     (added by knowledge.js when the panel opens) which squares off the
+     right-side corners to complete the flush seam. */
+  gap: 0;
+  /* Give the row a definite min-height reference so panelMain's
+     `slds-scrollable_y` inside the fixed-width side panel resolves. */
+  min-height: 0;
+}
+
+/* -- Main content --
+   Implements the Figma "KPIs + list" outer-card spec (design node
+   23307:69013). The main content area is now ONE white card with a
+   20px corner radius and a `--slds-g-color-border-1` border, containing
+   the Sources section, Knowledge Document section, optional banner,
+   and the editor as flat children. Previously each section had its
+   own bordered card — the new pattern reads as a single unified
+   record surface instead of a stack of disconnected panels.
+
+   Padding rhythm: 24px on all four sides of the card. Individual
+   sections rely on the card's padding + `gap` for spacing rather
+   than each carrying their own padding, which keeps section-to-
+   section rhythm consistent and lets the editor's nested card sit
+   flush against the same 24px inset. */
+.kdoc-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--slds-g-spacing-6, 1.5rem);
+  /* Flex sibling of `#kdoc-add-source-panel` inside `.kdoc-shell`.
+     `flex: 1 1 0` claims all remaining space when the panel is
+     closed; `min-width: 0` is the standard flex-child escape hatch so
+     the card can shrink below its intrinsic min-content when the
+     panel opens (mirrors prospect_list.scss:121). */
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  min-width: 0;
+  background: var(--slds-g-color-surface-container-1, #ffffff);
+  border: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+  /* Round all four corners uniformly by default so the main card reads
+     as a self-contained surface when the Add-Knowledge-Source side panel
+     is closed. When the panel opens, knowledge.js adds the
+     `.kdoc-main_panel-is-open` modifier below to square off the two
+     right corners so the card butts flush against the panel — same
+     pattern prospect_list.scss uses via `.slds-card-uplift-panel-is-open`. */
+  border-radius: var(--slds-g-radius-border-4, 20px);
+  padding: var(--slds-g-spacing-6, 1.5rem);
+  overflow: clip;
+}
+
+/* Modifier applied by knowledge.js while the Add-Knowledge-Source side
+   panel is open. Squares off the two right corners so `.kdoc-main` and
+   `#kdoc-add-source-panel` (which owns the right-side rounding via
+   `.runtime_pipeline_inspectorInspectionSidePanel` in prospect_list.scss)
+   join into a single seamless workspace surface. Mirrors
+   `.slds-card-uplift-panel-is-open` at prospect_list.scss:108. */
+.kdoc-main.kdoc-main_panel-is-open {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Section wrapper — transparent inside the card now that the card
+   itself owns the surface + border + radius. Sections just group a
+   header + body semantically and control their own internal spacing. */
+.kdoc-section {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.kdoc-section__header {
+  /* Tightened from `--slds-g-spacing-3` (12px) → 6px so the chip row
+     sits closer to the section title. Per Figma feedback this pair
+     reads as a single "labeled input" unit rather than a header +
+     separate body, so we shrink the gap toward the SLDS 2 tight
+     label→field rhythm (spacing-1 + spacing-1 half-step). */
+  margin-bottom: 6px;
+}
+
+/* Header variant that splits label + action across the full width. */
+.kdoc-section__header_split {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: var(--slds-g-spacing-3, 0.75rem);
+}
+
+.kdoc-section__title {
+  /* Body/font-scale-1/Semibold per Figma spec:
+       • 14px / weight 590 / line-height 19 / letter-spacing 0
+       • color: `--slds-g-color-on-surface-3` = #001e5b (deep navy)
+     The navy replaces the neutral gray we had before, matching the
+     agentic-header color family used on the page title. */
+  font-size: 14px;
+  font-weight: var(--slds-g-font-weight-6, 590);
+  line-height: 19px;
+  color: var(--slds-g-color-on-surface-3, #001e5b);
+  margin: 0;
+}
+
+/* -- Chips (products + URLs) --
+   Rounded pill with a label and an inline close button. Different visual
+   states for product chips (solid gray background) vs URL chips (bordered,
+   with a leading link icon). */
+.kdoc-chip-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.kdoc-chip {
+  /* Figma "⚡ Pill - With Icon" spec (design nodes 23307:71694 /
+     23307:71713 / 23307:71722):
+       • height: 26px
+       • radius: `--slds-g-radius-border-4` = 20px (full pill on 26px height)
+       • border: 1px solid `--slds-g-color-border-2` = #5c5c5c
+       • bg:     `--slds-g-color-surface-container-1` = white
+       • padding: 4px 4px 4px 8px (left pad hosts leading icon)
+       • gap:    `--slds-g-spacing-1` = 4px between icon + label + button
+       • font:   Body/font-scale-base/Regular — 13px / weight 400 /
+                 line-height 18, color `--slds-g-color-on-surface-3` (#001e5b) */
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-1, 4px);
+  height: 26px;
+  padding: 4px 4px 4px 8px;
+  background: var(--slds-g-color-surface-container-1, #ffffff);
+  border-radius: var(--slds-g-radius-border-4, 20px);
+  border: 1px solid var(--slds-g-color-border-2, #5c5c5c);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--slds-g-color-on-surface-3, #001e5b);
+}
+
+.kdoc-chip__label {
+  font-weight: var(--slds-g-font-weight-6, 600);
+}
+
+.kdoc-chip__remove {
+  background: transparent;
+  border: 0;
+  padding: 2px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--slds-g-color-on-surface-2, #444);
+}
+
+.kdoc-chip__remove:hover,
+.kdoc-chip__remove:focus-visible {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--slds-g-color-on-surface-3, #181818);
+  outline: 0;
+}
+
+.kdoc-chip__remove .slds-button__icon {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+}
+
+/* URL chip variant — inherits the base .kdoc-chip pill (white bg,
+   #5c5c5c border, 26px height). Leading icon is 16×16 per Figma
+   ("relative shrink-0 size-[16px]") and the URL label uses the
+   same navy body color as the pill so it doesn't fight the icon
+   or close button visually. Underline restored on hover so URL
+   chips still read as interactive link. */
+.kdoc-chip_url {
+  /* base .kdoc-chip already sets bg + border + padding-left — no
+     overrides needed. Kept the class + selector so the URL variant
+     stays a distinct extension point for future tweaks. */
+}
+
+.kdoc-chip__icon {
+  fill: var(--slds-g-color-on-surface-3, #001e5b);
+  width: 16px;
+  height: 16px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.kdoc-chip__url {
+  color: var(--slds-g-color-on-surface-3, #001e5b);
+  text-decoration: none;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kdoc-chip__url:hover,
+.kdoc-chip__url:focus-visible {
+  text-decoration: underline;
+}
+
+/* Add-chip button — dashed-outline style so it reads as an affordance
+   inline with the chip row, not a hard-CTA. */
+.kdoc-chip-add {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: 1px dashed var(--slds-g-color-border-2, #c9c9c9);
+  background: transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--slds-g-color-on-surface-2, #444);
+  cursor: pointer;
+  font-weight: var(--slds-g-font-weight-6, 600);
+}
+
+.kdoc-chip-add:hover,
+.kdoc-chip-add:focus-visible {
+  background: var(--slds-g-color-surface-container-2, #f3f3f3);
+  color: var(--slds-g-color-on-surface-3, #181818);
+  border-color: var(--slds-g-color-border-2, #a8a8a8);
+  outline: 0;
+}
+
+.kdoc-chip-add .slds-button__icon {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+}
+
+/* -- Type picker (Hunter/Custom dropdown) -- */
+.kdoc-type-picker {
+  width: 220px;
+  margin-top: var(--slds-g-spacing-2, 0.5rem);
+}
+
+/* ── Banner ──────────────────────────────────────────────────────────── */
+.kdoc-banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: var(--slds-g-spacing-3, 0.75rem);
+  background: var(--slds-g-color-warning-container-1, #FEF3E3);
+  border: 1px solid var(--slds-g-color-warning-container-2, #F4B840);
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+  padding: 12px 16px;
+  color: var(--slds-g-color-on-warning-1, #4A3300);
+}
+
+.kdoc-banner__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: var(--slds-g-font-weight-6, 500);
+  line-height: 1.4;
+}
+
+.kdoc-banner__icon {
+  fill: var(--slds-g-color-warning-2, #B25100);
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.kdoc-banner__actions {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+/* Right-side dismiss X gets muted styling so it doesn't compete visually
+   with the primary Regenerate button. */
+.kdoc-banner .js-kdoc-banner-dismiss .slds-button__icon {
+  fill: var(--slds-g-color-on-warning-1, #4A3300);
+  width: 12px;
+  height: 12px;
+}
+
+/* Progress variant of the warning banner — same warning surface, but
+   swaps the horizontal message + action-row layout for a stacked title
+   + checklist. Used while `regenerate()` is running so the user sees
+   Hunter working through each source rather than a spinner-in-a-box.
+   Aligned to top so the title anchors to the banner's inner top edge
+   (the base .kdoc-banner rule centers content vertically, which reads
+   off when the body is a multi-line block). */
+.kdoc-banner_progress {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.kdoc-banner__body_stacked {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: var(--slds-g-spacing-3, 0.75rem);
+  width: 100%;
+}
+
+/* Banner title (progress variant) — matches the warning body's font
+   weight but bumps size slightly since it's a standalone heading rather
+   than an inline message. */
+.kdoc-banner__title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: var(--slds-g-font-weight-7, 700);
+  line-height: 1.4;
+  color: var(--slds-g-color-on-warning-1, #4A3300);
+}
+
+/* ── Learning-step checklist ─────────────────────────────────────────
+   Reveal-per-slot animated checklist ported from the /hunter_scanning.html
+   onboarding page (promo.css). Each `.learning-step`:
+     1. Starts hidden (opacity 0, translated down 6px)
+     2. `.is-visible` fades it in and starts the spinner arc spinning
+     3. `.is-complete` fades the spinner out and animates the check
+        icon in (scale-up + stroke-dashoffset draw)
+   The knowledge.js `runProgressAnimation` helper flips these classes on
+   a fixed time-slot cadence so the four steps feel like real work
+   happening in sequence rather than a synthetic "list ticks itself".
+   Scoped under `.kdoc-banner_progress` so these class names don't
+   collide with anywhere else that could add its own `.learning-step`. */
+.kdoc-banner_progress .learning-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+  width: 100%;
+  text-align: left;
+}
+
+.kdoc-banner_progress .learning-step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-3, 0.75rem);
+  font-size: 13px;
+  font-weight: var(--slds-g-font-weight-6, 500);
+  line-height: 1.4;
+  color: var(--slds-g-color-on-warning-1, #4A3300);
+  opacity: 0;
+  -webkit-transform: translateY(6px);
+          transform: translateY(6px);
+  -webkit-transition: opacity 0.36s ease-out, -webkit-transform 0.36s ease-out;
+  transition: opacity 0.36s ease-out, -webkit-transform 0.36s ease-out;
+  transition: opacity 0.36s ease-out, transform 0.36s ease-out;
+  transition: opacity 0.36s ease-out, transform 0.36s ease-out, -webkit-transform 0.36s ease-out;
+}
+
+.kdoc-banner_progress .learning-step.is-visible {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+/* Icon container — 16×16 slot that hosts two overlapping SVGs (spinner
+   + check). `position: relative` gives the two SVGs an anchor to stack
+   via `inset: 0`. The `color` sets `currentColor` for the spinner arc,
+   which uses `stroke="currentColor"` in the SVG. */
+.kdoc-banner_progress .learning-step__icon {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  color: var(--slds-g-color-accent-1, #066afe);
+}
+
+.kdoc-banner_progress .learning-step__spinner,
+.kdoc-banner_progress .learning-step__check {
+  position: absolute;
+  inset: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* Spinner arc — hidden until `.is-visible`, then rotates continuously.
+   `transform-origin: 50% 50%` keeps rotation centered inside the 16×16
+   viewBox. Faded out again once the step completes so the check can
+   take over the same slot. */
+.kdoc-banner_progress .learning-step__spinner {
+  opacity: 0;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-animation: kdoc-progress-spin 0.9s linear infinite;
+          animation: kdoc-progress-spin 0.9s linear infinite;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+
+.kdoc-banner_progress .learning-step.is-visible .learning-step__spinner {
+  opacity: 1;
+}
+
+.kdoc-banner_progress .learning-step.is-complete .learning-step__spinner {
+  opacity: 0;
+}
+
+/* Check icon — hidden by default, revealed on `.is-complete` with a
+   soft overshoot scale (cubic-bezier > 1). Paired with the check-path's
+   stroke-dashoffset transition below, this reads as a "pop then draw"
+   completion beat. */
+.kdoc-banner_progress .learning-step__check {
+  opacity: 0;
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+  -webkit-transition: opacity 0.22s ease-out, -webkit-transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.22s ease-out, -webkit-transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.22s ease-out;
+  transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.22s ease-out, -webkit-transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.kdoc-banner_progress .learning-step.is-complete .learning-step__check {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+/* Filled brand-blue disk background for the completed state. */
+.kdoc-banner_progress .learning-step__check-bg {
+  fill: var(--slds-g-color-accent-1, #066afe);
+}
+
+/* Check path — stroke draws itself from 0 to full length via
+   dash-offset. 14 is roughly the total path length in userspace units;
+   an 80ms delay gives the scale overshoot a beat before the stroke
+   draws so the two motions read as distinct. */
+.kdoc-banner_progress .learning-step__check-path {
+  stroke: var(--slds-g-color-on-accent-1, #ffffff);
+  stroke-dasharray: 14;
+  stroke-dashoffset: 14;
+  -webkit-transition: stroke-dashoffset 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0.08s;
+  transition: stroke-dashoffset 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0.08s;
+}
+
+.kdoc-banner_progress .learning-step.is-complete .learning-step__check-path {
+  stroke-dashoffset: 0;
+}
+
+/* Respect the user's motion preference — drop the reveal/complete
+   transitions entirely and slow the spinner so it still communicates
+   activity without a fast spin. */
+@media (prefers-reduced-motion: reduce) {
+  .kdoc-banner_progress .learning-step,
+.kdoc-banner_progress .learning-step__spinner,
+.kdoc-banner_progress .learning-step__check,
+.kdoc-banner_progress .learning-step__check-path {
+    -webkit-transition: none;
+    transition: none;
+  }
+
+  .kdoc-banner_progress .learning-step__spinner {
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+  }
+}
+@-webkit-keyframes kdoc-progress-spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes kdoc-progress-spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/* ── Markdown editor ──────────────────────────────────────────────────
+   Nested card living inside `.kdoc-main`. Per Figma spec (design
+   node 23307:71291):
+     • radius: `--slds-g-radius-border-3` = 12px
+     • border: 1px solid `--slds-g-color-border-1` (#c9c9c9)
+     • toolbar bg: `--slds-g-color-surface-container-2` (#f3f3f3)
+     • toolbar height: 48px, padding 8px
+     • body bg: `--slds-g-color-surface-container-1` (#ffffff) */
+.kdoc-editor {
+  background: var(--slds-g-color-surface-container-1, #ffffff);
+  border: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+  border-radius: var(--slds-g-radius-border-3, 12px);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.kdoc-editor__toolbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-1, 4px);
+  height: 48px;
+  padding: var(--slds-g-spacing-2, 8px);
+  -webkit-padding-end: calc(var(--slds-g-spacing-2, 8px) * 2);
+          padding-inline-end: calc(var(--slds-g-spacing-2, 8px) * 2);
+  border-bottom: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+  background: var(--slds-g-color-surface-container-2, #f3f3f3);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.kdoc-editor__toolbar-group {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2px;
+}
+
+.kdoc-editor__toolbar-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--slds-g-color-border-1, #e5e5e5);
+  margin: 0 4px;
+}
+
+/* Individual toolbar button — square, 28x28, transparent by default,
+   subtle background on hover. Active state (`.is-active`) applies when
+   the caret is inside a matching format (bold, italic, in a list, etc.). */
+.kdoc-tb-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+  color: var(--slds-g-color-on-surface-2, #444);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  line-height: 1;
+}
+
+.kdoc-tb-btn:hover,
+.kdoc-tb-btn:focus-visible {
+  background: var(--slds-g-color-surface-container-2, #f3f3f3);
+  color: var(--slds-g-color-on-surface-3, #181818);
+  outline: 0;
+}
+
+.kdoc-tb-btn.is-active {
+  background: var(--slds-g-color-accent-container-1, #DAECFF);
+  color: var(--slds-g-color-on-accent-1, #014486);
+}
+
+.kdoc-tb-btn .slds-icon {
+  fill: currentColor;
+  width: 14px;
+  height: 14px;
+}
+
+.kdoc-tb-btn_text {
+  width: auto;
+  min-width: 28px;
+  padding: 0 6px;
+}
+
+/* Saved-state indicator on the right of the toolbar. Uses a green
+   check when saved and mutes to a spinner-like state when saving. */
+.kdoc-editor__saved-state {
+  margin-left: auto;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--slds-g-color-on-surface-2, #444);
+  -webkit-transition: opacity 0.15s ease;
+  transition: opacity 0.15s ease;
+}
+
+.kdoc-editor__saved-state.is-saving {
+  color: var(--slds-g-color-on-surface-2, #444);
+  opacity: 0.7;
+}
+
+.kdoc-editor__saved-state.is-saving .kdoc-editor__saved-icon {
+  display: none;
+}
+
+.kdoc-editor__saved-icon {
+  fill: var(--slds-g-color-success-2, #2E844A);
+  width: 12px;
+  height: 12px;
+}
+
+/* -- Editor body (contenteditable) --
+   Figma spec (design node 23307:71293) — Body/font-scale-base/Regular
+   for paragraph text: 13px / weight 400 / line-height 18 / color
+   `--slds-g-color-on-surface-2` (#2e2e2e). Headings follow the SLDS 2
+   scale rungs (font-scale-4/3/2) at Semibold weight, using navy
+   on-surface-3 for the darker "record title" reading. */
+.kdoc-editor__body {
+  padding: var(--slds-g-spacing-4, 1rem);
+  min-height: 320px;
+  max-height: calc(100vh - 24rem);
+  overflow-y: auto;
+  font-size: var(--slds-g-font-size-base, 13px);
+  line-height: 18px;
+  color: var(--slds-g-color-on-surface-2, #2e2e2e);
+  outline: 0;
+}
+
+/* Typography inside the editor — matches Figma spec exactly:
+     • h1: 24px / weight 590 / line-height 32
+     • h2: 20px / weight 590 / line-height 28
+     • h3: 16px / weight 590 / line-height 22 (SLDS 2 font-scale-2)
+   Heading color reuses on-surface-3 navy so headings pop against
+   the on-surface-2 gray body text. */
+.kdoc-editor__body h1 {
+  font-size: var(--slds-g-font-scale-4, 24px);
+  font-weight: var(--slds-g-font-weight-6, 590);
+  line-height: 32px;
+  margin: 24px 0 12px;
+  color: var(--slds-g-color-on-surface-3, #001e5b);
+}
+
+.kdoc-editor__body h1:first-child {
+  margin-top: 0;
+}
+
+.kdoc-editor__body h2 {
+  font-size: var(--slds-g-font-scale-3, 20px);
+  font-weight: var(--slds-g-font-weight-6, 590);
+  line-height: 28px;
+  margin: 20px 0 8px;
+  color: var(--slds-g-color-on-surface-3, #001e5b);
+}
+
+.kdoc-editor__body h3 {
+  font-size: 16px;
+  font-weight: var(--slds-g-font-weight-6, 590);
+  line-height: 22px;
+  margin: 16px 0 6px;
+  color: var(--slds-g-color-on-surface-3, #001e5b);
+}
+
+.kdoc-editor__body p {
+  margin: 0 0 12px;
+  font-size: var(--slds-g-font-size-base, 13px);
+  line-height: 18px;
+}
+
+/* Re-enable list markers inside the editor body. SLDS's global reset
+   flattens `<ul>` / `<ol>` (list-style: none) so any content-editable
+   surface that wants Notion-style bullet lists has to restore them.
+   Scoping the override to `.kdoc-editor__body` keeps SLDS-styled lists
+   elsewhere on the page (dropdown menus, listboxes, breadcrumbs) marker-
+   free. `disc` outside gives a visible bullet even when the list item
+   wraps onto multiple lines; `padding-inline-start` (not `margin`)
+   controls the indent so the marker stays inside the editor body's
+   content-box and clicking a marker still lands in the item's contenteditable
+   region. `insertUnorderedList` / `insertOrderedList` from execCommand
+   emit the same tag so this also styles user-created lists at runtime. */
+.kdoc-editor__body ul,
+.kdoc-editor__body ol {
+  margin: 0 0 12px;
+  -webkit-padding-start: 24px;
+          padding-inline-start: 24px;
+  list-style-position: outside;
+}
+
+.kdoc-editor__body ul {
+  list-style-type: disc;
+}
+
+.kdoc-editor__body ol {
+  list-style-type: decimal;
+}
+
+/* Nested lists switch to `circle` / `square` so multi-level Notion-style
+   outlines stay readable. `execCommand('indent')` on a nested item wraps
+   it in another `<ul>` — this rule handles that shape. */
+.kdoc-editor__body ul ul {
+  list-style-type: circle;
+}
+
+.kdoc-editor__body ul ul ul {
+  list-style-type: square;
+}
+
+.kdoc-editor__body li {
+  margin-bottom: 4px;
+}
+
+.kdoc-editor__body a {
+  color: var(--slds-g-color-accent-2, #0176D3);
+  text-decoration: underline;
+}
+
+/* Placeholder pseudo when the body is empty. contenteditable's built-in
+   `data-placeholder` support is browser-specific, so we mimic it here. */
+.kdoc-editor__body:empty::before {
+  content: "Start typing…";
+  color: var(--slds-g-color-on-surface-2, #a0a0a0);
+  pointer-events: none;
+}
+
+/* -- Editor tables --
+   Inserted by the toolbar's Table button (see `insertTableAtCaret` in
+   knowledge.js). Wraps in `.kdoc-editor__table-wrap` so wide tables
+   overflow-scroll horizontally instead of pushing the editor's fixed
+   960px column wider. Border/padding use SLDS 2 border-1 tokens so
+   the table visually matches the section borders. */
+.kdoc-editor__body .kdoc-editor__table-wrap {
+  margin: 12px 0;
+  overflow-x: auto;
+  border: 1px solid var(--slds-g-color-border-1, #e5e5e5);
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+}
+
+.kdoc-editor__body .kdoc-editor__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.kdoc-editor__body .kdoc-editor__table th,
+.kdoc-editor__body .kdoc-editor__table td {
+  border: 1px solid var(--slds-g-color-border-1, #e5e5e5);
+  padding: 8px 12px;
+  vertical-align: top;
+  min-width: 96px;
+}
+
+.kdoc-editor__body .kdoc-editor__table th {
+  background: var(--slds-g-color-surface-container-2, #f3f3f3);
+  color: var(--slds-g-color-on-surface-3, #001e5b);
+  font-weight: var(--slds-g-font-weight-6, 600);
+  text-align: start;
+}
+
+/* Suppress the "empty <td>" collapse artifact — an empty cell rendered
+   with just `&nbsp;` still shrinks to 1ch in some browsers. Force a
+   minimum height so the row keeps its shape even with all cells empty. */
+.kdoc-editor__body .kdoc-editor__table td:empty {
+  min-height: 1.5em;
+}
+
+/* Import Custom Knowledge button — SLDS 2 Neutral Button with a pinned
+   border color (#5c5c5c) requested by design. Override the SLDS button
+   `--slds-c-button-color-border` custom property (rather than `border-color`
+   directly) so the token continues to flow through hover / focus / disabled
+   states without extra rules. Selector is ID-only (variant-agnostic) so the
+   pin holds even if the SLDS variant class is toggled by JS. */
+#kdoc-import {
+  --slds-c-button-color-border: #5c5c5c;
+  --slds-c-button-neutral-color-border: #5c5c5c;
+  --slds-c-button-color-border-hover: #5c5c5c;
+  --slds-c-button-color-border-active: #5c5c5c;
+}
+
+/* ── Add Knowledge Source side panel ─────────────────────────────────
+   Right-side inspector opened by `.js-kdoc-add-source`. Structure and
+   width come from `.inspector-side-panel` in prospect_list.scss (loaded
+   on this page via <link>); the rules below only pin the closed default
+   and add panel-specific chrome (subtitle wrap, upload zone, footer
+   button spacing).
+
+   Closed by default: JS toggles between `display: none` and
+   `display: flex` via `window.setPanelDisplay` (from prospect-list.js).
+   Matches the pattern at prospect_list.scss:227. */
+#kdoc-add-source-panel {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 0;
+  /* Kill the left divider that the `.slds-panel` /
+     `runtime_pipeline_inspectorInspectionSidePanel` shells stamp on the
+     panel by default — with `.kdoc-main` already carrying its own
+     1px border on the right edge (and the panel-open modifier squaring
+     off that side to butt flush against the panel), a second border
+     here reads as a doubled seam between the two surfaces. */
+  border-left: 0;
+}
+
+/* Panel header layout — swap the default `slds-float_right` positioning
+   (which drops the close button beneath the title once the subtitle wraps
+   the `<h2>` to two lines) for a flex row. `align-items: flex-start`
+   keeps both children pinned to the top of the header so the close
+   button's vertical center lines up with the "Add Knowledge Source"
+   title line rather than falling into the subtitle band. The 2px nudge
+   optically centers the 20px icon-bare button on the 24px title
+   line-height. */
+#kdoc-add-source-panel .panelHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+}
+
+#kdoc-add-source-panel .panelHeader .slds-panel__header-title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-width: 0;
+}
+
+#kdoc-add-source-panel .panelHeader .slds-float_right {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  float: none;
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+  margin-top: 2px;
+}
+
+/* Panel header subtitle needs to break onto its own line and use the
+   muted body-small treatment. The `.subTitle` rule in prospect_list.scss
+   already sets `display: block` + font size, but is only meant for the
+   1-line "record title" pattern — override the font-weight so this longer
+   description reads as helper text rather than a demoted title. */
+#kdoc-add-source-panel .panelHeader .subTitle {
+  margin-top: var(--slds-g-spacing-1, 0.25rem);
+  color: var(--slds-g-color-on-surface-2, #444444);
+  font-weight: var(--slds-g-font-weight-4, 400);
+  white-space: normal;
+}
+
+/* Dropzone — dashed-border card that hosts the PDF upload affordance
+   (icon on top, helper copy in the middle, Upload PDF button at the
+   bottom). Reads as a soft "drop or click here" surface even though this
+   version doesn't wire drag-and-drop yet — the whole card just funnels
+   users to the button. Border/radius tokens mirror the source-section
+   empty-state at step_01.scss:493 so dashed dropzones look consistent
+   across the app. */
+.kdoc-add-source__dropzone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+  padding: var(--slds-g-spacing-5, 1.25rem) var(--slds-g-spacing-4, 1rem);
+  border: 1px dashed var(--slds-g-color-border-1, #c9c9c9);
+  border-radius: var(--slds-g-radius-border-2, 8px);
+}
+
+/* Upload icon — sits at the top of the dropzone, sized like a small
+   utility icon with the muted on-surface fill so it reads as decorative
+   rather than an interactive control (the button below is the affordance). */
+.kdoc-add-source__dropzone-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--slds-g-color-on-surface-1, #5c5c5c);
+}
+
+/* Constrain the helper copy so it wraps into two comfortable lines
+   inside the panel width instead of stretching edge-to-edge; margin: 0
+   drops the browser's default <p> spacing since the dropzone owns
+   inter-element rhythm via its `gap`. */
+.kdoc-add-source__dropzone-help {
+  margin: 0;
+  max-width: 260px;
+  line-height: 1.4;
+}
+
+/* Upload zone — stacked column of the Upload PDF button + selected-
+   filename indicator. Center-aligns inside the dropzone; the filename
+   span is toggled from `slds-hide` → visible by JS once a file is
+   chosen, and `word-break: break-all` keeps long filenames from
+   overflowing the panel width. */
+.kdoc-add-source__upload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+}
+
+.kdoc-add-source__upload-name {
+  font-size: var(--slds-g-font-scale-neg-2, 0.813rem);
+  color: var(--slds-g-color-on-surface-2, #444444);
+  word-break: break-all;
+}
+
+/* Footnote — small, muted helper text living inside the panel footer,
+   above the Cancel / Add Source button row. Sits in the footer (rather
+   than the scrollable body) so it stays visible even when the body
+   scrolls. Color-only override; typography + spacing come from utility
+   classes on the element (`slds-text-body_small`, etc.). */
+.kdoc-add-source__footnote {
+  color: var(--slds-g-color-on-surface-2, #444444);
+}
+
+/* Footer button spacing — Cancel + Add Source siblings need a small
+   inline gap so they don't butt against each other. */
+#kdoc-add-source-panel .panelFooter .slds-button + .slds-button {
+  -webkit-margin-start: var(--slds-g-spacing-2, 0.5rem);
+          margin-inline-start: var(--slds-g-spacing-2, 0.5rem);
+}
+/*# sourceMappingURL=knowledge_document.css.map */

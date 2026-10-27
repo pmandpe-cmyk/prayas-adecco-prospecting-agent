@@ -1,0 +1,2134 @@
+@charset "UTF-8";
+.kpi-card {
+  border-radius: 0.625rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-align: left;
+  cursor: pointer;
+  -webkit-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0;
+  outline: none;
+  border: var(--slds-g-sizing-border-2, 2px) solid transparent;
+  background: none;
+}
+
+.kpi-card:hover {
+  border: var(--slds-g-sizing-border-2, 2px) solid var(--slds-g-color-border-1, var(--lwc-colorBorder));
+  background-color: var(--slds-g-color-surface-container-3);
+}
+
+.kpi-card-active {
+  background-color: var(--slds-g-color-surface-container-2, var(--lwc-colorBackground));
+  border: var(--slds-g-sizing-border-2, 2px) solid var(--slds-g-color-border-2, var(--lwc-colorBorder));
+}
+
+.kpi-card-label {
+  font-size: var(--slds-g-font-scale-base, 0.75rem);
+  padding-bottom: var(--slds-g-sizing-2, 4px);
+  color: var(--slds-g-color-on-surface-2, #2E2E2E);
+}
+
+.kpi-card-count {
+  color: var(--slds-g-color-on-surface-2, #2E2E2E);
+  font-size: var(--slds-g-font-scale-3, 1.25rem);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 32px;
+  /* 133.333% */
+}
+
+.slds-combobox {
+  cursor: pointer;
+}
+
+.slds-card-uplift-header {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  -webkit-padding-before: var(--slds-c-card-spacing-block-start, 0);
+  padding-block-start: var(--slds-c-card-spacing-block-start, 0);
+  -webkit-padding-end: var(--slds-c-card-spacing-inline-end, 0);
+  padding-inline-end: var(--slds-c-card-spacing-inline-end, 0);
+  -webkit-padding-after: var(--slds-c-card-spacing-block-end, 0);
+  padding-block-end: var(--slds-c-card-spacing-block-end, 0);
+  -webkit-padding-start: var(--slds-c-card-spacing-inline-start, 0);
+  padding-inline-start: var(--slds-c-card-spacing-inline-start, 0);
+  background: var(--slds-c-card-color-background, var(--slds-g-color-surface-container-1));
+  background-clip: padding-box;
+  -webkit-box-shadow: var(--slds-c-card-shadow, var(--slds-s-container-shadow, var(--slds-g-shadow-2)));
+  box-shadow: var(--slds-c-card-shadow, var(--slds-s-container-shadow, var(--slds-g-shadow-2)));
+  color: var(--slds-c-card-text-color, var(--slds-s-container-color));
+}
+
+.slds-table-uplift thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  -webkit-box-shadow: 0 1px 0 0 var(--slds-g-color-border-1);
+          box-shadow: 0 1px 0 0 var(--slds-g-color-border-1);
+}
+
+.slds-checkbox-uplift {
+  margin-bottom: 56px;
+}
+
+.slds-row-number-uplift {
+  margin-bottom: 51px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+span.slds-row-number {
+  padding-top: 0px;
+}
+
+.slds-accept-fill-color {
+  fill: var(--slds-g-color-palette-green-70, #45C65A);
+}
+
+.slds-reject-fill-color {
+  fill: var(--Icon-Error, #BA0517);
+}
+
+.slds-more-fill-color {
+  fill: var(--slds-g-color-on-surface-1);
+}
+
+.slds-card-uplift {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  height: calc(100vh - 13.625rem);
+  background: var(--slds-c-card-color-background, var(--slds-g-color-surface-container-1));
+  border-style: solid;
+  border-width: var(--slds-c-card-sizing-border, var(--slds-g-sizing-border-1));
+  border-color: var(--slds-g-color-border-1, var(--slds-g-color-border-1, var(--slds-g-color-border-1)));
+  border-radius: var(--slds-c-card-radius-border, var(--slds-s-container-radius-border, var(--slds-g-radius-border-2)));
+}
+
+.slds-card-uplift-panel-is-open {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+/* Make the article fill the prospect-list-layout (a slds-grid / flex row).
+   Without `flex: 1 1 0`, the article defaults to `flex-grow: 0` and shrinks
+   to its intrinsic min-content width, which since adding column min-widths
+   to the Logs table caps the article at ~1060px and leaves empty space to
+   the right at wider viewports. `min-width: 0` is the standard flex-child
+   escape hatch so the article can also shrink BELOW its min-content (and
+   delegate horizontal overflow to the table wrapper's `overflow-x: auto`)
+   when the viewport is narrower than the combined column min-widths. */
+.prospect-list-layout > article.slds-card-uplift {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Make the tab wrapper a flex passthrough so the body can size correctly. */
+.slds-card-uplift > .slds-tabs_default {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-height: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/* The body is a flex container that sizes each visible tab panel; it does NOT scroll itself. */
+.slds-card-uplift-body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-height: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/* Each tab panel is the scroll container, so each tab gets its own overflow calculation
+   and independent scroll state (no leaking between Prospects and Agents). */
+.slds-card-uplift-body > .slds-tabs_default__content.slds-show {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* SLDS .slds-resizable__divider::after is absolutely positioned with height: 100vh
+   to render a column-drag indicator line. Inside our tab panel scroll container, that
+   pseudo inflates scrollHeight and produces a spurious scrollbar on tabs whose real
+   content fits (e.g. Agents). Constrain it to the header cell height. */
+.slds-resizable__divider::after {
+  height: 100%;
+}
+
+@media screen and (max-width: 1579px) {
+  .sales-slds .inspector-side-panel {
+    --c-insightsTabContainerPaddingTop: var(--internal-g-spacing-3, 0.75rem);
+    --c-headerOpptNameFontSize: var(--internal-g-spacing-4, 1rem);
+    --c-insightsTextFontSize: var(--internal-g-font-scale-neg-3, 0.75rem);
+    --c-insightsTextLeftMargin: var(--internal-g-spacing-8, 2rem);
+  }
+}
+.sales-slds .inspector-side-panel {
+  --c-headerKpiMetricFont: var(--internal-g-font-size-base, 1rem);
+  --c-headerOpptNameFontSize: var(--internal-g-spacing-5, 1.25rem);
+  --c-headerOpptNameFontWeight: var(--internal-g-font-weight-3, 300);
+  --c-opptyMetricValuePaddingTop: 0;
+  --c-insightsTabContainerPaddingTop: var(--internal-g-spacing-5, 1.25rem);
+  --c-insightsTabContainerPaddingLeft: 0;
+  --c-insightsTabContainerPaddingRight: 0;
+  --c-insightsTabContainerPaddingBottom: 0;
+  --c-insightsSectionTitlePaddingBottom: 0;
+  --c-insightsTextLeftMargin: calc(var(--internal-g-spacing-9, 2.5rem) + var(--internal-g-spacing-1, 0.25rem));
+  --c-opptyScoreBucketContainerPaddingTop: 0;
+  --c-insightsTextFontSize: var(--internal-g-font-scale-neg-2, 0.813rem);
+  --c-footerButtonGroupHeight: calc(var(--internal-g-spacing-8, 2rem) + var(--internal-g-spacing-1, 0.25rem));
+  --slds-g-font-lineheight-base: var(--internal-g-spacing-4, 1rem);
+}
+
+.runtime_pipeline_inspectorInspectionSidePanel {
+  border-style: solid;
+  border-width: var(--slds-c-card-sizing-border, var(--slds-g-sizing-border-1));
+  border-color: var(--slds-g-color-border-1, var(--slds-g-color-border-1, var(--slds-g-color-border-1)));
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: var(--slds-c-card-radius-border, var(--slds-s-container-radius-border, var(--slds-g-radius-border-2)));
+  border-bottom-right-radius: var(--slds-c-card-radius-border, var(--slds-s-container-radius-border, var(--slds-g-radius-border-2)));
+}
+
+.runtime_pipeline_inspectorContactLeadSidePanel {
+  width: 400px;
+  max-width: 400px;
+  min-width: 400px;
+  overflow: hidden;
+}
+
+.sales-slds .inspector-side-panel {
+  width: calc(6 * var(--internal-g-spacing-13, 4.5rem) + var(--internal-g-spacing-2, 0.5rem));
+  max-width: calc(6 * var(--internal-g-spacing-13, 4.5rem) + var(--internal-g-spacing-2, 0.5rem));
+  min-width: calc(6 * var(--internal-g-spacing-13, 4.5rem) + var(--internal-g-spacing-2, 0.5rem));
+}
+
+@media screen and (max-width: 1579px) {
+  .sales-slds .inspector-side-panel .panelHeader {
+    padding: var(--internal-g-spacing-4, 1rem);
+  }
+}
+.sales-slds .runtie_pipeline_inspectorOpportunityIntelligence runtime_pipeline_inspector-intelligence-panel-header h2, .sales-slds .runtime_pipeline_inspectorContactLeadSidePanel runtime_pipeline_inspector-contact-lead-side-panel-header h2, .sales-slds .runtime_pipeline_inspectorAccountSidePanel runtime_pipeline_inspector-account-side-panel-header h2 span {
+  line-height: var(--internal-g-font-lineheight-3, 1.25);
+  font-weight: var(--c-lightFontWeight, 274);
+}
+
+/* Give the article+side-panel grid a definite height so side panel height:100% and flex-grow resolve */
+.prospect-list-layout {
+  height: calc(100vh - 13.625rem);
+  min-height: 0;
+}
+
+/* Side panel: closed by default (JS sets display:none on load; Review sets display:flex, Close sets display:none) */
+#prospect-side-panel,
+#agent-side-panel {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 0;
+}
+
+/* Kill the left divider that the `.slds-panel` /
+   `runtime_pipeline_inspectorInspectionSidePanel` shells stamp on the
+   prospect side panel by default. The prospect-list card to the left
+   already carries its own 1px border on the shared seam (and squares off
+   its right corners via `.slds-card-uplift-panel-is-open`), so a second
+   border here reads as a doubled edge between the two surfaces. */
+#prospect-side-panel {
+  border-left: 0;
+}
+
+/* Inner wrapper of side panel: take all remaining height so panelMain slds-grow can fill the middle */
+.inspector-side-panel > .slds-grid.slds-grid_vertical {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  min-height: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/* Allow panelMain to shrink so slds-scrollable_y can show scrollbar when content overflows */
+.inspector-side-panel .panelMain {
+  min-height: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+}
+
+.panelHeader a {
+  font-size: var(--slds-g-font-scale-3, var(--lwc-fontSizeHeadingMedium, 1.125rem));
+  line-height: var(--slds-g-font-lineheight-3, 1.375);
+  font-weight: var(--slds-g-font-weight-3, var(--lwc-fontWeightLight, 300));
+}
+
+.panelHeader .subTitle {
+  display: block;
+  font-size: var(--slds-g-font-scale-neg-1, var(--lwc-fontSizeHeadingXSmall, 0.75rem));
+}
+
+#toast-container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 10000;
+}
+
+#toast-container .slds-notify_container {
+  position: relative;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.slds-accordion__summary-heading .slds-button:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.slds-table-uplift td {
+  height: 1px;
+  vertical-align: top;
+}
+
+.slds-td-formatter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 100%;
+}
+
+.slds-checkbox.slds-td-formatter {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#agent_runs_table .slds-td-formatter.slds-p-around_medium {
+  padding: 0;
+}
+
+#agent_runs_table .slds-td-formatter.slds-p-around_medium:not(.slds-truncate) {
+  white-space: normal;
+}
+
+#agent_runs_table tbody td {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/*
+ * Pin a uniform row height across the agent runs table. Without this, rows
+ * vary based on how many Signals badges wrap (1, 2, or 3 lines) and how Why
+ * Qualified text wraps. 88px comfortably fits 2 lines of badges + padding,
+ * which is the worst case at the current Signals column width (240px).
+ * Overflow is hidden on the cell formatter so rare 3-line content doesn't
+ * push a single row taller than the rest.
+ */
+#agent_runs_table tbody tr {
+  height: 88px;
+}
+
+#agent_runs_table tbody td > .slds-td-formatter {
+  overflow: hidden;
+}
+
+#agent_runs_table .slds-grid.slds-td-formatter {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+/*
+ * Signals cell: badges wrap to multiple lines via `flex-wrap: wrap` + `gap`.
+ * SLDS sets `margin-inline-start` on adjacent `.slds-badge` siblings, which
+ * pushes a wrapped badge in from the left edge. Zero it out so wrapped
+ * badges remain flush-left; the container's `gap` already handles spacing.
+ */
+#agent_runs_table .slds-grid_vertical-align-start.slds-td-formatter > .slds-badge + .slds-badge {
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
+}
+
+/*
+ * Column sizing for #agent_runs_table. The table uses `table-layout: fixed`,
+ * so first-row widths set column widths. Columns: 1=#, 2=select, 3=Prospect,
+ * 4=Company, 5=Why Qualified, 6=Signals, 7=Status, 8=Credit Used, 9=Owner.
+ * Shrink Credit Used and give the freed space to Signals so badges wrap less.
+ */
+#agent_runs_table thead th:nth-child(6),
+#agent_runs_table tbody td:nth-child(6) {
+  width: 240px;
+}
+
+#agent_runs_table thead th:nth-child(8),
+#agent_runs_table tbody td:nth-child(8) {
+  width: 96px;
+}
+
+/*
+ * Chevron-down icon in the context-bar Prospecting dropdown trigger. SLDS
+ * `slds-icon_x-small` renders at 16px; the design calls for a smaller 12px
+ * indicator next to the nav label.
+ */
+.slds-context-bar__item.slds-dropdown-trigger_click > .slds-context-bar__label-action .slds-icon_container .slds-icon {
+  width: 12px;
+  height: 12px;
+}
+
+/*
+ * Log-tab filter dropdowns ("Select Agent", "Generated on", "Owner"): align
+ * the listbox's left edge with the combobox trigger input and match its
+ * width. SLDS's base `.slds-dropdown` rule horizontally centers the listbox
+ * via `left: 50%; transform: translate(-50%)` and `.slds-dropdown_fluid`
+ * applies a 12rem min-width. Reset the translate and pin to `left: 0` so
+ * the listbox shares its left edge with the trigger input
+ * (.slds-combobox_container is the position anchor), and force width to
+ * 100% so the listbox is exactly as wide as the field.
+ */
+#select-agent-listbox-log,
+#generated-on-listbox-log,
+#owner-listbox-log {
+  left: 0;
+  right: auto;
+  -webkit-transform: none;
+          transform: none;
+  width: 100%;
+  min-width: 100%;
+}
+
+/*
+ * Owner filter field: the intrinsic width of "My Team" leaves the field
+ * visibly narrower than its siblings. Pin a min-width so the trigger
+ * matches the look of the other Log-tab filters and gives the chevron
+ * room to breathe. The combobox container is `display: flex; flex-
+ * direction: column`, so widening the faux input widens the anchor and
+ * the dropdown follows via the `width: 100%` rule above.
+ */
+.slds-input_faux[aria-controls=owner-listbox-log] {
+  min-width: 120px;
+}
+
+.slds-td-formatter.slds-grid_vertical-align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.prospect-table-content td .slds-grid > div,
+.prospect-table-content td .slds-td-formatter > div {
+  min-width: 0;
+}
+
+.prospect-table-content tbody td .slds-line-clamp_medium:not(.feedback-hint) {
+  height: 5lh;
+  min-height: 5lh;
+}
+
+.slds-edit-formatter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.slds-actions-formatter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.js-action-tooltip {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+td.slds-cell-edit {
+  position: relative;
+}
+
+td.slds-cell-edit > .slds-popover_edit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  width: auto;
+  min-width: var(--slds-g-sizing-14);
+  max-width: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 2;
+}
+
+td.slds-cell-edit > .slds-popover_edit > .slds-popover__body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-height: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+td.slds-cell-edit > .slds-popover_edit > .slds-popover__footer {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+td.slds-cell-edit > .slds-popover_edit .slds-form-element,
+td.slds-cell-edit > .slds-popover_edit .slds-form-element__control {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 0;
+}
+
+td.slds-cell-edit > .slds-popover_edit textarea {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-height: 4rem;
+  resize: none;
+  line-height: var(--slds-g-font-lineheight-3, 1.375);
+}
+
+.cell_text_link {
+  font-weight: 590;
+  font-size: var(--slds-g-font-size-base, 13px);
+  color: var(--slds-g-color-accent-2);
+}
+
+.js-approval-required-table tbody tr {
+  -webkit-transition: opacity 0.3s ease-out, background-color 0.2s ease-out;
+  transition: opacity 0.3s ease-out, background-color 0.2s ease-out;
+}
+
+.feedback-hint {
+  width: 100%;
+}
+
+td.slds-cell-edit:has(> .slds-td-formatter > .js-feedback-display.feedback-hint) {
+  height: 1px;
+  vertical-align: top;
+}
+
+td.slds-cell-edit > .slds-td-formatter:has(> .js-feedback-display.feedback-hint) {
+  position: relative;
+  height: 100%;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.js-feedback-display.feedback-hint {
+  position: absolute;
+  inset: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  -webkit-box-orient: unset;
+  max-height: none;
+  overflow: hidden;
+}
+
+.feedback-hint__cell {
+  position: absolute;
+  inset: 0;
+  background: white;
+  border: none;
+  text-align: center;
+  border-radius: var(--slds-g-radius-border-1, 4px);
+  font-size: var(--slds-g-font-scale-neg-1);
+  padding: 0.5rem;
+  color: var(--slds-g-color-on-surface-1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+}
+
+.feedback-hint__cell > .slds-grid_vertical {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.feedback-hint__cell .slds-icon_container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.feedback-hint__button {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  border-radius: 999px;
+}
+
+.feedback-hint__button > .js-feedback-edit-btn {
+  position: relative;
+  z-index: 1;
+  width: auto;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.25rem 1rem;
+  background-color: transparent;
+  border: 1px solid var(--slds-g-color-border-2);
+  border-radius: 999px;
+  color: var(--slds-g-color-accent-2);
+  text-align: center;
+  font-size: 12px;
+  font-weight: var(--slds-g-font-weight-4);
+  line-height: 17px;
+  cursor: pointer;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.feedback-hint__button > .js-feedback-edit-btn:hover {
+  color: var(--slds-g-color-on-surface-3);
+  font-size: 12px;
+  font-weight: var(--slds-g-font-weight-4);
+}
+
+.feedback-hint__button > .js-feedback-edit-btn:disabled,
+.feedback-hint__button > .js-feedback-edit-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  font-size: 12px;
+  font-weight: var(--slds-g-font-weight-4);
+}
+
+.feedback-hint__progress {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+.feedback-hint__progress::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  background-color: var(--Indigo-90, #E0E5F8);
+}
+
+.feedback-hint__progress.is-running::before {
+  -webkit-animation: feedback-hint-progress var(--feedback-hint-progress-duration, 4.5s) linear forwards;
+          animation: feedback-hint-progress var(--feedback-hint-progress-duration, 4.5s) linear forwards;
+}
+
+@-webkit-keyframes feedback-hint-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes feedback-hint-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+tr.is-accepted button[title=Reject],
+tr.is-accepted button[title="More Options"][data-tooltip=more_reject] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+tr.is-rejected button[title=Accept],
+tr.is-rejected button[title="More Options"][data-tooltip=more_approve] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+tr.is-removing {
+  opacity: 0 !important;
+}
+
+/* Agent side panel content styles (ported from blank.html design). Scoped so
+   generic class names (.content, .section, .metadata-section, etc.) don't leak. */
+#agent-side-panel {
+  --sdr-guided-config-color-surface-1: var(--slds-g-color-surface-1, #FFFFFF);
+  --sdr-guided-config-color-surface-2: var(--slds-g-color-surface-2, #F3F3F3);
+  --sdr-guided-config-color-on-surface-1: var(--slds-g-color-on-surface-1, #5C5C5C);
+  --sdr-guided-config-color-on-surface-2: var(--slds-g-color-on-surface-2, #2E2E2E);
+  --sdr-guided-config-color-border-1: var(--slds-g-color-border-1, #c9c9c9);
+  --sdr-guided-config-color-accent-1: var(--slds-g-color-accent-1, #1B96FF);
+  --sdr-guided-config-color-accent-2: var(--slds-g-color-accent-2, #0176D3);
+  --sdr-guided-config-color-accent-3: var(--slds-g-color-accent-3, #014486);
+  --sdr-guided-config-white: var(--sdr-guided-config-color-surface-1);
+  --sdr-guided-config-blue-15: var(--slds-g-color-palette-blue-15, #03234D);
+  --sdr-guided-config-blue-95: var(--slds-g-color-palette-blue-95, #EEF4FF);
+  --sdr-guided-config-color-disabled: var(--slds-g-color-palette-neutral-80, rgb(201, 201, 201));
+  --sdr-guided-config-color-error-base-90: var(--slds-g-color-error-base-90, #FDDDE3);
+  --sdr-guided-config-color-error-base-40: var(--slds-g-color-error-base-40, #B60554);
+  --sdr-guided-config-font-size-scale-8: var(--slds-g-font-scale-8, 3rem);
+  --sdr-guided-config-font-size-scale-6: var(--slds-g-font-scale-6, 1.75rem);
+  --sdr-guided-config-font-size-scale-4: var(--slds-g-font-scale-4, 1.5rem);
+  --sdr-guided-config-font-size-scale-2: var(--slds-g-font-scale-2, 1rem);
+  --sdr-guided-config-font-size-base: var(--slds-g-font-size-base, 0.8125rem);
+  --sdr-guided-config-font-size-scale-neg-1: var(--slds-g-font-scale-neg-1, 0.75rem);
+  --sdr-guided-config-font-weight-6: var(--slds-g-font-weight-6, 600);
+  --sdr-guided-config-font-weight-4: var(--slds-g-font-weight-4, 400);
+  --sdr-guided-config-font-weight-274: 274;
+  --sdr-guided-config-font-line-height-60: 60px;
+  --sdr-guided-config-font-line-height-1: var(--slds-g-font-lineheight-1, 1rem);
+  --sdr-guided-config-font-line-height-2: var(--slds-g-font-lineheight-2, 1.25rem);
+  --sdr-guided-config-font-line-height-3: var(--slds-g-font-lineheight-3, 1.375rem);
+  --sdr-guided-config-font-line-height-4: var(--slds-g-font-lineheight-4, 1.5rem);
+  --sdr-guided-config-font-line-height-5: var(--slds-g-font-lineheight-5, 1.75rem);
+  --sdr-guided-config-border-radius-1: var(--slds-g-radius-border-1, 0.25rem);
+  --sdr-guided-config-border-radius-2: var(--slds-g-radius-border-2, 0.5rem);
+  --sdr-guided-config-border-radius-3: var(--slds-g-radius-border-3, 0.75rem);
+  --sdr-guided-config-spacing-1: var(--slds-g-spacing-1, 0.25rem);
+  --sdr-guided-config-spacing-2: var(--slds-g-spacing-2, 0.5rem);
+  --sdr-guided-config-spacing-3: var(--slds-g-spacing-3, 0.75rem);
+  --sdr-guided-config-spacing-4: var(--slds-g-spacing-4, 1rem);
+  --sdr-guided-config-spacing-5: var(--slds-g-spacing-5, 1.5rem);
+  --sdr-guided-config-spacing-6: var(--slds-g-spacing-6, 2rem);
+  --sdr-guided-config-spacing-8: var(--slds-g-spacing-8, 3rem);
+  --sdr-guided-config-spacing-12: var(--slds-g-spacing-12, 5rem);
+  --sdr-guided-config-shadow-panel: var(--slds-g-shadow-3, 0px 2px 3px 0px #00000027);
+}
+#agent-side-panel .content {
+  padding: var(--sdr-guided-config-spacing-3);
+  overflow-y: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#agent-side-panel .metadata-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: var(--sdr-guided-config-spacing-4);
+  -webkit-column-gap: var(--sdr-guided-config-spacing-6);
+     -moz-column-gap: var(--sdr-guided-config-spacing-6);
+          column-gap: var(--sdr-guided-config-spacing-6);
+  border-bottom: var(--slds-g-sizing-border-1, 1px) solid var(--sdr-guided-config-color-border-1);
+  padding-bottom: var(--sdr-guided-config-spacing-3);
+  margin-bottom: var(--sdr-guided-config-spacing-3);
+  margin-top: var(--sdr-guided-config-spacing-3);
+}
+#agent-side-panel .metadata-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+}
+#agent-side-panel .metadata-item-label {
+  color: var(--sdr-guided-config-color-on-surface-2);
+  font-size: var(--sdr-guided-config-font-size-base);
+}
+#agent-side-panel .metadata-item-value {
+  color: var(--sdr-guided-config-color-on-surface-1);
+  font-size: var(--sdr-guided-config-font-size-base);
+}
+#agent-side-panel .section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: var(--sdr-guided-config-spacing-4);
+}
+#agent-side-panel .section ~ .section {
+  border-top: var(--slds-g-sizing-border-1, 1px) solid var(--sdr-guided-config-color-border-1);
+  padding-top: var(--sdr-guided-config-spacing-4);
+}
+#agent-side-panel .section-title {
+  color: var(--sdr-guided-config-color-on-surface-2);
+  font-weight: var(--sdr-guided-config-font-weight-6);
+  margin-bottom: var(--sdr-guided-config-spacing-2);
+}
+#agent-side-panel .setting-label {
+  font-weight: var(--sdr-guided-config-font-weight-6);
+  color: var(--sdr-guided-config-color-on-surface-2);
+  white-space: nowrap;
+}
+#agent-side-panel .section-description {
+  font-weight: var(--sdr-guided-config-font-weight-4);
+  color: var(--sdr-guided-config-color-on-surface-1);
+}
+#agent-side-panel .popover-pill-container {
+  padding: var(--slds-g-spacing-1, 0.25rem) var(--sdr-guided-config-spacing-2);
+  color: var(--slds-g-color-accent-2, #0250D9);
+  border: var(--slds-g-sizing-border-1, 1px) solid var(--sdr-guided-config-color-on-surface-1);
+  cursor: pointer;
+  border-radius: var(--slds-g-radius-border-4, 1.25rem);
+  display: inline-block;
+  background-color: var(--sdr-guided-config-white);
+}
+
+/* ===========================================================================
+   Agent Log (hierarchical monitoring) table
+   ---------------------------------------------------------------------------
+   Scoped under .agent-log-table (shared class) rather than .agent-log-table
+   (single ID) so the rules apply to every per-agent table rendered in the
+   Logs tab — one per agent, with only the selected agent's table visible
+   at any time. Keeping the class as the scope keeps these styles from
+   leaking into other tables on the page. Uses SLDS color tokens for theme
+   compatibility, but falls back to literal hex values where the token is
+   missing (the design system on this build doesn't expose semantic-color
+   tokens for all four pill variants).
+   =========================================================================== */
+.agent-log-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Zebra-free rows; rely on a single horizontal divider per row instead. */
+.agent-log-table tbody tr {
+  background-color: transparent;
+  border-bottom: 1px solid var(--slds-g-color-border-1, #e5e5e5);
+  -webkit-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
+}
+
+.agent-log-table tbody tr:hover {
+  background-color: var(--slds-g-color-surface-container-2, #f3f3f3);
+}
+
+.agent-log-table thead th {
+  font-weight: var(--slds-g-font-weight-6, 600);
+  font-size: 12px;
+  color: var(--slds-g-color-on-surface-2, #2E2E2E);
+  text-transform: none;
+  background-color: var(--slds-g-color-surface-1, #ffffff);
+  border-bottom: 1px solid var(--slds-g-color-border-1, #e5e5e5);
+  padding: 0;
+}
+
+/* Inner anchor laid down by the SLDS sortable th carries its own paddings;
+   override to a tight 8px gutter so headers align with the body cells. */
+.agent-log-table thead th .slds-th__action {
+  padding: 0 8px;
+}
+
+/* SLDS's .slds-table_cell-buffer adds `padding-inline-start: 1.5rem` (24px)
+   to the first <th> and `padding-inline-end: 1.5rem` to the last <th> in
+   every row. Its selector specificity (0,2,2) beats our base
+   `.agent-log-table thead th` rule, and the logical longhand wins against
+   the shorthand regardless. Match its selector shape and use the same
+   logical properties so the override actually takes effect. */
+.agent-log-table thead tr > th:first-child {
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+
+.agent-log-table thead tr > th:last-child {
+  -webkit-padding-end: 0;
+          padding-inline-end: 0;
+}
+
+/* Fluid responsive sizing.
+   Override SLDS's `.slds-table_fixed-layout` (class specificity 0,1,0) with
+   `table-layout: auto` via the ID selector (1,0,0) so columns can absorb
+   extra space on wide viewports and shrink toward their min-widths as the
+   viewport narrows. Each column gets a `min-width` floor so it can't
+   collapse below readability; the Rationale column is the elastic one
+   (no max-width / no preferred width beyond the floor) and grabs any
+   leftover space. */
+.agent-log-table {
+  table-layout: auto;
+}
+
+.agent-log-table thead th.agent-log-th_records,
+.agent-log-table tbody td.agent-log-cell_records {
+  min-width: 280px;
+  width: auto;
+}
+
+.agent-log-table thead th.agent-log-th_status,
+.agent-log-table tbody td.agent-log-cell_status {
+  min-width: 120px;
+  width: auto;
+}
+
+.agent-log-table thead th.agent-log-th_rationale,
+.agent-log-table tbody td.agent-log-cell_rationale {
+  min-width: 220px;
+  width: auto;
+}
+
+.agent-log-table thead th.agent-log-th_credits,
+.agent-log-table tbody td.agent-log-cell_numeric {
+  min-width: 160px;
+  width: auto;
+}
+
+.agent-log-table thead th.agent-log-th_owner,
+.agent-log-table tbody td.agent-log-cell_owner {
+  min-width: 140px;
+  width: auto;
+}
+
+.agent-log-table thead th.agent-log-th_updated,
+.agent-log-table tbody td.agent-log-cell_updated {
+  min-width: 140px;
+  width: auto;
+}
+
+/* Horizontal-scroll safety net. If the combined min-widths of the visible
+   columns exceed the viewport (e.g. between breakpoints, or when the user
+   has a very narrow window), the wrapper scrolls horizontally instead of
+   clipping the table or crushing the columns. */
+.slds-card-uplift-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.agent-log-table tbody td.agent-log-cell {
+  padding: 12px;
+  font-size: 13px;
+  color: var(--slds-g-color-on-surface-1, #5C5C5C);
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Drill-down links inside the Agent Log table: company name on parent rows,
+   prospect name on child rows, and owner name in the Owner column. All
+   three share the SLDS 2 brand link color (#0250D9) with no underline by
+   default and underline on hover/focus. Company name keeps a heavier weight
+   because it's the dominant label on the parent row. */
+.agent-log-table .agent-log-company-name,
+.agent-log-table .agent-log-prospect-name,
+.agent-log-table .agent-log-owner-name {
+  color: #0250D9;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.agent-log-table .agent-log-row_account .agent-log-company-name {
+  font-weight: var(--slds-g-font-weight-6, 600);
+}
+
+.agent-log-table .agent-log-company-name:hover,
+.agent-log-table .agent-log-company-name:focus,
+.agent-log-table .agent-log-prospect-name:hover,
+.agent-log-table .agent-log-prospect-name:focus,
+.agent-log-table .agent-log-owner-name:hover,
+.agent-log-table .agent-log-owner-name:focus {
+  color: #0250D9;
+  text-decoration: underline;
+}
+
+/* Prospect rows: indented under the chevron column to align child names
+   beneath the parent company name. The selector is qualified with
+   `tbody td.agent-log-cell` so its specificity beats the base cell rule's
+   `padding: 12px` shorthand (which would otherwise reset padding-left). */
+.agent-log-table tbody td.agent-log-cell.agent-log-cell_indent {
+  padding-left: 74px;
+}
+
+.agent-log-table .agent-log-row_collapsed {
+  display: none;
+}
+
+/* Chevron toggle button. Rotates 90deg when expanded so the arrow points
+   downward (consistent with SLDS tree-grid affordance). */
+.agent-log-table .agent-log-chevron {
+  width: 20px;
+  height: 20px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--slds-g-color-on-surface-2, #2E2E2E);
+  -webkit-transition: background-color 0.1s ease, -webkit-transform 0.15s ease;
+  transition: background-color 0.1s ease, -webkit-transform 0.15s ease;
+  transition: transform 0.15s ease, background-color 0.1s ease;
+  transition: transform 0.15s ease, background-color 0.1s ease, -webkit-transform 0.15s ease;
+}
+
+.agent-log-table .agent-log-chevron:hover {
+  background-color: var(--slds-g-color-surface-container-3, #ececec);
+}
+
+.agent-log-table .agent-log-chevron .slds-icon {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.agent-log-table .agent-log-row_account.is-expanded .agent-log-chevron {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+/* Spacer that occupies the chevron's footprint for accounts that have no
+   children, so the avatar+name still align with sibling rows. */
+.agent-log-table .agent-log-chevron_placeholder {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+/* Status badges in the Agent Log use SLDS 2's stock `.slds-badge` + theme
+   classes (success, error, badge_lightest, default). No custom pill styles
+   are needed here — keeping it stock keeps us aligned with the platform. */
+/* Sortable column-header arrow gets a slightly stronger color when the
+   column is the active sort. */
+.agent-log-table thead th.slds-is-sorted .slds-is-sortable__icon {
+  fill: var(--slds-g-color-accent-2, #0176D3);
+}
+
+.agent-log-table thead th[aria-sort=ascending] .slds-is-sortable__icon {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+/* Responsive: no column hiding. The min-widths above plus the wrapper's
+   `overflow-x: auto` are the responsive strategy — all columns stay
+   visible at every viewport, and the wrapper scrolls horizontally inside
+   the card when the viewport can't fit the combined min-widths. This
+   mirrors the Prospects tab's "nothing ever disappears" philosophy. */
+/* ---------------------------------------------------------------------------
+   Rationale popover (Agent Log "Why this account?" / "Why this prospect?")
+   ---------------------------------------------------------------------------
+   Built on top of the SLDS 2 .slds-popover component (see
+   src/styles/slds2_agentic.scss). SLDS provides background, border, radius,
+   layered shadow, body/header padding, and close-button styling out of the
+   box; the rules below only override what's specific to this usage:
+   fixed positioning (so the popover escapes the scrollable card), an exact
+   300px width per design spec, a higher z-index than SLDS's default 6000,
+   a navy title color, and the dynamically-positioned caret. */
+.agent-log-table tbody td.agent-log-cell_rationale {
+  /* No native tooltip / question-mark cursor — the rich popover is the
+     only hover affordance. */
+  cursor: pointer;
+}
+
+.agent-log-table tbody td.agent-log-cell_rationale:focus {
+  outline: 2px solid var(--slds-g-color-accent-1, #1B96FF);
+  outline-offset: -2px;
+}
+
+.agent-log-rationale-popover {
+  --caret-x: 50%;
+  --caret-y: 50%;
+  /* SLDS sets `position: relative` on .slds-popover, but we anchor to the
+     viewport via JS so the popover escapes the scrollable card. */
+  position: fixed;
+  width: 300px;
+  /* SLDS 2's default popover z-index is 6000; raise it so we sit above
+     sticky table headers and any inline overlays. */
+  z-index: 10000;
+  /* Figma overrides on the SLDS 2 popover base:
+     - 12px corner radius (matches `--slds-g-radius-border-3` token).
+     - No container border. SLDS's base rule paints a 1px neutral border
+       that runs straight across the nubbin's seam, which reads as a
+       visible stroke on the tip. Figma uses shadow only.
+     - Elevation 4-down via `filter: drop-shadow()` rather than
+       `box-shadow`. drop-shadow follows the alpha shape of the element
+       and its absolutely-positioned children, so the same shadow chain
+       wraps the nubbin too — no rectangular cutoff at the popover edge.
+       (drop-shadow blur reads ~2x softer than box-shadow at the same
+       radius, so the values are halved relative to the design tokens.) */
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: var(--slds-g-radius-border-3, 12px);
+  -webkit-filter: drop-shadow(0 -1px 1.5px rgba(0, 0, 0, 0.07)) drop-shadow(0 4px 4px rgba(0, 0, 0, 0.12)) drop-shadow(0 0 5px rgba(0, 0, 0, 0.12));
+          filter: drop-shadow(0 -1px 1.5px rgba(0, 0, 0, 0.07)) drop-shadow(0 4px 4px rgba(0, 0, 0, 0.12)) drop-shadow(0 0 5px rgba(0, 0, 0, 0.12));
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
+}
+
+.agent-log-rationale-popover.is-open {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Header. Figma uses 16px outer padding, the title-to-bullets gap comes
+   entirely from the body's top padding, so the header has zero padding-bottom.
+   SLDS popover headers ship with no bottom border by default — keep it. */
+.agent-log-rationale-popover .slds-popover__header {
+  padding: var(--slds-g-spacing-4, 16px);
+  padding-bottom: 0;
+  -webkit-border-after: 0;
+          border-block-end: 0;
+}
+
+/* Title per Figma + SLDS 2 type tokens: deep navy on-surface-3, 16px /
+   22px, regular weight. SLDS 2's "Body / font-scale-2 / Regular" maps to
+   --slds-g-font-scale-2 + --slds-g-font-weight-4, with the 22px line
+   height baked into the role. We use the platform font family token too
+   so the heading inherits SF Pro consistently with the rest of the
+   popover. */
+.agent-log-rationale-popover .slds-popover__header .slds-text-heading_small {
+  color: var(--slds-g-color-on-surface-3, #001e5b);
+  font-family: var(--slds-g-font-family-base, "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: var(--slds-g-font-scale-2, 16px);
+  font-weight: var(--slds-g-font-weight-4, 400);
+  line-height: 22px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+/* Body. 12px gap above (so 12 + 0 from header = 12 between title and list)
+   and 16px on the other three sides. */
+.agent-log-rationale-popover .slds-popover__body {
+  padding: var(--slds-g-spacing-3, 12px) var(--slds-g-spacing-4, 16px) var(--slds-g-spacing-4, 16px);
+  color: var(--slds-g-color-on-surface-2, #2e2e2e);
+}
+
+/* Bullet list: 13px text, 18px line-height, 8px row gap, disc bullets
+   indented 16px so the bullet column aligns with the title's left edge. */
+.agent-log-rationale-popover .slds-popover__body .slds-list_dotted {
+  margin: 0;
+  -webkit-padding-start: var(--slds-g-spacing-4, 16px);
+          padding-inline-start: var(--slds-g-spacing-4, 16px);
+  color: var(--slds-g-color-on-surface-2, #2e2e2e);
+  font-size: var(--slds-g-font-size-base, 13px);
+  line-height: 18px;
+  list-style: disc;
+}
+
+.agent-log-rationale-popover .slds-popover__body .slds-list_dotted li + li {
+  -webkit-margin-before: var(--slds-g-spacing-2, 8px);
+          margin-block-start: var(--slds-g-spacing-2, 8px);
+}
+
+/* Close button. Drop the SLDS button-icon hover chip so the X reads as a
+   plain icon per Figma, and pin it 12px from the top-right corner. */
+.agent-log-rationale-popover .slds-popover__close {
+  margin: var(--slds-g-spacing-3, 12px);
+}
+
+.agent-log-rationale-popover .slds-popover__close,
+.agent-log-rationale-popover .slds-popover__close:hover,
+.agent-log-rationale-popover .slds-popover__close:focus {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.agent-log-rationale-popover .slds-popover__close .slds-button__icon {
+  fill: var(--slds-g-color-on-surface-2, #2e2e2e);
+}
+
+/* Caret. A 12x12 square rotated 45deg becomes a diamond. The popover root
+   uses `filter: drop-shadow()`, which extends the same shadow chain to all
+   absolutely-positioned descendants — including this caret — so we don't
+   need a border or shadow of our own here. The element is just a white
+   square offset half-outside the popover edge.
+   --caret-x / --caret-y are set inline by the JS, in pixels relative to
+   the popover's top-left corner, so the tip always points at the cell
+   regardless of how the popover got clamped to the viewport. We don't use
+   the SLDS .slds-nubbin_* classes because their positions are static and
+   our cells can be at arbitrary scroll positions. */
+.agent-log-rationale-popover__caret {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--slds-g-color-surface-container-1, #ffffff);
+  border: 0;
+  pointer-events: none;
+}
+
+/* Right placement (default): popover is to the RIGHT of the cell, caret
+   pokes leftward out of the popover's left edge. We offset by -6px (half
+   the caret width) so the diamond's right corner sits exactly on the
+   popover's left edge — the inside half is hidden behind the popover body
+   and the outside half forms the visible tip. */
+.agent-log-rationale-popover.position-right .agent-log-rationale-popover__caret {
+  left: -6px;
+  top: var(--caret-y);
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+}
+
+/* Left placement: popover is to the LEFT of the cell, caret pokes right. */
+.agent-log-rationale-popover.position-left .agent-log-rationale-popover__caret {
+  right: -6px;
+  top: var(--caret-y);
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+}
+
+/* Top placement (fallback): popover above cell, caret hangs below. */
+.agent-log-rationale-popover.position-top .agent-log-rationale-popover__caret {
+  bottom: -6px;
+  left: var(--caret-x);
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+}
+
+/* Bottom placement (fallback): popover below cell, caret pokes upward. */
+.agent-log-rationale-popover.position-bottom .agent-log-rationale-popover__caret {
+  top: -6px;
+  left: var(--caret-x);
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+}
+
+/* ===========================================================================
+   Logs tab: view-mode switcher dropdown
+   ---------------------------------------------------------------------------
+   A bare-icon dropdown trigger sits next to the "Logs" tab label and lets
+   the user flip the tables between V1 (Group by Account) and V2 (Group by
+   RunId). The SLDS tab item is normally `display: list-item` / inline-ish;
+   we promote it to flex on the `.logs-tab` modifier so the button can sit
+   inline with the tab label without throwing off the underline indicator
+   or tab-row alignment.
+   =========================================================================== */
+.slds-tabs_default__item.logs-tab {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+}
+
+/* The trigger itself is icon-only. Inherit text color from the tab so the
+   chevron picks up the active-state contrast SLDS already applies to the
+   tab text. Position-relative so the dropdown menu anchors to the button. */
+.logs-view-switcher {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logs-view-switcher .js-logs-view-toggle {
+  color: inherit;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.logs-view-switcher .js-logs-view-toggle:focus-visible {
+  outline: 2px solid var(--slds-g-color-accent-3, #0250D9);
+  outline-offset: 2px;
+}
+
+.logs-view-switcher .js-logs-view-toggle .slds-button__icon {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+/* The SLDS dropdown menu defaults to `position: absolute` from the trigger.
+   `top: 100%` drops it directly below the chevron; `min-width` keeps the
+   long-option labels readable without wrapping. `z-index` lifts it above
+   the tab underline and the card-uplift body. */
+.logs-view-switcher__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  margin-top: 4px;
+  z-index: 50;
+}
+
+/* SLDS's `.slds-dropdown-trigger_click` opens the menu by toggling
+   `.slds-is-open`. The base SLDS rule already handles display, but stamp
+   the explicit reveal here so the menu doesn't depend on which SLDS build
+   ships the default. */
+.logs-view-switcher.slds-is-open .logs-view-switcher__menu {
+  display: block;
+}
+
+/* Visual checkmark via ::before on the selected option, mirroring the
+   selection treatment used elsewhere in the page for combobox listboxes. */
+.logs-view-switcher__menu .slds-listbox__option.slds-is-selected {
+  background-color: var(--slds-g-color-surface-container-2, #f3f3f3);
+}
+
+/* ===========================================================================
+   V2: Run List + Run Detail (Group by RunId)
+   ---------------------------------------------------------------------------
+   The V2 view is run-level observability, not entity grouping. The Run
+   List is a flat 8-column table where each row is a click target that
+   drills into a Run Detail view (back button + records table). Both
+   tables share `.agent-log-table` for the base look-and-feel; the
+   `_run-list` and `_run-detail` modifiers add view-specific column widths
+   and interaction affordances.
+   =========================================================================== */
+/* ---- Run List column widths (8 columns) -------------------------------- */
+/*
+ * These supplement the existing V1 column rules above (which already cover
+ * the Owner / Flex Credits Used columns). Combined min-widths add up well
+ * past a narrow viewport, so the `.slds-card-uplift-table-wrapper`
+ * horizontal-scroll safety net kicks in just like for V1.
+ */
+.agent-log-table_run-list thead th.agent-log-th_run,
+.agent-log-table_run-list tbody td.agent-log-cell_run {
+  min-width: 200px;
+  width: auto;
+}
+
+.agent-log-table_run-list thead th.agent-log-th_agent,
+.agent-log-table_run-list tbody td.agent-log-cell_agent {
+  min-width: 160px;
+  width: auto;
+}
+
+.agent-log-table_run-list thead th.agent-log-th_status-summary,
+.agent-log-table_run-list tbody td.agent-log-cell_status-summary {
+  min-width: 320px;
+  width: auto;
+}
+
+.agent-log-table_run-list thead th.agent-log-th_processed,
+.agent-log-table_run-list tbody td.agent-log-cell_processed {
+  min-width: 140px;
+  width: auto;
+}
+
+.agent-log-table_run-list thead th.agent-log-th_duration,
+.agent-log-table_run-list tbody td.agent-log-cell_duration {
+  min-width: 110px;
+  width: auto;
+}
+
+.agent-log-table_run-list thead th.agent-log-th_started,
+.agent-log-table_run-list tbody td.agent-log-cell_started {
+  min-width: 180px;
+  width: auto;
+}
+
+/* ---- V2 Run Detail table chrome --------------------------------------- */
+/* The Run Detail table sits inside a card that already supplies its own
+   chrome (header, border, rounded corners), so the SLDS
+   `.slds-table_bordered` outline applied by the markup is redundant and
+   reads as a visible double border at the top edge. Strip the table-level
+   border here; the per-row dividers in `.agent-log-table tbody tr` still
+   provide the necessary horizontal separation. */
+.agent-log-table_run-detail {
+  border: 0;
+}
+
+/* ---- V2 Run Detail column widths -------------------------------------- */
+/* The Records Researched cell holds an icon + 4-line metadata block so it
+   needs more horizontal room than the other detail columns. Owner /
+   Last Updated mirror the V1 sizing. */
+.agent-log-table_run-detail thead th.agent-log-th_record,
+.agent-log-table_run-detail tbody td.agent-log-cell_record {
+  min-width: 320px;
+  width: auto;
+}
+
+.agent-log-table_run-detail thead th.agent-log-th_status,
+.agent-log-table_run-detail tbody td.agent-log-cell_status {
+  min-width: 120px;
+  width: auto;
+}
+
+.agent-log-table_run-detail thead th.agent-log-th_rationale,
+.agent-log-table_run-detail tbody td.agent-log-cell_rationale {
+  min-width: 240px;
+  width: auto;
+}
+
+.agent-log-table_run-detail thead th.agent-log-th_owner,
+.agent-log-table_run-detail tbody td.agent-log-cell_owner {
+  min-width: 140px;
+  width: auto;
+}
+
+.agent-log-table_run-detail thead th.agent-log-th_updated,
+.agent-log-table_run-detail tbody td.agent-log-cell_updated {
+  min-width: 140px;
+  width: auto;
+}
+
+/* ---- Run List rows: clickable / hover / focus -------------------------- */
+/*
+ * The entire row is the click target. We set `cursor: pointer` and
+ * elevate the hover background a step beyond the base hover treatment so
+ * users get a strong affordance that this row "does something". A focus
+ * ring honors keyboard users (rows carry tabindex="0" + role="row").
+ */
+.agent-log-table_run-list tbody tr.js-agent-log-run-list-row {
+  cursor: pointer;
+}
+
+.agent-log-table_run-list tbody tr.js-agent-log-run-list-row:hover {
+  background-color: var(--slds-g-color-surface-container-3, #ececec);
+}
+
+.agent-log-table_run-list tbody tr.js-agent-log-run-list-row:focus-visible {
+  outline: 2px solid var(--slds-g-color-accent-3, #0250D9);
+  outline-offset: -2px;
+  background-color: var(--slds-g-color-surface-container-3, #ececec);
+}
+
+/* Reveal the trailing "View Details" label on hover/focus so it functions
+   as a passive call-to-action without cluttering the resting state. Link
+   color matches the run-id anchor for visual consistency, and the small
+   font size keeps the label from competing with the date next to it. */
+.agent-log-table_run-list .agent-log-run-list-view-details {
+  color: #0250D9;
+  font-size: 12px;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  white-space: nowrap;
+  opacity: 0;
+  -webkit-transition: opacity 0.12s ease;
+  transition: opacity 0.12s ease;
+}
+
+.agent-log-table_run-list tbody tr.js-agent-log-run-list-row:hover .agent-log-run-list-view-details,
+.agent-log-table_run-list tbody tr.js-agent-log-run-list-row:focus-visible .agent-log-run-list-view-details {
+  opacity: 1;
+}
+
+/* ---- Run column: stacked Run ID + trigger ------------------------------ */
+/*
+ * Two lines, tight leading. Run ID is the primary label (link-styled,
+ * bolder), trigger ("Daily Prospecting") is the muted secondary line.
+ * `min-width: 0` lets the truncate inside reach the parent grid edge.
+ */
+.agent-log-table_run-list .agent-log-run-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.agent-log-table_run-list .agent-log-run-info__id {
+  color: #0250D9;
+  text-decoration: none;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.agent-log-table_run-list .agent-log-run-info__id:hover,
+.agent-log-table_run-list .agent-log-run-info__id:focus-visible {
+  text-decoration: underline;
+}
+
+.agent-log-table_run-list .agent-log-run-info__trigger {
+  color: var(--slds-g-color-on-surface-3, #939393);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* ---- Status Summary: compact pill cluster ------------------------------ */
+/*
+ * Inline-flex with a small gap and `flex-wrap` so up to four pills sit on
+ * one line on a wide table and wrap to a second row on narrow widths.
+ * The `_status-summary` cell overrides the base cell's `white-space:
+ * nowrap` because flex-wrap doesn't kick in otherwise.
+ */
+.agent-log-table_run-list tbody td.agent-log-cell.agent-log-cell_status-summary {
+  white-space: normal;
+}
+
+.agent-log-status-summary {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 4px;
+}
+
+.agent-log-status-summary .agent-log-status-pill {
+  font-size: 11px;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  padding: 2px 8px;
+  border-radius: 10px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* ---- Run Detail header: back button + title + meta + filter bar -------- */
+/*
+ * The header sits flush at the top of the tab body when the page is in
+ * run-detail mode (the parent list-toolbar is hidden via JS). It lays
+ * out as a column:
+ *   1. Back button (top-left)
+ *   2. Header body — a flex row that bottom-aligns the title block (left)
+ *      and the inline filter bar (right). Bottom-alignment keeps the
+ *      filter chevrons on the same baseline as the meta line so the
+ *      page reads as a single tightly-grouped header rather than two
+ *      stacked toolbars.
+ * Bottom border separates the whole header from the records table that
+ * follows.
+ */
+.agent-log-run-detail__header {
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--slds-g-color-border-1, #e5e5e5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+}
+
+.agent-log-run-detail__header-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 24px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.agent-log-run-detail__title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* When the Logs tab is in run-detail mode, lift the detail header tight
+   to the top tab nav and remove the extra block-end gap the table
+   normally creates. The `.is-run-detail-mode` class lives on the tab
+   panel (#tab-default-3) so the rule is scoped to the Logs tab. */
+#tab-default-3.is-run-detail-mode .agent-log-run-detail__header {
+  padding-top: 12px;
+}
+
+.agent-log-back-button {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 4px;
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  color: #0250D9;
+  font-size: 13px;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
+}
+
+.agent-log-back-button:hover {
+  background-color: var(--slds-g-color-surface-container-2, #f3f3f3);
+}
+
+.agent-log-back-button:focus-visible {
+  outline: 2px solid var(--slds-g-color-accent-3, #0250D9);
+  outline-offset: 2px;
+}
+
+.agent-log-back-button .slds-button__icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.agent-log-run-detail__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4px;
+}
+
+.agent-log-run-detail__heading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: var(--slds-g-font-weight-7, 700);
+  color: var(--slds-g-color-on-surface-1, #181818);
+  line-height: 1.3;
+}
+
+.agent-log-run-detail__heading-trigger {
+  font-weight: var(--slds-g-font-weight-5, 500);
+  color: var(--slds-g-color-on-surface-2, #2E2E2E);
+}
+
+.agent-log-run-detail__meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--slds-g-color-on-surface-3, #939393);
+}
+
+.agent-log-run-detail__meta > span {
+  white-space: nowrap;
+}
+
+/* ---- Run Detail records: entity icon + name + type --------------------- */
+/*
+ * The first column is an entity-typed avatar + record name + (muted) type
+ * label. Keeps the visual identity of the record (Account/Prospect/...)
+ * obvious at a glance while the name stays the dominant text element.
+ */
+/* Force the standard-entity icons to 24x24 regardless of the SLDS size
+   modifier on the SVG (the macro uses `slds-icon_x-small` which renders
+   at 16x16 by default). Sized to match the avatar pattern used in V1's
+   Records Researched column so V1 and V2 row heights line up. */
+.agent-log-table_run-detail .agent-log-cell_record .slds-icon_container {
+  width: 24px;
+  height: 24px;
+}
+
+.agent-log-table_run-detail .agent-log-cell_record .slds-icon_container .slds-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Records Researched cell content: an entity icon + a 4-line metadata
+   block (mirrors the Prospects tab `cell_prospect` / `cell_company`
+   metadata patterns). Layout matches Prospects tab exactly:
+     line 1 (primary)   – record name / company name (linked, bold blue)
+     lines 2-4 (meta)   – title + email + phone, or employees + industry + location
+   The icon top-aligns with the first text line; meta lines are muted
+   weak text styled consistently with `slds-text-color_weak` in the
+   Prospects tab. */
+.agent-log-table_run-detail .agent-log-record-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.agent-log-table_run-detail .agent-log-record-info__name {
+  color: #0250D9;
+  text-decoration: none;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.agent-log-table_run-detail .agent-log-record-info__name:hover,
+.agent-log-table_run-detail .agent-log-record-info__name:focus-visible {
+  text-decoration: underline;
+}
+
+.agent-log-table_run-detail .agent-log-record-info__meta {
+  color: var(--slds-g-color-on-surface-3, #444444);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Email / phone links inside the metadata block use the SLDS link blue
+   so users recognize them as actionable mailto/tel links — same pattern
+   as the Prospects tab `slds-text-link` treatment. */
+.agent-log-table_run-detail .agent-log-record-info__link {
+  color: #0250D9;
+  text-decoration: none;
+}
+
+.agent-log-table_run-detail .agent-log-record-info__link:hover,
+.agent-log-table_run-detail .agent-log-record-info__link:focus-visible {
+  text-decoration: underline;
+}
+
+/* Give the record cell a touch of vertical breathing room so the
+   4-line metadata block doesn't crowd the row dividers. Matches the
+   `slds-p-vertical_x-small` treatment used by the Prospects tab. */
+.agent-log-table_run-detail .agent-log-cell_record {
+  -webkit-padding-before: 0.5rem;
+          padding-block-start: 0.5rem;
+  -webkit-padding-after: 0.5rem;
+          padding-block-end: 0.5rem;
+  vertical-align: top;
+}
+
+/* ---- Run Detail filter bar (Records / Status / Owner) ------------------ */
+/*
+ * Sits inline at the bottom-right of the run detail header. Three SLDS
+ * combobox dropdowns laid out horizontally with consistent spacing. The
+ * comboboxes deliberately inherit SLDS 2 picklist defaults (height,
+ * chevron position, dropdown menu sizing) so they look like first-class
+ * SLDS 2 form components — we only override layout-level styling
+ * (spacing, label sizing, container width) and leave the combobox
+ * internals untouched.
+ */
+.agent-log-run-detail__filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+.agent-log-run-detail__filter {
+  gap: 8px;
+}
+
+/* Zero the SLDS-default label padding/margin so the only spacing
+   between label and picklist comes from the flex `gap: 8px` above.
+   SLDS sets padding-inline-end + padding-block-start + margin-block-end
+   on the label by default (form-stack defaults) which doubles up with
+   our gap and pushes the label up a few px relative to the picklist. */
+.agent-log-run-detail__filter .slds-form-element__label {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  color: var(--slds-g-color-on-surface-2, #2e2e2e);
+  white-space: nowrap;
+}
+
+/* Match the combobox trigger width to the open dropdown's floor.
+   `.slds-dropdown_fluid` enforces `min-width: calc(var(--slds-g-sizing-5)
+   * 12)` (~192px), so a narrower trigger creates a width mismatch where
+   the menu overhangs the input. Pinning the container at 192px keeps
+   trigger and menu the same width; max-width allows a little growth for
+   long owner names without ballooning the bar. */
+.agent-log-run-detail__filter .slds-combobox_container {
+  min-width: 192px;
+  max-width: 220px;
+}
+
+/* Left-align the open dropdown menu with its combobox trigger.
+   SLDS's base `.slds-dropdown` positions the menu with
+   `left: 50%; transform: translate(-50%)` (horizontally centered on the
+   trigger), and `.slds-dropdown_fluid` floors the menu at
+   `min-width: calc(var(--slds-g-sizing-5) * 12)` (~192px) — wider than
+   our 160px combobox — so the menu visually overhangs to the left of
+   the input. Pinning the menu to the trigger's leading edge keeps the
+   Records / Status / Owner pickers aligned with their inputs in LTR and
+   mirrors correctly under RTL via `inset-inline-start`. */
+.agent-log-run-detail__filter .slds-dropdown-trigger > .slds-dropdown {
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  -webkit-transform: translate(0);
+          transform: translate(0);
+}
+
+/* ===========================================================================
+   Knowledge tab
+   ---------------------------------------------------------------------------
+   Scoped under `.knowledge-tab` — the wrapper on the Knowledge tab panel
+   inside prospect_list.html. Reuses the shared `.slds-table-uplift` shell
+   from the Agents tab; overrides here only cover layout choices this tab
+   introduces (header row above the table, source-stack pill, doc-name
+   two-line cell, custom-status badge color, row kebab menu positioning).
+   =========================================================================== */
+/* Row of controls above the table: search on the left, filter/settings/
+   refresh icon buttons on the right. Mirrors the header pattern used by
+   the Logs run-detail bar so the tab-to-tab visual language stays consistent. */
+.knowledge-tab__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: var(--slds-g-spacing-3, 0.75rem);
+  -webkit-padding-after: var(--slds-g-spacing-3, 0.75rem);
+          padding-block-end: var(--slds-g-spacing-3, 0.75rem);
+}
+
+.knowledge-tab__search {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 320px;
+          flex: 0 1 320px;
+  max-width: 320px;
+}
+
+.knowledge-tab__controls {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+/* -- Table cells -------------------------------------------------------- */
+.knowledge-table__cell_name {
+  /* Cancel the SLDS `slds-cell_action-mode` line-height reset for the
+     primary column so the two-line "name + type" stack has natural
+     leading. Padding matches the .slds-td-formatter treatment used by
+     the Prospects table's Prospect cell. */
+  padding-block: 0.5rem;
+}
+
+.knowledge-table__doc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.knowledge-table__doc-name {
+  color: #0250D9;
+  text-decoration: none;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  font-size: 13px;
+  line-height: 1.3;
+  /* Ensure the link wraps if the .md file name is longer than the cell. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.knowledge-table__doc-name:hover,
+.knowledge-table__doc-name:focus-visible {
+  text-decoration: underline;
+}
+
+.knowledge-table__doc-meta {
+  color: var(--slds-g-color-on-surface-3, #444444);
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+/* -- Sources column: reuse of `.source-multi` from multi-source-badge.html.
+   Lifted inline here (instead of importing that partial's styles) so the
+   pattern doesn't add a cross-page dependency. Keep in sync with
+   src/views/multi-source-badge.html:14-54 if you tweak either. */
+.source-multi {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+  padding: 2px 8px 2px 5px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: var(--slds-g-color-on-surface-2, #444);
+}
+
+.source-multi__icons {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.source-multi__icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  background: white;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+          box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.source-multi__icon + .source-multi__icon {
+  margin-left: -5px;
+  -webkit-transition: margin-left 200ms ease;
+  transition: margin-left 200ms ease;
+}
+
+.source-multi:hover .source-multi__icon + .source-multi__icon {
+  margin-left: 2px;
+}
+
+.source-multi__icon:nth-child(1) {
+  z-index: 3;
+}
+
+.source-multi__icon:nth-child(2) {
+  z-index: 2;
+}
+
+.source-multi__icon:nth-child(3) {
+  z-index: 1;
+}
+
+.source-multi__icon img,
+.source-multi__icon svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.knowledge-table__sources-label {
+  font-size: 12px;
+  color: var(--slds-g-color-on-surface-2, #444);
+}
+
+/* The "+X" overflow badge inside the sources label. Small pill next to the
+   "3 sources" text, subtle enough to read as secondary info. */
+.knowledge-table__sources-plus {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--slds-g-color-surface-container-3, #ebebeb);
+  color: var(--slds-g-color-on-surface-2, #2e2e2e);
+  font-size: 11px;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  line-height: 16px;
+}
+
+/* -- Custom status badge (purple/neutral variant).
+   No stock SLDS `slds-theme_*` variant maps to purple in this build, so
+   `.knowledge-badge_custom` supplies its own accent-container color.
+   Uses direct hex values (not `--slds-g-color-accent-container-2`, which
+   in the current theme resolves to blue and would clash with the "Up to
+   date" green + "Regenerate available" warning-orange trio). The `#9050E9`
+   family also matches the existing "contact" avatar accent used by the
+   Prospects tab (see `_macros.html:78`) so the purple reads as intentional
+   product accent, not a random color. */
+.knowledge-badge_custom {
+  background-color: #F0E7FF;
+  color: #5B23B6;
+  border: 1px solid #D3BEFC;
+}
+
+/* -- Row action kebab: same shell as Agents tab but with the dropdown
+   attached (Agents rendered the button without a menu). Position the
+   dropdown to the right edge of the button so the menu doesn't clip the
+   scroll container. */
+.knowledge-table__row-menu {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.knowledge-table__row-menu .slds-dropdown {
+  min-width: 10rem;
+  inset-inline-end: 0;
+  inset-inline-start: auto;
+  -webkit-transform: none;
+          transform: none;
+}
+
+/* Destructive menu item — mirror SLDS's `slds-button_text-destructive`
+   coloring but for a dropdown link. Only the Delete item gets this. */
+.knowledge-menu__item_destructive {
+  color: var(--slds-g-color-error-1, #ba0517) !important;
+}
+
+.knowledge-menu__item_destructive:hover,
+.knowledge-menu__item_destructive:focus {
+  background-color: var(--slds-g-color-error-container-1, #fddde3);
+}
+
+/* -- Sortable header state: mirror the .agent-log-table pattern so the
+   arrow direction and accent color reflect the current sort. Scoped to
+   .knowledge-table so the visual only appears on this tab. */
+.knowledge-table thead th.slds-is-sorted .slds-is-sortable__icon {
+  fill: var(--slds-g-color-accent-2, #0176D3);
+}
+
+.knowledge-table thead th[aria-sort=ascending] .slds-is-sortable__icon {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+/* -- Empty state message when a search filter zeroes the visible rows. */
+.knowledge-tab__empty {
+  color: var(--slds-g-color-on-surface-2, #444);
+}
+/*# sourceMappingURL=prospect_list.css.map */

@@ -1,0 +1,1205 @@
+@charset "UTF-8";
+/* ===========================================================================
+   Agent Monitoring page (new 2026-07-07)
+   ---------------------------------------------------------------------------
+   Operational monitoring surface for Hunter managers. Sits at
+   /agent_monitoring.html, reached from the top context-bar "Agent
+   Monitoring" tab (added in _template.html). Distinct from the Logs
+   sub-tab inside Prospecting — this page is outreach-flavored (Active /
+   Completed / Incomplete outreach), whereas Logs is research-flavored
+   (Records Researched).
+
+   Structure:
+     1. Shared record-home page header (via `_page_header.html`) —
+        rendered OUTSIDE `.agent-monitoring` so it aligns with
+        `main.app-wrapper` at `left=16`.
+     2. `.agent-monitoring__toolbar` — page-level filter row above the
+        card (Agent / Generated on / View as / Object + more-filters).
+     3. `article.slds-card-uplift.agent-monitoring__card` — reuses the
+        Prospecting page's list-view card shell (styled by
+        `prospect_list.scss`, which we link on this page). Inside:
+          • metric strip
+          • metadata + bulk actions row
+          • `.slds-table-uplift .agent-monitoring__table` — inherits
+            sticky-header, sortable-th, resizable-cols, hint-parent
+            hover from the shared shell; rules below only add the
+            monitoring-specific column widths and cell types (rating,
+            reply, why-clamp, chevron/avatar, timing icons).
+
+   Nothing in here targets bare `.agent-monitoring__table th/td` — all
+   generic table chrome comes from the shared uplift shell. Only cell-
+   *shape* extras (chevron, avatar, badge, why-clamp) live here.
+   =========================================================================== */
+/* Body wrapper — the page-header renders OUTSIDE this container (see
+   agent_monitoring.html) so it stays flush with `main.app-wrapper` like
+   the shared record-home headers do everywhere else. Only body content
+   (toolbar → card) needs the inset here. */
+.agent-monitoring {
+  padding: 0 var(--slds-g-spacing-4, 1rem) var(--slds-g-spacing-5, 1.25rem);
+}
+
+/* ---------------------------------------------------------------------------
+   Filter/action bar — lives inside the card at the top. Four SLDS 2
+   combobox picklists (Agent / Generated on / View as / Object) plus a
+   more-filters icon button. Right-aligned to match the Monitoring
+   reference; the icon button sits at the far right, separated by an
+   8px gap from the picklists (matching the inter-picklist gap).
+
+   Each filter is a `.slds-form-element` (NOT `_horizontal`) with
+   `.slds-grid.slds-grid_vertical-align-center` for inline label +
+   control layout. The `_horizontal` modifier forces `width:100%`
+   (slds2_agentic.scss:7995), which would collapse each filter onto
+   its own row inside our toolbar flex — we skip it and use `slds-
+   grid` to lay out label + control side-by-side without inheriting
+   the 33%-label-33%-padding auto-layout designed for tall form
+   fields.
+   --------------------------------------------------------------------------- */
+.agent-monitoring__toolbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  /* 8px gap between filters (per Monitoring reference — tight, dense).
+     `flex-wrap: wrap` keeps the toolbar from clipping on narrower
+     viewports; each filter falls to the next line as its own unit
+     rather than mid-picklist. */
+  gap: var(--slds-g-spacing-2, 0.5rem);
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: var(--slds-g-spacing-4, 1rem) var(--slds-g-spacing-4, 1rem) 0;
+}
+
+/* Individual filter row: label + control on a single flex line.
+   `flex: 0 0 auto` keeps the outer toolbar's flex-wrap sizing sane —
+   each filter shrinks to fit its label + minimum picklist width, no
+   less. `margin-block-end: 0` overrides the default SLDS
+   `.slds-form-element { margin-block-end: var(--slds-g-spacing-2) }`
+   (slds2_agentic.scss:7787-ish) which would otherwise add vertical
+   space below each filter and shift the metric strip down. */
+.agent-monitoring__filter.slds-form-element {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  /* 8px between the label and its picklist trigger, matching the
+     inter-filter gap. `.slds-form-element__label` already ships with
+     `padding-inline-end: var(--slds-g-spacing-2)` (== 8px) so the
+     gap comes for free — we just null out any competing padding on
+     the __control side. */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* SLDS 2 "Field label" typography lives untouched — color, size,
+   weight all come from `.slds-form-element__label` in slds2_agentic.
+   scss:7799 (on-surface-2 color, font-scale-neg-2 size). We just
+   trim the block padding/margin so the label sits centered on the
+   picklist trigger line rather than baseline-shifted upward. */
+.agent-monitoring__filter .slds-form-element__label {
+  -webkit-padding-before: 0;
+          padding-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  white-space: nowrap;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+/* The __control child hosts the combobox picklist. Constrain the
+   inner `slds-combobox_container` min-width so the picklists don't
+   collapse to their placeholder width, but keep it small enough that
+   all four fit on one row at ~1440px+. */
+.agent-monitoring__filter .slds-form-element__control {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  padding: 0;
+}
+
+.agent-monitoring__filter .slds-combobox_container {
+  min-width: 9.5rem;
+}
+
+/* SLDS 2 picklist affordance — the trigger is a faux input, so add
+   pointer cursor. `.slds-input_faux` already carries the readonly-
+   look styling from slds2_agentic.scss:8247. */
+.agent-monitoring__filter .slds-combobox.slds-dropdown-trigger_click {
+  cursor: pointer;
+}
+
+/* More-filters icon button — uses the SLDS 2 `slds-button_icon-border-
+   filled` variant so it renders as a bordered white square that
+   matches the picklist triggers' visual weight. No custom size or
+   border rules here — SLDS 2 stock. */
+.agent-monitoring__filter-icon-btn {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+/* ---------------------------------------------------------------------------
+   article.slds-card-uplift overrides — the shared shell in
+   prospect_list.scss:96 sets a fixed `height: calc(100vh - 13.625rem)`
+   because the Prospecting page's card scrolls internally under a
+   pinned tab bar. This page has no tab bar and prefers page-level
+   scroll, so let the card grow with its content instead.
+   --------------------------------------------------------------------------- */
+.agent-monitoring__card.slds-card-uplift {
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+/* ---------------------------------------------------------------------------
+   Metric strip — four equal-width cards matching the Figma "Metric -
+   Full Neutral Option" component (file oFr9paxJGMzPgLP4mh8Bxm, node
+   20657:22305). Each card is a 3-row stack (label → count → delta
+   indicator) inside a 10px-radius container that gains a 2px accent
+   border + light-blue fill when selected. No top-border strip — the
+   entire border switches color on selection, matching the Figma spec.
+
+   Border width is 2px on BOTH inactive and active states so switching
+   selection doesn't jiggle the content area by 1px. Only the color
+   changes.
+   --------------------------------------------------------------------------- */
+.agent-monitoring__metrics {
+  display: grid;
+  /* `minmax(0, 1fr)` (not the shorthand `1fr`) — the shorthand
+     resolves to `minmax(auto, 1fr)`, and `auto` == min-content. When
+     one card's delta description ("Increased after lowering account
+     threshold", 42 chars) refuses to shrink below its min-content
+     width, that column blows past the equal share and steals space
+     from the others, producing the unequal 287/341/255/252 widths.
+     Explicit 0 min lets `flex: 1 1 0%; text-overflow: ellipsis` on
+     the delta description inside each card actually truncate, so
+     all four columns hold an exact 1/4 share. */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--slds-g-spacing-3, 0.75rem);
+  padding: var(--slds-g-spacing-4, 1rem) var(--slds-g-spacing-4, 1rem) 0;
+}
+
+.agent-monitoring__metric {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  text-align: left;
+  /* Figma: padding-inline 16 / padding-block 12 + 8px inter-row gap. */
+  padding: var(--slds-g-spacing-3, 0.75rem) var(--slds-g-spacing-4, 1rem);
+  gap: var(--slds-g-spacing-2, 0.5rem);
+  background: var(--slds-g-color-surface-container-1, #ffffff);
+  border: 2px solid var(--slds-g-color-border-1, #c9c9c9);
+  /* Figma spec: 10px radius (not the default `--slds-g-radius-border-
+     2` which is 4px). Hardcoded because SLDS 2 doesn't ship a matching
+     radius token in this build. */
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.1s ease, border-color 0.1s ease;
+  transition: background-color 0.1s ease, border-color 0.1s ease;
+}
+
+.agent-monitoring__metric:hover {
+  background: var(--slds-g-color-surface-container-3, #f3f3f3);
+}
+
+/* Selected state: swap to the accent tokens straight from the Figma
+   design (--slds-g-color-brand-base-95 for the surface, --slds-g-
+   color-border-accent-1 for the border). The old `::before` top-
+   strip pseudo is intentionally gone — the Figma spec is a plain
+   uniform-border card. */
+.agent-monitoring__metric.is-active {
+  background: var(--slds-g-color-brand-base-95, #edf4ff);
+  border-color: var(--slds-g-color-border-accent-1, #066afe);
+}
+
+/* Label — Figma "KPI Label" text style: 13px / 18px Regular,
+   `--slds-g-color-on-surface-1` (which is #5c5c5c in this SLDS 2
+   build; note that value differs from the more common #181818
+   sometimes exported by SLDS docs, so we don't hardcode a fallback
+   that fights the token). */
+.agent-monitoring__metric-label {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: var(--slds-g-font-weight-4, 400);
+  color: var(--slds-g-color-on-surface-1, #5c5c5c);
+}
+
+/* Count — Figma "Titles/font-scale-4/Regular": 24px / 32px Regular. */
+.agent-monitoring__metric-count {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--slds-g-font-weight-4, 400);
+  color: var(--slds-g-color-on-surface-1, #5c5c5c);
+}
+
+/* Delta row — icon + percentage + descriptive text, all inline.
+   `min-width: 0` on the row so the description child can truncate
+   via ellipsis when its text runs long ("Increased after lowering
+   account threshold" is 42 chars — comfortably wider than the ~150
+   px available in a quarter-width card). */
+.agent-monitoring__metric-delta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2px;
+  min-width: 0;
+  width: 100%;
+}
+
+.agent-monitoring__metric-delta-icon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  fill: var(--slds-g-color-palette-green-65, #41b658);
+}
+
+/* Percentage — Figma "Body/font-scale-1/Semibold" == 14px / 19px
+   weight 590 (SF Pro Semibold). We map 590 → the SLDS-6 weight
+   token, which resolves to Semibold. */
+.agent-monitoring__metric-delta-value {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: var(--slds-g-font-weight-6, 590);
+  color: var(--slds-g-color-palette-green-65, #41b658);
+}
+
+/* Description — Figma "Body/font-scale-base/Regular": 13px / 18px,
+   `--slds-g-color-on-disabled-2` (#757575). Truncates via ellipsis
+   at the row's remaining width; `min-width: 0` on the parent flex
+   row plus `flex: 1 1 0%` here is the standard "let this shrink"
+   recipe. `title` attribute at the source markup preserves the full
+   string on hover. */
+.agent-monitoring__metric-delta-description {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: var(--slds-g-font-weight-4, 400);
+  color: var(--slds-g-color-on-disabled-2, #757575);
+}
+
+/* ---------------------------------------------------------------------------
+   Metadata + bulk-actions row — outer flex layout comes from
+   `.slds-grid slds-grid_align-spread slds-m-horizontal_medium` on the
+   markup (mirrors _prospects_tab.html:10). We only need to shore up
+   the bulk-action button spacing and the disabled state.
+   --------------------------------------------------------------------------- */
+.agent-monitoring__bulk-actions {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+}
+
+/* SLDS gives `:disabled` a default cursor already, but Hunter's own
+   button overrides in slds2_agentic.scss reintroduce the pointer
+   cursor on hover — re-assert the disabled cursor so the bulk-action
+   buttons read as inert when nothing is selected. */
+.agent-monitoring__bulk-actions .slds-button:disabled,
+.agent-monitoring__bulk-actions .slds-button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ---------------------------------------------------------------------------
+   Data table — column widths + monitoring-specific cell types.
+
+   Bare th/td chrome (padding, border, font-scale, sticky header, hover
+   ring) all come from the shared `.slds-table` / `.slds-table-uplift`
+   rules in slds2_agentic.scss + prospect_list.scss — the point of
+   linking prospect_list.css on this page is to inherit that shell.
+   --------------------------------------------------------------------------- */
+/* Horizontal scroll wrapper — the 15-column monitoring layout is ~1700px
+   wide at 16px root, so on any viewport narrower than that the table
+   would either overflow the card (spilling into the side panel) or
+   shrink columns below their legible minimums under
+   `.slds-table_fixed-layout`. Give it its own scroll container so the
+   table pans horizontally in place while the metric strip + metadata
+   row above stay pinned to the card width. `-webkit-overflow-scrolling:
+   touch` keeps the drag feel smooth on trackpads/touch devices. */
+.agent-monitoring__table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Anchor the table to its natural min-content width so
+   `.slds-table_fixed-layout` doesn't compress columns to fit the
+   scroll wrapper — instead, the wrapper scrolls. The min-width
+   matches the sum of the col-widths declared below with a small
+   safety margin. Recalculated after adding the trailing 6rem
+   View Details column:
+   2+2+9.7+9.7+8.5+4.5+6+4+22+6.5+6+4+6+5+6 ≈ 101.9rem. */
+.agent-monitoring__table {
+  min-width: 103rem;
+}
+
+/* JS is the sole numbering source for this table (respects the metric
+   filter). Suppress the SLDS auto-counter `::after` on `.slds-row-
+   number` so it doesn't collide with JS-populated text — scoped to
+   this table only, so Prospecting/Logs numbering is untouched. */
+.agent-monitoring__table .slds-row-number:after {
+  content: none;
+}
+
+.agent-monitoring__table col.col-errors {
+  width: 2rem;
+}
+
+.agent-monitoring__table col.col-check {
+  width: 2rem;
+}
+
+/* Record (Prospect) and Account (Company) columns both match the
+   Prospecting > Approval Required reference at 9.7rem == 155px so
+   the two Hunter tables read as siblings. Both hold a stacked cell
+   (avatar + name + 3 lines of metadata) via the shared
+   `cell_prospect` / `cell_company` markup pattern. Longer emails
+   and industry strings ellipsize on `.slds-truncate`; the `title`
+   attribute on each row preserves the full string on hover. */
+.agent-monitoring__table col.col-record {
+  width: 9.7rem;
+}
+
+.agent-monitoring__table col.col-account {
+  width: 9.7rem;
+}
+
+.agent-monitoring__table col.col-agent {
+  width: 8.5rem;
+}
+
+.agent-monitoring__table col.col-rating {
+  width: 4.5rem;
+}
+
+.agent-monitoring__table col.col-owner {
+  width: 6rem;
+}
+
+.agent-monitoring__table col.col-outreaches {
+  width: 4rem;
+}
+
+.agent-monitoring__table col.col-why {
+  width: 22rem;
+}
+
+.agent-monitoring__table col.col-last {
+  width: 6.5rem;
+}
+
+.agent-monitoring__table col.col-next {
+  width: 6rem;
+}
+
+.agent-monitoring__table col.col-reply {
+  width: 4rem;
+}
+
+.agent-monitoring__table col.col-sent {
+  width: 6rem;
+}
+
+.agent-monitoring__table col.col-source {
+  width: 5rem;
+}
+
+/* View Details — trailing hover-reveal column. "View Details" is
+   ~5.5rem wide at 12px semibold; 6rem gives it a hair of breathing
+   room from the Lead Source column to its left. */
+.agent-monitoring__table col.col-details {
+  width: 6rem;
+}
+
+/* Enforce ellipsis on `.slds-truncate` that lives as the direct child
+   of a `<td>` in this table (Agent, Sent From, Lead Source cells).
+   SLDS ships `.slds-truncate` as `max-width: 100%; overflow: hidden;
+   text-overflow: ellipsis; white-space: nowrap` (slds2_agentic.scss:
+   22683), but inline `<span>` elements don't respect `max-width` —
+   so long agent names like "Welo Engagement Assistant Agent"
+   overflow their 8.5rem column instead of clipping. Forcing block
+   display lets the fixed column width from `<colgroup>` become the
+   containing box for the truncation math.
+
+   `:not(.slds-grid)` scope: the compound Prospect (Record) / Company
+   (Account) cells also use `.slds-truncate` on their OUTER
+   `.slds-grid` wrapper (from `cell_prospect` / `cell_company` in
+   `_prospect_list/_macros.html`). Without the negation, this rule
+   would override SLDS's `.slds-grid { display: flex }` and collapse
+   the avatar-next-to-text row into a vertical stack (avatar on top
+   of the text block). Skipping `.slds-grid` keeps the flex layout
+   intact on those cells while still forcing block display on the
+   plain `<span class="slds-truncate">` used by simple text cells.
+
+   The full name still lives on the `title` attribute at the source
+   markup, so hover reveals it. */
+.agent-monitoring__table td > .slds-truncate:not(.slds-grid) {
+  display: block;
+}
+
+/* Prospect (Record) and Company (Account) cells — the shared markup
+   pattern from `_prospect_list/_macros.html` (cell_prospect,
+   cell_company) wraps an avatar + a 4-line text stack in
+   `.slds-grid`. `.slds-grid` defaults to `align-items: stretch`,
+   which stretches the avatar's flex-item box down to the full row
+   height. The 32×32 image inside stays intrinsic size, so visually
+   the avatar hangs top-anchored with empty space beneath it. That
+   looks fine in the reference table but the exact position can
+   drift with SLDS 2 line-height changes. Anchor it explicitly with
+   `align-items: flex-start` so the avatar top-aligns with the
+   linked name row, matching the Approval Required reference on the
+   Prospecting page. Padding-top on the avatar span nudges it down
+   half a line so its center aligns with the first-line text
+   baseline instead of floating a few pixels above. */
+.agent-monitoring__table td > .slds-grid.slds-td-formatter {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+/* Record cell — avatar + linked prospect name. Flat rows (no account
+   grouping), so no chevron / no indent variant here. The Account
+   column re-uses this same layout to render the company logo +
+   name inline. */
+.agent-monitoring__cell_record {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+}
+
+.agent-monitoring__record-name {
+  color: var(--slds-g-color-accent-3, #0176d3);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agent-monitoring__record-name:hover {
+  text-decoration: underline;
+}
+
+.agent-monitoring__avatar {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  overflow: hidden;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  background: var(--slds-g-color-surface-container-3, #f3f3f3);
+}
+
+.agent-monitoring__avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Rating badges — the base pill styling (padding, radius, font,
+   border) now comes from the SLDS 2 Badge component (`.slds-badge`
+   at slds2_agentic.scss:5086). These variant classes only theme
+   the badge via the component's public custom-property hooks:
+     --slds-c-badge-color-background : fill
+     --slds-c-badge-text-color       : text
+   That keeps the theming inside SLDS 2's component API — future
+   badge design updates in SLDS will flow through without needing
+   to re-touch this file. Colors below are the same three-tone
+   temperature palette (red/orange/blue tints) we used before,
+   just wired into the badge hooks. */
+.agent-monitoring__rating_hot {
+  --slds-c-badge-color-background: #fdecea;
+  --slds-c-badge-text-color: #a4262c;
+}
+
+.agent-monitoring__rating_warm {
+  --slds-c-badge-color-background: #fff4e5;
+  --slds-c-badge-text-color: #8a4b0e;
+}
+
+.agent-monitoring__rating_cool {
+  --slds-c-badge-color-background: #e5f3ff;
+  --slds-c-badge-text-color: #0b5cad;
+}
+
+/* Outreaches progress cell — "1 of 2" style. Kept tabular so the
+   fraction slugs align down the column. */
+.agent-monitoring__outreaches {
+  font-variant-numeric: tabular-nums;
+  color: var(--slds-g-color-on-surface-2, #444444);
+}
+
+/* Why-this-prospect cell — allow 2–3 lines then clamp with ellipsis.
+   `-webkit-line-clamp` covers all evergreen browsers this prototype
+   targets; the `display: -webkit-box` recipe is the standard way to
+   truncate multi-line text. `white-space: normal` overrides the row-
+   default nowrap so the text actually wraps. */
+.agent-monitoring__why {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.35;
+  color: var(--slds-g-color-on-surface-1, #181818);
+}
+
+/* Cells that need to align to top when the rationale wraps beyond a
+   single line, so their content doesn't float in the middle of the
+   now-taller row. */
+.agent-monitoring__table td.agent-monitoring__cell_align-top {
+  vertical-align: top;
+  padding-top: var(--slds-g-spacing-3, 0.75rem);
+}
+
+/* Last / Next outreach — small envelope icon prefix so the column reads
+   as a comm-timeline slot rather than a plain date. */
+.agent-monitoring__timing {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-1, 0.25rem);
+  color: var(--slds-g-color-on-surface-2, #444444);
+}
+
+.agent-monitoring__timing .slds-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: currentColor;
+}
+
+.agent-monitoring__muted {
+  color: var(--slds-g-color-on-surface-2, #7c7c7c);
+}
+
+/* Reply cell — neutral badge; "Yes" and "No" get subtle color hints so
+   scanning the column tells you at a glance whether a prospect
+   responded. */
+.agent-monitoring__reply {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+  font-size: var(--slds-g-font-scale-neg-3, 0.688rem);
+  font-weight: var(--slds-g-font-weight-6, 600);
+  background: var(--slds-g-color-surface-container-3, #f3f3f3);
+  color: var(--slds-g-color-on-surface-2, #444444);
+}
+
+.agent-monitoring__reply_yes {
+  background: #e6f4ea;
+  color: #106b3a;
+}
+
+.agent-monitoring__reply_no {
+  background: #fdecea;
+  color: #a4262c;
+}
+
+/* ---------------------------------------------------------------------------
+   View Details — trailing hover-reveal column, same interaction as
+   the Agent Logs run-list View Details label (`prospect_list.scss:
+   1291-1303`). Sits at rest in the last cell of every prospect row
+   invisible via `opacity: 0`; on row hover or when any element
+   inside the row gains focus (`:focus-within`) it animates to
+   opacity 1 in ~120ms. `:focus-visible` on the link itself covers
+   the direct keyboard-focus case in browsers that support it, so
+   tabbing to the link still surfaces it even on rows the pointer
+   isn't hovering.
+   --------------------------------------------------------------------------- */
+.agent-monitoring__view-details {
+  color: #0250D9;
+  font-size: 12px;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  white-space: nowrap;
+  text-decoration: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.12s ease;
+  transition: opacity 0.12s ease;
+}
+
+.agent-monitoring__row_prospect:hover .agent-monitoring__view-details,
+.agent-monitoring__row_prospect:focus-within .agent-monitoring__view-details,
+.agent-monitoring__view-details:focus-visible {
+  opacity: 1;
+}
+
+.agent-monitoring__view-details:hover {
+  text-decoration: underline;
+}
+
+/* ===========================================================================
+   Agent Monitoring — Activity Timeline Side Panel
+   ===========================================================================
+   Sits as a horizontal flex sibling of `article.agent-monitoring__card`
+   inside `.agent-monitoring__layout`. Mirrors the Prospecting side-panel
+   alignment recipe (`prospect_list.scss:220-256`): a `slds-grid` flex row
+   wraps both children, the article gets `flex: 1 1 0; min-width: 0` to
+   fill the remaining width, and the panel snaps to a fixed 25rem on the
+   right. Both children inherit the row height via the default
+   `align-items: stretch` so the panel automatically matches whatever
+   height the article renders at — no viewport-anchored positioning, no
+   z-index stacking.
+
+   Layout is a top-to-bottom flex column inside the panel:
+     1. Header
+     2. Filter bar
+     3. Body — SLDS 2 Activity Timeline, flex-grow scrollable
+     4. Meta row (activity count + Log Activity)
+     5. Action bar (Cancel SDR Outreach / Approve All)
+
+   Closed by default; JS flips `display` to `flex` when a View Details
+   link is clicked, and adds `.slds-card-uplift-panel-is-open` to the
+   article to square off its right corners against the panel's left
+   edge (same seam styling the Prospecting page uses).
+   =========================================================================== */
+/* Article + panel wrapper. `min-width: 0` lets the article flex-child
+   shrink below its intrinsic column widths — the table's own scroll
+   wrapper handles horizontal overflow when the viewport is narrower
+   than the combined column widths. No fixed height on this row: the
+   article grows with the table, and the panel stretches to match. */
+.agent-monitoring__layout {
+  min-height: 0;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+/* Article gets the remaining width to the left of the panel. Same
+   `flex: 1 1 0; min-width: 0` recipe the Prospecting layout uses
+   (`prospect_list.scss:121`) so the article can grow past its
+   min-content width AND shrink below it (delegating overflow to the
+   `.agent-monitoring__table-scroll` wrapper). */
+.agent-monitoring__layout > article.agent-monitoring__card {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Closed by default — same pattern the prospect / agent side panels use
+   (`prospect_list.scss:227`). JS is the sole owner of `display: flex` on
+   open so a bare page load never flashes the panel. */
+#am-side-panel {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 0;
+}
+
+/* Panel is a flex sibling of the article, not viewport-fixed. Width
+   matches the SLDS reference panel (25rem == 400px, same as the
+   `.inspector-side-panel` shell on Prospecting). `flex: 0 0 25rem`
+   keeps its width fixed regardless of viewport size. `align-self:
+   stretch` inherits the flex row's height so the panel matches the
+   article's rendered height — the exact behavior the Prospecting
+   panel gets from `.prospect-list-layout`'s fixed row height.
+
+   Border + radius + background tokens are pulled from the SAME set
+   the article uses (`.slds-card-uplift` at `prospect_list.scss:96-
+   106`) so the two surfaces read as one continuous outlined block
+   with a single 1px seam down the middle:
+
+     background     : `--slds-c-card-color-background` (fall through
+                       to `--slds-g-color-surface-container-1`)
+     border-color   : `--slds-g-color-border-1`
+     border-width   : `--slds-c-card-sizing-border` (falls to `--slds-
+                       g-sizing-border-1`, ~1px)
+     border-radius  : `--slds-c-card-radius-border` (falls to `--slds-
+                       g-radius-border-2`, 4px)
+
+   We deliberately override the SLDS 2 `.slds-panel` defaults
+   (`slds2_agentic.scss:9989-9993`), which otherwise ship a smaller
+   `--slds-g-radius-border-1` (~2px) and no border — a subtle
+   mismatch that would leave the corners half-rounded and the top/
+   right/bottom edges unoutlined against the article.
+
+   Left edge stays borderless + square: the article's own right
+   border (kept intact by `.slds-card-uplift-panel-is-open`, which
+   only zeros the article's top-right/bottom-right radii) draws
+   that seam, and doubling a left border here would read as a
+   thickened edge between the two surfaces. */
+.agent-monitoring__side-panel {
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25rem;
+          flex: 0 0 25rem;
+  /* 400px */
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  min-height: 0;
+  background: var(--slds-c-card-color-background, var(--slds-g-color-surface-container-1, #ffffff));
+  border-style: solid;
+  border-width: var(--slds-c-card-sizing-border, var(--slds-g-sizing-border-1, 1px));
+  border-color: var(--slds-g-color-border-1, #c9c9c9);
+  border-left: 0;
+  border-radius: var(--slds-c-card-radius-border, var(--slds-s-container-radius-border, var(--slds-g-radius-border-2, 0.25rem)));
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  /* `.slds-panel` defaults to `overflow-y: auto` which would put a
+     scroll on the outer panel and defeat the internal `slds-
+     scrollable_y` on `.agent-monitoring__panel-body`. Clip at the
+     outer edge so the header, filter bar, and footer stay pinned
+     while only the timeline body scrolls. */
+  overflow: hidden;
+}
+
+/* --------------------- Header --------------------- */
+/* Wrapper carries a bottom divider so the header separates cleanly from
+   the filter bar. Padding matches SLDS `slds-panel__header` (16px). */
+.agent-monitoring__panel-header-wrap {
+  -webkit-border-after: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+          border-block-end: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+}
+
+.agent-monitoring__panel-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: var(--slds-g-spacing-4, 1rem);
+}
+
+/* Initials avatar — solid blue background, white uppercase two-letter
+   initials. Matches the reference image ("AM" for Abigail Mercer). */
+.agent-monitoring__panel-avatar {
+  background: #1b96ff;
+  color: #ffffff;
+}
+
+.agent-monitoring__panel-initials {
+  color: #ffffff;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  font-size: 13px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Right-side icon cluster (Refresh / Expand / Close). Icons are bare
+   SLDS button-icon buttons; the wrapper just gives them a tight
+   horizontal rhythm and keeps them right-aligned. */
+.agent-monitoring__panel-header-actions {
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+}
+
+/* --------------------- Filter row ---------------------
+   Three-cell layout: [All Activity ▼] [Last 30 Days ▼] [Upcoming &
+   Overdue ▼]. All three items live at the same flex level (no sub-
+   group) so each can take an equal `flex: 1 1 0` share of the inner
+   width. Panel is 25rem; padding is 1rem left + 1rem right (32px);
+   two 8px gaps split three cells at ~117px each. Without the
+   equal-share rule the two 8rem-min combobox triggers plus a
+   ~130px scope button overshoot the 368px inner budget and stack
+   on top of each other.
+*/
+.agent-monitoring__panel-filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+  padding: var(--slds-g-spacing-3, 0.75rem) var(--slds-g-spacing-4, 1rem);
+  -webkit-border-after: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+          border-block-end: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+/* Each cell gets a 1:1:1 share and `min-width: 0` so it can shrink
+   below the intrinsic width of its content. Applied to both
+   `.slds-combobox_container` and the scope button. */
+.agent-monitoring__panel-filter {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Combobox trigger inputs — no intrinsic min-width; fill the parent
+   cell fully and truncate long values with ellipsis so a change to
+   "Upcoming & In Progress" or similar can't push the input past
+   its 1/3-slot. Padding on the right leaves room for the chevron. */
+.agent-monitoring__panel-filters .slds-combobox__input {
+  width: 100%;
+  min-width: 0;
+  -webkit-padding-end: 1.5rem;
+          padding-inline-end: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* "Upcoming & Overdue" — link-style scope selector. Same 1/3-slot
+   width as the comboboxes; label truncates via ellipsis when its
+   intrinsic width exceeds the cell. Blue text + right-chevron per
+   the reference image. */
+.agent-monitoring__panel-scope-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  color: #0250D9;
+  font-weight: var(--slds-g-font-weight-6, 600);
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.agent-monitoring__panel-scope-btn:hover {
+  color: #014486;
+}
+
+.agent-monitoring__panel-scope-btn:hover .agent-monitoring__panel-scope-label {
+  text-decoration: underline;
+}
+
+.agent-monitoring__panel-scope-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.agent-monitoring__panel-scope-btn .slds-button__icon {
+  fill: currentColor;
+  width: 0.75rem;
+  height: 0.75rem;
+  -webkit-margin-start: var(--slds-g-spacing-1, 0.25rem);
+          margin-inline-start: var(--slds-g-spacing-1, 0.25rem);
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+/* --------------------- Body & Timeline --------------------- */
+.agent-monitoring__panel-body {
+  padding: var(--slds-g-spacing-4, 1rem);
+  min-height: 0;
+}
+
+/* Collapsible month/section header — chevron + caps title, full-width
+   button so the whole strip is a click target. */
+.agent-monitoring__timeline-section-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+  width: 100%;
+  padding: 0;
+  -webkit-margin-after: var(--slds-g-spacing-3, 0.75rem);
+          margin-block-end: var(--slds-g-spacing-3, 0.75rem);
+  background: transparent;
+  border: 0;
+  color: var(--slds-g-color-on-surface-2, #444444);
+  font-weight: var(--slds-g-font-weight-6, 600);
+  cursor: pointer;
+}
+
+.agent-monitoring__timeline-chevron {
+  fill: currentColor;
+  width: 0.75rem;
+  height: 0.75rem;
+  -webkit-transition: -webkit-transform 0.15s ease;
+  transition: -webkit-transform 0.15s ease;
+  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, -webkit-transform 0.15s ease;
+}
+
+.agent-monitoring__timeline-section.is-collapsed .agent-monitoring__timeline-chevron {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.agent-monitoring__timeline-section.is-collapsed .agent-monitoring__timeline {
+  display: none;
+}
+
+/* --------------------- Timeline items --------------------- */
+/* Icon-badge variants — the SLDS `_call`, `_task`, `_email`, `_event`
+   presets set the vertical connector line color via a `::before`
+   pseudo (see `slds2_agentic.scss:5043-5057`). We override both the
+   connector color and the standard-icon fill for our two agent-
+   monitoring categories: `_system` (gray) and `_agent` (purple).
+   Colors sampled from the reference image. */
+/* Center the vertical rail on the icon-badge centerline. The SLDS
+   default (`slds2_agentic.scss:5032-5041`) sets
+   `inset-inline-start: 2.235rem` + `margin-inline-start: var(--slds-
+   g-sizing-border-2)`, which was calibrated for SLDS's wider media
+   figure. Our figure is:
+     - chevron toggle button       1.25rem (20px)
+     - button margin-inline-end    0.5rem  ( 8px)  ← slds2_agentic.scss:4992
+     - icon badge                  2rem    (32px)
+   So the icon-badge center lands at 1.25 + 0.5 + 1 = 2.75rem (44px)
+   from the item's left edge — measured in the live DOM at exactly
+   that value. Pin the rail there and null out the SLDS
+   `margin-inline-start` compensation by pulling half the rail's own
+   width back so its VISUAL center — not its left edge — lands on
+   the 2.75rem line. Applied to both category variants via
+   `.agent-monitoring__timeline-item.slds-timeline__item_expandable`
+   so the rule fires regardless of `_system` vs. `_agent`. */
+.agent-monitoring__timeline-item.slds-timeline__item_expandable:before {
+  inset-inline-start: 2.75rem;
+  -webkit-margin-start: calc(var(--slds-g-sizing-border-2, 2px) / -2);
+          margin-inline-start: calc(var(--slds-g-sizing-border-2, 2px) / -2);
+}
+
+/* System (gray) — dark neutral surface + white icon. */
+.agent-monitoring__timeline-item_system.slds-timeline__item_expandable:before {
+  background: #5c5c5c;
+}
+
+.agent-monitoring__timeline-icon_system {
+  --slds-c-icon-color-background: #5c5c5c;
+  --slds-c-icon-color-foreground: #ffffff;
+  background-color: #5c5c5c;
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+}
+
+.agent-monitoring__timeline-icon_system svg {
+  fill: #ffffff;
+}
+
+/* Agent (purple) — brand-adjacent violet. */
+.agent-monitoring__timeline-item_agent.slds-timeline__item_expandable:before {
+  background: #9050E9;
+}
+
+.agent-monitoring__timeline-icon_agent {
+  --slds-c-icon-color-background: #9050E9;
+  --slds-c-icon-color-foreground: #ffffff;
+  background-color: #9050E9;
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+}
+
+.agent-monitoring__timeline-icon_agent svg {
+  fill: #ffffff;
+}
+
+/* Icon container sizing — SLDS `slds-timeline__icon` handles the border
+   ring that carves the icon out from the vertical connector; we adjust
+   the box size + padding so the icon reads as a rounded-square badge
+   like the reference image. `slds-icon_small` inside is 1.5rem, leaving
+   a 4px inset ring inside the 2rem badge. */
+.agent-monitoring__timeline-icon {
+  width: 2rem;
+  height: 2rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 2px solid var(--slds-g-color-surface-1, #ffffff);
+}
+
+.agent-monitoring__timeline-icon .slds-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Media figure — vertically center the toggle button (1.25rem tall)
+   against the icon badge (2rem tall). By default the figure isn't a
+   flex container, so its two children sit at their intrinsic block
+   positions and drift 6px apart (the chevron centers at ~10px from
+   the figure top; the badge centers at ~16px). `display: flex` +
+   `align-items: center` snaps them to a shared horizontal
+   centerline, matching the SLDS Activity Timeline blueprint
+   spacing. */
+.agent-monitoring__timeline .slds-media__figure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* Chevron toggle button sizing — the SLDS 2 button-icon default is a
+   pill-shaped affordance; here we want it to sit tight against the
+   icon container without dominating the figure. `slds-button_icon-x-
+   small` is not present in the SLDS blueprint we're mirroring, so
+   we tune spacing on the base `slds-button_icon` instead. The
+   `slds-timeline__item_expandable .slds-media__figure .slds-button_
+   icon { margin-inline-end: var(--slds-g-spacing-2) }` rule from
+   `slds2_agentic.scss:4992` already handles the gap to the icon. */
+.agent-monitoring__timeline .slds-media__figure .slds-button_icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-width: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+/* Prevent the icon badge from shrinking below its 2rem square when
+   the figure becomes a flex container. */
+.agent-monitoring__timeline .slds-media__figure > .agent-monitoring__timeline-icon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+.agent-monitoring__timeline .slds-timeline__details-action-icon {
+  fill: var(--slds-g-color-on-surface-2, #5c5c5c);
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+/* Trigger row — SLDS default h3 title, blue link, keep the SLDS 2
+   typography scale (`slds-text-body_regular`) rather than shrinking
+   to 12px. The `<strong>` inside is already 600-weight from SLDS. */
+.agent-monitoring__timeline h3.slds-truncate a {
+  color: #0250D9;
+  text-decoration: none;
+}
+
+.agent-monitoring__timeline h3.slds-truncate a:hover {
+  text-decoration: underline;
+}
+
+/* Summary paragraph — SLDS uses `.slds-m-horizontal_xx-small` for
+   left/right margin (2px). Tighten the top margin so it hugs the
+   title row, and set link + text colors to match the reference. */
+.agent-monitoring__timeline .slds-media__body > p.slds-m-horizontal_xx-small {
+  -webkit-margin-before: var(--slds-g-spacing-1, 0.25rem);
+          margin-block-start: var(--slds-g-spacing-1, 0.25rem);
+  color: var(--slds-g-color-on-surface-2, #5c5c5c);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.agent-monitoring__timeline .slds-media__body > p.slds-m-horizontal_xx-small a {
+  color: #0250D9;
+  text-decoration: none;
+}
+
+.agent-monitoring__timeline .slds-media__body > p.slds-m-horizontal_xx-small a:hover {
+  text-decoration: underline;
+}
+
+/* Trigger date pill — SLDS ships `.slds-timeline__date` as small caps-
+   ish text (`slds2_agentic.scss:5077`); nudge color to match our
+   meta typography instead of the default on-surface-2 token. */
+.agent-monitoring__timeline .slds-timeline__date {
+  white-space: nowrap;
+  color: var(--slds-g-color-on-surface-2, #5c5c5c);
+}
+
+/* Last item — trim the vertical connector so it doesn't extend below
+   the final icon. Applied via `agent-monitoring__timeline-item_last`. */
+.agent-monitoring__timeline-item_last.slds-timeline__item_expandable:before {
+  height: 1.25rem;
+}
+
+/* --------------------- Meta row --------------------- */
+.agent-monitoring__panel-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: var(--slds-g-spacing-3, 0.75rem) var(--slds-g-spacing-4, 1rem);
+  -webkit-border-before: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+          border-block-start: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+}
+
+.agent-monitoring__panel-meta-count {
+  color: var(--slds-g-color-on-surface-2, #5c5c5c);
+  font-size: 13px;
+}
+
+/* Log Activity — pill-shaped neutral button matching SLDS 2 button
+   defaults. Uses the SLDS button base so it inherits hover/focus rings. */
+.agent-monitoring__panel-log-btn {
+  border-radius: 999px;
+}
+
+/* --------------------- Bottom action bar --------------------- */
+.agent-monitoring__panel-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+  padding: var(--slds-g-spacing-3, 0.75rem) var(--slds-g-spacing-4, 1rem);
+  -webkit-border-before: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+          border-block-start: 1px solid var(--slds-g-color-border-1, #c9c9c9);
+}
+
+/* Both footer buttons — pill shape, equal width via `flex: 1` so they
+   split the row evenly regardless of label length. */
+.agent-monitoring__panel-footer-btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  min-width: 0;
+  border-radius: 999px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=agent_monitoring.css.map */

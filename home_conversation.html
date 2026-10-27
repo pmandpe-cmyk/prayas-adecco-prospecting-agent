@@ -1,0 +1,3642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Prototype styles -->
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/slds2_agentic.css" />
+  <link rel="stylesheet" href="/styles/gc.css" />
+  
+  
+  <link rel="stylesheet" href="/styles/home.css" />
+  <link rel="stylesheet" href="/styles/home_conversation.css" />
+
+</head>
+<body>
+
+  
+  <script>
+    (function () {
+      try {
+        if (window.self !== window.top) {
+          document.body.setAttribute('data-embedded', 'salesforce');
+        }
+      } catch (e) {
+        // Cross-origin frame access can throw; that's ALSO a signal we're embedded.
+        document.body.setAttribute('data-embedded', 'salesforce');
+      }
+    })();
+  </script>
+
+  <header class="slds-global-header_container">
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Navigation</a>
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Main Content</a>
+      <div class="slds-global-header slds-grid slds-grid_align-spread">
+        <div class="slds-global-header__item">
+          <div class="slds-global-header__logo">
+            <img src="/assets/images/logo-noname.svg" style= "width: 12.5rem;height: 2.5rem;background-size: contain;background-repeat: no-repeat;background-position: left center;"alt="Salesforce Logo" />
+          </div>
+        </div>
+        
+        <div class="slds-global-header__item slds-global-header__item_search slds-subtheme-agentic app-global-search">
+          <div class="slds-form-element app-global-search__input">
+            <label class="slds-form-element__label slds-assistive-text" for="app-global-search-input">Search or ask anything</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+              <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left" aria-hidden="true">
+                <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                </svg>
+              </span>
+              <input
+                type="search"
+                id="app-global-search-input"
+                class="slds-input"
+                placeholder="Search or ask anything..."
+                aria-label="Search or ask anything"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button type="button" class="slds-button slds-button_neutral app-global-search__ask">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkles"></use>
+            </svg>
+            <span>Ask</span>
+          </button>
+        </div>
+        
+        <div class="slds-global-header__item">
+          <ul class="slds-global-actions">
+            <li class="slds-global-actions__item">
+              <div class="slds-global-actions__favorites slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-button-group">
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-action slds-button_icon slds-button_icon-border slds-button_icon-small" aria-pressed="false" title="Toggle Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle Favorite</span>
+                  </button>
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-more slds-button_icon slds-button_icon-border slds-button_icon-small" title="View Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true" style="height:12px;width:12px;">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                    <span class="slds-assistive-text">View Favorites</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__task slds-global-actions__item-action" aria-haspopup="true" title="Global Actions">
+                  <svg class="slds-button__icon" aria-hidden="true" style="fill:white;">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Global Actions</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__help slds-global-actions__item-action" aria-haspopup="true" title="Help and Training">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help and Training</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__setup slds-global-actions__item-action" aria-haspopup="true" title="Setup">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Setup</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__notifications slds-global-actions__item-action" title="no new notifications" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use>
+                  </svg>
+                  <span class="slds-assistive-text">no new notifications</span>
+                </button>
+                <span aria-hidden="true" class="slds-notification-badge">0</span>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action" title="person name" aria-haspopup="true">
+                  <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                    <img alt="Person name" src="/assets/images/user-avatar.png" title="User avatar" />
+                  </span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+
+ 
+  <div class="app-header-placeholder"></div>
+
+
+  <div style="height: 16rem;">
+      <div class="slds-context-bar" style="padding-left: 0px;">
+        <div class="slds-context-bar__primary">
+          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+            <div class="slds-context-bar__icon-action">
+              <button class="slds-button slds-icon-waffle_container slds-context-bar__button" title="Description of the icon when needed">
+                <span class="slds-icon-waffle">
+                  <span class="slds-r1"></span>
+                  <span class="slds-r2"></span>
+                  <span class="slds-r3"></span>
+                  <span class="slds-r4"></span>
+                  <span class="slds-r5"></span>
+                  <span class="slds-r6"></span>
+                  <span class="slds-r7"></span>
+                  <span class="slds-r8"></span>
+                  <span class="slds-r9"></span>
+                </span>
+                <span class="slds-assistive-text">Open App Launcher</span>
+              </button>
+            </div>
+            <span class="slds-context-bar__label-action slds-context-bar__app-name">
+              <span class="slds-truncate" title="App Name">Sales</span>
+            </span>
+          </div>
+        </div>
+        <nav class="slds-context-bar__secondary" role="navigation">
+          <ul class="slds-grid">
+            
+            <li class="slds-context-bar__item slds-is-active">
+              <a href="/home.html" class="slds-context-bar__label-action" title="Home">
+                <span class="slds-assistive-text">Current Page:</span>
+                <span class="slds-truncate" title="Home">Home</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/prospect_list.html" class="slds-context-bar__label-action" title="Prospecting">
+                <span class="slds-truncate" title="Prospecting">Prospecting</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="/index.html" class="slds-context-bar__label-action" title="Agent Builder">
+                <span class="slds-truncate" title="Agent Builder">Agent Builder</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Leads</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Accounts</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/agent_monitoring.html" class="slds-context-bar__label-action" title="Agent Monitoring">
+                <span class="slds-truncate" title="Agent Monitoring">Agent Monitoring</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  <main class="app-wrapper slds-template_default">
+    
+  
+  <div
+    class="seller-home seller-home--conversation"
+    data-sh-root
+    data-sh-conv-root
+    data-sh-conv-initial-id="conv-001"
+    data-sh-conversations="{&quot;conv-001&quot;:{&quot;id&quot;:&quot;conv-001&quot;,&quot;title&quot;:&quot;Prospect outreach review&quot;,&quot;subtitle&quot;:&quot;Buyer Engage&quot;,&quot;workflow&quot;:{&quot;id&quot;:&quot;buyer_engage&quot;,&quot;label&quot;:&quot;Buyer Engage&quot;},&quot;status&quot;:&quot;in_progress&quot;,&quot;recentLabel&quot;:&quot;Prospect outreach review&quot;,&quot;messages&quot;:[{&quot;id&quot;:&quot;msg-user&quot;,&quot;type&quot;:&quot;user&quot;,&quot;text&quot;:&quot;Review outreach to 12 new prospects&quot;},{&quot;id&quot;:&quot;msg-response&quot;,&quot;type&quot;:&quot;agent&quot;,&quot;text&quot;:&quot;I found 12 strong-fit prospects across 8 priority accounts and prepared personalized outreach for each one. They’re ready for your review before sending.&quot;,&quot;table&quot;:{&quot;id&quot;:&quot;conv-001-prospects&quot;,&quot;ariaLabel&quot;:&quot;Prospects prepared for outreach&quot;,&quot;columns&quot;:[{&quot;id&quot;:&quot;prospect&quot;,&quot;label&quot;:&quot;Prospect&quot;},{&quot;id&quot;:&quot;company&quot;,&quot;label&quot;:&quot;Company&quot;},{&quot;id&quot;:&quot;lastTouch&quot;,&quot;label&quot;:&quot;Last touch&quot;},{&quot;id&quot;:&quot;signal&quot;,&quot;label&quot;:&quot;Signal&quot;}],&quot;rows&quot;:[{&quot;id&quot;:&quot;p-001&quot;,&quot;prospect&quot;:&quot;Alex Bristor&quot;,&quot;role&quot;:&quot;VP, Sales&quot;,&quot;company&quot;:&quot;Rippling&quot;,&quot;lastTouch&quot;:&quot;Yesterday&quot;,&quot;lastTouchIso&quot;:&quot;2026-04-29&quot;,&quot;signal&quot;:&quot;$450M Series G funding&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;8 tools, one list build&quot;,&quot;body&quot;:&quot;Hi Alex,&#92;n&#92;nRippling’s outbound stack runs through ZoomInfo, Apollo, Clay, Outreach, Demandbase, and Lusha — at minimum. Your cross-sell SDRs are toggling between all of them just to build a single target list.&#92;n&#92;nThat’s the #1 productivity drain we hear from SDR managers at this scale — reps spend more time sourcing across fragmented tools than actually selling.&#92;n&#92;nBluebirds consolidates enrichment across 15 data vendors into one platform. 30-min Salesforce setup, no new UI for reps to learn.&#92;n&#92;nCan I share a 2-min walkthrough of the platform running a cross-sell list build?&#92;n&#92;n— Bluebirds Team&quot;},{&quot;id&quot;:&quot;p-002&quot;,&quot;prospect&quot;:&quot;Jordan Lee&quot;,&quot;role&quot;:&quot;Director of Sales Operations&quot;,&quot;company&quot;:&quot;Globex&quot;,&quot;lastTouch&quot;:&quot;6 weeks ago&quot;,&quot;lastTouchIso&quot;:&quot;2026-06-17&quot;,&quot;signal&quot;:&quot;Evaluating sales automation&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;A shortlist question on sales automation at Globex&quot;,&quot;body&quot;:&quot;Hi Jordan,&#92;n&#92;nI heard you’re looking at options for sales automation across the Globex team. Not sure where you are in the evaluation, but I wanted to reach out before you commit to a shortlist.&#92;n&#92;nA few teams like yours ended up spending months on tools that solved 60% of the workflow and left the rest to spreadsheets. Would a 20-minute look at how we approach the messier parts — pipeline hygiene, forecast drift, follow-through — be useful?&#92;n&#92;nAppreciate your time either way.&#92;n&#92;nBest,&#92;nCarmen&quot;},{&quot;id&quot;:&quot;p-003&quot;,&quot;prospect&quot;:&quot;Priya Shah&quot;,&quot;role&quot;:&quot;VP of Sales&quot;,&quot;company&quot;:&quot;Initech&quot;,&quot;lastTouch&quot;:&quot;No prior touch&quot;,&quot;lastTouchIso&quot;:null,&quot;signal&quot;:&quot;New VP of Sales hired&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;First 90 days at Initech — a quick offer&quot;,&quot;body&quot;:&quot;Hi Priya,&#92;n&#92;nWelcome to Initech. First 90 days as VP of Sales is usually equal parts diagnosing the pipeline and setting the operating rhythm for the team — both of which are hard when the data isn’t on your side yet.&#92;n&#92;nI’ve worked with a handful of new sales leaders through that exact window. Happy to share what the first-90 playbook has looked like for teams that hit their number quickly — no pitch, just useful reference material.&#92;n&#92;nBest,&#92;nCarmen&quot;},{&quot;id&quot;:&quot;p-004&quot;,&quot;prospect&quot;:&quot;Marcus Johnson&quot;,&quot;role&quot;:&quot;Chief Revenue Officer&quot;,&quot;company&quot;:&quot;Umbrella&quot;,&quot;lastTouch&quot;:&quot;4 months ago&quot;,&quot;lastTouchIso&quot;:&quot;2026-03-29&quot;,&quot;signal&quot;:&quot;Increased hiring activity&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;Hiring 12 reps at Umbrella — ramp is where it slips&quot;,&quot;body&quot;:&quot;Hi Marcus,&#92;n&#92;nSaw Umbrella has been hiring aggressively on the go-to-market side this quarter. Nice signal on the growth trajectory.&#92;n&#92;nThe part that usually catches CROs off-guard isn’t the hiring — it’s the ramp. Especially when you’re bringing on more than a handful at once and the enablement team is still catching up on last quarter’s changes.&#92;n&#92;nIf it would help, I can share how a few peer teams shortened ramp by 30–40% without adding headcount to enablement. Open to a short conversation?&#92;n&#92;nBest,&#92;nCarmen&quot;},{&quot;id&quot;:&quot;p-005&quot;,&quot;prospect&quot;:&quot;Emily Park&quot;,&quot;role&quot;:&quot;Head of Customer Success&quot;,&quot;company&quot;:&quot;Massive Dynamic&quot;,&quot;lastTouch&quot;:&quot;2 weeks ago&quot;,&quot;lastTouchIso&quot;:&quot;2026-07-15&quot;,&quot;signal&quot;:&quot;Renewal in 30 days&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;Massive Dynamic renewal — quick thought before the review&quot;,&quot;body&quot;:&quot;Hi Emily,&#92;n&#92;nWith your renewal ~30 days out, I wanted to reach out before we get into the formal review cycle.&#92;n&#92;nA few of the workflows we’ve been running with your team have shifted since kickoff, and I think there’s an opportunity to package the renewal in a way that reflects where the team actually is now (not where the original scope assumed).&#92;n&#92;nWould 15 minutes this week make sense? Happy to bring a draft of what that could look like.&#92;n&#92;nBest,&#92;nCarmen&quot;},{&quot;id&quot;:&quot;p-006&quot;,&quot;prospect&quot;:&quot;Diego Ramirez&quot;,&quot;role&quot;:&quot;Director of Sales Enablement&quot;,&quot;company&quot;:&quot;Wayne Industries&quot;,&quot;lastTouch&quot;:&quot;5 months ago&quot;,&quot;lastTouchIso&quot;:&quot;2026-02-27&quot;,&quot;signal&quot;:&quot;Attended pipeline webinar&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;Following up on the pipeline webinar&quot;,&quot;body&quot;:&quot;Hi Diego,&#92;n&#92;nThanks again for joining the pipeline session last quarter. Since then a few of the tactics we walked through have played out in production with other enablement teams — particularly the piece on manager-led pipeline reviews.&#92;n&#92;nCurious whether any of that translated to Wayne’s team. Happy to compare notes if it’s useful, or send over the updated version of the deck we’ve been iterating on since then.&#92;n&#92;nBest,&#92;nCarmen&quot;},{&quot;id&quot;:&quot;p-007&quot;,&quot;prospect&quot;:&quot;Aisha Patel&quot;,&quot;role&quot;:&quot;Sales Operations Manager&quot;,&quot;company&quot;:&quot;Stark Industries&quot;,&quot;lastTouch&quot;:&quot;3 weeks ago&quot;,&quot;lastTouchIso&quot;:&quot;2026-07-08&quot;,&quot;signal&quot;:&quot;Downloaded pricing sheet&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;Pricing questions from Stark — anything I can answer?&quot;,&quot;body&quot;:&quot;Hi Aisha,&#92;n&#92;nSaw the pricing sheet download come through a few weeks back. Wanted to reach out in case there are questions I can save you from having to dig through the fine print for.&#92;n&#92;nThe pricing on paper doesn’t always match what teams actually end up paying — it depends a lot on how you scope users, workflows, and add-ons. Happy to walk you through what a realistic Stark configuration would look like if that would help your evaluation.&#92;n&#92;nBest,&#92;nCarmen&quot;},{&quot;id&quot;:&quot;p-008&quot;,&quot;prospect&quot;:&quot;Liam O’Connor&quot;,&quot;role&quot;:&quot;VP of Sales Strategy&quot;,&quot;company&quot;:&quot;Cyberdyne Systems&quot;,&quot;lastTouch&quot;:&quot;1 month ago&quot;,&quot;lastTouchIso&quot;:&quot;2026-06-29&quot;,&quot;signal&quot;:&quot;New CRM implementation announced&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;Cyberdyne’s new CRM — the piece nobody talks about&quot;,&quot;body&quot;:&quot;Hi Liam,&#92;n&#92;nSaw the announcement that Cyberdyne is rolling out a new CRM. Congrats on getting the project greenlit — that’s hard.&#92;n&#92;nThe part that’s usually underestimated is the six months after go-live: rep adoption, data hygiene, and the reporting layer that finance actually trusts. That’s where most CRM projects quietly under-deliver against the business case.&#92;n&#92;nHappy to share what a few peer teams did to close that gap. No pitch — just what worked and what didn’t.&#92;n&#92;nBest,&#92;nCarmen&quot;},{&quot;id&quot;:&quot;p-009&quot;,&quot;prospect&quot;:&quot;Sofia Nakamura&quot;,&quot;role&quot;:&quot;Director of Revenue Strategy&quot;,&quot;company&quot;:&quot;Acme&quot;,&quot;lastTouch&quot;:&quot;8 weeks ago&quot;,&quot;lastTouchIso&quot;:&quot;2026-06-03&quot;,&quot;signal&quot;:&quot;Champion promoted to decision-maker&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;Congrats on the new role at Acme&quot;,&quot;body&quot;:&quot;Hi Sofia,&#92;n&#92;nCongrats on the move into Director of Revenue Strategy — well-earned from what I’ve seen you working on the last couple years.&#92;n&#92;nNow that you’ve got the decision-making seat on the strategy side, I imagine the conversation about the tooling stack is going to look a little different from where we left it last spring. Happy to reset that conversation on your terms — there’s no assumption we pick up where the old scope was.&#92;n&#92;nBest,&#92;nCarmen&quot;},{&quot;id&quot;:&quot;p-010&quot;,&quot;prospect&quot;:&quot;Tyler Brooks&quot;,&quot;role&quot;:&quot;VP of Sales&quot;,&quot;company&quot;:&quot;Wayne Industries&quot;,&quot;lastTouch&quot;:&quot;6 months ago&quot;,&quot;lastTouchIso&quot;:&quot;2026-01-29&quot;,&quot;signal&quot;:&quot;Recently promoted to VP of Sales&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;Quick note on the VP role at Wayne&quot;,&quot;body&quot;:&quot;Hi Tyler,&#92;n&#92;nCongrats on the VP of Sales role at Wayne — that’s a big step, and a really good sign for how the team is doing.&#92;n&#92;nMost of the VPs I talk to in the first two quarters spend a disproportionate amount of energy trying to see the pipeline the way finance does. Happy to compare notes on how a few peer teams got past that friction — it usually comes up faster than expected.&#92;n&#92;nBest,&#92;nCarmen&quot;},{&quot;id&quot;:&quot;p-011&quot;,&quot;prospect&quot;:&quot;Nora Al-Sayed&quot;,&quot;role&quot;:&quot;VP of Procurement&quot;,&quot;company&quot;:&quot;Globex&quot;,&quot;lastTouch&quot;:&quot;No prior touch&quot;,&quot;lastTouchIso&quot;:null,&quot;signal&quot;:&quot;Named on active RFP&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;Globex RFP — anything we can clarify?&quot;,&quot;body&quot;:&quot;Hi Nora,&#92;n&#92;nI saw you’re named on the current sales-tooling RFP at Globex. Wanted to reach out proactively rather than waiting for the formal Q&amp;A window.&#92;n&#92;nHappy to get you clean, direct answers on scope, pricing, or integration questions — whichever is most useful before the vendor short-list gets decided. I know these processes move quickly and cleaner information usually helps everyone move faster.&#92;n&#92;nBest,&#92;nCarmen&quot;},{&quot;id&quot;:&quot;p-012&quot;,&quot;prospect&quot;:&quot;Rafael Costa&quot;,&quot;role&quot;:&quot;Head of Sales Development&quot;,&quot;company&quot;:&quot;Cyberdyne Systems&quot;,&quot;lastTouch&quot;:&quot;2 months ago&quot;,&quot;lastTouchIso&quot;:&quot;2026-05-29&quot;,&quot;signal&quot;:&quot;Attended competitor conference&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;subject&quot;:&quot;Notes from the competitor conference — worth comparing?&quot;,&quot;body&quot;:&quot;Hi Rafael,&#92;n&#92;nNoticed you were at the competitor’s user conference last month — always interesting to hear how the roadmap sits with SDR leaders who’ve seen a few tools deployed.&#92;n&#92;nIf you’re open to it, I’d love to compare what you saw against what we’ve been shipping. There’s no need to switch anything — more of a working conversation about what’s actually landing with SDR teams right now.&#92;n&#92;nBest,&#92;nCarmen&quot;}]},&quot;review&quot;:{&quot;id&quot;:&quot;conv-001-review&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;heading&quot;:&quot;Outreach review&quot;,&quot;confirmDialog&quot;:{&quot;title&quot;:&quot;Approve outreach to 12 prospects?&quot;,&quot;body&quot;:&quot;The approved drafts will be released to the configured outreach workflow.&quot;,&quot;primary&quot;:&quot;Approve 12 drafts&quot;,&quot;secondary&quot;:&quot;Cancel&quot;},&quot;completed&quot;:{&quot;heading&quot;:&quot;All 12 drafts approved&quot;,&quot;body&quot;:&quot;The approved drafts will be released to the configured outreach workflow.&quot;}}},{&quot;id&quot;:&quot;msg-activity&quot;,&quot;type&quot;:&quot;workflow_activity&quot;,&quot;workflowLabel&quot;:&quot;Prospecting workflow completed&quot;,&quot;workflowIcon&quot;:&quot;apps&quot;,&quot;statusText&quot;:&quot;12 prospects · 8 accounts · 12 drafts&quot;}]},&quot;conv-daily-pipeline-snapshot&quot;:{&quot;id&quot;:&quot;conv-daily-pipeline-snapshot&quot;,&quot;title&quot;:&quot;Daily Pipeline Snapshot&quot;,&quot;subtitle&quot;:&quot;Daily Pipeline Snapshot&quot;,&quot;workflow&quot;:{&quot;id&quot;:&quot;wf-daily-pipeline-snapshot&quot;,&quot;label&quot;:&quot;Daily Pipeline Snapshot&quot;},&quot;status&quot;:&quot;scheduled&quot;,&quot;recentLabel&quot;:&quot;Daily Pipeline Snapshot&quot;,&quot;workflowContext&quot;:{&quot;scheduledWorkflowId&quot;:&quot;wf-daily-pipeline-snapshot&quot;,&quot;description&quot;:&quot;Summarizes pipeline movement, emerging risks, and deals requiring attention.&quot;,&quot;filters&quot;:{&quot;status&quot;:&quot;all&quot;,&quot;range&quot;:&quot;last_30_days&quot;},&quot;filterOptions&quot;:{&quot;status&quot;:[{&quot;value&quot;:&quot;all&quot;,&quot;label&quot;:&quot;All Statuses&quot;},{&quot;value&quot;:&quot;completed&quot;,&quot;label&quot;:&quot;Completed&quot;},{&quot;value&quot;:&quot;failed&quot;,&quot;label&quot;:&quot;Failed&quot;}],&quot;range&quot;:[{&quot;value&quot;:&quot;today&quot;,&quot;label&quot;:&quot;Today&quot;},{&quot;value&quot;:&quot;last_7_days&quot;,&quot;label&quot;:&quot;Last 7 days&quot;},{&quot;value&quot;:&quot;last_30_days&quot;,&quot;label&quot;:&quot;Last 30 days&quot;}]},&quot;runs&quot;:[{&quot;runId&quot;:&quot;run-2026-08-07-0804&quot;,&quot;status&quot;:&quot;completed&quot;,&quot;startedAt&quot;:&quot;2026-08-07T08:04:00-07:00&quot;,&quot;label&quot;:&quot;August 7 at 8:04 AM&quot;,&quot;summary&quot;:&quot;68 opportunities reviewed · 7 risks found · 3 actions recommended&quot;,&quot;messageId&quot;:&quot;msg-run-2026-08-07-0804&quot;},{&quot;runId&quot;:&quot;run-2026-08-06-0804&quot;,&quot;status&quot;:&quot;completed&quot;,&quot;startedAt&quot;:&quot;2026-08-06T08:04:00-07:00&quot;,&quot;label&quot;:&quot;August 6 at 8:04 AM&quot;,&quot;summary&quot;:&quot;71 opportunities reviewed · 5 risks found · 2 actions recommended&quot;,&quot;messageId&quot;:&quot;msg-run-2026-08-06-0804&quot;},{&quot;runId&quot;:&quot;run-2026-08-05-0804&quot;,&quot;status&quot;:&quot;completed&quot;,&quot;startedAt&quot;:&quot;2026-08-05T08:04:00-07:00&quot;,&quot;label&quot;:&quot;August 5 at 8:04 AM&quot;,&quot;summary&quot;:&quot;66 opportunities reviewed · 4 risks found · 2 actions recommended&quot;,&quot;messageId&quot;:&quot;msg-run-2026-08-05-0804&quot;},{&quot;runId&quot;:&quot;run-2026-08-03-0900&quot;,&quot;status&quot;:&quot;failed&quot;,&quot;startedAt&quot;:&quot;2026-08-03T09:00:00-07:00&quot;,&quot;label&quot;:&quot;August 3 at 9:00 AM&quot;,&quot;summary&quot;:&quot;Salesforce access expired before the snapshot was created&quot;,&quot;messageId&quot;:null,&quot;errorAction&quot;:{&quot;id&quot;:&quot;act-retry-run-2026-08-03&quot;,&quot;label&quot;:&quot;Retry&quot;,&quot;kind&quot;:&quot;retry&quot;}}]},&quot;messages&quot;:[{&quot;id&quot;:&quot;msg-run-2026-08-05-0804&quot;,&quot;type&quot;:&quot;agent&quot;,&quot;runId&quot;:&quot;run-2026-08-05-0804&quot;,&quot;snapshot&quot;:{&quot;titleLabel&quot;:&quot;Daily Pipeline&quot;,&quot;dateLabel&quot;:&quot;August 5, 2026&quot;,&quot;date&quot;:&quot;2026-08-05T08:04:00-07:00&quot;,&quot;freshness&quot;:{&quot;text&quot;:&quot;Data as of August 5 at 8:04 AM PST&quot;,&quot;source&quot;:&quot;Salesforce&quot;},&quot;summary&quot;:&quot;Your pipeline remains above target coverage at 3.2×. Two late-stage opportunities advanced, but $410K is concentrated in deals without a confirmed next meeting.&quot;,&quot;metrics&quot;:{&quot;heading&quot;:&quot;Pipeline at a glance&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;open&quot;,&quot;label&quot;:&quot;Open pipeline&quot;,&quot;value&quot;:&quot;$2.31M&quot;},{&quot;id&quot;:&quot;coverage&quot;,&quot;label&quot;:&quot;Coverage&quot;,&quot;value&quot;:&quot;3.2×&quot;},{&quot;id&quot;:&quot;expected&quot;,&quot;label&quot;:&quot;Expected this quarter&quot;,&quot;value&quot;:&quot;$830K&quot;},{&quot;id&quot;:&quot;change_yesterday&quot;,&quot;label&quot;:&quot;Change since yesterday&quot;,&quot;value&quot;:&quot;Up $85K&quot;,&quot;tone&quot;:&quot;positive&quot;}]},&quot;changes&quot;:{&quot;heading&quot;:&quot;What changed&quot;,&quot;ariaLabel&quot;:&quot;Opportunities that changed since the last snapshot&quot;,&quot;columns&quot;:[{&quot;id&quot;:&quot;opportunity&quot;,&quot;label&quot;:&quot;Opportunity&quot;},{&quot;id&quot;:&quot;amount&quot;,&quot;label&quot;:&quot;Amount&quot;},{&quot;id&quot;:&quot;change&quot;,&quot;label&quot;:&quot;Change&quot;},{&quot;id&quot;:&quot;whyItMatters&quot;,&quot;label&quot;:&quot;Why it matters&quot;}],&quot;rows&quot;:[{&quot;id&quot;:&quot;opp-globex-platform&quot;,&quot;opportunityId&quot;:&quot;0064000000GXP01&quot;,&quot;opportunity&quot;:&quot;Globex Platform&quot;,&quot;amount&quot;:&quot;$180K&quot;,&quot;change&quot;:&quot;Technical evaluation completed&quot;,&quot;whyItMatters&quot;:&quot;The deal can move into commercial review&quot;},{&quot;id&quot;:&quot;opp-hooli-data-cloud&quot;,&quot;opportunityId&quot;:&quot;0064000000HDC01&quot;,&quot;opportunity&quot;:&quot;Hooli Data Cloud&quot;,&quot;amount&quot;:&quot;$125K&quot;,&quot;change&quot;:&quot;Security review approved&quot;,&quot;whyItMatters&quot;:&quot;Removes the largest remaining technical blocker&quot;},{&quot;id&quot;:&quot;opp-vehement-capital&quot;,&quot;opportunityId&quot;:&quot;0064000000VEH01&quot;,&quot;opportunity&quot;:&quot;Vehement Capital&quot;,&quot;amount&quot;:&quot;$230K&quot;,&quot;change&quot;:&quot;Next meeting was canceled&quot;,&quot;whyItMatters&quot;:&quot;No new meeting has been scheduled for this month&quot;}]},&quot;attention&quot;:{&quot;heading&quot;:&quot;Needs your attention&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;att-05-vehement&quot;,&quot;severity&quot;:&quot;high&quot;,&quot;severityLabel&quot;:&quot;High risk&quot;,&quot;title&quot;:&quot;Vehement Capital&quot;,&quot;subtitle&quot;:&quot;$230K · No meeting scheduled&quot;,&quot;detail&quot;:&quot;The executive review was canceled and no replacement meeting is scheduled.&quot;,&quot;recommendation&quot;:&quot;Propose new times and confirm whether the target close date is still realistic.&quot;,&quot;opportunityId&quot;:&quot;0064000000VEH01&quot;},{&quot;id&quot;:&quot;att-05-wonka&quot;,&quot;severity&quot;:&quot;warning&quot;,&quot;severityLabel&quot;:&quot;At risk&quot;,&quot;title&quot;:&quot;Wonka Industries&quot;,&quot;subtitle&quot;:&quot;Proposal · Mutual action plan idle 16 days&quot;,&quot;detail&quot;:&quot;The opportunity is in Proposal, but the mutual action plan has not been updated in 16 days.&quot;,&quot;recommendation&quot;:&quot;Review milestones with the account team.&quot;,&quot;opportunityId&quot;:&quot;0064000000WON01&quot;}]},&quot;actions&quot;:{&quot;heading&quot;:&quot;Recommended actions&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;act-05-vehement-reschedule&quot;,&quot;description&quot;:&quot;Reschedule the Vehement executive review to keep the deal on track.&quot;,&quot;label&quot;:&quot;Reschedule&quot;,&quot;kind&quot;:&quot;task&quot;,&quot;primary&quot;:true,&quot;opportunityId&quot;:&quot;0064000000VEH01&quot;},{&quot;id&quot;:&quot;act-05-wonka-map&quot;,&quot;description&quot;:&quot;Update the Wonka mutual action plan with the latest milestones.&quot;,&quot;label&quot;:&quot;Update plan&quot;,&quot;kind&quot;:&quot;task&quot;,&quot;opportunityId&quot;:&quot;0064000000WON01&quot;}]}}},{&quot;id&quot;:&quot;msg-run-2026-08-06-0804&quot;,&quot;type&quot;:&quot;agent&quot;,&quot;runId&quot;:&quot;run-2026-08-06-0804&quot;,&quot;snapshot&quot;:{&quot;titleLabel&quot;:&quot;Daily Pipeline&quot;,&quot;dateLabel&quot;:&quot;August 6, 2026&quot;,&quot;date&quot;:&quot;2026-08-06T08:04:00-07:00&quot;,&quot;freshness&quot;:{&quot;text&quot;:&quot;Data as of August 6 at 8:04 AM PST&quot;,&quot;source&quot;:&quot;Salesforce&quot;},&quot;summary&quot;:&quot;Pipeline increased by $210K since yesterday, driven by two newly qualified opportunities. Coverage improved to 3.3×, although the Wayne Industries opportunity is now at risk because the economic buyer has not engaged.&quot;,&quot;metrics&quot;:{&quot;heading&quot;:&quot;Pipeline at a glance&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;open&quot;,&quot;label&quot;:&quot;Open pipeline&quot;,&quot;value&quot;:&quot;$2.52M&quot;},{&quot;id&quot;:&quot;coverage&quot;,&quot;label&quot;:&quot;Coverage&quot;,&quot;value&quot;:&quot;3.3×&quot;},{&quot;id&quot;:&quot;expected&quot;,&quot;label&quot;:&quot;Expected this quarter&quot;,&quot;value&quot;:&quot;$900K&quot;},{&quot;id&quot;:&quot;change_yesterday&quot;,&quot;label&quot;:&quot;Change since yesterday&quot;,&quot;value&quot;:&quot;Up $210K&quot;,&quot;tone&quot;:&quot;positive&quot;}]},&quot;changes&quot;:{&quot;heading&quot;:&quot;What changed&quot;,&quot;ariaLabel&quot;:&quot;Opportunities that changed since the last snapshot&quot;,&quot;columns&quot;:[{&quot;id&quot;:&quot;opportunity&quot;,&quot;label&quot;:&quot;Opportunity&quot;},{&quot;id&quot;:&quot;amount&quot;,&quot;label&quot;:&quot;Amount&quot;},{&quot;id&quot;:&quot;change&quot;,&quot;label&quot;:&quot;Change&quot;},{&quot;id&quot;:&quot;whyItMatters&quot;,&quot;label&quot;:&quot;Why it matters&quot;}],&quot;rows&quot;:[{&quot;id&quot;:&quot;opp-stark-expansion&quot;,&quot;opportunityId&quot;:&quot;0064000000STK01&quot;,&quot;opportunity&quot;:&quot;Stark Industries Expansion&quot;,&quot;amount&quot;:&quot;$140K&quot;,&quot;change&quot;:&quot;Added to pipeline at Qualification&quot;,&quot;whyItMatters&quot;:&quot;Creates new upside for the current quarter&quot;},{&quot;id&quot;:&quot;opp-cyberdyne-automation&quot;,&quot;opportunityId&quot;:&quot;0064000000CBD01&quot;,&quot;opportunity&quot;:&quot;Cyberdyne Automation&quot;,&quot;amount&quot;:&quot;$70K&quot;,&quot;change&quot;:&quot;Converted from lead to qualified opportunity&quot;,&quot;whyItMatters&quot;:&quot;Discovery confirmed budget and a target launch date&quot;},{&quot;id&quot;:&quot;opp-wayne-analytics&quot;,&quot;opportunityId&quot;:&quot;0064000000WAY01&quot;,&quot;opportunity&quot;:&quot;Wayne Industries Analytics&quot;,&quot;amount&quot;:&quot;$260K&quot;,&quot;change&quot;:&quot;Last activity reached 14 days&quot;,&quot;whyItMatters&quot;:&quot;Momentum is declining in a high-value late-stage deal&quot;}]},&quot;attention&quot;:{&quot;heading&quot;:&quot;Needs your attention&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;att-06-wayne&quot;,&quot;severity&quot;:&quot;high&quot;,&quot;severityLabel&quot;:&quot;High risk&quot;,&quot;title&quot;:&quot;Wayne Industries Analytics&quot;,&quot;subtitle&quot;:&quot;$260K · Economic buyer unengaged&quot;,&quot;detail&quot;:&quot;The champion is engaged, but the economic buyer has not attended either recent meeting.&quot;,&quot;recommendation&quot;:&quot;Ask the champion to include the economic buyer in the next review.&quot;,&quot;opportunityId&quot;:&quot;0064000000WAY01&quot;},{&quot;id&quot;:&quot;att-06-massive-dynamic&quot;,&quot;severity&quot;:&quot;warning&quot;,&quot;severityLabel&quot;:&quot;At risk&quot;,&quot;title&quot;:&quot;Massive Dynamic Renewal&quot;,&quot;subtitle&quot;:&quot;Legal review open 9 days&quot;,&quot;detail&quot;:&quot;Legal review has been open for nine days without an update.&quot;,&quot;recommendation&quot;:&quot;Confirm ownership and the expected completion date.&quot;,&quot;opportunityId&quot;:&quot;0064000000MDR01&quot;}]},&quot;actions&quot;:{&quot;heading&quot;:&quot;Recommended actions&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;act-06-wayne-outreach&quot;,&quot;description&quot;:&quot;Draft an economic-buyer outreach for Wayne Industries to bring the buyer into the review.&quot;,&quot;label&quot;:&quot;Draft outreach&quot;,&quot;kind&quot;:&quot;outreach&quot;,&quot;primary&quot;:true,&quot;opportunityId&quot;:&quot;0064000000WAY01&quot;},{&quot;id&quot;:&quot;act-06-massive-legal&quot;,&quot;description&quot;:&quot;Summarize the Massive Dynamic legal blocker for the account team.&quot;,&quot;label&quot;:&quot;Summarize blocker&quot;,&quot;kind&quot;:&quot;task&quot;,&quot;opportunityId&quot;:&quot;0064000000MDR01&quot;}]}}},{&quot;id&quot;:&quot;msg-run-2026-08-07-0804&quot;,&quot;type&quot;:&quot;agent&quot;,&quot;runId&quot;:&quot;run-2026-08-07-0804&quot;,&quot;snapshot&quot;:{&quot;titleLabel&quot;:&quot;Daily Pipeline&quot;,&quot;dateLabel&quot;:&quot;August 7, 2026&quot;,&quot;date&quot;:&quot;2026-08-07T08:04:00-07:00&quot;,&quot;freshness&quot;:{&quot;text&quot;:&quot;Data as of August 7 at 8:04 AM PST&quot;,&quot;source&quot;:&quot;Salesforce&quot;},&quot;summary&quot;:&quot;Your pipeline is holding steady at $2.4M, but three deals need attention today. The biggest risk is Acme Expansion, which slipped into next quarter and has had no customer engagement in 12 days.&quot;,&quot;metrics&quot;:{&quot;heading&quot;:&quot;Pipeline at a glance&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;open&quot;,&quot;label&quot;:&quot;Open pipeline&quot;,&quot;value&quot;:&quot;$2.4M&quot;},{&quot;id&quot;:&quot;coverage&quot;,&quot;label&quot;:&quot;Coverage&quot;,&quot;value&quot;:&quot;3.1×&quot;},{&quot;id&quot;:&quot;expected&quot;,&quot;label&quot;:&quot;Expected this quarter&quot;,&quot;value&quot;:&quot;$780K&quot;},{&quot;id&quot;:&quot;change_yesterday&quot;,&quot;label&quot;:&quot;Change since yesterday&quot;,&quot;value&quot;:&quot;Down $120K&quot;,&quot;tone&quot;:&quot;warning&quot;}]},&quot;changes&quot;:{&quot;heading&quot;:&quot;What changed&quot;,&quot;ariaLabel&quot;:&quot;Opportunities that changed since the last snapshot&quot;,&quot;columns&quot;:[{&quot;id&quot;:&quot;opportunity&quot;,&quot;label&quot;:&quot;Opportunity&quot;},{&quot;id&quot;:&quot;amount&quot;,&quot;label&quot;:&quot;Amount&quot;},{&quot;id&quot;:&quot;change&quot;,&quot;label&quot;:&quot;Change&quot;},{&quot;id&quot;:&quot;whyItMatters&quot;,&quot;label&quot;:&quot;Why it matters&quot;}],&quot;rows&quot;:[{&quot;id&quot;:&quot;opp-acme-expansion&quot;,&quot;opportunityId&quot;:&quot;0064000000ACM01&quot;,&quot;opportunity&quot;:&quot;Acme Expansion&quot;,&quot;amount&quot;:&quot;$320K&quot;,&quot;change&quot;:&quot;Close date moved from August 28 to October 15&quot;,&quot;whyItMatters&quot;:&quot;Removes $320K from this quarter’s forecast&quot;},{&quot;id&quot;:&quot;opp-globex-platform&quot;,&quot;opportunityId&quot;:&quot;0064000000GXP01&quot;,&quot;opportunity&quot;:&quot;Globex Platform&quot;,&quot;amount&quot;:&quot;$180K&quot;,&quot;change&quot;:&quot;Stage advanced from Discovery to Evaluation&quot;,&quot;whyItMatters&quot;:&quot;Buying committee confirmed and technical review scheduled&quot;},{&quot;id&quot;:&quot;opp-initech-renewal&quot;,&quot;opportunityId&quot;:&quot;0064000000INI01&quot;,&quot;opportunity&quot;:&quot;Initech Renewal&quot;,&quot;amount&quot;:&quot;$95K&quot;,&quot;change&quot;:&quot;Probability decreased from 70% to 50%&quot;,&quot;whyItMatters&quot;:&quot;Procurement raised concerns about implementation timing&quot;}]},&quot;attention&quot;:{&quot;heading&quot;:&quot;Needs your attention&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;att-07-acme&quot;,&quot;severity&quot;:&quot;high&quot;,&quot;severityLabel&quot;:&quot;High risk&quot;,&quot;title&quot;:&quot;Acme Expansion&quot;,&quot;subtitle&quot;:&quot;$320K · Close date slipped to Q4&quot;,&quot;detail&quot;:&quot;No customer engagement in 12 days and the close date moved into next quarter.&quot;,&quot;recommendation&quot;:&quot;Re-engage the champion and confirm whether the expansion is still funded.&quot;,&quot;opportunityId&quot;:&quot;0064000000ACM01&quot;},{&quot;id&quot;:&quot;att-07-initech&quot;,&quot;severity&quot;:&quot;warning&quot;,&quot;severityLabel&quot;:&quot;At risk&quot;,&quot;title&quot;:&quot;Initech Renewal&quot;,&quot;subtitle&quot;:&quot;Renewal due in 21 days&quot;,&quot;detail&quot;:&quot;Renewal is due in 21 days, but procurement timing remains unresolved.&quot;,&quot;recommendation&quot;:&quot;Schedule a commercial review with procurement this week.&quot;,&quot;opportunityId&quot;:&quot;0064000000INI01&quot;},{&quot;id&quot;:&quot;att-07-umbrella&quot;,&quot;severity&quot;:&quot;warning&quot;,&quot;severityLabel&quot;:&quot;At risk&quot;,&quot;title&quot;:&quot;Umbrella Security Pilot&quot;,&quot;subtitle&quot;:&quot;Technical validation 4 days overdue&quot;,&quot;detail&quot;:&quot;The technical validation task is four days overdue.&quot;,&quot;recommendation&quot;:&quot;Ask the solution engineer to confirm the remaining blocker.&quot;,&quot;opportunityId&quot;:&quot;0064000000UMB01&quot;}]},&quot;actions&quot;:{&quot;heading&quot;:&quot;Recommended actions&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;act-07-acme-followup&quot;,&quot;description&quot;:&quot;Draft a follow-up to the Acme champion to re-engage the account.&quot;,&quot;label&quot;:&quot;Draft follow-up&quot;,&quot;kind&quot;:&quot;outreach&quot;,&quot;primary&quot;:true,&quot;opportunityId&quot;:&quot;0064000000ACM01&quot;},{&quot;id&quot;:&quot;act-07-initech-risk&quot;,&quot;description&quot;:&quot;Prepare the Initech renewal risk summary for this week&#39;s commercial review.&quot;,&quot;label&quot;:&quot;Prepare summary&quot;,&quot;kind&quot;:&quot;task&quot;,&quot;opportunityId&quot;:&quot;0064000000INI01&quot;},{&quot;id&quot;:&quot;act-07-umbrella-blocker&quot;,&quot;description&quot;:&quot;Review the Umbrella technical blocker with the solution engineer.&quot;,&quot;label&quot;:&quot;Review blocker&quot;,&quot;kind&quot;:&quot;task&quot;,&quot;opportunityId&quot;:&quot;0064000000UMB01&quot;}]}}},{&quot;id&quot;:&quot;msg-run-activity&quot;,&quot;type&quot;:&quot;workflow_activity&quot;,&quot;workflowLabel&quot;:&quot;Daily Pipeline Snapshot completed&quot;,&quot;workflowIcon&quot;:&quot;apps&quot;,&quot;statusText&quot;:&quot;68 opportunities reviewed · 7 risks found · 3 actions recommended&quot;}]}}"
+  >
+    
+    
+
+
+
+
+
+
+
+
+
+
+<aside
+  class="seller-home__nav"
+  aria-label="Seller Home navigation"
+  data-sh-nav-root
+>
+  
+  <div class="seller-home__nav-top">
+    <div class="seller-home__nav-topbar">
+      <button
+        type="button"
+        class="seller-home__nav-toggle"
+        data-sh-nav-toggle
+        aria-label="Collapse navigation"
+        aria-expanded="true"
+        aria-controls="seller-home-nav-body"
+      >
+        <svg width="20" height="20" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_left"></use>
+        </svg>
+      </button>
+    </div>
+
+    
+    <div class="slds-form-element seller-home__nav-search" data-sh-nav-search>
+      <label
+        class="slds-form-element__label slds-assistive-text"
+        for="seller-home-nav-search-input"
+      >Search navigation</label>
+      <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+        <span
+          class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left"
+          aria-hidden="true"
+        >
+          <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+          </svg>
+        </span>
+        <input
+          type="search"
+          id="seller-home-nav-search-input"
+          class="slds-input seller-home__nav-search-input"
+          placeholder="Search..."
+          aria-label="Search navigation"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <div class="seller-home__nav-list seller-home__nav-list--primary" role="list">
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="new_chat"
+  data-sh-nav-noroute
+  
+  title="New chat"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">New chat</span>
+</a>
+
+      
+        
+
+<a
+  href="/scheduled.html"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="schedules"
+  
+  
+  title="Scheduled"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#date_time"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Scheduled</span>
+</a>
+
+      
+        
+
+<a
+  href="/skills.html"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="skills"
+  
+  
+  title="Skills"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <img
+        class="seller-home__nav-icon-image"
+        src="/assets/images/nav-icons/workflows.png"
+        alt=""
+        width="20"
+        height="20"
+        aria-hidden="true"
+      />
+    
+  </span>
+  <span class="seller-home__nav-label">Skills</span>
+</a>
+
+      
+        
+
+<a
+  href="/knowledge.html"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="knowledge"
+  
+  
+  title="Knowledge"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#knowledge_base"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Knowledge</span>
+</a>
+
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="tools"
+  data-sh-nav-noroute
+  
+  title="Tools"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#custom_apps"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Tools</span>
+</a>
+
+      
+    </div>
+  </div>
+
+  
+  <div
+    class="seller-home__nav-scroll"
+    id="seller-home-nav-body"
+    tabindex="0"
+    aria-label="Recent conversations"
+  >
+    <div class="seller-home__nav-section">
+      <div class="seller-home__nav-section-header" role="heading" aria-level="2">
+        <span class="seller-home__nav-icon" aria-hidden="true">
+          <svg width="20" height="20" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#clock"></use>
+          </svg>
+        </span>
+        <span class="seller-home__nav-label">Recents</span>
+      </div>
+
+      
+      <div
+        class="seller-home__nav-list seller-home__nav-list--recents"
+        role="list"
+        data-sh-recents-list
+      >
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent seller-home__nav-recent--running"
+          role="listitem"
+          data-sh-recent="rec-daily-deal-priorities"
+          data-sh-nav-noroute
+          data-sh-recent-run-status="running"
+          title="Daily Deal Priorities"
+        >
+          <span class="seller-home__nav-recent-label">Daily Deal Priorities</span>
+          
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      <span
+        class="seller-home__nav-recent-ring seller-home__nav-recent-ring--running"
+        role="progressbar"
+        aria-label="Daily Deal Priorities is running, 25 percent complete."
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
+          <circle class="seller-home__nav-recent-ring-track" cx="10" cy="10" r="8"></circle>
+          <circle
+            class="seller-home__nav-recent-ring-fill"
+            cx="10" cy="10" r="8"
+            stroke-dasharray="50.2654 50.2654"
+            stroke-dashoffset="37.69905"
+          ></circle>
+        </svg>
+      </span>
+    
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="/home_conversation.html?id=conv-001"
+          class="seller-home__nav-recent seller-home__nav-recent--linked"
+          role="listitem"
+          data-sh-recent="rec-conv-001"
+          data-sh-recent-conv="conv-001"
+          
+          title="Prospect outreach review"
+        >
+          <span class="seller-home__nav-recent-label">Prospect outreach review</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="/home_conversation.html?id=conv-daily-pipeline-snapshot"
+          class="seller-home__nav-recent seller-home__nav-recent--linked"
+          role="listitem"
+          data-sh-recent="rec-conv-daily-pipeline-snapshot"
+          data-sh-recent-conv="conv-daily-pipeline-snapshot"
+          
+          title="Daily Pipeline Snapshot"
+        >
+          <span class="seller-home__nav-recent-label">Daily Pipeline Snapshot</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-01"
+          data-sh-nav-noroute
+          
+          title="Acme Inc Prospecting"
+        >
+          <span class="seller-home__nav-recent-label">Acme Inc Prospecting</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-02"
+          data-sh-nav-noroute
+          
+          title="Top Account Resolutions Chart"
+        >
+          <span class="seller-home__nav-recent-label">Top Account Resolutions Chart</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-03"
+          data-sh-nav-noroute
+          
+          title="Q3 Pipeline Health Report"
+        >
+          <span class="seller-home__nav-recent-label">Q3 Pipeline Health Report</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-04"
+          data-sh-nav-noroute
+          
+          title="Enterprise Renewal Opportunity Status"
+        >
+          <span class="seller-home__nav-recent-label">Enterprise Renewal Opportunity Status</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-05"
+          data-sh-nav-noroute
+          
+          title="Sales performance Q1"
+        >
+          <span class="seller-home__nav-recent-label">Sales performance Q1</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-06"
+          data-sh-nav-noroute
+          
+          title="New product launch strategy"
+        >
+          <span class="seller-home__nav-recent-label">New product launch strategy</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-07"
+          data-sh-nav-noroute
+          
+          title="Marketing campaign overview"
+        >
+          <span class="seller-home__nav-recent-label">Marketing campaign overview</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-08"
+          data-sh-nav-noroute
+          
+          title="Target audience analysis"
+        >
+          <span class="seller-home__nav-recent-label">Target audience analysis</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-09"
+          data-sh-nav-noroute
+          
+          title="Budget allocation strategy"
+        >
+          <span class="seller-home__nav-recent-label">Budget allocation strategy</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-10"
+          data-sh-nav-noroute
+          
+          title="Key performance indicators"
+        >
+          <span class="seller-home__nav-recent-label">Key performance indicators</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-11"
+          data-sh-nav-noroute
+          
+          title="Competitive analysis"
+        >
+          <span class="seller-home__nav-recent-label">Competitive analysis</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-12"
+          data-sh-nav-noroute
+          
+          title="Channel selection and planning"
+        >
+          <span class="seller-home__nav-recent-label">Channel selection and planning</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-13"
+          data-sh-nav-noroute
+          
+          title="Timeline and milestones"
+        >
+          <span class="seller-home__nav-recent-label">Timeline and milestones</span>
+          
+  
+
+        </a>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="seller-home__nav-footer">
+    <div class="seller-home__nav-list seller-home__nav-list--footer" role="list">
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="feedback"
+  data-sh-nav-noroute
+  
+  title="Feedback"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Feedback</span>
+</a>
+
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="settings"
+  data-sh-nav-noroute
+  
+  title="Settings"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#settings"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Settings</span>
+</a>
+
+      
+    </div>
+  </div>
+</aside>
+
+
+<script src="/scripts/left_nav_augment.js"></script>
+
+
+    
+    <div
+      class="seller-home__conv-layout seller-home__conv-layout--with-panel is-panel-collapsed"
+      data-sh-conv-layout
+      data-sh-conv-workflow-id=""
+    >
+
+    <div
+      class="seller-home__conv"
+      role="main"
+      aria-label="Conversation"
+      tabindex="-1"
+    >
+      
+      <header class="seller-home__conv-header" data-sh-conv-header>
+        <div class="seller-home__conv-header-inner">
+          <span
+            class="seller-home__conv-header-icon"
+            aria-hidden="true"
+          >
+            
+            <svg class="seller-home__conv-header-glyph" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkle"></use>
+            </svg>
+          </span>
+          <h1
+            class="seller-home__conv-header-title"
+            data-sh-conv-title
+          >Prospect outreach review</h1>
+        </div>
+
+        
+        <div class="seller-home__conv-header-actions">
+          
+          <button
+            type="button"
+            class="slds-button slds-button_neutral seller-home__conv-header-reopen"
+            data-sh-conv-header-reopen
+            title="Activity"
+          >
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#list"></use>
+            </svg>
+            Activity
+          </button>
+        </div>
+      </header>
+
+      
+      <section
+        class="seller-home__conv-thread"
+        aria-label="Conversation messages"
+        data-sh-conv-thread
+      >
+        
+        
+          
+          
+          <ol
+            class="seller-home__conv-thread-inner"
+            data-sh-conv-thread-inner
+            data-sh-conv-thread-for="conv-001"
+            
+              role="log"
+              aria-live="polite"
+              aria-relevant="additions"
+            
+          >
+            
+            
+            
+            <li class="seller-home__conv-thread-item" data-sh-conv-item="msg-user">
+              
+                
+<article
+  class="seller-home__conv-msg seller-home__conv-msg--user"
+  data-sh-conv-msg="msg-user"
+  data-sh-conv-msg-type="user"
+  aria-label="Your message"
+>
+  <p class="seller-home__conv-msg-user-pill">Review outreach to 12 new prospects</p>
+</article>
+
+              
+            </li>
+            
+            
+            <li class="seller-home__conv-thread-item" data-sh-conv-item="msg-response">
+              
+                
+
+<article
+  id="msg-response"
+  class="seller-home__conv-msg seller-home__conv-msg--agent seller-home__conv-msg--has-table seller-home__conv-msg--has-review"
+  data-sh-conv-msg="msg-response"
+  data-sh-conv-msg-type="agent"
+  
+  tabindex="-1"
+  aria-label="Agent response"
+>
+  
+  
+    <p class="seller-home__conv-msg-agent-text">I found 12 strong-fit prospects across 8 priority accounts and prepared personalized outreach for each one. They’re ready for your review before sending.</p>
+  
+
+  
+  
+<div
+  class="seller-home__conv-prospect-table"
+  data-sh-conv-table="conv-001-prospects"
+>
+  <table
+    class="slds-table slds-table_bordered slds-table_fixed-layout slds-table-uplift seller-home__conv-prospect-table-el"
+    role="grid"
+    aria-label="Prospects prepared for outreach"
+  >
+    <thead>
+      <tr class="slds-line-height_reset">
+        
+        <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="prospect">
+          <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+            <span class="slds-truncate" title="Prospect">Prospect</span>
+          </div>
+        </th>
+        
+        <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="company">
+          <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+            <span class="slds-truncate" title="Company">Company</span>
+          </div>
+        </th>
+        
+        <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="lastTouch">
+          <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+            <span class="slds-truncate" title="Last touch">Last touch</span>
+          </div>
+        </th>
+        
+        <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="signal">
+          <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+            <span class="slds-truncate" title="Signal">Signal</span>
+          </div>
+        </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-001"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Alex Bristor">Alex Bristor</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Rippling">Rippling</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="2026-04-29">
+          <span class="slds-truncate" title="Yesterday">Yesterday</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="$450M Series G funding">$450M Series G funding</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-002"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Jordan Lee">Jordan Lee</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Globex">Globex</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="2026-06-17">
+          <span class="slds-truncate" title="6 weeks ago">6 weeks ago</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Evaluating sales automation">Evaluating sales automation</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-003"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Priya Shah">Priya Shah</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Initech">Initech</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="">
+          <span class="slds-truncate" title="No prior touch">No prior touch</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="New VP of Sales hired">New VP of Sales hired</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-004"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Marcus Johnson">Marcus Johnson</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Umbrella">Umbrella</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="2026-03-29">
+          <span class="slds-truncate" title="4 months ago">4 months ago</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Increased hiring activity">Increased hiring activity</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-005"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Emily Park">Emily Park</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Massive Dynamic">Massive Dynamic</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="2026-07-15">
+          <span class="slds-truncate" title="2 weeks ago">2 weeks ago</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Renewal in 30 days">Renewal in 30 days</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-006"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Diego Ramirez">Diego Ramirez</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Wayne Industries">Wayne Industries</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="2026-02-27">
+          <span class="slds-truncate" title="5 months ago">5 months ago</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Attended pipeline webinar">Attended pipeline webinar</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-007"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Aisha Patel">Aisha Patel</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Stark Industries">Stark Industries</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="2026-07-08">
+          <span class="slds-truncate" title="3 weeks ago">3 weeks ago</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Downloaded pricing sheet">Downloaded pricing sheet</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-008"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Liam O’Connor">Liam O’Connor</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Cyberdyne Systems">Cyberdyne Systems</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="2026-06-29">
+          <span class="slds-truncate" title="1 month ago">1 month ago</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="New CRM implementation announced">New CRM implementation announced</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-009"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Sofia Nakamura">Sofia Nakamura</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Acme">Acme</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="2026-06-03">
+          <span class="slds-truncate" title="8 weeks ago">8 weeks ago</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Champion promoted to decision-maker">Champion promoted to decision-maker</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-010"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Tyler Brooks">Tyler Brooks</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Wayne Industries">Wayne Industries</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="2026-01-29">
+          <span class="slds-truncate" title="6 months ago">6 months ago</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Recently promoted to VP of Sales">Recently promoted to VP of Sales</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-011"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Nora Al-Sayed">Nora Al-Sayed</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Globex">Globex</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="">
+          <span class="slds-truncate" title="No prior touch">No prior touch</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Named on active RFP">Named on active RFP</span>
+        </td>
+        
+        
+      </tr>
+      
+      <tr
+        aria-selected="false"
+        tabindex="-1"
+        class="slds-hint-parent seller-home__conv-prospect-row"
+        data-sh-conv-row
+        data-sh-conv-row-id="p-012"
+      >
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Rafael Costa">Rafael Costa</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Cyberdyne Systems">Cyberdyne Systems</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell" data-sh-conv-lasttouch-iso="2026-05-29">
+          <span class="slds-truncate" title="2 months ago">2 months ago</span>
+        </td>
+        
+        
+        
+        
+        <td class="slds-cell_action-mode" role="gridcell">
+          <span class="slds-truncate" title="Attended competitor conference">Attended competitor conference</span>
+        </td>
+        
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+  
+
+  
+  
+  
+
+
+
+
+
+
+<section
+  class="seller-home__conv-review"
+  role="region"
+  aria-labelledby="conv-001-review-heading"
+  data-sh-review-root
+  data-sh-review-id="conv-001-review"
+  data-sh-review-total="12"
+  
+  data-sh-review-prospect-ids="p-001,p-002,p-003,p-004,p-005,p-006,p-007,p-008,p-009,p-010,p-011,p-012"
+  data-sh-review-channel="email"
+>
+  
+  <header class="seller-home__conv-review-header">
+    <h3 id="conv-001-review-heading" class="seller-home__conv-review-heading">
+      Outreach review
+    </h3>
+
+    <div class="seller-home__conv-review-meta" role="group" aria-label="Review progress">
+      
+      <div class="seller-home__conv-review-pager">
+        <button
+          type="button"
+          class="seller-home__conv-review-pager-btn"
+          data-sh-review-prev
+          aria-label="Previous prospect"
+        >
+          <svg class="seller-home__conv-review-pager-icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronleft"></use>
+          </svg>
+        </button>
+
+        <span
+          class="seller-home__conv-review-progress"
+          data-sh-review-progress
+          aria-live="polite"
+        >
+          <span class="seller-home__conv-review-progress-current" data-sh-review-current>1</span>
+          <span class="seller-home__conv-review-progress-sep"> of </span>
+          <span class="seller-home__conv-review-progress-total">12</span>
+        </span>
+
+        <button
+          type="button"
+          class="seller-home__conv-review-pager-btn"
+          data-sh-review-next
+          aria-label="Next prospect"
+        >
+          <svg class="seller-home__conv-review-pager-icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+          </svg>
+        </button>
+      </div>
+
+      <span class="seller-home__conv-review-progress-dot" aria-hidden="true">&middot;</span>
+
+      <span
+        class="seller-home__conv-review-reviewed"
+        data-sh-review-reviewed-progress
+      >
+        <span data-sh-review-reviewed-count>0</span> of 12 reviewed
+      </span>
+    </div>
+  </header>
+
+  
+  
+  <div class="seller-home__conv-review-body" data-sh-review-body>
+    <div class="seller-home__conv-review-prospect">
+      <p class="seller-home__conv-review-prospect-headline">
+        
+        <span class="seller-home__conv-review-prospect-name" data-sh-review-name>Alex Bristor</span>
+        <span class="seller-home__conv-review-prospect-sep"> &middot; </span>
+        <span class="seller-home__conv-review-prospect-role" data-sh-review-role>VP, Sales</span>
+        <span class="seller-home__conv-review-prospect-at"> at </span>
+        <span class="seller-home__conv-review-prospect-company" data-sh-review-company>Rippling</span>
+      </p>
+
+      
+      <span
+        class="seller-home__conv-review-status seller-home__conv-review-status--not-reviewed"
+        data-sh-review-status
+        aria-live="polite"
+      >
+        <span data-sh-review-status-label>Not reviewed</span>
+      </span>
+    </div>
+
+    
+    <p class="seller-home__conv-review-signal" data-sh-review-signal-row>
+      <span class="seller-home__conv-review-signal-label">Signal:</span>
+      <span class="seller-home__conv-review-signal-value" data-sh-review-signal>$450M Series G funding</span>
+    </p>
+
+    
+    <article class="seller-home__conv-review-draft" data-sh-review-draft aria-label="Email draft">
+      <header class="seller-home__conv-review-draft-header">
+        <span class="seller-home__conv-review-draft-channel" data-sh-review-channel-label>Email</span>
+        <span class="seller-home__conv-review-draft-subject-label">Subject:</span>
+        <span class="seller-home__conv-review-draft-subject" data-sh-review-subject>8 tools, one list build</span>
+      </header>
+      <div
+        class="seller-home__conv-review-draft-body"
+        data-sh-review-body-text
+      >Hi Alex,
+
+Rippling’s outbound stack runs through ZoomInfo, Apollo, Clay, Outreach, Demandbase, and Lusha — at minimum. Your cross-sell SDRs are toggling between all of them just to build a single target list.
+
+That’s the #1 productivity drain we hear from SDR managers at this scale — reps spend more time sourcing across fragmented tools than actually selling.
+
+Bluebirds consolidates enrichment across 15 data vendors into one platform. 30-min Salesforce setup, no new UI for reps to learn.
+
+Can I share a 2-min walkthrough of the platform running a cross-sell list build?
+
+— Bluebirds Team</div>
+    </article>
+
+    
+    <div
+      class="seller-home__conv-review-feedback"
+      data-sh-review-feedback
+      hidden
+    >
+      
+      <label
+        for="conv-001-review-feedback-input"
+        class="seller-home__conv-review-feedback-label slds-assistive-text"
+      >What should change?</label>
+      <textarea
+        id="conv-001-review-feedback-input"
+        class="slds-textarea seller-home__conv-review-feedback-input"
+        data-sh-review-feedback-input
+        rows="3"
+        placeholder="Share what should change in this draft."
+      ></textarea>
+      <div class="seller-home__conv-review-feedback-actions">
+        <button
+          type="button"
+          class="slds-button slds-button_neutral seller-home__conv-review-btn"
+          data-sh-review-feedback-cancel
+        >Cancel</button>
+        <button
+          type="button"
+          class="slds-button slds-button_brand seller-home__conv-review-btn"
+          data-sh-review-feedback-save
+        >Save feedback</button>
+      </div>
+    </div>
+  </div>
+
+  
+  
+  <div class="seller-home__conv-review-actions" role="group" aria-label="Draft actions">
+    <div class="seller-home__conv-review-actions-decisions">
+      <button
+        type="button"
+        class="slds-button slds-button_neutral seller-home__conv-review-btn"
+        data-sh-review-request-changes
+      >Edit</button>
+      <button
+        type="button"
+        class="slds-button slds-button_brand seller-home__conv-review-btn"
+        data-sh-review-approve
+      >Approve</button>
+    </div>
+  </div>
+
+  
+  <div class="seller-home__conv-review-batch">
+    <button
+      type="button"
+      class="slds-button slds-button_brand seller-home__conv-review-btn seller-home__conv-review-btn--batch"
+      data-sh-review-approve-all
+    >Approve all 12 drafts</button>
+  </div>
+
+  
+  <div
+    class="seller-home__conv-review-completed"
+    data-sh-review-completed
+    hidden
+  >
+    <span class="seller-home__conv-review-completed-icon" aria-hidden="true">
+      <svg class="seller-home__conv-review-completed-glyph" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
+      </svg>
+    </span>
+    <div class="seller-home__conv-review-completed-body">
+      <p class="seller-home__conv-review-completed-heading" data-sh-review-completed-heading>
+        All 12 drafts approved
+      </p>
+      <p class="seller-home__conv-review-completed-copy">
+        The approved drafts will be released to the configured outreach workflow.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section
+  class="slds-modal seller-home__conv-review-dialog"
+  role="dialog"
+  tabindex="-1"
+  aria-modal="true"
+  aria-labelledby="conv-001-review-dialog-title"
+  aria-describedby="conv-001-review-dialog-body"
+  data-sh-review-dialog
+  hidden
+>
+  <div class="slds-modal__container">
+    <button
+      type="button"
+      class="slds-button slds-button_icon slds-modal__close"
+      data-sh-review-dialog-close
+      aria-label="Cancel and close"
+    >
+      <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+      </svg>
+    </button>
+    <div class="slds-modal__header">
+      <h2
+        id="conv-001-review-dialog-title"
+        class="slds-modal__title slds-hyphenate"
+      >Approve outreach to 12 prospects?</h2>
+    </div>
+    <div class="slds-modal__content slds-p-around_medium">
+      <p id="conv-001-review-dialog-body">The approved drafts will be released to the configured outreach workflow.</p>
+    </div>
+    <div class="slds-modal__footer">
+      <button
+        type="button"
+        class="slds-button slds-button_neutral"
+        data-sh-review-dialog-cancel
+      >Cancel</button>
+      <button
+        type="button"
+        class="slds-button slds-button_brand"
+        data-sh-review-dialog-confirm
+      >Approve 12 drafts</button>
+    </div>
+  </div>
+</section>
+<div
+  class="slds-backdrop seller-home__conv-review-backdrop"
+  role="presentation"
+  data-sh-review-dialog-backdrop
+  hidden
+></div>
+
+
+<script type="application/json" data-sh-review-statuses="conv-001-review">{"not_reviewed":{"label":"Not reviewed","modifier":"not-reviewed"},"approved":{"label":"Approved","modifier":"approved"},"changes_requested":{"label":"Changes requested","modifier":"changes-requested"}}</script>
+
+
+
+  
+</article>
+
+              
+            </li>
+            
+            
+            <li class="seller-home__conv-thread-item" data-sh-conv-item="msg-activity">
+              
+                
+<div
+  class="seller-home__conv-msg seller-home__conv-msg--activity"
+  data-sh-conv-msg="msg-activity"
+  data-sh-conv-msg-type="workflow_activity"
+  role="status"
+  aria-label="Prospecting workflow completed"
+>
+  <span class="seller-home__conv-msg-activity-icon" aria-hidden="true">
+    <svg class="seller-home__conv-msg-activity-glyph" aria-hidden="true">
+      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#apps"></use>
+    </svg>
+  </span>
+  <span class="seller-home__conv-msg-activity-body">
+    <span class="seller-home__conv-msg-activity-label">Prospecting workflow completed</span>
+    
+    <span class="seller-home__conv-msg-activity-status">12 prospects · 8 accounts · 12 drafts</span>
+    
+  </span>
+</div>
+
+              
+            </li>
+            
+            
+          </ol>
+        
+          
+          
+          <ol
+            class="seller-home__conv-thread-inner"
+            data-sh-conv-thread-inner
+            data-sh-conv-thread-for="conv-daily-pipeline-snapshot"
+            
+              role="list"
+              aria-hidden="true"
+              hidden
+            
+          >
+            
+            
+            
+            <li class="seller-home__conv-thread-item" data-sh-conv-item="msg-run-2026-08-05-0804">
+              
+                
+
+<article
+  id="msg-run-2026-08-05-0804"
+  class="seller-home__conv-msg seller-home__conv-msg--agent seller-home__conv-msg--has-snapshot"
+  data-sh-conv-msg="msg-run-2026-08-05-0804"
+  data-sh-conv-msg-type="agent"
+  data-sh-conv-run="run-2026-08-05-0804"
+  tabindex="-1"
+  aria-label="Agent response"
+>
+  
+  
+    
+
+
+<section
+  class="seller-home__snapshot"
+  data-sh-snapshot
+  aria-labelledby="msg-run-2026-08-05-0804-title"
+>
+  
+  <header class="seller-home__snapshot-header">
+    <h2 id="msg-run-2026-08-05-0804-title" class="seller-home__snapshot-title">
+      <span class="seller-home__snapshot-title-primary">Daily Pipeline</span>
+      <span class="seller-home__snapshot-title-sep" aria-hidden="true">|</span>
+      <span class="seller-home__snapshot-title-date">August 5, 2026</span>
+    </h2>
+    
+    <p class="seller-home__snapshot-freshness">
+      <span class="seller-home__snapshot-freshness-text">Data as of August 5 at 8:04 AM PST</span>
+      
+      <span class="seller-home__snapshot-freshness-sep" aria-hidden="true">·</span>
+      <span class="seller-home__snapshot-freshness-source">Salesforce</span>
+      
+    </p>
+    
+  </header>
+
+  
+  
+  <p
+    class="seller-home__conv-msg-agent-text seller-home__snapshot-summary"
+    data-sh-snapshot-inference
+  >Your pipeline remains above target coverage at 3.2×. Two late-stage opportunities advanced, but $410K is concentrated in deals without a confirmed next meeting.</p>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-metrics"
+    aria-labelledby="msg-run-2026-08-05-0804-metrics-heading"
+  >
+    <h3
+      id="msg-run-2026-08-05-0804-metrics-heading"
+      class="seller-home__snapshot-heading"
+    >Pipeline at a glance</h3>
+    <ul class="seller-home__snapshot-metric-grid" role="list">
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="open"
+      >
+        <span class="seller-home__snapshot-metric-label">Open pipeline</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value"
+        >$2.31M</span>
+        
+      </li>
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="coverage"
+      >
+        <span class="seller-home__snapshot-metric-label">Coverage</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value"
+        >3.2×</span>
+        
+      </li>
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="expected"
+      >
+        <span class="seller-home__snapshot-metric-label">Expected this quarter</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value"
+        >$830K</span>
+        
+      </li>
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="change_yesterday"
+      >
+        <span class="seller-home__snapshot-metric-label">Change since yesterday</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value seller-home__snapshot-metric-value--positive"
+        >Up $85K</span>
+        
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-changes"
+    aria-labelledby="msg-run-2026-08-05-0804-changes-heading"
+  >
+    <h3
+      id="msg-run-2026-08-05-0804-changes-heading"
+      class="seller-home__snapshot-heading"
+    >What changed</h3>
+    <div
+      class="seller-home__conv-prospect-table seller-home__snapshot-changes-table"
+      data-sh-conv-table="snapshot-msg-run-2026-08-05-0804-changes"
+    >
+      <table
+        class="slds-table slds-table_bordered slds-table_fixed-layout slds-table-uplift seller-home__conv-prospect-table-el seller-home__snapshot-changes-table-el"
+        role="grid"
+        aria-label="Opportunities that changed since the last snapshot"
+      >
+        <thead>
+          <tr class="slds-line-height_reset">
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="opportunity">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Opportunity">Opportunity</span>
+              </div>
+            </th>
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="amount">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Amount">Amount</span>
+              </div>
+            </th>
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="change">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Change">Change</span>
+              </div>
+            </th>
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="whyItMatters">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Why it matters">Why it matters</span>
+              </div>
+            </th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr
+            class="slds-hint-parent seller-home__conv-prospect-row"
+            data-sh-conv-row
+            data-sh-conv-row-id="opp-globex-platform"
+            data-sh-snapshot-opp-id="0064000000GXP01"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Globex Platform">Globex Platform</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="$180K">$180K</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Technical evaluation completed">Technical evaluation completed</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="The deal can move into commercial review">The deal can move into commercial review</span>
+            </td>
+            
+          </tr>
+          
+          <tr
+            class="slds-hint-parent seller-home__conv-prospect-row"
+            data-sh-conv-row
+            data-sh-conv-row-id="opp-hooli-data-cloud"
+            data-sh-snapshot-opp-id="0064000000HDC01"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Hooli Data Cloud">Hooli Data Cloud</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="$125K">$125K</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Security review approved">Security review approved</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Removes the largest remaining technical blocker">Removes the largest remaining technical blocker</span>
+            </td>
+            
+          </tr>
+          
+          <tr
+            class="slds-hint-parent seller-home__conv-prospect-row"
+            data-sh-conv-row
+            data-sh-conv-row-id="opp-vehement-capital"
+            data-sh-snapshot-opp-id="0064000000VEH01"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Vehement Capital">Vehement Capital</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="$230K">$230K</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Next meeting was canceled">Next meeting was canceled</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="No new meeting has been scheduled for this month">No new meeting has been scheduled for this month</span>
+            </td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-attention"
+    aria-labelledby="msg-run-2026-08-05-0804-attention-heading"
+  >
+    <h3
+      id="msg-run-2026-08-05-0804-attention-heading"
+      class="seller-home__snapshot-heading"
+    >Needs your attention</h3>
+    <ul class="seller-home__snapshot-attention-list" role="list">
+      
+      <li
+        class="seller-home__snapshot-attention-item seller-home__snapshot-attention-item--high"
+        data-sh-snapshot-attention="att-05-vehement"
+        data-sh-snapshot-opp-id="0064000000VEH01"
+      >
+        <span
+          class="seller-home__snapshot-attention-bar"
+          aria-hidden="true"
+        ></span>
+        <div class="seller-home__snapshot-attention-body">
+          <div class="seller-home__snapshot-attention-title-row">
+            <span class="seller-home__snapshot-attention-title">Vehement Capital</span>
+            
+            <span
+              class="seller-home__snapshot-attention-badge seller-home__snapshot-attention-badge--high"
+            >High risk</span>
+            
+          </div>
+          
+          <p class="seller-home__snapshot-attention-subtitle">$230K · No meeting scheduled</p>
+          
+          
+          <p
+            class="seller-home__snapshot-attention-detail"
+            data-sh-snapshot-inference
+          >The executive review was canceled and no replacement meeting is scheduled.</p>
+          
+          
+          
+          <p
+            class="seller-home__snapshot-attention-recommendation"
+            data-sh-snapshot-inference
+          >
+            <span class="seller-home__snapshot-attention-recommendation-lead">Recommended action:</span>
+            <span class="seller-home__snapshot-attention-recommendation-text">Propose new times and confirm whether the target close date is still realistic.</span>
+          </p>
+          
+        </div>
+      </li>
+      
+      <li
+        class="seller-home__snapshot-attention-item seller-home__snapshot-attention-item--warning"
+        data-sh-snapshot-attention="att-05-wonka"
+        data-sh-snapshot-opp-id="0064000000WON01"
+      >
+        <span
+          class="seller-home__snapshot-attention-bar"
+          aria-hidden="true"
+        ></span>
+        <div class="seller-home__snapshot-attention-body">
+          <div class="seller-home__snapshot-attention-title-row">
+            <span class="seller-home__snapshot-attention-title">Wonka Industries</span>
+            
+            <span
+              class="seller-home__snapshot-attention-badge seller-home__snapshot-attention-badge--warning"
+            >At risk</span>
+            
+          </div>
+          
+          <p class="seller-home__snapshot-attention-subtitle">Proposal · Mutual action plan idle 16 days</p>
+          
+          
+          <p
+            class="seller-home__snapshot-attention-detail"
+            data-sh-snapshot-inference
+          >The opportunity is in Proposal, but the mutual action plan has not been updated in 16 days.</p>
+          
+          
+          
+          <p
+            class="seller-home__snapshot-attention-recommendation"
+            data-sh-snapshot-inference
+          >
+            <span class="seller-home__snapshot-attention-recommendation-lead">Recommended action:</span>
+            <span class="seller-home__snapshot-attention-recommendation-text">Review milestones with the account team.</span>
+          </p>
+          
+        </div>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-actions"
+    aria-labelledby="msg-run-2026-08-05-0804-actions-heading"
+  >
+    <h3
+      id="msg-run-2026-08-05-0804-actions-heading"
+      class="seller-home__snapshot-heading"
+    >Recommended actions</h3>
+    <ul class="seller-home__snapshot-actions-list">
+      
+      <li class="seller-home__snapshot-actions-item">
+        
+        <p
+          id="msg-run-2026-08-05-0804-action-0-desc"
+          class="seller-home__snapshot-actions-text"
+        >Reschedule the Vehement executive review to keep the deal on track.</p>
+        
+        <button
+          type="button"
+          class="slds-button seller-home__snapshot-action"
+          data-sh-snapshot-action="act-05-vehement-reschedule"
+          data-sh-snapshot-action-kind="task"
+          aria-describedby="msg-run-2026-08-05-0804-action-0-desc"
+          data-sh-snapshot-opp-id="0064000000VEH01"
+        >
+          <span class="seller-home__snapshot-action-label">Reschedule</span>
+          
+          <svg
+            class="slds-button__icon slds-button__icon_right seller-home__snapshot-action-icon"
+            aria-hidden="true"
+          >
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#send"></use>
+          </svg>
+        </button>
+      </li>
+      
+      <li class="seller-home__snapshot-actions-item">
+        
+        <p
+          id="msg-run-2026-08-05-0804-action-1-desc"
+          class="seller-home__snapshot-actions-text"
+        >Update the Wonka mutual action plan with the latest milestones.</p>
+        
+        <button
+          type="button"
+          class="slds-button seller-home__snapshot-action"
+          data-sh-snapshot-action="act-05-wonka-map"
+          data-sh-snapshot-action-kind="task"
+          aria-describedby="msg-run-2026-08-05-0804-action-1-desc"
+          data-sh-snapshot-opp-id="0064000000WON01"
+        >
+          <span class="seller-home__snapshot-action-label">Update plan</span>
+          
+          <svg
+            class="slds-button__icon slds-button__icon_right seller-home__snapshot-action-icon"
+            aria-hidden="true"
+          >
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#send"></use>
+          </svg>
+        </button>
+      </li>
+      
+    </ul>
+  </section>
+  
+</section>
+
+  
+
+  
+
+  
+  
+</article>
+
+              
+            </li>
+            
+            
+            <li class="seller-home__conv-thread-item" data-sh-conv-item="msg-run-2026-08-06-0804">
+              
+                
+
+<article
+  id="msg-run-2026-08-06-0804"
+  class="seller-home__conv-msg seller-home__conv-msg--agent seller-home__conv-msg--has-snapshot"
+  data-sh-conv-msg="msg-run-2026-08-06-0804"
+  data-sh-conv-msg-type="agent"
+  data-sh-conv-run="run-2026-08-06-0804"
+  tabindex="-1"
+  aria-label="Agent response"
+>
+  
+  
+    
+
+
+<section
+  class="seller-home__snapshot"
+  data-sh-snapshot
+  aria-labelledby="msg-run-2026-08-06-0804-title"
+>
+  
+  <header class="seller-home__snapshot-header">
+    <h2 id="msg-run-2026-08-06-0804-title" class="seller-home__snapshot-title">
+      <span class="seller-home__snapshot-title-primary">Daily Pipeline</span>
+      <span class="seller-home__snapshot-title-sep" aria-hidden="true">|</span>
+      <span class="seller-home__snapshot-title-date">August 6, 2026</span>
+    </h2>
+    
+    <p class="seller-home__snapshot-freshness">
+      <span class="seller-home__snapshot-freshness-text">Data as of August 6 at 8:04 AM PST</span>
+      
+      <span class="seller-home__snapshot-freshness-sep" aria-hidden="true">·</span>
+      <span class="seller-home__snapshot-freshness-source">Salesforce</span>
+      
+    </p>
+    
+  </header>
+
+  
+  
+  <p
+    class="seller-home__conv-msg-agent-text seller-home__snapshot-summary"
+    data-sh-snapshot-inference
+  >Pipeline increased by $210K since yesterday, driven by two newly qualified opportunities. Coverage improved to 3.3×, although the Wayne Industries opportunity is now at risk because the economic buyer has not engaged.</p>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-metrics"
+    aria-labelledby="msg-run-2026-08-06-0804-metrics-heading"
+  >
+    <h3
+      id="msg-run-2026-08-06-0804-metrics-heading"
+      class="seller-home__snapshot-heading"
+    >Pipeline at a glance</h3>
+    <ul class="seller-home__snapshot-metric-grid" role="list">
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="open"
+      >
+        <span class="seller-home__snapshot-metric-label">Open pipeline</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value"
+        >$2.52M</span>
+        
+      </li>
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="coverage"
+      >
+        <span class="seller-home__snapshot-metric-label">Coverage</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value"
+        >3.3×</span>
+        
+      </li>
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="expected"
+      >
+        <span class="seller-home__snapshot-metric-label">Expected this quarter</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value"
+        >$900K</span>
+        
+      </li>
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="change_yesterday"
+      >
+        <span class="seller-home__snapshot-metric-label">Change since yesterday</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value seller-home__snapshot-metric-value--positive"
+        >Up $210K</span>
+        
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-changes"
+    aria-labelledby="msg-run-2026-08-06-0804-changes-heading"
+  >
+    <h3
+      id="msg-run-2026-08-06-0804-changes-heading"
+      class="seller-home__snapshot-heading"
+    >What changed</h3>
+    <div
+      class="seller-home__conv-prospect-table seller-home__snapshot-changes-table"
+      data-sh-conv-table="snapshot-msg-run-2026-08-06-0804-changes"
+    >
+      <table
+        class="slds-table slds-table_bordered slds-table_fixed-layout slds-table-uplift seller-home__conv-prospect-table-el seller-home__snapshot-changes-table-el"
+        role="grid"
+        aria-label="Opportunities that changed since the last snapshot"
+      >
+        <thead>
+          <tr class="slds-line-height_reset">
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="opportunity">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Opportunity">Opportunity</span>
+              </div>
+            </th>
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="amount">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Amount">Amount</span>
+              </div>
+            </th>
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="change">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Change">Change</span>
+              </div>
+            </th>
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="whyItMatters">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Why it matters">Why it matters</span>
+              </div>
+            </th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr
+            class="slds-hint-parent seller-home__conv-prospect-row"
+            data-sh-conv-row
+            data-sh-conv-row-id="opp-stark-expansion"
+            data-sh-snapshot-opp-id="0064000000STK01"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Stark Industries Expansion">Stark Industries Expansion</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="$140K">$140K</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Added to pipeline at Qualification">Added to pipeline at Qualification</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Creates new upside for the current quarter">Creates new upside for the current quarter</span>
+            </td>
+            
+          </tr>
+          
+          <tr
+            class="slds-hint-parent seller-home__conv-prospect-row"
+            data-sh-conv-row
+            data-sh-conv-row-id="opp-cyberdyne-automation"
+            data-sh-snapshot-opp-id="0064000000CBD01"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Cyberdyne Automation">Cyberdyne Automation</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="$70K">$70K</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Converted from lead to qualified opportunity">Converted from lead to qualified opportunity</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Discovery confirmed budget and a target launch date">Discovery confirmed budget and a target launch date</span>
+            </td>
+            
+          </tr>
+          
+          <tr
+            class="slds-hint-parent seller-home__conv-prospect-row"
+            data-sh-conv-row
+            data-sh-conv-row-id="opp-wayne-analytics"
+            data-sh-snapshot-opp-id="0064000000WAY01"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Wayne Industries Analytics">Wayne Industries Analytics</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="$260K">$260K</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Last activity reached 14 days">Last activity reached 14 days</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Momentum is declining in a high-value late-stage deal">Momentum is declining in a high-value late-stage deal</span>
+            </td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-attention"
+    aria-labelledby="msg-run-2026-08-06-0804-attention-heading"
+  >
+    <h3
+      id="msg-run-2026-08-06-0804-attention-heading"
+      class="seller-home__snapshot-heading"
+    >Needs your attention</h3>
+    <ul class="seller-home__snapshot-attention-list" role="list">
+      
+      <li
+        class="seller-home__snapshot-attention-item seller-home__snapshot-attention-item--high"
+        data-sh-snapshot-attention="att-06-wayne"
+        data-sh-snapshot-opp-id="0064000000WAY01"
+      >
+        <span
+          class="seller-home__snapshot-attention-bar"
+          aria-hidden="true"
+        ></span>
+        <div class="seller-home__snapshot-attention-body">
+          <div class="seller-home__snapshot-attention-title-row">
+            <span class="seller-home__snapshot-attention-title">Wayne Industries Analytics</span>
+            
+            <span
+              class="seller-home__snapshot-attention-badge seller-home__snapshot-attention-badge--high"
+            >High risk</span>
+            
+          </div>
+          
+          <p class="seller-home__snapshot-attention-subtitle">$260K · Economic buyer unengaged</p>
+          
+          
+          <p
+            class="seller-home__snapshot-attention-detail"
+            data-sh-snapshot-inference
+          >The champion is engaged, but the economic buyer has not attended either recent meeting.</p>
+          
+          
+          
+          <p
+            class="seller-home__snapshot-attention-recommendation"
+            data-sh-snapshot-inference
+          >
+            <span class="seller-home__snapshot-attention-recommendation-lead">Recommended action:</span>
+            <span class="seller-home__snapshot-attention-recommendation-text">Ask the champion to include the economic buyer in the next review.</span>
+          </p>
+          
+        </div>
+      </li>
+      
+      <li
+        class="seller-home__snapshot-attention-item seller-home__snapshot-attention-item--warning"
+        data-sh-snapshot-attention="att-06-massive-dynamic"
+        data-sh-snapshot-opp-id="0064000000MDR01"
+      >
+        <span
+          class="seller-home__snapshot-attention-bar"
+          aria-hidden="true"
+        ></span>
+        <div class="seller-home__snapshot-attention-body">
+          <div class="seller-home__snapshot-attention-title-row">
+            <span class="seller-home__snapshot-attention-title">Massive Dynamic Renewal</span>
+            
+            <span
+              class="seller-home__snapshot-attention-badge seller-home__snapshot-attention-badge--warning"
+            >At risk</span>
+            
+          </div>
+          
+          <p class="seller-home__snapshot-attention-subtitle">Legal review open 9 days</p>
+          
+          
+          <p
+            class="seller-home__snapshot-attention-detail"
+            data-sh-snapshot-inference
+          >Legal review has been open for nine days without an update.</p>
+          
+          
+          
+          <p
+            class="seller-home__snapshot-attention-recommendation"
+            data-sh-snapshot-inference
+          >
+            <span class="seller-home__snapshot-attention-recommendation-lead">Recommended action:</span>
+            <span class="seller-home__snapshot-attention-recommendation-text">Confirm ownership and the expected completion date.</span>
+          </p>
+          
+        </div>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-actions"
+    aria-labelledby="msg-run-2026-08-06-0804-actions-heading"
+  >
+    <h3
+      id="msg-run-2026-08-06-0804-actions-heading"
+      class="seller-home__snapshot-heading"
+    >Recommended actions</h3>
+    <ul class="seller-home__snapshot-actions-list">
+      
+      <li class="seller-home__snapshot-actions-item">
+        
+        <p
+          id="msg-run-2026-08-06-0804-action-0-desc"
+          class="seller-home__snapshot-actions-text"
+        >Draft an economic-buyer outreach for Wayne Industries to bring the buyer into the review.</p>
+        
+        <button
+          type="button"
+          class="slds-button seller-home__snapshot-action"
+          data-sh-snapshot-action="act-06-wayne-outreach"
+          data-sh-snapshot-action-kind="outreach"
+          aria-describedby="msg-run-2026-08-06-0804-action-0-desc"
+          data-sh-snapshot-opp-id="0064000000WAY01"
+        >
+          <span class="seller-home__snapshot-action-label">Draft outreach</span>
+          
+          <svg
+            class="slds-button__icon slds-button__icon_right seller-home__snapshot-action-icon"
+            aria-hidden="true"
+          >
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#send"></use>
+          </svg>
+        </button>
+      </li>
+      
+      <li class="seller-home__snapshot-actions-item">
+        
+        <p
+          id="msg-run-2026-08-06-0804-action-1-desc"
+          class="seller-home__snapshot-actions-text"
+        >Summarize the Massive Dynamic legal blocker for the account team.</p>
+        
+        <button
+          type="button"
+          class="slds-button seller-home__snapshot-action"
+          data-sh-snapshot-action="act-06-massive-legal"
+          data-sh-snapshot-action-kind="task"
+          aria-describedby="msg-run-2026-08-06-0804-action-1-desc"
+          data-sh-snapshot-opp-id="0064000000MDR01"
+        >
+          <span class="seller-home__snapshot-action-label">Summarize blocker</span>
+          
+          <svg
+            class="slds-button__icon slds-button__icon_right seller-home__snapshot-action-icon"
+            aria-hidden="true"
+          >
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#send"></use>
+          </svg>
+        </button>
+      </li>
+      
+    </ul>
+  </section>
+  
+</section>
+
+  
+
+  
+
+  
+  
+</article>
+
+              
+            </li>
+            
+            
+            <li class="seller-home__conv-thread-item" data-sh-conv-item="msg-run-2026-08-07-0804">
+              
+                
+
+<article
+  id="msg-run-2026-08-07-0804"
+  class="seller-home__conv-msg seller-home__conv-msg--agent seller-home__conv-msg--has-snapshot"
+  data-sh-conv-msg="msg-run-2026-08-07-0804"
+  data-sh-conv-msg-type="agent"
+  data-sh-conv-run="run-2026-08-07-0804"
+  tabindex="-1"
+  aria-label="Agent response"
+>
+  
+  
+    
+
+
+<section
+  class="seller-home__snapshot"
+  data-sh-snapshot
+  aria-labelledby="msg-run-2026-08-07-0804-title"
+>
+  
+  <header class="seller-home__snapshot-header">
+    <h2 id="msg-run-2026-08-07-0804-title" class="seller-home__snapshot-title">
+      <span class="seller-home__snapshot-title-primary">Daily Pipeline</span>
+      <span class="seller-home__snapshot-title-sep" aria-hidden="true">|</span>
+      <span class="seller-home__snapshot-title-date">August 7, 2026</span>
+    </h2>
+    
+    <p class="seller-home__snapshot-freshness">
+      <span class="seller-home__snapshot-freshness-text">Data as of August 7 at 8:04 AM PST</span>
+      
+      <span class="seller-home__snapshot-freshness-sep" aria-hidden="true">·</span>
+      <span class="seller-home__snapshot-freshness-source">Salesforce</span>
+      
+    </p>
+    
+  </header>
+
+  
+  
+  <p
+    class="seller-home__conv-msg-agent-text seller-home__snapshot-summary"
+    data-sh-snapshot-inference
+  >Your pipeline is holding steady at $2.4M, but three deals need attention today. The biggest risk is Acme Expansion, which slipped into next quarter and has had no customer engagement in 12 days.</p>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-metrics"
+    aria-labelledby="msg-run-2026-08-07-0804-metrics-heading"
+  >
+    <h3
+      id="msg-run-2026-08-07-0804-metrics-heading"
+      class="seller-home__snapshot-heading"
+    >Pipeline at a glance</h3>
+    <ul class="seller-home__snapshot-metric-grid" role="list">
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="open"
+      >
+        <span class="seller-home__snapshot-metric-label">Open pipeline</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value"
+        >$2.4M</span>
+        
+      </li>
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="coverage"
+      >
+        <span class="seller-home__snapshot-metric-label">Coverage</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value"
+        >3.1×</span>
+        
+      </li>
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="expected"
+      >
+        <span class="seller-home__snapshot-metric-label">Expected this quarter</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value"
+        >$780K</span>
+        
+      </li>
+      
+      <li
+        class="seller-home__snapshot-metric"
+        data-sh-snapshot-metric="change_yesterday"
+      >
+        <span class="seller-home__snapshot-metric-label">Change since yesterday</span>
+        
+        <span
+          class="seller-home__snapshot-metric-value seller-home__snapshot-metric-value--warning"
+        >Down $120K</span>
+        
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-changes"
+    aria-labelledby="msg-run-2026-08-07-0804-changes-heading"
+  >
+    <h3
+      id="msg-run-2026-08-07-0804-changes-heading"
+      class="seller-home__snapshot-heading"
+    >What changed</h3>
+    <div
+      class="seller-home__conv-prospect-table seller-home__snapshot-changes-table"
+      data-sh-conv-table="snapshot-msg-run-2026-08-07-0804-changes"
+    >
+      <table
+        class="slds-table slds-table_bordered slds-table_fixed-layout slds-table-uplift seller-home__conv-prospect-table-el seller-home__snapshot-changes-table-el"
+        role="grid"
+        aria-label="Opportunities that changed since the last snapshot"
+      >
+        <thead>
+          <tr class="slds-line-height_reset">
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="opportunity">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Opportunity">Opportunity</span>
+              </div>
+            </th>
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="amount">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Amount">Amount</span>
+              </div>
+            </th>
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="change">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Change">Change</span>
+              </div>
+            </th>
+            
+            <th class="slds-cell_action-mode" scope="col" data-sh-conv-col="whyItMatters">
+              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <span class="slds-truncate" title="Why it matters">Why it matters</span>
+              </div>
+            </th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr
+            class="slds-hint-parent seller-home__conv-prospect-row"
+            data-sh-conv-row
+            data-sh-conv-row-id="opp-acme-expansion"
+            data-sh-snapshot-opp-id="0064000000ACM01"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Acme Expansion">Acme Expansion</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="$320K">$320K</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Close date moved from August 28 to October 15">Close date moved from August 28 to October 15</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Removes $320K from this quarter’s forecast">Removes $320K from this quarter’s forecast</span>
+            </td>
+            
+          </tr>
+          
+          <tr
+            class="slds-hint-parent seller-home__conv-prospect-row"
+            data-sh-conv-row
+            data-sh-conv-row-id="opp-globex-platform"
+            data-sh-snapshot-opp-id="0064000000GXP01"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Globex Platform">Globex Platform</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="$180K">$180K</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Stage advanced from Discovery to Evaluation">Stage advanced from Discovery to Evaluation</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Buying committee confirmed and technical review scheduled">Buying committee confirmed and technical review scheduled</span>
+            </td>
+            
+          </tr>
+          
+          <tr
+            class="slds-hint-parent seller-home__conv-prospect-row"
+            data-sh-conv-row
+            data-sh-conv-row-id="opp-initech-renewal"
+            data-sh-snapshot-opp-id="0064000000INI01"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Initech Renewal">Initech Renewal</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="$95K">$95K</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Probability decreased from 70% to 50%">Probability decreased from 70% to 50%</span>
+            </td>
+            
+            <td class="slds-cell_action-mode" role="gridcell">
+              <span class="slds-truncate" title="Procurement raised concerns about implementation timing">Procurement raised concerns about implementation timing</span>
+            </td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-attention"
+    aria-labelledby="msg-run-2026-08-07-0804-attention-heading"
+  >
+    <h3
+      id="msg-run-2026-08-07-0804-attention-heading"
+      class="seller-home__snapshot-heading"
+    >Needs your attention</h3>
+    <ul class="seller-home__snapshot-attention-list" role="list">
+      
+      <li
+        class="seller-home__snapshot-attention-item seller-home__snapshot-attention-item--high"
+        data-sh-snapshot-attention="att-07-acme"
+        data-sh-snapshot-opp-id="0064000000ACM01"
+      >
+        <span
+          class="seller-home__snapshot-attention-bar"
+          aria-hidden="true"
+        ></span>
+        <div class="seller-home__snapshot-attention-body">
+          <div class="seller-home__snapshot-attention-title-row">
+            <span class="seller-home__snapshot-attention-title">Acme Expansion</span>
+            
+            <span
+              class="seller-home__snapshot-attention-badge seller-home__snapshot-attention-badge--high"
+            >High risk</span>
+            
+          </div>
+          
+          <p class="seller-home__snapshot-attention-subtitle">$320K · Close date slipped to Q4</p>
+          
+          
+          <p
+            class="seller-home__snapshot-attention-detail"
+            data-sh-snapshot-inference
+          >No customer engagement in 12 days and the close date moved into next quarter.</p>
+          
+          
+          
+          <p
+            class="seller-home__snapshot-attention-recommendation"
+            data-sh-snapshot-inference
+          >
+            <span class="seller-home__snapshot-attention-recommendation-lead">Recommended action:</span>
+            <span class="seller-home__snapshot-attention-recommendation-text">Re-engage the champion and confirm whether the expansion is still funded.</span>
+          </p>
+          
+        </div>
+      </li>
+      
+      <li
+        class="seller-home__snapshot-attention-item seller-home__snapshot-attention-item--warning"
+        data-sh-snapshot-attention="att-07-initech"
+        data-sh-snapshot-opp-id="0064000000INI01"
+      >
+        <span
+          class="seller-home__snapshot-attention-bar"
+          aria-hidden="true"
+        ></span>
+        <div class="seller-home__snapshot-attention-body">
+          <div class="seller-home__snapshot-attention-title-row">
+            <span class="seller-home__snapshot-attention-title">Initech Renewal</span>
+            
+            <span
+              class="seller-home__snapshot-attention-badge seller-home__snapshot-attention-badge--warning"
+            >At risk</span>
+            
+          </div>
+          
+          <p class="seller-home__snapshot-attention-subtitle">Renewal due in 21 days</p>
+          
+          
+          <p
+            class="seller-home__snapshot-attention-detail"
+            data-sh-snapshot-inference
+          >Renewal is due in 21 days, but procurement timing remains unresolved.</p>
+          
+          
+          
+          <p
+            class="seller-home__snapshot-attention-recommendation"
+            data-sh-snapshot-inference
+          >
+            <span class="seller-home__snapshot-attention-recommendation-lead">Recommended action:</span>
+            <span class="seller-home__snapshot-attention-recommendation-text">Schedule a commercial review with procurement this week.</span>
+          </p>
+          
+        </div>
+      </li>
+      
+      <li
+        class="seller-home__snapshot-attention-item seller-home__snapshot-attention-item--warning"
+        data-sh-snapshot-attention="att-07-umbrella"
+        data-sh-snapshot-opp-id="0064000000UMB01"
+      >
+        <span
+          class="seller-home__snapshot-attention-bar"
+          aria-hidden="true"
+        ></span>
+        <div class="seller-home__snapshot-attention-body">
+          <div class="seller-home__snapshot-attention-title-row">
+            <span class="seller-home__snapshot-attention-title">Umbrella Security Pilot</span>
+            
+            <span
+              class="seller-home__snapshot-attention-badge seller-home__snapshot-attention-badge--warning"
+            >At risk</span>
+            
+          </div>
+          
+          <p class="seller-home__snapshot-attention-subtitle">Technical validation 4 days overdue</p>
+          
+          
+          <p
+            class="seller-home__snapshot-attention-detail"
+            data-sh-snapshot-inference
+          >The technical validation task is four days overdue.</p>
+          
+          
+          
+          <p
+            class="seller-home__snapshot-attention-recommendation"
+            data-sh-snapshot-inference
+          >
+            <span class="seller-home__snapshot-attention-recommendation-lead">Recommended action:</span>
+            <span class="seller-home__snapshot-attention-recommendation-text">Ask the solution engineer to confirm the remaining blocker.</span>
+          </p>
+          
+        </div>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  
+  <section
+    class="seller-home__snapshot-section seller-home__snapshot-actions"
+    aria-labelledby="msg-run-2026-08-07-0804-actions-heading"
+  >
+    <h3
+      id="msg-run-2026-08-07-0804-actions-heading"
+      class="seller-home__snapshot-heading"
+    >Recommended actions</h3>
+    <ul class="seller-home__snapshot-actions-list">
+      
+      <li class="seller-home__snapshot-actions-item">
+        
+        <p
+          id="msg-run-2026-08-07-0804-action-0-desc"
+          class="seller-home__snapshot-actions-text"
+        >Draft a follow-up to the Acme champion to re-engage the account.</p>
+        
+        <button
+          type="button"
+          class="slds-button seller-home__snapshot-action"
+          data-sh-snapshot-action="act-07-acme-followup"
+          data-sh-snapshot-action-kind="outreach"
+          aria-describedby="msg-run-2026-08-07-0804-action-0-desc"
+          data-sh-snapshot-opp-id="0064000000ACM01"
+        >
+          <span class="seller-home__snapshot-action-label">Draft follow-up</span>
+          
+          <svg
+            class="slds-button__icon slds-button__icon_right seller-home__snapshot-action-icon"
+            aria-hidden="true"
+          >
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#send"></use>
+          </svg>
+        </button>
+      </li>
+      
+      <li class="seller-home__snapshot-actions-item">
+        
+        <p
+          id="msg-run-2026-08-07-0804-action-1-desc"
+          class="seller-home__snapshot-actions-text"
+        >Prepare the Initech renewal risk summary for this week&#39;s commercial review.</p>
+        
+        <button
+          type="button"
+          class="slds-button seller-home__snapshot-action"
+          data-sh-snapshot-action="act-07-initech-risk"
+          data-sh-snapshot-action-kind="task"
+          aria-describedby="msg-run-2026-08-07-0804-action-1-desc"
+          data-sh-snapshot-opp-id="0064000000INI01"
+        >
+          <span class="seller-home__snapshot-action-label">Prepare summary</span>
+          
+          <svg
+            class="slds-button__icon slds-button__icon_right seller-home__snapshot-action-icon"
+            aria-hidden="true"
+          >
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#send"></use>
+          </svg>
+        </button>
+      </li>
+      
+      <li class="seller-home__snapshot-actions-item">
+        
+        <p
+          id="msg-run-2026-08-07-0804-action-2-desc"
+          class="seller-home__snapshot-actions-text"
+        >Review the Umbrella technical blocker with the solution engineer.</p>
+        
+        <button
+          type="button"
+          class="slds-button seller-home__snapshot-action"
+          data-sh-snapshot-action="act-07-umbrella-blocker"
+          data-sh-snapshot-action-kind="task"
+          aria-describedby="msg-run-2026-08-07-0804-action-2-desc"
+          data-sh-snapshot-opp-id="0064000000UMB01"
+        >
+          <span class="seller-home__snapshot-action-label">Review blocker</span>
+          
+          <svg
+            class="slds-button__icon slds-button__icon_right seller-home__snapshot-action-icon"
+            aria-hidden="true"
+          >
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#send"></use>
+          </svg>
+        </button>
+      </li>
+      
+    </ul>
+  </section>
+  
+</section>
+
+  
+
+  
+
+  
+  
+</article>
+
+              
+            </li>
+            
+            
+            <li class="seller-home__conv-thread-item" data-sh-conv-item="msg-run-activity">
+              
+                
+<div
+  class="seller-home__conv-msg seller-home__conv-msg--activity"
+  data-sh-conv-msg="msg-run-activity"
+  data-sh-conv-msg-type="workflow_activity"
+  role="status"
+  aria-label="Daily Pipeline Snapshot completed"
+>
+  <span class="seller-home__conv-msg-activity-icon" aria-hidden="true">
+    <svg class="seller-home__conv-msg-activity-glyph" aria-hidden="true">
+      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#apps"></use>
+    </svg>
+  </span>
+  <span class="seller-home__conv-msg-activity-body">
+    <span class="seller-home__conv-msg-activity-label">Daily Pipeline Snapshot completed</span>
+    
+    <span class="seller-home__conv-msg-activity-status">68 opportunities reviewed · 7 risks found · 3 actions recommended</span>
+    
+  </span>
+</div>
+
+              
+            </li>
+            
+            
+          </ol>
+        
+      </section>
+
+      
+      <form
+        class="seller-home__conv-composer"
+        data-sh-conv-composer
+        novalidate
+      >
+        <div class="seller-home__conv-composer-inner">
+          <div class="seller-home__conv-composer-editor">
+            <div class="seller-home__conv-composer-content">
+              
+              <label id="seller-home-conv-input-label" for="seller-home-conv-input" class="slds-assistive-text">
+                Conversation
+              </label>
+              <div
+                id="seller-home-conv-input"
+                class="seller-home__conv-composer-textarea is-empty"
+                contenteditable="true"
+                role="textbox"
+                aria-multiline="true"
+                aria-labelledby="seller-home-conv-input-label"
+                data-sh-conv-composer-input
+                data-placeholder="Ask a follow up…"
+                spellcheck="true"
+              ></div>
+            </div>
+
+            <div
+              class="seller-home__conv-composer-toolbar"
+              role="toolbar"
+              aria-label="Composer actions"
+            >
+              <div
+                class="seller-home__conv-composer-slot seller-home__conv-composer-slot--start"
+                role="group"
+                aria-label="Attach and augment"
+              >
+                
+                <button type="button" class="slds-button slds-button_icon slds-button_icon-bare seller-home__conv-composer-btn" title="Add" aria-label="Add">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Add</span>
+                </button>
+                <button type="button" class="slds-button slds-button_icon slds-button_icon-bare seller-home__conv-composer-btn" title="Quick action" aria-label="Quick action">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#fallback"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Quick action</span>
+                </button>
+                <button type="button" class="slds-button slds-button_icon slds-button_icon-bare seller-home__conv-composer-btn" title="Skills and tools" aria-label="Skills and tools">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#apps"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Skills and tools</span>
+                </button>
+              </div>
+
+              <div
+                class="seller-home__conv-composer-slot seller-home__conv-composer-slot--end"
+                role="group"
+                aria-label="Send"
+              >
+                <button
+                  type="submit"
+                  class="slds-button slds-button_icon slds-button_icon-bare seller-home__conv-composer-btn seller-home__conv-composer-send"
+                  title="Send message"
+                  aria-label="Send message"
+                  disabled
+                >
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#send"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Send message</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    
+    
+      
+    
+      
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+<aside
+  class="seller-home__conv-side"
+  data-sh-workflow-panel
+  data-sh-workflow-panel-id="wf-daily-pipeline-snapshot"
+  data-sh-workflow-panel-conversation-id="conv-daily-pipeline-snapshot"
+  role="region"
+  aria-labelledby="workflow-side-panel-title-wf-daily-pipeline-snapshot"
+  hidden aria-hidden="true"
+>
+  
+  <header class="seller-home__conv-side-header">
+    <h2
+      id="workflow-side-panel-title-wf-daily-pipeline-snapshot"
+      class="seller-home__conv-side-title"
+      title="Daily Pipeline Snapshot"
+    >Daily Pipeline Snapshot</h2>
+
+    <div
+      class="seller-home__conv-side-header-actions"
+      role="group"
+      aria-label="Workflow actions"
+    >
+      
+      
+      <div
+        class="seller-home__conv-side-menu"
+        data-sh-workflow-panel-menu
+      >
+        <button
+          type="button"
+          class="slds-button slds-button_icon slds-button_icon-container slds-button_icon-x-small seller-home__conv-side-menu-trigger"
+          data-sh-workflow-panel-menu-trigger
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="workflow-side-panel-wf-daily-pipeline-snapshot-menu"
+          aria-label="More actions for Daily Pipeline Snapshot"
+          title="More actions"
+        >
+          <svg class="slds-button__icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+          </svg>
+          <span class="slds-assistive-text">More actions</span>
+        </button>
+        <div
+          class="seller-home__conv-side-menu-list"
+          id="workflow-side-panel-wf-daily-pipeline-snapshot-menu"
+          role="menu"
+          aria-label="Workflow actions"
+          data-sh-workflow-panel-menu-list
+          hidden
+        >
+          <ul class="seller-home__conv-side-menu-items" role="none">
+            
+              <li role="none">
+                <button
+                  type="button"
+                  class="seller-home__conv-side-menu-item"
+                  role="menuitem"
+                  data-sh-workflow-panel-action="edit"
+                >
+                  
+                    <svg class="seller-home__conv-side-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                    </svg>
+                  
+                  <span class="seller-home__conv-side-menu-item-label">Edit</span>
+                </button>
+              </li>
+            
+              <li role="none">
+                <button
+                  type="button"
+                  class="seller-home__conv-side-menu-item"
+                  role="menuitem"
+                  data-sh-workflow-panel-action="pause"
+                >
+                  
+                    <svg class="seller-home__conv-side-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pause"></use>
+                    </svg>
+                  
+                  <span class="seller-home__conv-side-menu-item-label">Pause</span>
+                </button>
+              </li>
+            
+              <li role="none">
+                <button
+                  type="button"
+                  class="seller-home__conv-side-menu-item"
+                  role="menuitem"
+                  data-sh-workflow-panel-action="resume"
+                >
+                  
+                    <svg class="seller-home__conv-side-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#play"></use>
+                    </svg>
+                  
+                  <span class="seller-home__conv-side-menu-item-label">Resume</span>
+                </button>
+              </li>
+            
+              <li role="none">
+                <button
+                  type="button"
+                  class="seller-home__conv-side-menu-item"
+                  role="menuitem"
+                  data-sh-workflow-panel-action="duplicate"
+                >
+                  
+                    <svg class="seller-home__conv-side-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                    </svg>
+                  
+                  <span class="seller-home__conv-side-menu-item-label">Duplicate</span>
+                </button>
+              </li>
+            
+              <li role="none">
+                <button
+                  type="button"
+                  class="seller-home__conv-side-menu-item"
+                  role="menuitem"
+                  data-sh-workflow-panel-action="delete"
+                >
+                  
+                    <svg class="seller-home__conv-side-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                  
+                  <span class="seller-home__conv-side-menu-item-label">Delete</span>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-container slds-button_icon-x-small seller-home__conv-side-close"
+        data-sh-workflow-panel-close
+        aria-label="Close workflow details"
+        title="Close workflow details"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+        </svg>
+        <span class="slds-assistive-text">Close workflow details</span>
+      </button>
+    </div>
+  </header>
+
+  
+  <div class="seller-home__conv-side-body" data-sh-workflow-panel-body>
+
+    
+    <div
+      class="slds-assistive-text"
+      data-sh-workflow-panel-announce
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    
+    <div
+      class="seller-home__conv-side-error"
+      data-sh-workflow-panel-error
+      role="alert"
+      hidden
+    >
+      <svg class="seller-home__conv-side-error-icon" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+      </svg>
+      <span
+        class="seller-home__conv-side-error-text"
+        data-sh-workflow-panel-error-text
+      ></span>
+      <button
+        type="button"
+        class="seller-home__conv-side-error-dismiss"
+        data-sh-workflow-panel-error-dismiss
+        aria-label="Dismiss error"
+      >
+        <svg class="seller-home__conv-side-error-dismiss-icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+
+    
+    <p class="seller-home__conv-side-description">Summarizes pipeline movement, emerging risks, and deals requiring attention.</p>
+    
+
+    
+    <section class="seller-home__conv-side-activity" aria-labelledby="workflow-side-panel-activity-heading-wf-daily-pipeline-snapshot">
+      <h3
+        id="workflow-side-panel-activity-heading-wf-daily-pipeline-snapshot"
+        class="seller-home__conv-side-activity-heading"
+      >Activity</h3>
+
+      
+      
+      <div class="seller-home__conv-side-filters" role="group" aria-label="Filter activity">
+        
+        
+        
+        
+
+        
+        <label class="slds-form-element seller-home__conv-side-filter">
+          <span class="slds-assistive-text">Filter by status</span>
+          <div class="slds-form-element__control">
+            <div class="slds-select_container">
+              <select
+                class="slds-select seller-home__conv-side-filter-select"
+                data-sh-workflow-panel-filter="status"
+                aria-label="Filter activity by status"
+              >
+                
+                  <option value="all" selected>All Statuses</option>
+                
+                  <option value="completed">Completed</option>
+                
+                  <option value="failed">Failed</option>
+                
+              </select>
+            </div>
+          </div>
+        </label>
+        
+
+        
+        <label class="slds-form-element seller-home__conv-side-filter">
+          <span class="slds-assistive-text">Filter by date range</span>
+          <div class="slds-form-element__control">
+            <div class="slds-select_container">
+              <select
+                class="slds-select seller-home__conv-side-filter-select"
+                data-sh-workflow-panel-filter="range"
+                aria-label="Filter activity by date range"
+              >
+                
+                  <option value="today">Today</option>
+                
+                  <option value="last_7_days">Last 7 days</option>
+                
+                  <option value="last_30_days" selected>Last 30 days</option>
+                
+              </select>
+            </div>
+          </div>
+        </label>
+        
+      </div>
+      
+
+      
+      
+      <ul
+        class="seller-home__conv-side-run-list"
+        data-sh-workflow-panel-run-list
+      >
+        
+        <li
+          class="seller-home__conv-side-run-item"
+          data-sh-workflow-panel-run-item
+          data-sh-workflow-panel-run-status="completed"
+          data-sh-workflow-panel-run-started-at="2026-08-07T08:04:00-07:00"
+        >
+          
+          
+          <a
+            class="seller-home__conv-side-run-card is-selected"
+            href="#msg-run-2026-08-07-0804"
+            data-sh-workflow-panel-run="run-2026-08-07-0804"
+            data-sh-workflow-panel-run-target="msg-run-2026-08-07-0804"
+            aria-label="Jump to August 7 at 8:04 AM output"
+          >
+            <div class="seller-home__conv-side-run-header">
+              <span class="seller-home__conv-side-run-timestamp">August 7 at 8:04 AM</span>
+              
+              <span class="slds-badge seller-home__conv-side-run-badge seller-home__conv-side-run-badge--completed">Completed</span>
+            </div>
+            <p class="seller-home__conv-side-run-summary">68 opportunities reviewed · 7 risks found · 3 actions recommended</p>
+            
+            <span class="slds-text-link seller-home__conv-side-run-cta seller-home__conv-side-run-cta--completed">View Output</span>
+          </a>
+          
+        </li>
+        
+        <li
+          class="seller-home__conv-side-run-item"
+          data-sh-workflow-panel-run-item
+          data-sh-workflow-panel-run-status="completed"
+          data-sh-workflow-panel-run-started-at="2026-08-06T08:04:00-07:00"
+        >
+          
+          
+          <a
+            class="seller-home__conv-side-run-card"
+            href="#msg-run-2026-08-06-0804"
+            data-sh-workflow-panel-run="run-2026-08-06-0804"
+            data-sh-workflow-panel-run-target="msg-run-2026-08-06-0804"
+            aria-label="Jump to August 6 at 8:04 AM output"
+          >
+            <div class="seller-home__conv-side-run-header">
+              <span class="seller-home__conv-side-run-timestamp">August 6 at 8:04 AM</span>
+              
+              <span class="slds-badge seller-home__conv-side-run-badge seller-home__conv-side-run-badge--completed">Completed</span>
+            </div>
+            <p class="seller-home__conv-side-run-summary">71 opportunities reviewed · 5 risks found · 2 actions recommended</p>
+            
+            <span class="slds-text-link seller-home__conv-side-run-cta seller-home__conv-side-run-cta--completed">View Output</span>
+          </a>
+          
+        </li>
+        
+        <li
+          class="seller-home__conv-side-run-item"
+          data-sh-workflow-panel-run-item
+          data-sh-workflow-panel-run-status="completed"
+          data-sh-workflow-panel-run-started-at="2026-08-05T08:04:00-07:00"
+        >
+          
+          
+          <a
+            class="seller-home__conv-side-run-card"
+            href="#msg-run-2026-08-05-0804"
+            data-sh-workflow-panel-run="run-2026-08-05-0804"
+            data-sh-workflow-panel-run-target="msg-run-2026-08-05-0804"
+            aria-label="Jump to August 5 at 8:04 AM output"
+          >
+            <div class="seller-home__conv-side-run-header">
+              <span class="seller-home__conv-side-run-timestamp">August 5 at 8:04 AM</span>
+              
+              <span class="slds-badge seller-home__conv-side-run-badge seller-home__conv-side-run-badge--completed">Completed</span>
+            </div>
+            <p class="seller-home__conv-side-run-summary">66 opportunities reviewed · 4 risks found · 2 actions recommended</p>
+            
+            <span class="slds-text-link seller-home__conv-side-run-cta seller-home__conv-side-run-cta--completed">View Output</span>
+          </a>
+          
+        </li>
+        
+        <li
+          class="seller-home__conv-side-run-item"
+          data-sh-workflow-panel-run-item
+          data-sh-workflow-panel-run-status="failed"
+          data-sh-workflow-panel-run-started-at="2026-08-03T09:00:00-07:00"
+        >
+          
+          
+          <div
+            class="seller-home__conv-side-run-card seller-home__conv-side-run-card--failed"
+            data-sh-workflow-panel-run="run-2026-08-03-0900"
+          >
+            <div class="seller-home__conv-side-run-header">
+              <span class="seller-home__conv-side-run-timestamp">August 3 at 9:00 AM</span>
+              
+              <span class="slds-badge seller-home__conv-side-run-badge seller-home__conv-side-run-badge--failed">Failed</span>
+            </div>
+            <p class="seller-home__conv-side-run-summary">Salesforce access expired before the snapshot was created</p>
+            
+            <button
+              type="button"
+              class="slds-text-link seller-home__conv-side-run-cta seller-home__conv-side-run-cta--retry"
+              data-sh-workflow-panel-run-retry="run-2026-08-03-0900"
+              aria-label="Retry August 3 at 9:00 AM"
+            >Retry</button>
+          </div>
+          
+        </li>
+        
+      </ul>
+      
+    </section>
+  </div>
+</aside>
+
+      
+    
+
+    </div>
+  </div>
+
+
+  </main>
+  <script src="/scripts/data/accounts.js"></script>
+  <script src="/scripts/data/prospects.js"></script>
+  <script src="/scripts/data/cadences.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/vendor/svg4everybody.min.js"></script>
+  <script>svg4everybody();</script>
+
+  
+  <script src="/scripts/hunter_accounts.js"></script>
+
+  
+  <script src="/scripts/cadence-progress.js"></script>
+  <script src="/scripts/email-preview.js"></script>
+  <script src="/scripts/step_01_preview.js"></script>
+  <script type="module" src="/scripts/aop-editor/js/preview.js"></script>
+  <script src="/scripts/preview-unified.js"></script>
+  
+  
+  <script src="/scripts/home.js"></script>
+  
+  <script src="/scripts/schedule_conversation.js"></script>
+  
+  <script src="/scripts/conversation_mock_responder.js"></script>
+  <script src="/scripts/home_conversation.js"></script>
+
+  <script>
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector('.layout-container');
+        if (el) el.classList.add('is-ready');
+      });
+    });
+  </script>
+</body>
+</html>

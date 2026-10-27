@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Prototype styles -->
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/slds2_agentic.css" />
+  <link rel="stylesheet" href="/styles/gc.css" />
+  
+  
+  <link rel="stylesheet" href="/styles/prospect_list.css" />
+  <link rel="stylesheet" href="/styles/knowledge_document.css" />
+
+</head>
+<body>
+
+  
+  <script>
+    (function () {
+      try {
+        if (window.self !== window.top) {
+          document.body.setAttribute('data-embedded', 'salesforce');
+        }
+      } catch (e) {
+        // Cross-origin frame access can throw; that's ALSO a signal we're embedded.
+        document.body.setAttribute('data-embedded', 'salesforce');
+      }
+    })();
+  </script>
+
+  <header class="slds-global-header_container">
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Navigation</a>
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Main Content</a>
+      <div class="slds-global-header slds-grid slds-grid_align-spread">
+        <div class="slds-global-header__item">
+          <div class="slds-global-header__logo">
+            <img src="/assets/images/logo-noname.svg" style= "width: 12.5rem;height: 2.5rem;background-size: contain;background-repeat: no-repeat;background-position: left center;"alt="Salesforce Logo" />
+          </div>
+        </div>
+        
+        <div class="slds-global-header__item slds-global-header__item_search slds-subtheme-agentic app-global-search">
+          <div class="slds-form-element app-global-search__input">
+            <label class="slds-form-element__label slds-assistive-text" for="app-global-search-input">Search or ask anything</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+              <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left" aria-hidden="true">
+                <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                </svg>
+              </span>
+              <input
+                type="search"
+                id="app-global-search-input"
+                class="slds-input"
+                placeholder="Search or ask anything..."
+                aria-label="Search or ask anything"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button type="button" class="slds-button slds-button_neutral app-global-search__ask">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkles"></use>
+            </svg>
+            <span>Ask</span>
+          </button>
+        </div>
+        
+        <div class="slds-global-header__item">
+          <ul class="slds-global-actions">
+            <li class="slds-global-actions__item">
+              <div class="slds-global-actions__favorites slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-button-group">
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-action slds-button_icon slds-button_icon-border slds-button_icon-small" aria-pressed="false" title="Toggle Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle Favorite</span>
+                  </button>
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-more slds-button_icon slds-button_icon-border slds-button_icon-small" title="View Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true" style="height:12px;width:12px;">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                    <span class="slds-assistive-text">View Favorites</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__task slds-global-actions__item-action" aria-haspopup="true" title="Global Actions">
+                  <svg class="slds-button__icon" aria-hidden="true" style="fill:white;">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Global Actions</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__help slds-global-actions__item-action" aria-haspopup="true" title="Help and Training">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help and Training</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__setup slds-global-actions__item-action" aria-haspopup="true" title="Setup">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Setup</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__notifications slds-global-actions__item-action" title="no new notifications" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use>
+                  </svg>
+                  <span class="slds-assistive-text">no new notifications</span>
+                </button>
+                <span aria-hidden="true" class="slds-notification-badge">0</span>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action" title="person name" aria-haspopup="true">
+                  <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                    <img alt="Person name" src="/assets/images/user-avatar.png" title="User avatar" />
+                  </span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+
+ 
+  <div class="app-header-placeholder"></div>
+
+
+  <div style="height: 16rem;">
+      <div class="slds-context-bar" style="padding-left: 0px;">
+        <div class="slds-context-bar__primary">
+          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+            <div class="slds-context-bar__icon-action">
+              <button class="slds-button slds-icon-waffle_container slds-context-bar__button" title="Description of the icon when needed">
+                <span class="slds-icon-waffle">
+                  <span class="slds-r1"></span>
+                  <span class="slds-r2"></span>
+                  <span class="slds-r3"></span>
+                  <span class="slds-r4"></span>
+                  <span class="slds-r5"></span>
+                  <span class="slds-r6"></span>
+                  <span class="slds-r7"></span>
+                  <span class="slds-r8"></span>
+                  <span class="slds-r9"></span>
+                </span>
+                <span class="slds-assistive-text">Open App Launcher</span>
+              </button>
+            </div>
+            <span class="slds-context-bar__label-action slds-context-bar__app-name">
+              <span class="slds-truncate" title="App Name">Sales</span>
+            </span>
+          </div>
+        </div>
+        <nav class="slds-context-bar__secondary" role="navigation">
+          <ul class="slds-grid">
+            
+            <li class="slds-context-bar__item">
+              <a href="/home.html" class="slds-context-bar__label-action" title="Home">
+                <span class="slds-assistive-text">Current Page:</span>
+                <span class="slds-truncate" title="Home">Home</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item slds-is-active">
+              <a href="/prospect_list.html" class="slds-context-bar__label-action" title="Prospecting">
+                <span class="slds-truncate" title="Prospecting">Prospecting</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="/index.html" class="slds-context-bar__label-action" title="Agent Builder">
+                <span class="slds-truncate" title="Agent Builder">Agent Builder</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Leads</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Accounts</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/agent_monitoring.html" class="slds-context-bar__label-action" title="Agent Monitoring">
+                <span class="slds-truncate" title="Agent Monitoring">Agent Monitoring</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  <main class="app-wrapper slds-template_default">
+    
+<div class="kdoc-layout">
+
+  
+  <header class="kdoc-page-header slds-page-header slds-page-header_record-home">
+    <div class="slds-page-header__row">
+      <div class="slds-page-header__col-title">
+        <div class="slds-media">
+          <div class="slds-media__figure">
+            <span class="slds-icon_container slds-icon-standard-knowledge kdoc-page-header__icon">
+              <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#knowledge"></use>
+              </svg>
+            </span>
+          </div>
+          <div class="slds-media__body">
+            
+            <nav aria-label="Breadcrumbs" class="kdoc-breadcrumb">
+              <ol class="slds-breadcrumb slds-list_horizontal slds-line-height_reset">
+                <li class="slds-breadcrumb__item">
+                  <a href="/prospect_list.html#tab=knowledge" class="kdoc-breadcrumb__link">Knowledge</a>
+                  <svg class="kdoc-breadcrumb__separator" aria-hidden="true" viewBox="0 0 52 52">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+                  </svg>
+                </li>
+                <li class="slds-breadcrumb__item" aria-current="page">
+                  <span id="kdoc-breadcrumb-name" class="kdoc-breadcrumb__current">Document</span>
+                </li>
+              </ol>
+            </nav>
+
+            <div class="slds-page-header__name">
+              <div class="slds-page-header__name-title">
+                <h1 class="kdoc-page-header__title-row">
+                  <span id="kdoc-title" class="slds-page-header__title slds-truncate" title="Document">Document</span>
+                  
+                  <span id="kdoc-type-badge" class="slds-badge kdoc-type-badge kdoc-type-badge_hunter" data-type="hunter">
+                    <svg class="slds-badge__icon slds-badge__icon_left" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkles"></use>
+                    </svg>
+                    <span id="kdoc-type-badge-label">Hunter Generated</span>
+                  </span>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="slds-page-header__col-actions">
+        <div class="slds-page-header__controls">
+          <div class="slds-page-header__control">
+            <div class="slds-button-group kdoc-btn-group" role="group">
+              <button
+                type="button"
+                class="slds-button slds-button_neutral kdoc-btn-regenerate"
+                id="kdoc-regenerate">
+                Regenerate
+              </button>
+              <button
+                type="button"
+                class="slds-button slds-button_neutral js-kdoc-download"
+                data-action="download">
+                Download
+              </button>
+              <button
+                type="button"
+                class="slds-button slds-button_neutral js-kdoc-clone"
+                data-action="clone">
+                Clone
+              </button>
+              <div class="slds-button_last slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button
+                  type="button"
+                  class="slds-button slds-button_neutral slds-button_icon-container js-kdoc-actions-toggle"
+                  aria-haspopup="menu"
+                  aria-expanded="false"
+                  title="More actions">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                  </svg>
+                  <span class="slds-assistive-text">More actions</span>
+                </button>
+                <div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+                  <ul class="slds-dropdown__list" role="menu">
+                    <li class="slds-dropdown__item" role="presentation">
+                      <a href="#" role="menuitem" tabindex="0" data-action="rename">
+                        <span class="slds-truncate" title="Rename">Rename</span>
+                      </a>
+                    </li>
+                    <li class="slds-dropdown__item" role="presentation">
+                      <a href="#" role="menuitem" tabindex="-1" data-action="share">
+                        <span class="slds-truncate" title="Share">Share</span>
+                      </a>
+                    </li>
+                    <li class="slds-has-divider_top-space" role="separator"></li>
+                    <li class="slds-dropdown__item" role="presentation">
+                      <a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+                        <span class="slds-truncate" title="Delete">Delete</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <div class="kdoc-shell">
+    <main class="kdoc-main">
+
+      
+      <section class="kdoc-section" id="kdoc-sources">
+        <div class="kdoc-section__header kdoc-section__header_split">
+          <h2 class="kdoc-section__title">Sources from the web crawl</h2>
+          <button type="button" class="slds-button slds-button_neutral js-kdoc-add-source">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+            </svg>
+            Add Knowledge Source
+          </button>
+        </div>
+        <div class="kdoc-chip-row kdoc-chip-row_urls" id="kdoc-sources-urls">
+          
+          <span class="kdoc-chip kdoc-chip_url" data-url="https://www.salesforce.com/about-us/">
+            <svg class="kdoc-chip__icon slds-icon slds-icon_x-small" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#link"></use>
+            </svg>
+            <a href="https://www.salesforce.com/about-us/" target="_blank" rel="noopener" class="kdoc-chip__url">About page</a>
+            <button type="button" class="kdoc-chip__remove js-kdoc-chip-remove" aria-label="Remove About page">
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+              </svg>
+            </button>
+          </span>
+          
+          <span class="kdoc-chip kdoc-chip_url" data-url="https://www.salesforce.com/products/">
+            <svg class="kdoc-chip__icon slds-icon slds-icon_x-small" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#link"></use>
+            </svg>
+            <a href="https://www.salesforce.com/products/" target="_blank" rel="noopener" class="kdoc-chip__url">Products overview</a>
+            <button type="button" class="kdoc-chip__remove js-kdoc-chip-remove" aria-label="Remove Products overview">
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+              </svg>
+            </button>
+          </span>
+          
+          <span class="kdoc-chip kdoc-chip_url" data-url="https://investor.salesforce.com/">
+            <svg class="kdoc-chip__icon slds-icon slds-icon_x-small" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#link"></use>
+            </svg>
+            <a href="https://investor.salesforce.com/" target="_blank" rel="noopener" class="kdoc-chip__url">Investor briefing (Q1)</a>
+            <button type="button" class="kdoc-chip__remove js-kdoc-chip-remove" aria-label="Remove Investor briefing (Q1)">
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+              </svg>
+            </button>
+          </span>
+          
+        </div>
+      </section>
+
+      
+      <section class="kdoc-section">
+        <div class="kdoc-section__header kdoc-section__header_split">
+          <div>
+            <h2 class="kdoc-section__title">Knowledge Document</h2>
+            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click kdoc-type-picker">
+              <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                <div role="combobox" tabindex="0" aria-controls="kdoc-type-listbox" aria-expanded="false" aria-haspopup="listbox" class="slds-input_faux slds-combobox__input js-kdoc-type-toggle">
+                  <span id="kdoc-type-label" class="slds-truncate">Hunter Generated</span>
+                </div>
+                <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+                  <svg class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                  </svg>
+                </span>
+              </div>
+              <div id="kdoc-type-listbox" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" role="listbox">
+                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                  <li class="slds-listbox__item" role="presentation">
+                    <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected" role="option" aria-selected="true" data-type="hunter">
+                      <span class="slds-media__body"><span title="Hunter Generated">Hunter Generated</span></span>
+                    </div>
+                  </li>
+                  <li class="slds-listbox__item" role="presentation">
+                    <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option" aria-selected="false" data-type="custom">
+                      <span class="slds-media__body"><span title="Custom Uploaded">Custom Uploaded</span></span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="slds-button slds-button_neutral js-kdoc-import" id="kdoc-import">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+            </svg>
+            Import Custom Knowledge
+          </button>
+        </div>
+      </section>
+
+      
+      <div class="kdoc-banner slds-hide" id="kdoc-banner" role="status">
+        <div class="kdoc-banner__body">
+          <svg class="kdoc-banner__icon slds-icon slds-icon_x-small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+          </svg>
+          <span>Hunter detected changes to your knowledge sources. Regenerate to refresh business understanding.</span>
+        </div>
+        <div class="kdoc-banner__actions">
+          <button type="button" class="slds-button slds-button_brand slds-button_stretch js-kdoc-banner-regenerate">Regenerate</button>
+          <button type="button" class="slds-button slds-button_icon slds-button_icon-bare js-kdoc-banner-dismiss" title="Dismiss">
+            <svg class="slds-button__icon" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+            </svg>
+            <span class="slds-assistive-text">Dismiss</span>
+          </button>
+        </div>
+      </div>
+
+      
+      <div class="kdoc-banner kdoc-banner_progress slds-hide" id="kdoc-banner-progress" role="status" aria-live="polite">
+        <div class="kdoc-banner__body kdoc-banner__body_stacked">
+          <h3 class="kdoc-banner__title">Hunter is reanalyzing your sources…</h3>
+          <ul class="learning-steps" id="kdoc-progress-steps">
+            <li class="learning-step" data-step-index="0" data-step-kind="in-progress">
+              <span class="learning-step__icon" aria-hidden="true">
+                <svg class="learning-step__spinner" viewBox="0 0 16 16">
+                  <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-opacity="0.18" stroke-width="1.5" fill="none"></circle>
+                  <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"></path>
+                </svg>
+                <svg class="learning-step__check" viewBox="0 0 16 16">
+                  <circle class="learning-step__check-bg" cx="8" cy="8" r="8"></circle>
+                  <path class="learning-step__check-path" d="M4.5 8.5 L7 11 L11.5 5.75" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <span class="learning-step__label">Reading website content</span>
+            </li>
+            <li class="learning-step" data-step-index="1" data-step-kind="in-progress">
+              <span class="learning-step__icon" aria-hidden="true">
+                <svg class="learning-step__spinner" viewBox="0 0 16 16">
+                  <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-opacity="0.18" stroke-width="1.5" fill="none"></circle>
+                  <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"></path>
+                </svg>
+                <svg class="learning-step__check" viewBox="0 0 16 16">
+                  <circle class="learning-step__check-bg" cx="8" cy="8" r="8"></circle>
+                  <path class="learning-step__check-path" d="M4.5 8.5 L7 11 L11.5 5.75" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <span class="learning-step__label">Processing uploaded documents</span>
+            </li>
+            <li class="learning-step" data-step-index="2" data-step-kind="in-progress">
+              <span class="learning-step__icon" aria-hidden="true">
+                <svg class="learning-step__spinner" viewBox="0 0 16 16">
+                  <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-opacity="0.18" stroke-width="1.5" fill="none"></circle>
+                  <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"></path>
+                </svg>
+                <svg class="learning-step__check" viewBox="0 0 16 16">
+                  <circle class="learning-step__check-bg" cx="8" cy="8" r="8"></circle>
+                  <path class="learning-step__check-path" d="M4.5 8.5 L7 11 L11.5 5.75" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <span class="learning-step__label">Updating company knowledge</span>
+            </li>
+            <li class="learning-step" data-step-index="3" data-step-kind="in-progress">
+              <span class="learning-step__icon" aria-hidden="true">
+                <svg class="learning-step__spinner" viewBox="0 0 16 16">
+                  <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-opacity="0.18" stroke-width="1.5" fill="none"></circle>
+                  <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"></path>
+                </svg>
+                <svg class="learning-step__check" viewBox="0 0 16 16">
+                  <circle class="learning-step__check-bg" cx="8" cy="8" r="8"></circle>
+                  <path class="learning-step__check-path" d="M4.5 8.5 L7 11 L11.5 5.75" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <span class="learning-step__label">Refreshing business context</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      
+      <section class="kdoc-editor" id="kdoc-editor">
+        <div class="kdoc-editor__toolbar">
+          <div class="kdoc-editor__toolbar-group">
+            <button type="button" class="kdoc-tb-btn js-kdoc-format" data-cmd="bold" title="Bold (Ctrl+B)" aria-label="Bold">
+              <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#bold"></use>
+              </svg>
+            </button>
+            <button type="button" class="kdoc-tb-btn js-kdoc-format" data-cmd="italic" title="Italic (Ctrl+I)" aria-label="Italic">
+              <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#italic"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="kdoc-editor__toolbar-divider"></div>
+          <div class="kdoc-editor__toolbar-group">
+            <button type="button" class="kdoc-tb-btn js-kdoc-format kdoc-tb-btn_text" data-cmd="heading" data-value="1" title="Heading 1" aria-label="Heading 1">H1</button>
+            <button type="button" class="kdoc-tb-btn js-kdoc-format kdoc-tb-btn_text" data-cmd="heading" data-value="2" title="Heading 2" aria-label="Heading 2">H2</button>
+            <button type="button" class="kdoc-tb-btn js-kdoc-format kdoc-tb-btn_text" data-cmd="heading" data-value="3" title="Heading 3" aria-label="Heading 3">H3</button>
+          </div>
+          <div class="kdoc-editor__toolbar-divider"></div>
+          <div class="kdoc-editor__toolbar-group">
+            <button type="button" class="kdoc-tb-btn js-kdoc-format" data-cmd="insertUnorderedList" title="Bullet list" aria-label="Bullet list">
+              <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#richtextbulletedlist"></use>
+              </svg>
+            </button>
+            <button type="button" class="kdoc-tb-btn js-kdoc-format" data-cmd="createLink" title="Link" aria-label="Link">
+              <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#link"></use>
+              </svg>
+            </button>
+            
+            <button type="button" class="kdoc-tb-btn js-kdoc-format" data-cmd="insertTable" title="Insert table" aria-label="Insert table">
+              <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#table"></use>
+              </svg>
+            </button>
+          </div>
+
+          
+          <div class="kdoc-editor__saved-state" id="kdoc-saved-state">
+            <svg class="kdoc-editor__saved-icon slds-icon slds-icon_x-small" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+            </svg>
+            <span>Saved</span>
+          </div>
+        </div>
+
+        
+        <div
+          id="kdoc-body"
+          class="kdoc-editor__body"
+          contenteditable="true"
+          role="textbox"
+          aria-multiline="true"
+          aria-label="Knowledge document body">
+          <h1>Company Overview</h1>
+          <p>Salesforce is the #1 Agentic AI CRM platform that helps companies become Agentic Enterprises where humans and AI agents drive customer success together. The unified Customer 360 platform combines AI, data, and CRM across sales, service, marketing, commerce, and analytics so every team works from the same source of truth.</p>
+          <h2>Key Achievements</h2>
+          <ul>
+            <li>Named a Leader in 20+ Gartner Magic Quadrants across CRM, Sales, Service, and Marketing.</li>
+            <li>Trusted by 150,000+ customers worldwide, including 90% of the Fortune 500.</li>
+            <li>Pioneered the Agentic Enterprise with Agentforce — autonomous AI agents grounded in your data.</li>
+            <li>$34B+ in annual revenue and a thriving ecosystem of 9M+ developers on Trailhead.</li>
+          </ul>
+          <p>blah blah blah</p>
+          <h2>Value Propositions by Cloud</h2>
+          <h3>Agentforce</h3>
+          <p>Build, deploy, and supervise autonomous AI agents that take action across sales, service, and marketing using your Salesforce data, business logic, and guardrails. Reasoning runs on the Atlas Reasoning Engine and is grounded in Data Cloud so every agent answers with the same trusted context.</p>
+          <h3>Sales Cloud</h3>
+          <p>Close more deals faster with a CRM that automates pipeline hygiene, surfaces the next best action, and lets reps spend more time selling. Einstein forecasting and AI-generated outreach mean managers know where the gaps are before the quarter slips.</p>
+          <h3>Marketing Cloud</h3>
+          <p>Orchestrate personalized journeys across email, mobile, ads, and web with unified profiles from Data Cloud and generative content built right into the campaign canvas.</p>
+          <h2>Ideal Customer Profile</h2>
+          <p>Salesforce serves businesses from startups to the largest enterprises across automotive, financial services, healthcare, retail, manufacturing, and beyond. Primary buyers are sales leaders, customer service executives, marketing leaders, IT decision makers, and C-suite executives at B2B and B2C organizations that need a unified, AI-ready system of engagement.</p>
+          <h2>Use Cases</h2>
+          <ul>
+            <li>Autonomous outbound prospecting and pipeline generation with Agentforce SDR.</li>
+            <li>Real-time case deflection and resolution with Agentforce Service.</li>
+            <li>Account-based marketing with unified profiles and AI-personalized journeys.</li>
+            <li>Forecasting, deal coaching, and territory planning across global sales orgs.</li>
+            <li>Unified self-service portals for customers, partners, and employees.</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    
+    <div role="dialog" aria-modal="false" id="kdoc-add-source-panel"
+         class="inspector-side-panel slds-panel slds-grid slds-grid_vertical runtime_pipeline_inspectorContactLeadSidePanel runtime_pipeline_inspectorInspectionSidePanel"
+         aria-label="Add Knowledge Source">
+      <div class="slds-grid slds-grid_vertical-stretch slds-wrap slds-template__container slds-grid_vertical slds-grow">
+        <div class="slds-container_fluid slds-shrink">
+          <div class="slds-panel__header panelHeader">
+            <h2 class="slds-col slds-panel__header-title slds-truncate">
+              <span class="slds-truncate">Add Knowledge Source</span>
+              <span class="subTitle slds-text-heading_x-small">Add additional sources Hunter can use to refine its understanding of your business.</span>
+            </h2>
+            <div class="slds-float_right">
+              <button type="button" class="slds-button slds-button_icon-x-small slds-button_icon slds-button_icon-bare js-kdoc-add-source-close" title="Close Add Knowledge Source">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Close Add Knowledge Source</span>
+              </button>
+            </div>
+          </div>
+          <div class="slds-has-divider_bottom panelMetrics"></div>
+        </div>
+
+        <div class="panelMain slds-container_fluid slds-scrollable_y slds-grow">
+          <div class="slds-p-around_medium kdoc-add-source">
+
+            
+            <div class="slds-form-element">
+              <label class="slds-form-element__label" for="kdoc-add-source-url-input">Website URL</label>
+              <div class="slds-form-element__control">
+                <input type="url" id="kdoc-add-source-url-input" class="slds-input" placeholder="https://..." autocomplete="off" />
+              </div>
+            </div>
+
+            
+            <div class="slds-form-element slds-m-top_medium">
+              <label class="slds-form-element__label" for="kdoc-add-source-file">PDF Document</label>
+              <div class="kdoc-add-source__dropzone slds-m-top_x-small">
+                <svg class="kdoc-add-source__dropzone-icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+                </svg>
+                <p class="kdoc-add-source__dropzone-help slds-text-body_small slds-text-color_weak">
+                  Upload a PDF such as a product brief, case study, pricing sheet, or sales deck.
+                </p>
+                <div class="kdoc-add-source__upload">
+                  <button type="button" class="slds-button slds-button_neutral js-kdoc-add-source-upload">
+                    Upload PDF
+                  </button>
+                  <span id="kdoc-add-source-pdf-name" class="kdoc-add-source__upload-name slds-hide"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="slds-container_fluid slds-border_top panelFooter slds-shrink">
+          <div class="slds-p-around_small">
+            <p class="kdoc-add-source__footnote slds-text-body_small slds-text-color_weak">
+              Additional sources help Hunter refine its understanding of your business and improve prospect targeting.
+            </p>
+            <div class="slds-text-align_right slds-m-top_small">
+              <button type="button" class="slds-button slds-button_neutral js-kdoc-add-source-cancel">Cancel</button>
+              <button type="button" class="slds-button slds-button_brand js-kdoc-add-source-submit" disabled>Add Source</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<input type="file" id="kdoc-import-file" accept=".md,.markdown,.txt" class="slds-hide" />
+
+
+<input type="file" id="kdoc-add-source-file" accept=".pdf,application/pdf" class="slds-hide" />
+
+<script>
+  // Serialize the same doc list the Knowledge tab renders from, so this
+  // page can resolve `?id=kd-N` deep-links via window.__knowledgeDocs.
+  // `readData` is a Nunjucks global (registered in gulpfile.js) that
+  // reads any JSON file under src/views/data/ at build time. If the
+  // read fails, we still ship an empty array so knowledge.js falls
+  // back to the JSON-seeded defaults for this page.
+  window.__knowledgeDocs = [{"id":"kd-1","agentIndex":0,"agentName":"Prospecting agent 1","name":"top-accounts-knowledge.md","type":"hunter","sources":["salesforce","zoominfo","web"],"extraSources":2,"status":"up-to-date","lastUpdated":"Jun 30, 2026, 3:42 PM","lastUpdatedIso":"2026-06-30T15:42:00Z","updatedBy":"Amanda Burton","size":"42 KB"},{"id":"kd-2","agentIndex":1,"agentName":"Prospecting agent 2","name":"enterprise-tech-knowledge.md","type":"hunter","sources":["salesforce","6sense","gong"],"extraSources":1,"status":"regenerate-available","lastUpdated":"Jun 28, 2026, 11:15 AM","lastUpdatedIso":"2026-06-28T11:15:00Z","updatedBy":"Amanda Burton","size":"51 KB"},{"id":"kd-3","agentIndex":2,"agentName":"Prospecting agent 3","name":"q2-field-marketing.md","type":"custom","sources":["salesforce","web"],"extraSources":0,"status":"custom","lastUpdated":"Jun 27, 2026, 4:08 PM","lastUpdatedIso":"2026-06-27T16:08:00Z","updatedBy":"Emily Torres","size":"38 KB"},{"id":"kd-4","agentIndex":3,"agentName":"Prospecting agent 4","name":"high-intent-accounts.md","type":"hunter","sources":["6sense","demandbase","zoominfo"],"extraSources":3,"status":"up-to-date","lastUpdated":"Jun 26, 2026, 9:21 AM","lastUpdatedIso":"2026-06-26T09:21:00Z","updatedBy":"Emily Torres","size":"64 KB"},{"id":"kd-5","agentIndex":4,"agentName":"Prospecting agent 5","name":"west-coast-midmarket.md","type":"hunter","sources":["salesforce","g2","web"],"extraSources":0,"status":"regenerate-available","lastUpdated":"Jun 24, 2026, 2:47 PM","lastUpdatedIso":"2026-06-24T14:47:00Z","updatedBy":"Marcus Chen","size":"29 KB"},{"id":"kd-6","agentIndex":5,"agentName":"Prospecting agent 6","name":"expansion-candidates-q2.md","type":"hunter","sources":["salesforce","gong"],"extraSources":0,"status":"up-to-date","lastUpdated":"Jun 22, 2026, 10:03 AM","lastUpdatedIso":"2026-06-22T10:03:00Z","updatedBy":"Marcus Chen","size":"47 KB"},{"id":"kd-7","agentIndex":6,"agentName":"Prospecting agent 7","name":"revops-summit-attendees.md","type":"custom","sources":["salesforce","web"],"extraSources":0,"status":"custom","lastUpdated":"Jun 20, 2026, 5:35 PM","lastUpdatedIso":"2026-06-20T17:35:00Z","updatedBy":"Priya Desai","size":"33 KB"},{"id":"kd-8","agentIndex":7,"agentName":"Prospecting agent 8","name":"named-accounts-strategic.md","type":"hunter","sources":["salesforce","6sense","demandbase","moodys"],"extraSources":1,"status":"up-to-date","lastUpdated":"Jun 18, 2026, 8:11 AM","lastUpdatedIso":"2026-06-18T08:11:00Z","updatedBy":"Priya Desai","size":"58 KB"},{"id":"kd-9","agentIndex":8,"agentName":"Prospecting agent 9","name":"lapsed-opportunities-2025.md","type":"hunter","sources":["salesforce","gong"],"extraSources":0,"status":"regenerate-available","lastUpdated":"Jun 12, 2026, 1:30 PM","lastUpdatedIso":"2026-06-12T13:30:00Z","updatedBy":"Jordan Lee","size":"22 KB"},{"id":"kd-10","agentIndex":9,"agentName":"Prospecting agent 10","name":"partner-referrals-q1.md","type":"custom","sources":["salesforce","gmail"],"extraSources":0,"status":"custom","lastUpdated":"Jun 05, 2026, 11:42 AM","lastUpdatedIso":"2026-06-05T11:42:00Z","updatedBy":"Jordan Lee","size":"19 KB"},{"id":"kd-11","agentIndex":10,"agentName":"Prospecting agent 11","name":"inbound-free-trial-signups.md","type":"hunter","sources":["salesforce","web","g2"],"extraSources":0,"status":"error","lastUpdated":"May 28, 2026, 4:20 PM","lastUpdatedIso":"2026-05-28T16:20:00Z","updatedBy":"Amanda Burton","size":"12 KB"},{"id":"kd-12","agentIndex":11,"agentName":"Prospecting agent 12","name":"enterprise-renewals-watchlist.md","type":"hunter","sources":["salesforce","gong","moodys"],"extraSources":2,"status":"error","lastUpdated":"May 22, 2026, 9:04 AM","lastUpdatedIso":"2026-05-22T09:04:00Z","updatedBy":"Emily Torres","size":"15 KB"}];
+</script>
+
+  </main>
+  <script src="/scripts/data/accounts.js"></script>
+  <script src="/scripts/data/prospects.js"></script>
+  <script src="/scripts/data/cadences.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/vendor/svg4everybody.min.js"></script>
+  <script>svg4everybody();</script>
+
+  
+  <script src="/scripts/hunter_accounts.js"></script>
+
+  
+  <script src="/scripts/cadence-progress.js"></script>
+  <script src="/scripts/email-preview.js"></script>
+  <script src="/scripts/step_01_preview.js"></script>
+  <script type="module" src="/scripts/aop-editor/js/preview.js"></script>
+  <script src="/scripts/preview-unified.js"></script>
+  
+  
+  <script src="/scripts/prospect-list.js"></script>
+  <script src="/scripts/knowledge.js"></script>
+
+  <script>
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector('.layout-container');
+        if (el) el.classList.add('is-ready');
+      });
+    });
+  </script>
+</body>
+</html>

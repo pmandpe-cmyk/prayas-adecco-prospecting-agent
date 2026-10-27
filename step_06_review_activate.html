@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Prototype styles -->
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/slds2_agentic.css" />
+  <link rel="stylesheet" href="/styles/gc.css" />
+  
+  <link rel="stylesheet" href="/styles/step_06.css" />
+  <link rel="stylesheet" href="/styles/aop-editor/aop.css" />
+  <link rel="stylesheet" href="/styles/aop-editor/preview.css" />
+
+</head>
+<body>
+
+  
+  <script>
+    (function () {
+      try {
+        if (window.self !== window.top) {
+          document.body.setAttribute('data-embedded', 'salesforce');
+        }
+      } catch (e) {
+        // Cross-origin frame access can throw; that's ALSO a signal we're embedded.
+        document.body.setAttribute('data-embedded', 'salesforce');
+      }
+    })();
+  </script>
+
+  <header class="slds-global-header_container">
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Navigation</a>
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Main Content</a>
+      <div class="slds-global-header slds-grid slds-grid_align-spread">
+        <div class="slds-global-header__item">
+          <div class="slds-global-header__logo">
+            <img src="/assets/images/logo-noname.svg" style= "width: 12.5rem;height: 2.5rem;background-size: contain;background-repeat: no-repeat;background-position: left center;"alt="Salesforce Logo" />
+          </div>
+        </div>
+        
+        <div class="slds-global-header__item slds-global-header__item_search slds-subtheme-agentic app-global-search">
+          <div class="slds-form-element app-global-search__input">
+            <label class="slds-form-element__label slds-assistive-text" for="app-global-search-input">Search or ask anything</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+              <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left" aria-hidden="true">
+                <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                </svg>
+              </span>
+              <input
+                type="search"
+                id="app-global-search-input"
+                class="slds-input"
+                placeholder="Search or ask anything..."
+                aria-label="Search or ask anything"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button type="button" class="slds-button slds-button_neutral app-global-search__ask">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkles"></use>
+            </svg>
+            <span>Ask</span>
+          </button>
+        </div>
+        
+        <div class="slds-global-header__item">
+          <ul class="slds-global-actions">
+            <li class="slds-global-actions__item">
+              <div class="slds-global-actions__favorites slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-button-group">
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-action slds-button_icon slds-button_icon-border slds-button_icon-small" aria-pressed="false" title="Toggle Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle Favorite</span>
+                  </button>
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-more slds-button_icon slds-button_icon-border slds-button_icon-small" title="View Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true" style="height:12px;width:12px;">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                    <span class="slds-assistive-text">View Favorites</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__task slds-global-actions__item-action" aria-haspopup="true" title="Global Actions">
+                  <svg class="slds-button__icon" aria-hidden="true" style="fill:white;">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Global Actions</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__help slds-global-actions__item-action" aria-haspopup="true" title="Help and Training">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help and Training</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__setup slds-global-actions__item-action" aria-haspopup="true" title="Setup">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Setup</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__notifications slds-global-actions__item-action" title="no new notifications" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use>
+                  </svg>
+                  <span class="slds-assistive-text">no new notifications</span>
+                </button>
+                <span aria-hidden="true" class="slds-notification-badge">0</span>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action" title="person name" aria-haspopup="true">
+                  <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                    <img alt="Person name" src="/assets/images/user-avatar.png" title="User avatar" />
+                  </span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+
+ 
+  <div class="app-header-placeholder"></div>
+
+
+  <div style="height: 16rem;">
+      <div class="slds-context-bar" style="padding-left: 0px;">
+        <div class="slds-context-bar__primary">
+          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+            <div class="slds-context-bar__icon-action">
+              <button class="slds-button slds-icon-waffle_container slds-context-bar__button" title="Description of the icon when needed">
+                <span class="slds-icon-waffle">
+                  <span class="slds-r1"></span>
+                  <span class="slds-r2"></span>
+                  <span class="slds-r3"></span>
+                  <span class="slds-r4"></span>
+                  <span class="slds-r5"></span>
+                  <span class="slds-r6"></span>
+                  <span class="slds-r7"></span>
+                  <span class="slds-r8"></span>
+                  <span class="slds-r9"></span>
+                </span>
+                <span class="slds-assistive-text">Open App Launcher</span>
+              </button>
+            </div>
+            <span class="slds-context-bar__label-action slds-context-bar__app-name">
+              <span class="slds-truncate" title="App Name">Sales</span>
+            </span>
+          </div>
+        </div>
+        <nav class="slds-context-bar__secondary" role="navigation">
+          <ul class="slds-grid">
+            
+            <li class="slds-context-bar__item">
+              <a href="/home.html" class="slds-context-bar__label-action" title="Home">
+                <span class="slds-assistive-text">Current Page:</span>
+                <span class="slds-truncate" title="Home">Home</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/prospect_list.html" class="slds-context-bar__label-action" title="Prospecting">
+                <span class="slds-truncate" title="Prospecting">Prospecting</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item slds-is-active">
+              <a href="/index.html" class="slds-context-bar__label-action" title="Agent Builder">
+                <span class="slds-truncate" title="Agent Builder">Agent Builder</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Leads</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Accounts</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/agent_monitoring.html" class="slds-context-bar__label-action" title="Agent Monitoring">
+                <span class="slds-truncate" title="Agent Monitoring">Agent Monitoring</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  <main class="app-wrapper slds-template_default">
+    
+
+<div class="layout-container">
+
+  
+
+
+
+
+
+
+
+
+<nav class="left-nav" id="left-nav">
+  <div class="navigation-panel-container">
+
+    
+    <div class="nav-top-row">
+      <a class="nav-home-link" href="/index.html">
+        <span class="slds-icon_container slds-icon-text-default" title="Home">
+          <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#home"></use>
+          </svg>
+        </span>
+        <span class="nav-home-label">Home</span>
+      </a>
+      <button class="nav-collapse-icon-btn" id="nav-collapse-btn" onclick="toggleNav()" title="Collapse">
+        
+        <span class="slds-icon_container slds-icon-text-default">
+          <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+            <use id="nav-collapse-icon" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#side_list"></use>
+          </svg>
+        </span>
+        <span class="slds-assistive-text" id="nav-collapse-label">Collapse</span>
+      </button>
+    </div>
+
+    
+    <div class="agent-identity-card">
+      <div class="agent-identity-card__avatar" aria-hidden="true">
+        
+        <img src="/assets/images/agent-avatars/orb.png" alt="" />
+      </div>
+      <div class="agent-identity-card__body">
+        <div class="agent-identity-card__name">Jarvis Rocket</div>
+        <div class="agent-identity-card__meta">Version 1 (Draft)</div>
+        <div class="agent-identity-card__topic">Buyer Engagement</div>
+      </div>
+    </div>
+
+    <div class="navigation-steps-container">
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/getting_started.html" class="step-item" >
+        
+  <div class="step-indicator">
+    
+    <div class="slds-progress-ring slds-progress-ring_complete lightning-progress-ring">
+      <div class="slds-progress-ring__progress">
+        <svg>
+          <path class="slds-progress-ring__path" d="M 1 0 A 1 1 0 1 0 1 2.4492935982947064e-16 L 0 0"></path>
+        </svg>
+      </div>
+      <div class="slds-progress-ring__content">
+        <span class="slds-icon_container slds-icon-utility-success">
+          <svg class="slds-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M8.8 19.6L1.2 12c-.3-.3-.3-.8 0-1.1l1-1c.3-.3.8-.3 1 0L9 15.7c.1.2.5.2.6 0L20.9 4.4c.2-.3.7-.3 1 0l1 1c.3.3.3.7 0 1L9.8 19.6c-.2.3-.7.3-1 0z"></path>
+            </svg>
+          </svg>
+          <span class="slds-assistive-text">Complete</span>
+        </span>
+      </div>
+      <div class="slds-progress-ring__progress-head">
+        <svg viewBox="-1 -1 2 2"></svg>
+      </div>
+    </div>
+    
+  </div>
+
+        <div class="step-label ">Getting Started</div>
+      </a>
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_01_select_accounts.html" class="step-item" >
+        
+  <div class="step-indicator">
+    
+    <div class="slds-progress-ring slds-progress-ring_complete lightning-progress-ring">
+      <div class="slds-progress-ring__progress">
+        <svg>
+          <path class="slds-progress-ring__path" d="M 1 0 A 1 1 0 1 0 1 2.4492935982947064e-16 L 0 0"></path>
+        </svg>
+      </div>
+      <div class="slds-progress-ring__content">
+        <span class="slds-icon_container slds-icon-utility-success">
+          <svg class="slds-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M8.8 19.6L1.2 12c-.3-.3-.3-.8 0-1.1l1-1c.3-.3.8-.3 1 0L9 15.7c.1.2.5.2.6 0L20.9 4.4c.2-.3.7-.3 1 0l1 1c.3.3.3.7 0 1L9.8 19.6c-.2.3-.7.3-1 0z"></path>
+            </svg>
+          </svg>
+          <span class="slds-assistive-text">Complete</span>
+        </span>
+      </div>
+      <div class="slds-progress-ring__progress-head">
+        <svg viewBox="-1 -1 2 2"></svg>
+      </div>
+    </div>
+    
+  </div>
+
+        <div class="step-label ">Select Accounts</div>
+      </a>
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_02_account_research.html" class="step-item has-sub-steps-below"  data-step-num="3">
+        
+  <div class="step-indicator">
+    
+    <div class="slds-progress-ring slds-progress-ring_complete lightning-progress-ring">
+      <div class="slds-progress-ring__progress">
+        <svg>
+          <path class="slds-progress-ring__path" d="M 1 0 A 1 1 0 1 0 1 2.4492935982947064e-16 L 0 0"></path>
+        </svg>
+      </div>
+      <div class="slds-progress-ring__content">
+        <span class="slds-icon_container slds-icon-utility-success">
+          <svg class="slds-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M8.8 19.6L1.2 12c-.3-.3-.3-.8 0-1.1l1-1c.3-.3.8-.3 1 0L9 15.7c.1.2.5.2.6 0L20.9 4.4c.2-.3.7-.3 1 0l1 1c.3.3.3.7 0 1L9.8 19.6c-.2.3-.7.3-1 0z"></path>
+            </svg>
+          </svg>
+          <span class="slds-assistive-text">Complete</span>
+        </span>
+      </div>
+      <div class="slds-progress-ring__progress-head">
+        <svg viewBox="-1 -1 2 2"></svg>
+      </div>
+    </div>
+    
+  </div>
+
+        <div class="step-label ">Account Research</div>
+      </a>
+      <div class="sub-steps" id="sub-steps-3" data-step-href="/step_02_account_research.html">
+        <div class="sub-step-item" role="button" tabindex="0">
+          <div class="step-label">Default</div>
+        </div>
+      </div>
+
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_03_find_prospects.html" class="step-item has-sub-steps-above has-sub-steps-below"  data-step-num="4">
+        
+  <div class="step-indicator">
+    
+    <div class="slds-progress-ring slds-progress-ring_complete lightning-progress-ring">
+      <div class="slds-progress-ring__progress">
+        <svg>
+          <path class="slds-progress-ring__path" d="M 1 0 A 1 1 0 1 0 1 2.4492935982947064e-16 L 0 0"></path>
+        </svg>
+      </div>
+      <div class="slds-progress-ring__content">
+        <span class="slds-icon_container slds-icon-utility-success">
+          <svg class="slds-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M8.8 19.6L1.2 12c-.3-.3-.3-.8 0-1.1l1-1c.3-.3.8-.3 1 0L9 15.7c.1.2.5.2.6 0L20.9 4.4c.2-.3.7-.3 1 0l1 1c.3.3.3.7 0 1L9.8 19.6c-.2.3-.7.3-1 0z"></path>
+            </svg>
+          </svg>
+          <span class="slds-assistive-text">Complete</span>
+        </span>
+      </div>
+      <div class="slds-progress-ring__progress-head">
+        <svg viewBox="-1 -1 2 2"></svg>
+      </div>
+    </div>
+    
+  </div>
+
+        <div class="step-label ">Find Prospects</div>
+      </a>
+      <div class="sub-steps" id="sub-steps-4" data-step-href="/step_03_find_prospects.html">
+        <div class="sub-step-item" role="button" tabindex="0">
+          <div class="step-label">Default</div>
+        </div>
+      </div>
+
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_04_write_messaging.html" class="step-item has-sub-steps-above" >
+        
+  <div class="step-indicator">
+    
+    <div class="slds-progress-ring slds-progress-ring_complete lightning-progress-ring">
+      <div class="slds-progress-ring__progress">
+        <svg>
+          <path class="slds-progress-ring__path" d="M 1 0 A 1 1 0 1 0 1 2.4492935982947064e-16 L 0 0"></path>
+        </svg>
+      </div>
+      <div class="slds-progress-ring__content">
+        <span class="slds-icon_container slds-icon-utility-success">
+          <svg class="slds-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M8.8 19.6L1.2 12c-.3-.3-.3-.8 0-1.1l1-1c.3-.3.8-.3 1 0L9 15.7c.1.2.5.2.6 0L20.9 4.4c.2-.3.7-.3 1 0l1 1c.3.3.3.7 0 1L9.8 19.6c-.2.3-.7.3-1 0z"></path>
+            </svg>
+          </svg>
+          <span class="slds-assistive-text">Complete</span>
+        </span>
+      </div>
+      <div class="slds-progress-ring__progress-head">
+        <svg viewBox="-1 -1 2 2"></svg>
+      </div>
+    </div>
+    
+  </div>
+
+        <div class="step-label ">Write Messaging</div>
+      </a>
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_05_prospect_assignment.html" class="step-item" >
+        
+  <div class="step-indicator">
+    
+    <div class="slds-progress-ring slds-progress-ring_complete lightning-progress-ring">
+      <div class="slds-progress-ring__progress">
+        <svg>
+          <path class="slds-progress-ring__path" d="M 1 0 A 1 1 0 1 0 1 2.4492935982947064e-16 L 0 0"></path>
+        </svg>
+      </div>
+      <div class="slds-progress-ring__content">
+        <span class="slds-icon_container slds-icon-utility-success">
+          <svg class="slds-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M8.8 19.6L1.2 12c-.3-.3-.3-.8 0-1.1l1-1c.3-.3.8-.3 1 0L9 15.7c.1.2.5.2.6 0L20.9 4.4c.2-.3.7-.3 1 0l1 1c.3.3.3.7 0 1L9.8 19.6c-.2.3-.7.3-1 0z"></path>
+            </svg>
+          </svg>
+          <span class="slds-assistive-text">Complete</span>
+        </span>
+      </div>
+      <div class="slds-progress-ring__progress-head">
+        <svg viewBox="-1 -1 2 2"></svg>
+      </div>
+    </div>
+    
+  </div>
+
+        <div class="step-label ">Assign Prospects</div>
+      </a>
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_06_review_activate.html" class="step-item" aria-current="step">
+        
+  <div class="step-indicator">
+    
+    <div class="slds-progress-ring slds-progress-ring_active-step">
+      <div class="slds-progress-ring__progress">
+        <svg viewBox="-1 -1 2 2">
+          <path class="slds-progress-ring__path" d="M 1 0 A 1 1 0 1 0 1 2.4492935982947064e-16 L 0 0"></path>
+        </svg>
+      </div>
+      <div class="slds-progress-ring__content"></div>
+      <div class="slds-progress-ring__progress-head">
+        <svg viewBox="-1 -1 2 2"></svg>
+      </div>
+    </div>
+    
+  </div>
+
+        <div class="step-label active">Review and Activate</div>
+      </a>
+      
+
+      
+    </div>
+
+    
+    <div class="nav-bottom-row">
+      <a class="nav-bottom-link nav-knowledge-link "
+         href="/knowledge.html"
+         >
+        <span class="slds-icon_container slds-icon-text-default" title="Knowledge">
+          <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notebook"></use>
+          </svg>
+        </span>
+        <span class="nav-bottom-link__label">Knowledge</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  function applyNavState(collapsed) {
+    var layoutContainer = document.querySelector('.layout-container');
+    var icon = document.getElementById('nav-collapse-icon');
+    var label = document.getElementById('nav-collapse-label');
+    layoutContainer.classList.toggle('layout-container--nav-collapsed', collapsed);
+    if (icon) icon.setAttribute('xlink:href', '/assets/icons/utility-sprite/svg/symbols.svg#side_list');
+    if (label) label.textContent = collapsed ? 'Expand' : 'Collapse';
+  }
+
+  function toggleNav() {
+    var isCollapsed = !document.querySelector('.layout-container').classList.contains('layout-container--nav-collapsed');
+    localStorage.setItem('navCollapsed', isCollapsed);
+    applyNavState(isCollapsed);
+  }
+
+  applyNavState(localStorage.getItem('navCollapsed') === 'true');
+</script>
+
+<script>
+  (function () {
+    
+    var STEP_MAP = { account_research: 3, find_prospects: 4 };
+    var NUM_TO_KEY = { 3: 'account_research', 4: 'find_prospects' };
+
+    function getStepNum() {
+      return STEP_MAP[window.CURRENT_STEP];
+    }
+
+    function setActive(container, tabId) {
+      var items = container.querySelectorAll('.sub-step-item');
+      for (var i = 0; i < items.length; i++) {
+        var isActive = items[i].getAttribute('data-tab-id') === tabId;
+        items[i].classList.toggle('sub-active', isActive);
+        var label = items[i].querySelector('.step-label');
+        if (label) label.classList.toggle('active', isActive);
+      }
+    }
+
+    function buildSubSteps(container, tabsList, activeId, href, isCurrentStep) {
+      container.innerHTML = '';
+      tabsList.forEach(function (tab) {
+        var item = document.createElement('div');
+        var isActive = isCurrentStep && tab.id === activeId;
+        item.className = 'sub-step-item' + (isActive ? ' sub-active' : '');
+        item.setAttribute('data-tab-id', tab.id);
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+
+        var label = document.createElement('div');
+        label.className = 'step-label' + (isActive ? ' active' : '');
+        label.textContent = tab.name;
+        item.appendChild(label);
+
+        item.addEventListener('click', function () {
+          var stepNum = parseInt(container.id.replace('sub-steps-', ''), 10);
+          if (getStepNum() === stepNum) {
+            setActive(container, tab.id);
+            document.dispatchEvent(new CustomEvent('aop-tab-activate', {
+              detail: { tabId: tab.id }
+            }));
+          } else {
+            var storageKey = 'aop-tabs-' + (NUM_TO_KEY[stepNum] || 'default');
+            try {
+              var raw = sessionStorage.getItem(storageKey);
+              if (raw) {
+                var data = JSON.parse(raw);
+                data.activeTabId = tab.id;
+                sessionStorage.setItem(storageKey, JSON.stringify(data));
+              }
+            } catch (_) {}
+            window.location.href = href;
+          }
+        });
+
+        container.appendChild(item);
+      });
+    }
+
+    function loadPersistedTabs(stepNum) {
+      var key = 'aop-tabs-' + (NUM_TO_KEY[stepNum] || 'default');
+      try {
+        var raw = sessionStorage.getItem(key);
+        if (raw) {
+          var data = JSON.parse(raw);
+          if (data.tabs && data.tabs.length) {
+            return data.tabs.map(function (t) { return { id: t.id, name: t.name }; });
+          }
+        }
+      } catch (_) {}
+      return null;
+    }
+
+    function wireStaticSubSteps(container, href) {
+      var items = container.querySelectorAll('.sub-step-item');
+      for (var i = 0; i < items.length; i++) {
+        (function (item) {
+          item.addEventListener('click', function () {
+            window.location.href = href;
+          });
+        })(items[i]);
+      }
+    }
+
+    function initSubStepsForStep(stepNum) {
+      var container = document.getElementById('sub-steps-' + stepNum);
+      if (!container) return;
+      var href = container.getAttribute('data-step-href') || '#';
+      var tabsList = loadPersistedTabs(stepNum);
+      if (!tabsList || (tabsList.length === 1 && tabsList[0].name === 'Default')) {
+        wireStaticSubSteps(container, href);
+        return;
+      }
+      buildSubSteps(container, tabsList, null, href, false);
+    }
+
+    [3, 4].forEach(function (num) {
+      initSubStepsForStep(num);
+    });
+
+    // Clicking an AOP step label resets to the Default (first) tab before navigating
+    document.querySelectorAll('.step-item[data-step-num]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var stepNum = parseInt(el.getAttribute('data-step-num'), 10);
+        var storageKey = 'aop-tabs-' + (NUM_TO_KEY[stepNum] || 'default');
+        try {
+          var raw = sessionStorage.getItem(storageKey);
+          if (raw) {
+            var data = JSON.parse(raw);
+            if (data.tabs && data.tabs.length) {
+              data.activeTabId = data.tabs[0].id;
+              sessionStorage.setItem(storageKey, JSON.stringify(data));
+            }
+          }
+        } catch (_) {}
+      });
+    });
+
+    var lastRenderedKey = '';
+    document.addEventListener('aop-tabs-changed', function (e) {
+      var currentStepNum = getStepNum();
+      if (!currentStepNum) return;
+      var container = document.getElementById('sub-steps-' + currentStepNum);
+      if (!container) return;
+
+      var structureKey = e.detail.tabs.map(function (t) { return t.id + ':' + t.name; }).join('|');
+      if (structureKey !== lastRenderedKey) {
+        lastRenderedKey = structureKey;
+        var href = container.getAttribute('data-step-href') || '#';
+        buildSubSteps(container, e.detail.tabs, e.detail.activeTabId, href, true);
+      } else {
+        setActive(container, e.detail.activeTabId);
+      }
+    });
+  })();
+</script>
+
+
+  <div class="main-container main-container--no-preview center">
+    <main class="content-container last-step">
+      <header class="body-header center">
+        <h1 class="h1-title">Review and Activate</h1>
+        <p class="description slds-m-top_xx-small">Your agent is ready. Here’s a preview of the prospects your reps will receive based on the accounts, research logic, and
+        assignment rules you configured.</p>
+      </header>
+      <fieldset class="slds-form-element tab-center slds-m-vertical_medium" role="radiogroup">
+        <div class="slds-form-element__control">
+          <div class="slds-radio_button-group">
+            <span class="slds-button slds-radio_button">
+              <input type="radio" name="step7-toggle" checked="checked" id="step7-toggle-review" value="review" />
+              <label class="slds-radio_button__label" for="step7-toggle-review">
+                <span class="slds-radio_faux">Review</span>
+              </label>
+            </span>
+            <span class="slds-button slds-radio_button">
+              <input type="radio" name="step7-toggle" id="step7-toggle-preview" value="preview" />
+              <label class="slds-radio_button__label" for="step7-toggle-preview">
+                <span class="slds-radio_faux">Preview</span>
+              </label>
+            </span>
+          </div>
+        </div>
+      </fieldset>
+      <section class="body-content body-content--padded" id="body-content">
+        <div id="step7-review-panel">
+        <div class="slds-grid slds-gutters_small slds-m-bottom_large">
+          <div class="slds-col slds-size_1-of-2">
+            <div class="slds-form-element">
+              <label class="slds-form-element__label review-panel-title" for="agent-name">
+                <abbr class="slds-required" title="required" aria-hidden="true">* </abbr>Agent Name (Internal)</label>
+              </label>
+              <div class="slds-form-element__icon">
+                <button class="slds-button slds-button_icon" aria-describedby="help">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help</span>
+                </button>
+                <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip" id="help"
+                  style="position:absolute;top:-45px;left:-15px;width:170px">
+                  <div class="slds-popover__body">Some helpful information.</div>
+                </div>
+              </div>
+              <div class="slds-form-element__control">
+                <input type="text" id="agent-name" placeholder="" value="Prospecting Agent" class="slds-input" />
+              </div>
+            </div>
+          </div>
+          <div class="slds-col slds-size_1-of-2">
+            <div class="slds-form-element">
+              <label class="slds-form-element__label review-panel-title" for="select-01">
+                <abbr class="slds-required" title="required" aria-hidden="true">* </abbr>Language</label>
+              <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                  <select class="slds-select" id="select-01" required="">
+                    <option value="">English</option>
+                    <option>Option One</option>
+                    <option>Option Two</option>
+                    <option>Option Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="step7-review-inner">
+          <div class="review-panel-title slds-m-bottom_small">Agent Setup</div>
+          
+<div class="slds-grid slds-grid_align-spread review-item_container slds-m-bottom_small" data-review-key="step1" data-success-label="215,291 accounts">
+	<div class="slds-col">
+		<a class="review-item_title" href="/step_01_select_accounts.html">Account Selection</a>
+	</div>
+	<div class="slds-col review-item_status">
+		
+		<span class="slds-badge slds-theme_warning review-item_badge js-preview-step-badge">
+			<span class="slds-badge__icon slds-badge__icon_left">
+				<span class="slds-icon_container slds-icon-utility-warning" title="Not previewed">
+					<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+						<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+					</svg>
+				</span>
+			</span>Not previewed
+		</span>
+		<a href="/step_01_select_accounts.html" class="slds-text-link review-item_action js-preview-step-btn">Preview step</a>
+		
+	</div>
+</div>
+
+<div class="slds-grid slds-grid_align-spread review-item_container slds-m-bottom_small" data-review-key="step2" data-success-label="Previewed">
+	<div class="slds-col">
+		<a class="review-item_title" href="/step_02_account_research.html">Account Research</a>
+	</div>
+	<div class="slds-col review-item_status">
+		
+		<span class="slds-badge slds-theme_warning review-item_badge js-preview-step-badge">
+			<span class="slds-badge__icon slds-badge__icon_left">
+				<span class="slds-icon_container slds-icon-utility-warning" title="Not previewed">
+					<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+						<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+					</svg>
+				</span>
+			</span>Not previewed
+		</span>
+		<a href="/step_02_account_research.html" class="slds-text-link review-item_action js-preview-step-btn">Preview step</a>
+		
+	</div>
+</div>
+
+<div class="slds-grid slds-grid_align-spread review-item_container slds-m-bottom_small" data-review-key="step3" data-success-label="Previewed">
+	<div class="slds-col">
+		<a class="review-item_title" href="/step_03_find_prospects.html">Find Prospects</a>
+	</div>
+	<div class="slds-col review-item_status">
+		
+		<span class="slds-badge slds-theme_warning review-item_badge js-preview-step-badge">
+			<span class="slds-badge__icon slds-badge__icon_left">
+				<span class="slds-icon_container slds-icon-utility-warning" title="Not previewed">
+					<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+						<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+					</svg>
+				</span>
+			</span>Not previewed
+		</span>
+		<a href="/step_03_find_prospects.html" class="slds-text-link review-item_action js-preview-step-btn">Preview step</a>
+		
+	</div>
+</div>
+
+<div class="slds-grid slds-grid_align-spread review-item_container slds-m-bottom_small" data-review-key="step4" data-success-label="Previewed">
+	<div class="slds-col">
+		<a class="review-item_title" href="/step_04_write_messaging.html">Write Messaging</a>
+	</div>
+	<div class="slds-col review-item_status">
+		
+		<span class="slds-badge slds-theme_warning review-item_badge js-preview-step-badge">
+			<span class="slds-badge__icon slds-badge__icon_left">
+				<span class="slds-icon_container slds-icon-utility-warning" title="Not previewed">
+					<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+						<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+					</svg>
+				</span>
+			</span>Not previewed
+		</span>
+		<a href="/step_04_write_messaging.html" class="slds-text-link review-item_action js-preview-step-btn">Preview step</a>
+		
+	</div>
+</div>
+
+<div class="slds-grid slds-grid_align-spread review-item_container slds-m-bottom_small">
+	<div class="slds-col">
+		<a class="review-item_title" href="/step_05_prospect_assignment.html">Prospect Assignment</a>
+	</div>
+	<div class="slds-col review-item_status">
+		
+		<span class="slds-badge slds-badge_lightest review-item_badge">
+			<span class="slds-badge__icon slds-badge__icon_left">
+				<span class="slds-icon_container slds-icon-utility-success" title="50 prospects weekly">
+					<svg class="slds-icon slds-icon_xx-small slds-icon-text-blue" aria-hidden="true">
+						<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
+					</svg>
+				</span>
+			</span>50 prospects weekly
+		</span>
+		
+	</div>
+</div>
+
+<!-- <div class="preview-item_footer default" id="review-footer"
+	data-default-label="You&#39;re good to go."
+	data-warning-label="We recommend previewing each step.">
+	<div class="preview-item_footer-text" id="review-footer-text">You&#39;re good to go.</div>
+</div> -->
+
+        </div>
+        </div>
+        <div id="step7-preview-panel" style="display: none;">
+          <!-- Step 7: Preview content -->
+<section class="preview-card slds-grid slds-grid_vertical slds-p-around_large slds-border_medium slds-border_default slds-radius_medium">
+	<div class="preview-card-header slds-no-flex">
+		<h2 class="slds-page-header__title slds-text-heading_small slds-truncate slds-m-bottom_medium">Final Preview</h2>
+		<div class="slds-form-element slds-p-top_small" data-slds-lookup="ACCOUNT_DATA" data-lookup-icon="standard-account"
+			data-lookup-entity="Account" data-lookup-default="Acme Corporation">
+			<label class="slds-form-element__label slds-assistive-text" for="lookup-input-1" id="lookup-label-1">Relate
+				To</label>
+			<div class="slds-form-element__control">
+				<div class="slds-combobox_container">
+					<div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click">
+						<div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+							<input type="text" class="slds-input slds-combobox__input" id="lookup-input-1"
+								aria-autocomplete="list" aria-controls="lookup-listbox-1" aria-expanded="false"
+								aria-haspopup="listbox" autocomplete="off" role="combobox" placeholder="Search Accounts..." />
+							<span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
+								<svg class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+									<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+								</svg>
+							</span>
+						</div>
+						<div id="lookup-listbox-1" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid"
+							role="listbox" tabindex="0">
+							<ul class="slds-listbox slds-listbox_vertical" role="presentation">
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="preview-card-body slds-grid slds-grid_vertical slds-grow">
+		<div class="slds-col slds-grid slds-grid_vertical " style="justify-content: end;" id="preview-content">
+			<main class="" id="preview-root">
+				<div id="preview-empty-state" class="preview-empty-state">
+					<div class="final-review-empty-state-illustration"></div>
+					<div class="final-preview-empty-state-text-title">Your agent is ready</div>
+					<div class="final-preview-empty-state-text-description">Want one final confidence check? Run a preview to see sample prospects and verify your output before activation.</div>
+					
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<div class="preview-card-footer slds-align_absolute-center">
+		<button class="slds-button slds-button_neutral slds-kx-is-animating-from-click" id="preview-action-btn">Preview</button>
+	</div>
+</section>
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer class="action-footer">
+    <div class="footer-container">
+      <button class="slds-button slds-button_neutral slds-m-right_medium" onclick="window.location.href='/step_05_prospect_assignment.html'"> Back</button>
+      <span class="action-footer__status" data-footer-status>Unsaved changes</span>
+      <button class="slds-button slds-button_brand slds-m-left_medium" id="ra-save-btn" type="button">Save</button>
+      <button class="slds-button slds-button_outline-brand slds-m-left_x-small" id="ra-activate-btn" type="button">Activate</button>
+    </div>
+  </footer>
+</div>
+
+<script>
+  function updateReviewFooter() {
+    var footer = document.getElementById('review-footer');
+    var text = document.getElementById('review-footer-text');
+    if (!footer) return;
+    var hasWarning = !!document.querySelector('#step7-review-panel .slds-theme_warning');
+    var label = footer.getAttribute(hasWarning ? 'data-warning-label' : 'data-default-label');
+    footer.classList.remove('default', 'warning');
+    footer.classList.add(hasWarning ? 'warning' : 'default');
+    text.textContent = label;
+  }
+
+  function applyPreviewStates() {
+    document.querySelectorAll('[data-review-key]').forEach(function(el) {
+      var key = el.getAttribute('data-review-key');
+      if (sessionStorage.getItem('aop_previewed_' + key) !== 'true') return;
+      var successLabel = el.getAttribute('data-success-label');
+      var badgeCol = el.querySelector('.slds-col:last-child');
+      if (!badgeCol) return;
+      badgeCol.innerHTML =
+        '<span class="slds-badge slds-badge_lightest review-item_badge">' +
+          '<span class="slds-badge__icon slds-badge__icon_left">' +
+            '<span class="slds-icon_container slds-icon-utility-success" title="' + successLabel + '">' +
+              '<svg class="slds-icon slds-icon_xx-small slds-icon-text-blue" aria-hidden="true">' +
+                '<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#success"></use>' +
+              '</svg>' +
+            '</span>' +
+          '</span>' + successLabel +
+        '</span>';
+    });
+  }
+
+  document.querySelectorAll('input[name="step7-toggle"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      var reviewPanel = document.getElementById('step7-review-panel');
+      var previewPanel = document.getElementById('step7-preview-panel');
+      if (this.value === 'review') {
+        reviewPanel.style.display = '';
+        previewPanel.style.display = 'none';
+        applyPreviewStates();
+        updateReviewFooter();
+      } else {
+        reviewPanel.style.display = 'none';
+        previewPanel.style.display = '';
+      }
+    });
+  });
+
+  applyPreviewStates();
+  updateReviewFooter();
+
+  
+  (function () {
+    var saveBtn = document.getElementById('ra-save-btn');
+    var status  = document.querySelector('[data-footer-status]');
+    if (!saveBtn || !status) return;
+
+    saveBtn.addEventListener('click', function () {
+      status.textContent = 'Saved';
+      status.classList.add('is-saved');
+    });
+
+    document.querySelectorAll(
+      '#agent-name, #select-01'
+    ).forEach(function (el) {
+      var revert = function () {
+        status.textContent = 'Unsaved changes';
+        status.classList.remove('is-saved');
+      };
+      el.addEventListener('input',  revert);
+      el.addEventListener('change', revert);
+    });
+  })();
+</script>
+
+
+  </main>
+  <script src="/scripts/data/accounts.js"></script>
+  <script src="/scripts/data/prospects.js"></script>
+  <script src="/scripts/data/cadences.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/vendor/svg4everybody.min.js"></script>
+  <script>svg4everybody();</script>
+
+  
+  <script src="/scripts/hunter_accounts.js"></script>
+
+  
+  <script src="/scripts/cadence-progress.js"></script>
+  <script src="/scripts/email-preview.js"></script>
+  <script src="/scripts/step_01_preview.js"></script>
+  <script type="module" src="/scripts/aop-editor/js/preview.js"></script>
+  <script src="/scripts/preview-unified.js"></script>
+  
+  <script>window.CURRENT_STEP = "full_preview";</script>
+  <script type="module" src="/scripts/aop-editor/js/preview.js"></script>
+
+  <script>
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector('.layout-container');
+        if (el) el.classList.add('is-ready');
+      });
+    });
+  </script>
+</body>
+</html>

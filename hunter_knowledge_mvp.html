@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Prototype styles -->
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/slds2_agentic.css" />
+  <link rel="stylesheet" href="/styles/gc.css" />
+  
+  <link rel="stylesheet" href="/styles/hunter_builder.css" />
+  
+  <link rel="stylesheet" href="/styles/prospect_list.css" />
+
+
+</head>
+<body>
+
+  
+  <script>
+    (function () {
+      try {
+        if (window.self !== window.top) {
+          document.body.setAttribute('data-embedded', 'salesforce');
+        }
+      } catch (e) {
+        // Cross-origin frame access can throw; that's ALSO a signal we're embedded.
+        document.body.setAttribute('data-embedded', 'salesforce');
+      }
+    })();
+  </script>
+
+  <header class="slds-global-header_container">
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Navigation</a>
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Main Content</a>
+      <div class="slds-global-header slds-grid slds-grid_align-spread">
+        <div class="slds-global-header__item">
+          <div class="slds-global-header__logo">
+            <img src="/assets/images/logo-noname.svg" style= "width: 12.5rem;height: 2.5rem;background-size: contain;background-repeat: no-repeat;background-position: left center;"alt="Salesforce Logo" />
+          </div>
+        </div>
+        
+        <div class="slds-global-header__item slds-global-header__item_search slds-subtheme-agentic app-global-search">
+          <div class="slds-form-element app-global-search__input">
+            <label class="slds-form-element__label slds-assistive-text" for="app-global-search-input">Search or ask anything</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+              <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left" aria-hidden="true">
+                <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                </svg>
+              </span>
+              <input
+                type="search"
+                id="app-global-search-input"
+                class="slds-input"
+                placeholder="Search or ask anything..."
+                aria-label="Search or ask anything"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button type="button" class="slds-button slds-button_neutral app-global-search__ask">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkles"></use>
+            </svg>
+            <span>Ask</span>
+          </button>
+        </div>
+        
+        <div class="slds-global-header__item">
+          <ul class="slds-global-actions">
+            <li class="slds-global-actions__item">
+              <div class="slds-global-actions__favorites slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-button-group">
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-action slds-button_icon slds-button_icon-border slds-button_icon-small" aria-pressed="false" title="Toggle Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle Favorite</span>
+                  </button>
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-more slds-button_icon slds-button_icon-border slds-button_icon-small" title="View Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true" style="height:12px;width:12px;">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                    <span class="slds-assistive-text">View Favorites</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__task slds-global-actions__item-action" aria-haspopup="true" title="Global Actions">
+                  <svg class="slds-button__icon" aria-hidden="true" style="fill:white;">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Global Actions</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__help slds-global-actions__item-action" aria-haspopup="true" title="Help and Training">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help and Training</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__setup slds-global-actions__item-action" aria-haspopup="true" title="Setup">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Setup</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__notifications slds-global-actions__item-action" title="no new notifications" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use>
+                  </svg>
+                  <span class="slds-assistive-text">no new notifications</span>
+                </button>
+                <span aria-hidden="true" class="slds-notification-badge">0</span>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action" title="person name" aria-haspopup="true">
+                  <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                    <img alt="Person name" src="/assets/images/user-avatar.png" title="User avatar" />
+                  </span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+
+ 
+  <div class="app-header-placeholder"></div>
+
+
+  <div style="height: 16rem;">
+      <div class="slds-context-bar" style="padding-left: 0px;">
+        <div class="slds-context-bar__primary">
+          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+            <div class="slds-context-bar__icon-action">
+              <button class="slds-button slds-icon-waffle_container slds-context-bar__button" title="Description of the icon when needed">
+                <span class="slds-icon-waffle">
+                  <span class="slds-r1"></span>
+                  <span class="slds-r2"></span>
+                  <span class="slds-r3"></span>
+                  <span class="slds-r4"></span>
+                  <span class="slds-r5"></span>
+                  <span class="slds-r6"></span>
+                  <span class="slds-r7"></span>
+                  <span class="slds-r8"></span>
+                  <span class="slds-r9"></span>
+                </span>
+                <span class="slds-assistive-text">Open App Launcher</span>
+              </button>
+            </div>
+            <span class="slds-context-bar__label-action slds-context-bar__app-name">
+              <span class="slds-truncate" title="App Name">Sales</span>
+            </span>
+          </div>
+        </div>
+        <nav class="slds-context-bar__secondary" role="navigation">
+          <ul class="slds-grid">
+            
+            <li class="slds-context-bar__item">
+              <a href="/home.html" class="slds-context-bar__label-action" title="Home">
+                <span class="slds-assistive-text">Current Page:</span>
+                <span class="slds-truncate" title="Home">Home</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/prospect_list.html" class="slds-context-bar__label-action" title="Prospecting">
+                <span class="slds-truncate" title="Prospecting">Prospecting</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item slds-is-active">
+              <a href="/index.html" class="slds-context-bar__label-action" title="Agent Builder">
+                <span class="slds-truncate" title="Agent Builder">Agent Builder</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Leads</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Accounts</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/agent_monitoring.html" class="slds-context-bar__label-action" title="Agent Monitoring">
+                <span class="slds-truncate" title="Agent Monitoring">Agent Monitoring</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  <main class="app-wrapper slds-template_default">
+    
+<div
+  class="hunter-builder"
+  id="hunter-builder"
+  data-hunter-builder
+  data-hb-variant="agent_home"
+>
+  
+
+  <div class="hunter-builder__body">
+    
+
+
+
+
+
+  
+  
+  
+
+
+<aside class="hunter-builder__panel hunter-builder__panel--left hunter-builder__panel--flush" aria-label="Agent configuration navigation">
+  <div class="hunter-builder__panel-header">
+    <div class="hunter-builder__panel-header-title">
+      
+      <img
+        class="hunter-builder__panel-header-icon"
+        src="/assets/images/hunter-avatar.png"
+        alt=""
+        aria-hidden="true"
+      />
+      
+      <span class="hb-title-text">Hunter Home</span>
+    </div>
+    <button
+      type="button"
+      class="hunter-builder__panel-header-toggle"
+      data-hb-toggle="left"
+      aria-label="Collapse configuration navigation"
+      aria-expanded="true"
+    >
+      <svg aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#toggle_panel_left"></use>
+      </svg>
+    </button>
+  </div>
+
+  
+  
+
+  <nav class="hunter-builder__panel-body" aria-label="Configuration sections">
+    
+    <div class="hunter-builder__nav-list" role="list">
+      
+        
+        
+          
+  
+  
+  
+  
+  <a
+    href="/hunter_getting_started.html"
+    role="listitem"
+    class="hunter-builder__nav-item"
+    data-hb-nav="home"
+    
+    
+    title="Home"
+  >
+    <span class="hb-nav-icon">
+      
+      
+      <svg aria-hidden="true" width="16" height="16">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#home"></use>
+      </svg>
+      
+    </span>
+    <span class="hb-nav-label">Home</span>
+  </a>
+  
+        
+          
+  
+  
+  
+  
+  <a
+    href="/hunter_agents.html"
+    role="listitem"
+    class="hunter-builder__nav-item"
+    data-hb-nav="agents"
+    
+    
+    title="Agents"
+  >
+    <span class="hb-nav-icon">
+      
+      
+      <svg aria-hidden="true" width="16" height="16">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#agent_astro"></use>
+      </svg>
+      
+    </span>
+    <span class="hb-nav-label">Agents</span>
+  </a>
+  
+        
+          
+  
+  
+  
+  
+  <a
+    href="/hunter_permissions.html"
+    role="listitem"
+    class="hunter-builder__nav-item"
+    data-hb-nav="permissions"
+    
+    
+    title="Permissions"
+  >
+    <span class="hb-nav-icon">
+      
+      
+      <svg aria-hidden="true" width="16" height="16">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#lock"></use>
+      </svg>
+      
+    </span>
+    <span class="hb-nav-label">Permissions</span>
+  </a>
+  
+        
+          
+  
+  
+  
+  
+  <a
+    href="/hunter_knowledge_mvp.html"
+    role="listitem"
+    class="hunter-builder__nav-item is-active"
+    data-hb-nav="knowledge"
+    
+    aria-current="page"
+    title="Knowledge"
+  >
+    <span class="hb-nav-icon">
+      
+      
+      <svg aria-hidden="true" width="16" height="16">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#knowledge_base"></use>
+      </svg>
+      
+    </span>
+    <span class="hb-nav-label">Knowledge</span>
+  </a>
+  
+        
+          
+  
+  
+  
+  
+  <a
+    href="/hunter_channel_settings.html"
+    role="listitem"
+    class="hunter-builder__nav-item"
+    data-hb-nav="channel_settings"
+    
+    
+    title="Settings"
+  >
+    <span class="hb-nav-icon">
+      
+      
+      <svg aria-hidden="true" width="16" height="16">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#settings"></use>
+      </svg>
+      
+    </span>
+    <span class="hb-nav-label">Settings</span>
+  </a>
+  
+        
+      
+    </div>
+
+    
+  </nav>
+</aside>
+
+
+    
+    <section class="hunter-builder__panel hunter-builder__panel--center" aria-label="Builder canvas">
+      <div class="hunter-builder__panel-header">
+        
+        <div class="hunter-builder__panel-header-heading">
+          <div class="hunter-builder__panel-header-title">
+            <span class="hb-title-text">Knowledge</span>
+          </div>
+          
+        </div>
+        
+        
+      </div>
+      <div class="hunter-builder__panel-body">
+        
+
+<div class="knowledge-tab slds-p-horizontal_medium slds-p-top_medium">
+
+	
+	<div class="knowledge-tab__header">
+		<div class="knowledge-tab__search slds-form-element">
+			<div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left-right">
+				<span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left">
+					<svg class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+						<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+					</svg>
+				</span>
+				<input
+					type="text"
+					id="knowledge-search"
+					class="slds-input"
+					placeholder="Search knowledge documents..."
+					autocomplete="off"
+					aria-label="Search knowledge documents" />
+				<button
+					type="button"
+					class="slds-button slds-button_icon slds-input__icon slds-input__icon_right slds-hide"
+					id="knowledge-search-clear"
+					title="Clear search"
+					aria-label="Clear search">
+					<svg class="slds-button__icon slds-icon-text-light" aria-hidden="true">
+						<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#clear"></use>
+					</svg>
+				</button>
+			</div>
+		</div>
+
+		<div class="knowledge-tab__controls">
+			<button type="button" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Filter" aria-label="Filter">
+				<svg class="slds-button__icon" aria-hidden="true">
+					<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#filterList"></use>
+				</svg>
+			</button>
+			<button type="button" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Column settings" aria-label="Column settings">
+				<svg class="slds-button__icon" aria-hidden="true">
+					<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#settings"></use>
+				</svg>
+			</button>
+			<button type="button" class="slds-button slds-button_icon slds-button_icon-border-filled" id="knowledge-refresh" title="Refresh" aria-label="Refresh">
+				<svg class="slds-button__icon" aria-hidden="true">
+					<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#refresh"></use>
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	
+	<table
+		id="knowledge_table"
+		class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols slds-table-uplift knowledge-table"
+		role="grid"
+		aria-label="Knowledge documents">
+		<thead>
+			<tr class="slds-line-height_reset">
+				
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Knowledge Document">Knowledge Document</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Knowledge Document column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+				
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Agent">Agent</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Agent column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+				
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Sources">Sources</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Sources column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+				
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Status">Status</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Status column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+				
+				<th aria-sort="descending" class="slds-is-resizable slds-is-sortable slds-is-sorted slds-is-sorted_desc slds-cell_action-mode js-knowledge-default-sort" scope="col" data-sort-key="lastUpdated">
+					<a class="slds-th__action slds-text-link_reset js-knowledge-sort" href="#" role="button" tabindex="0">
+						<span class="slds-assistive-text">Sort by: </span>
+						<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+							<span class="slds-truncate" title="Last Updated">Last Updated</span>
+							<span class="slds-icon_container slds-icon-utility-arrowdown">
+								<svg class="slds-icon slds-icon-text-default slds-is-sortable__icon" aria-hidden="true">
+									<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+								</svg>
+							</span>
+						</div>
+					</a>
+					<div class="slds-resizable">
+						<input type="range" aria-label="Last Updated column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+						<span class="slds-resizable__handle">
+							<span class="slds-resizable__divider"></span>
+						</span>
+					</div>
+				</th>
+				
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Updated By">Updated By</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Updated By column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+				
+<th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+      <span class="slds-truncate" title="Size">Size</span>
+      <span class="slds-icon_container slds-icon-utility-arrowdown">
+        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+        </svg>
+      </span>
+    </div>
+  </a>
+  <div class="slds-resizable">
+    <input type="range" aria-label="Size column width" class="slds-resizable__input slds-assistive-text" max="1000" min="20" tabindex="0" />
+    <span class="slds-resizable__handle">
+      <span class="slds-resizable__divider"></span>
+    </span>
+  </div>
+</th>
+
+				<th class="slds-cell_action-mode" scope="col" style="width:3.25rem">
+					<div class="slds-truncate slds-assistive-text" title="Actions">Actions</div>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-1"
+				data-doc-name="top-accounts-knowledge.md"
+				data-doc-agent="Prospecting agent 1"
+				data-doc-type="hunter"
+				data-doc-status="up-to-date"
+				data-sort-name="top-accounts-knowledge.md"
+				data-sort-agent="prospecting agent 1"
+				data-sort-status="up-to-date"
+				data-sort-lastupdated="2026-06-30T15:42:00Z"
+				data-sort-updatedby="amanda burton"
+				data-sort-size="42"
+				data-sort-sources="5">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-1" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">top-accounts-knowledge.md</a>
+						<span class="knowledge-table__doc-meta">
+							Hunter Generated
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 1">Prospecting agent 1</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="zoominfo">
+									<img src="/assets/images/source_icons/source_zoominfo.svg" width="14" height="14" alt="zoominfo" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="web">
+									<img src="/assets/images/source_icons/source_web.svg" width="14" height="14" alt="web" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							5 sources <span class="knowledge-table__sources-plus">+2</span>
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge slds-theme_success">Up to date</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jun 30, 2026, 3:42 PM">Jun 30, 2026, 3:42 PM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Amanda Burton">Amanda Burton</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="42 KB">42 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for top-accounts-knowledge.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for top-accounts-knowledge.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-1" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-2"
+				data-doc-name="enterprise-tech-knowledge.md"
+				data-doc-agent="Prospecting agent 2"
+				data-doc-type="hunter"
+				data-doc-status="regenerate-available"
+				data-sort-name="enterprise-tech-knowledge.md"
+				data-sort-agent="prospecting agent 2"
+				data-sort-status="regenerate-available"
+				data-sort-lastupdated="2026-06-28T11:15:00Z"
+				data-sort-updatedby="amanda burton"
+				data-sort-size="51"
+				data-sort-sources="4">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-2" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">enterprise-tech-knowledge.md</a>
+						<span class="knowledge-table__doc-meta">
+							Hunter Generated
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 2">Prospecting agent 2</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="6sense">
+									<img src="/assets/images/source_icons/source_6sense.svg" width="14" height="14" alt="6sense" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="gong">
+									<img src="/assets/images/source_icons/source_gong.svg" width="14" height="14" alt="gong" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							4 sources <span class="knowledge-table__sources-plus">+1</span>
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge slds-theme_warning">Regenerate available</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jun 28, 2026, 11:15 AM">Jun 28, 2026, 11:15 AM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Amanda Burton">Amanda Burton</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="51 KB">51 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for enterprise-tech-knowledge.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for enterprise-tech-knowledge.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-2" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-3"
+				data-doc-name="q2-field-marketing.md"
+				data-doc-agent="Prospecting agent 3"
+				data-doc-type="custom"
+				data-doc-status="custom"
+				data-sort-name="q2-field-marketing.md"
+				data-sort-agent="prospecting agent 3"
+				data-sort-status="custom"
+				data-sort-lastupdated="2026-06-27T16:08:00Z"
+				data-sort-updatedby="emily torres"
+				data-sort-size="38"
+				data-sort-sources="2">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-3" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">q2-field-marketing.md</a>
+						<span class="knowledge-table__doc-meta">
+							Custom Uploaded
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 3">Prospecting agent 3</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="web">
+									<img src="/assets/images/source_icons/source_web.svg" width="14" height="14" alt="web" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							2 sources
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge knowledge-badge_custom">Custom</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jun 27, 2026, 4:08 PM">Jun 27, 2026, 4:08 PM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Emily Torres">Emily Torres</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="38 KB">38 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for q2-field-marketing.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for q2-field-marketing.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-3" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-4"
+				data-doc-name="high-intent-accounts.md"
+				data-doc-agent="Prospecting agent 4"
+				data-doc-type="hunter"
+				data-doc-status="up-to-date"
+				data-sort-name="high-intent-accounts.md"
+				data-sort-agent="prospecting agent 4"
+				data-sort-status="up-to-date"
+				data-sort-lastupdated="2026-06-26T09:21:00Z"
+				data-sort-updatedby="emily torres"
+				data-sort-size="64"
+				data-sort-sources="6">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-4" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">high-intent-accounts.md</a>
+						<span class="knowledge-table__doc-meta">
+							Hunter Generated
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 4">Prospecting agent 4</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="6sense">
+									<img src="/assets/images/source_icons/source_6sense.svg" width="14" height="14" alt="6sense" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="demandbase">
+									<img src="/assets/images/source_icons/source_demandbase.svg" width="14" height="14" alt="demandbase" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="zoominfo">
+									<img src="/assets/images/source_icons/source_zoominfo.svg" width="14" height="14" alt="zoominfo" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							6 sources <span class="knowledge-table__sources-plus">+3</span>
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge slds-theme_success">Up to date</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jun 26, 2026, 9:21 AM">Jun 26, 2026, 9:21 AM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Emily Torres">Emily Torres</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="64 KB">64 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for high-intent-accounts.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for high-intent-accounts.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-4" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-5"
+				data-doc-name="west-coast-midmarket.md"
+				data-doc-agent="Prospecting agent 5"
+				data-doc-type="hunter"
+				data-doc-status="regenerate-available"
+				data-sort-name="west-coast-midmarket.md"
+				data-sort-agent="prospecting agent 5"
+				data-sort-status="regenerate-available"
+				data-sort-lastupdated="2026-06-24T14:47:00Z"
+				data-sort-updatedby="marcus chen"
+				data-sort-size="29"
+				data-sort-sources="3">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-5" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">west-coast-midmarket.md</a>
+						<span class="knowledge-table__doc-meta">
+							Hunter Generated
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 5">Prospecting agent 5</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="g2">
+									<img src="/assets/images/source_icons/source_g2.svg" width="14" height="14" alt="g2" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="web">
+									<img src="/assets/images/source_icons/source_web.svg" width="14" height="14" alt="web" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							3 sources
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge slds-theme_warning">Regenerate available</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jun 24, 2026, 2:47 PM">Jun 24, 2026, 2:47 PM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Marcus Chen">Marcus Chen</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="29 KB">29 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for west-coast-midmarket.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for west-coast-midmarket.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-5" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-6"
+				data-doc-name="expansion-candidates-q2.md"
+				data-doc-agent="Prospecting agent 6"
+				data-doc-type="hunter"
+				data-doc-status="up-to-date"
+				data-sort-name="expansion-candidates-q2.md"
+				data-sort-agent="prospecting agent 6"
+				data-sort-status="up-to-date"
+				data-sort-lastupdated="2026-06-22T10:03:00Z"
+				data-sort-updatedby="marcus chen"
+				data-sort-size="47"
+				data-sort-sources="2">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-6" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">expansion-candidates-q2.md</a>
+						<span class="knowledge-table__doc-meta">
+							Hunter Generated
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 6">Prospecting agent 6</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="gong">
+									<img src="/assets/images/source_icons/source_gong.svg" width="14" height="14" alt="gong" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							2 sources
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge slds-theme_success">Up to date</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jun 22, 2026, 10:03 AM">Jun 22, 2026, 10:03 AM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Marcus Chen">Marcus Chen</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="47 KB">47 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for expansion-candidates-q2.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for expansion-candidates-q2.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-6" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-7"
+				data-doc-name="revops-summit-attendees.md"
+				data-doc-agent="Prospecting agent 7"
+				data-doc-type="custom"
+				data-doc-status="custom"
+				data-sort-name="revops-summit-attendees.md"
+				data-sort-agent="prospecting agent 7"
+				data-sort-status="custom"
+				data-sort-lastupdated="2026-06-20T17:35:00Z"
+				data-sort-updatedby="priya desai"
+				data-sort-size="33"
+				data-sort-sources="2">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-7" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">revops-summit-attendees.md</a>
+						<span class="knowledge-table__doc-meta">
+							Custom Uploaded
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 7">Prospecting agent 7</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="web">
+									<img src="/assets/images/source_icons/source_web.svg" width="14" height="14" alt="web" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							2 sources
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge knowledge-badge_custom">Custom</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jun 20, 2026, 5:35 PM">Jun 20, 2026, 5:35 PM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Priya Desai">Priya Desai</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="33 KB">33 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for revops-summit-attendees.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for revops-summit-attendees.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-7" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-8"
+				data-doc-name="named-accounts-strategic.md"
+				data-doc-agent="Prospecting agent 8"
+				data-doc-type="hunter"
+				data-doc-status="up-to-date"
+				data-sort-name="named-accounts-strategic.md"
+				data-sort-agent="prospecting agent 8"
+				data-sort-status="up-to-date"
+				data-sort-lastupdated="2026-06-18T08:11:00Z"
+				data-sort-updatedby="priya desai"
+				data-sort-size="58"
+				data-sort-sources="5">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-8" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">named-accounts-strategic.md</a>
+						<span class="knowledge-table__doc-meta">
+							Hunter Generated
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 8">Prospecting agent 8</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="6sense">
+									<img src="/assets/images/source_icons/source_6sense.svg" width="14" height="14" alt="6sense" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="demandbase">
+									<img src="/assets/images/source_icons/source_demandbase.svg" width="14" height="14" alt="demandbase" aria-hidden="true" />
+								</span>
+								
+							
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							5 sources <span class="knowledge-table__sources-plus">+1</span>
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge slds-theme_success">Up to date</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jun 18, 2026, 8:11 AM">Jun 18, 2026, 8:11 AM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Priya Desai">Priya Desai</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="58 KB">58 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for named-accounts-strategic.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for named-accounts-strategic.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-8" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-9"
+				data-doc-name="lapsed-opportunities-2025.md"
+				data-doc-agent="Prospecting agent 9"
+				data-doc-type="hunter"
+				data-doc-status="regenerate-available"
+				data-sort-name="lapsed-opportunities-2025.md"
+				data-sort-agent="prospecting agent 9"
+				data-sort-status="regenerate-available"
+				data-sort-lastupdated="2026-06-12T13:30:00Z"
+				data-sort-updatedby="jordan lee"
+				data-sort-size="22"
+				data-sort-sources="2">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-9" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">lapsed-opportunities-2025.md</a>
+						<span class="knowledge-table__doc-meta">
+							Hunter Generated
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 9">Prospecting agent 9</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="gong">
+									<img src="/assets/images/source_icons/source_gong.svg" width="14" height="14" alt="gong" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							2 sources
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge slds-theme_warning">Regenerate available</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jun 12, 2026, 1:30 PM">Jun 12, 2026, 1:30 PM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jordan Lee">Jordan Lee</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="22 KB">22 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for lapsed-opportunities-2025.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for lapsed-opportunities-2025.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-9" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-10"
+				data-doc-name="partner-referrals-q1.md"
+				data-doc-agent="Prospecting agent 10"
+				data-doc-type="custom"
+				data-doc-status="custom"
+				data-sort-name="partner-referrals-q1.md"
+				data-sort-agent="prospecting agent 10"
+				data-sort-status="custom"
+				data-sort-lastupdated="2026-06-05T11:42:00Z"
+				data-sort-updatedby="jordan lee"
+				data-sort-size="19"
+				data-sort-sources="2">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-10" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">partner-referrals-q1.md</a>
+						<span class="knowledge-table__doc-meta">
+							Custom Uploaded
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 10">Prospecting agent 10</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="gmail">
+									<img src="/assets/images/source_icons/source_gmail.svg" width="14" height="14" alt="gmail" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							2 sources
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge knowledge-badge_custom">Custom</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jun 05, 2026, 11:42 AM">Jun 05, 2026, 11:42 AM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Jordan Lee">Jordan Lee</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="19 KB">19 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for partner-referrals-q1.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for partner-referrals-q1.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-10" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-11"
+				data-doc-name="inbound-free-trial-signups.md"
+				data-doc-agent="Prospecting agent 11"
+				data-doc-type="hunter"
+				data-doc-status="error"
+				data-sort-name="inbound-free-trial-signups.md"
+				data-sort-agent="prospecting agent 11"
+				data-sort-status="error"
+				data-sort-lastupdated="2026-05-28T16:20:00Z"
+				data-sort-updatedby="amanda burton"
+				data-sort-size="12"
+				data-sort-sources="3">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-11" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">inbound-free-trial-signups.md</a>
+						<span class="knowledge-table__doc-meta">
+							Hunter Generated
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 11">Prospecting agent 11</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="web">
+									<img src="/assets/images/source_icons/source_web.svg" width="14" height="14" alt="web" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="g2">
+									<img src="/assets/images/source_icons/source_g2.svg" width="14" height="14" alt="g2" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							3 sources
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge slds-theme_error">Error</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="May 28, 2026, 4:20 PM">May 28, 2026, 4:20 PM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Amanda Burton">Amanda Burton</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="12 KB">12 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for inbound-free-trial-signups.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for inbound-free-trial-signups.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-11" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			<tr
+				aria-selected="false"
+				class="slds-hint-parent js-knowledge-row"
+				data-doc-id="kd-12"
+				data-doc-name="enterprise-renewals-watchlist.md"
+				data-doc-agent="Prospecting agent 12"
+				data-doc-type="hunter"
+				data-doc-status="error"
+				data-sort-name="enterprise-renewals-watchlist.md"
+				data-sort-agent="prospecting agent 12"
+				data-sort-status="error"
+				data-sort-lastupdated="2026-05-22T09:04:00Z"
+				data-sort-updatedby="emily torres"
+				data-sort-size="15"
+				data-sort-sources="5">
+
+				
+				<th class="slds-cell_action-mode knowledge-table__cell knowledge-table__cell_name" scope="row">
+					<div class="knowledge-table__doc">
+						<a href="/knowledge_document.html?id=kd-12" class="knowledge-table__doc-name js-knowledge-row-link" tabindex="0">enterprise-renewals-watchlist.md</a>
+						<span class="knowledge-table__doc-meta">
+							Hunter Generated
+						</span>
+					</div>
+				</th>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Prospecting agent 12">Prospecting agent 12</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<span class="source-multi knowledge-table__sources" tabindex="0">
+						<span class="source-multi__icons">
+							
+							
+								
+								<span class="source-multi__icon" title="salesforce">
+									<img src="/assets/images/source_icons/source_salesforce.svg" width="14" height="14" alt="salesforce" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="gong">
+									<img src="/assets/images/source_icons/source_gong.svg" width="14" height="14" alt="gong" aria-hidden="true" />
+								</span>
+								
+							
+								
+								<span class="source-multi__icon" title="moodys">
+									<img src="/assets/images/source_icons/source_moodys.svg" width="14" height="14" alt="moodys" aria-hidden="true" />
+								</span>
+								
+							
+						</span>
+						<span class="knowledge-table__sources-label">
+							5 sources <span class="knowledge-table__sources-plus">+2</span>
+						</span>
+					</span>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="">
+						
+						<span class="slds-badge slds-theme_error">Error</span>
+						
+					</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="May 22, 2026, 9:04 AM">May 22, 2026, 9:04 AM</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="Emily Torres">Emily Torres</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title="15 KB">15 KB</div>
+				</td>
+
+				
+				<td class="slds-cell_action-mode knowledge-table__cell_actions" role="gridcell">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click knowledge-table__row-menu">
+						<button
+							class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small js-knowledge-row-menu"
+							aria-haspopup="true"
+							aria-expanded="false"
+							tabindex="0"
+							title="More actions for enterprise-renewals-watchlist.md">
+							<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
+								<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+							</svg>
+							<span class="slds-assistive-text">More actions for enterprise-renewals-watchlist.md</span>
+						</button>
+						<div class="slds-dropdown slds-dropdown_right slds-dropdown_small">
+							<ul class="slds-dropdown__list" role="menu" aria-label="Row actions">
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="/knowledge_document.html?id=kd-12" role="menuitem" tabindex="0" data-action="open">
+										<span class="slds-truncate" title="Open editor">Open editor</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="regenerate">
+										<span class="slds-truncate" title="Regenerate">Regenerate</span>
+									</a>
+								</li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="download">
+										<span class="slds-truncate" title="Download">Download</span>
+									</a>
+								</li>
+								<li class="slds-has-divider_top-space" role="separator"></li>
+								<li class="slds-dropdown__item" role="presentation">
+									<a href="#" role="menuitem" tabindex="-1" data-action="delete" class="knowledge-menu__item_destructive">
+										<span class="slds-truncate" title="Delete">Delete</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+		</tbody>
+	</table>
+
+	
+	<div class="knowledge-tab__empty slds-hide" id="knowledge-empty">
+		<p class="slds-text-body_regular slds-p-vertical_large slds-align_absolute-center">
+			No knowledge documents match your search.
+		</p>
+	</div>
+</div>
+
+<script>
+	// Serialize the full doc set so the standalone editor page can hydrate
+	// the correct doc from a `?id=...` query param without a second data fetch.
+	// Mirrors the existing `window.__agents` pattern in _agents_tab.html.
+	window.__knowledgeDocs = [{"id":"kd-1","agentIndex":0,"agentName":"Prospecting agent 1","name":"top-accounts-knowledge.md","type":"hunter","sources":["salesforce","zoominfo","web"],"extraSources":2,"status":"up-to-date","lastUpdated":"Jun 30, 2026, 3:42 PM","lastUpdatedIso":"2026-06-30T15:42:00Z","updatedBy":"Amanda Burton","size":"42 KB"},{"id":"kd-2","agentIndex":1,"agentName":"Prospecting agent 2","name":"enterprise-tech-knowledge.md","type":"hunter","sources":["salesforce","6sense","gong"],"extraSources":1,"status":"regenerate-available","lastUpdated":"Jun 28, 2026, 11:15 AM","lastUpdatedIso":"2026-06-28T11:15:00Z","updatedBy":"Amanda Burton","size":"51 KB"},{"id":"kd-3","agentIndex":2,"agentName":"Prospecting agent 3","name":"q2-field-marketing.md","type":"custom","sources":["salesforce","web"],"extraSources":0,"status":"custom","lastUpdated":"Jun 27, 2026, 4:08 PM","lastUpdatedIso":"2026-06-27T16:08:00Z","updatedBy":"Emily Torres","size":"38 KB"},{"id":"kd-4","agentIndex":3,"agentName":"Prospecting agent 4","name":"high-intent-accounts.md","type":"hunter","sources":["6sense","demandbase","zoominfo"],"extraSources":3,"status":"up-to-date","lastUpdated":"Jun 26, 2026, 9:21 AM","lastUpdatedIso":"2026-06-26T09:21:00Z","updatedBy":"Emily Torres","size":"64 KB"},{"id":"kd-5","agentIndex":4,"agentName":"Prospecting agent 5","name":"west-coast-midmarket.md","type":"hunter","sources":["salesforce","g2","web"],"extraSources":0,"status":"regenerate-available","lastUpdated":"Jun 24, 2026, 2:47 PM","lastUpdatedIso":"2026-06-24T14:47:00Z","updatedBy":"Marcus Chen","size":"29 KB"},{"id":"kd-6","agentIndex":5,"agentName":"Prospecting agent 6","name":"expansion-candidates-q2.md","type":"hunter","sources":["salesforce","gong"],"extraSources":0,"status":"up-to-date","lastUpdated":"Jun 22, 2026, 10:03 AM","lastUpdatedIso":"2026-06-22T10:03:00Z","updatedBy":"Marcus Chen","size":"47 KB"},{"id":"kd-7","agentIndex":6,"agentName":"Prospecting agent 7","name":"revops-summit-attendees.md","type":"custom","sources":["salesforce","web"],"extraSources":0,"status":"custom","lastUpdated":"Jun 20, 2026, 5:35 PM","lastUpdatedIso":"2026-06-20T17:35:00Z","updatedBy":"Priya Desai","size":"33 KB"},{"id":"kd-8","agentIndex":7,"agentName":"Prospecting agent 8","name":"named-accounts-strategic.md","type":"hunter","sources":["salesforce","6sense","demandbase","moodys"],"extraSources":1,"status":"up-to-date","lastUpdated":"Jun 18, 2026, 8:11 AM","lastUpdatedIso":"2026-06-18T08:11:00Z","updatedBy":"Priya Desai","size":"58 KB"},{"id":"kd-9","agentIndex":8,"agentName":"Prospecting agent 9","name":"lapsed-opportunities-2025.md","type":"hunter","sources":["salesforce","gong"],"extraSources":0,"status":"regenerate-available","lastUpdated":"Jun 12, 2026, 1:30 PM","lastUpdatedIso":"2026-06-12T13:30:00Z","updatedBy":"Jordan Lee","size":"22 KB"},{"id":"kd-10","agentIndex":9,"agentName":"Prospecting agent 10","name":"partner-referrals-q1.md","type":"custom","sources":["salesforce","gmail"],"extraSources":0,"status":"custom","lastUpdated":"Jun 05, 2026, 11:42 AM","lastUpdatedIso":"2026-06-05T11:42:00Z","updatedBy":"Jordan Lee","size":"19 KB"},{"id":"kd-11","agentIndex":10,"agentName":"Prospecting agent 11","name":"inbound-free-trial-signups.md","type":"hunter","sources":["salesforce","web","g2"],"extraSources":0,"status":"error","lastUpdated":"May 28, 2026, 4:20 PM","lastUpdatedIso":"2026-05-28T16:20:00Z","updatedBy":"Amanda Burton","size":"12 KB"},{"id":"kd-12","agentIndex":11,"agentName":"Prospecting agent 12","name":"enterprise-renewals-watchlist.md","type":"hunter","sources":["salesforce","gong","moodys"],"extraSources":2,"status":"error","lastUpdated":"May 22, 2026, 9:04 AM","lastUpdatedIso":"2026-05-22T09:04:00Z","updatedBy":"Emily Torres","size":"15 KB"}];
+</script>
+
+
+      </div>
+    </section>
+
+    
+    
+  </div>
+</div>
+
+  </main>
+  <script src="/scripts/data/accounts.js"></script>
+  <script src="/scripts/data/prospects.js"></script>
+  <script src="/scripts/data/cadences.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/vendor/svg4everybody.min.js"></script>
+  <script>svg4everybody();</script>
+
+  
+  <script src="/scripts/hunter_accounts.js"></script>
+
+  
+  <script src="/scripts/cadence-progress.js"></script>
+  <script src="/scripts/email-preview.js"></script>
+  <script src="/scripts/step_01_preview.js"></script>
+  <script type="module" src="/scripts/aop-editor/js/preview.js"></script>
+  <script src="/scripts/preview-unified.js"></script>
+  
+  <script src="/scripts/hunter_builder.js"></script>
+  
+  <script src="/scripts/knowledge.js"></script>
+
+
+  <script>
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector('.layout-container');
+        if (el) el.classList.add('is-ready');
+      });
+    });
+  </script>
+</body>
+</html>

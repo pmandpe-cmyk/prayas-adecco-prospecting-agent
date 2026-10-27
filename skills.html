@@ -1,0 +1,3692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Prototype styles -->
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/slds2_agentic.css" />
+  <link rel="stylesheet" href="/styles/gc.css" />
+  
+  <link rel="stylesheet" href="/styles/home.css" />
+
+</head>
+<body>
+
+  
+  <script>
+    (function () {
+      try {
+        if (window.self !== window.top) {
+          document.body.setAttribute('data-embedded', 'salesforce');
+        }
+      } catch (e) {
+        // Cross-origin frame access can throw; that's ALSO a signal we're embedded.
+        document.body.setAttribute('data-embedded', 'salesforce');
+      }
+    })();
+  </script>
+
+  <header class="slds-global-header_container">
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Navigation</a>
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Main Content</a>
+      <div class="slds-global-header slds-grid slds-grid_align-spread">
+        <div class="slds-global-header__item">
+          <div class="slds-global-header__logo">
+            <img src="/assets/images/logo-noname.svg" style= "width: 12.5rem;height: 2.5rem;background-size: contain;background-repeat: no-repeat;background-position: left center;"alt="Salesforce Logo" />
+          </div>
+        </div>
+        
+        <div class="slds-global-header__item slds-global-header__item_search slds-subtheme-agentic app-global-search">
+          <div class="slds-form-element app-global-search__input">
+            <label class="slds-form-element__label slds-assistive-text" for="app-global-search-input">Search or ask anything</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+              <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left" aria-hidden="true">
+                <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                </svg>
+              </span>
+              <input
+                type="search"
+                id="app-global-search-input"
+                class="slds-input"
+                placeholder="Search or ask anything..."
+                aria-label="Search or ask anything"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button type="button" class="slds-button slds-button_neutral app-global-search__ask">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkles"></use>
+            </svg>
+            <span>Ask</span>
+          </button>
+        </div>
+        
+        <div class="slds-global-header__item">
+          <ul class="slds-global-actions">
+            <li class="slds-global-actions__item">
+              <div class="slds-global-actions__favorites slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-button-group">
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-action slds-button_icon slds-button_icon-border slds-button_icon-small" aria-pressed="false" title="Toggle Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle Favorite</span>
+                  </button>
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-more slds-button_icon slds-button_icon-border slds-button_icon-small" title="View Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true" style="height:12px;width:12px;">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                    <span class="slds-assistive-text">View Favorites</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__task slds-global-actions__item-action" aria-haspopup="true" title="Global Actions">
+                  <svg class="slds-button__icon" aria-hidden="true" style="fill:white;">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Global Actions</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__help slds-global-actions__item-action" aria-haspopup="true" title="Help and Training">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help and Training</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__setup slds-global-actions__item-action" aria-haspopup="true" title="Setup">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Setup</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__notifications slds-global-actions__item-action" title="no new notifications" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use>
+                  </svg>
+                  <span class="slds-assistive-text">no new notifications</span>
+                </button>
+                <span aria-hidden="true" class="slds-notification-badge">0</span>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action" title="person name" aria-haspopup="true">
+                  <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                    <img alt="Person name" src="/assets/images/user-avatar.png" title="User avatar" />
+                  </span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+
+ 
+  <div class="app-header-placeholder"></div>
+
+
+  <div style="height: 16rem;">
+      <div class="slds-context-bar" style="padding-left: 0px;">
+        <div class="slds-context-bar__primary">
+          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+            <div class="slds-context-bar__icon-action">
+              <button class="slds-button slds-icon-waffle_container slds-context-bar__button" title="Description of the icon when needed">
+                <span class="slds-icon-waffle">
+                  <span class="slds-r1"></span>
+                  <span class="slds-r2"></span>
+                  <span class="slds-r3"></span>
+                  <span class="slds-r4"></span>
+                  <span class="slds-r5"></span>
+                  <span class="slds-r6"></span>
+                  <span class="slds-r7"></span>
+                  <span class="slds-r8"></span>
+                  <span class="slds-r9"></span>
+                </span>
+                <span class="slds-assistive-text">Open App Launcher</span>
+              </button>
+            </div>
+            <span class="slds-context-bar__label-action slds-context-bar__app-name">
+              <span class="slds-truncate" title="App Name">Sales</span>
+            </span>
+          </div>
+        </div>
+        <nav class="slds-context-bar__secondary" role="navigation">
+          <ul class="slds-grid">
+            
+            <li class="slds-context-bar__item slds-is-active">
+              <a href="/home.html" class="slds-context-bar__label-action" title="Home">
+                <span class="slds-assistive-text">Current Page:</span>
+                <span class="slds-truncate" title="Home">Home</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/prospect_list.html" class="slds-context-bar__label-action" title="Prospecting">
+                <span class="slds-truncate" title="Prospecting">Prospecting</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="/index.html" class="slds-context-bar__label-action" title="Agent Builder">
+                <span class="slds-truncate" title="Agent Builder">Agent Builder</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Leads</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Accounts</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/agent_monitoring.html" class="slds-context-bar__label-action" title="Agent Monitoring">
+                <span class="slds-truncate" title="Agent Monitoring">Agent Monitoring</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  <main class="app-wrapper slds-template_default">
+    
+  
+  <div class="seller-home seller-home--knowledge seller-home--skills" data-sh-root>
+    
+    
+
+
+
+
+
+
+
+
+
+
+<aside
+  class="seller-home__nav"
+  aria-label="Seller Home navigation"
+  data-sh-nav-root
+>
+  
+  <div class="seller-home__nav-top">
+    <div class="seller-home__nav-topbar">
+      <button
+        type="button"
+        class="seller-home__nav-toggle"
+        data-sh-nav-toggle
+        aria-label="Collapse navigation"
+        aria-expanded="true"
+        aria-controls="seller-home-nav-body"
+      >
+        <svg width="20" height="20" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_left"></use>
+        </svg>
+      </button>
+    </div>
+
+    
+    <div class="slds-form-element seller-home__nav-search" data-sh-nav-search>
+      <label
+        class="slds-form-element__label slds-assistive-text"
+        for="seller-home-nav-search-input"
+      >Search navigation</label>
+      <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+        <span
+          class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left"
+          aria-hidden="true"
+        >
+          <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+          </svg>
+        </span>
+        <input
+          type="search"
+          id="seller-home-nav-search-input"
+          class="slds-input seller-home__nav-search-input"
+          placeholder="Search..."
+          aria-label="Search navigation"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <div class="seller-home__nav-list seller-home__nav-list--primary" role="list">
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="new_chat"
+  data-sh-nav-noroute
+  
+  title="New chat"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">New chat</span>
+</a>
+
+      
+        
+
+<a
+  href="/scheduled.html"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="schedules"
+  
+  
+  title="Scheduled"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#date_time"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Scheduled</span>
+</a>
+
+      
+        
+
+<a
+  href="/skills.html"
+  class="seller-home__nav-item is-active"
+  role="listitem"
+  data-sh-nav="skills"
+  
+  aria-current="page"
+  title="Skills"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <img
+        class="seller-home__nav-icon-image"
+        src="/assets/images/nav-icons/workflows.png"
+        alt=""
+        width="20"
+        height="20"
+        aria-hidden="true"
+      />
+    
+  </span>
+  <span class="seller-home__nav-label">Skills</span>
+</a>
+
+      
+        
+
+<a
+  href="/knowledge.html"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="knowledge"
+  
+  
+  title="Knowledge"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#knowledge_base"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Knowledge</span>
+</a>
+
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="tools"
+  data-sh-nav-noroute
+  
+  title="Tools"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#custom_apps"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Tools</span>
+</a>
+
+      
+    </div>
+  </div>
+
+  
+  <div
+    class="seller-home__nav-scroll"
+    id="seller-home-nav-body"
+    tabindex="0"
+    aria-label="Recent conversations"
+  >
+    <div class="seller-home__nav-section">
+      <div class="seller-home__nav-section-header" role="heading" aria-level="2">
+        <span class="seller-home__nav-icon" aria-hidden="true">
+          <svg width="20" height="20" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#clock"></use>
+          </svg>
+        </span>
+        <span class="seller-home__nav-label">Recents</span>
+      </div>
+
+      
+      <div
+        class="seller-home__nav-list seller-home__nav-list--recents"
+        role="list"
+        data-sh-recents-list
+      >
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent seller-home__nav-recent--running"
+          role="listitem"
+          data-sh-recent="rec-daily-deal-priorities"
+          data-sh-nav-noroute
+          data-sh-recent-run-status="running"
+          title="Daily Deal Priorities"
+        >
+          <span class="seller-home__nav-recent-label">Daily Deal Priorities</span>
+          
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      <span
+        class="seller-home__nav-recent-ring seller-home__nav-recent-ring--running"
+        role="progressbar"
+        aria-label="Daily Deal Priorities is running, 25 percent complete."
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
+          <circle class="seller-home__nav-recent-ring-track" cx="10" cy="10" r="8"></circle>
+          <circle
+            class="seller-home__nav-recent-ring-fill"
+            cx="10" cy="10" r="8"
+            stroke-dasharray="50.2654 50.2654"
+            stroke-dashoffset="37.69905"
+          ></circle>
+        </svg>
+      </span>
+    
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="/home_conversation.html?id=conv-001"
+          class="seller-home__nav-recent seller-home__nav-recent--linked"
+          role="listitem"
+          data-sh-recent="rec-conv-001"
+          data-sh-recent-conv="conv-001"
+          
+          title="Prospect outreach review"
+        >
+          <span class="seller-home__nav-recent-label">Prospect outreach review</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="/home_conversation.html?id=conv-daily-pipeline-snapshot"
+          class="seller-home__nav-recent seller-home__nav-recent--linked"
+          role="listitem"
+          data-sh-recent="rec-conv-daily-pipeline-snapshot"
+          data-sh-recent-conv="conv-daily-pipeline-snapshot"
+          
+          title="Daily Pipeline Snapshot"
+        >
+          <span class="seller-home__nav-recent-label">Daily Pipeline Snapshot</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-01"
+          data-sh-nav-noroute
+          
+          title="Acme Inc Prospecting"
+        >
+          <span class="seller-home__nav-recent-label">Acme Inc Prospecting</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-02"
+          data-sh-nav-noroute
+          
+          title="Top Account Resolutions Chart"
+        >
+          <span class="seller-home__nav-recent-label">Top Account Resolutions Chart</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-03"
+          data-sh-nav-noroute
+          
+          title="Q3 Pipeline Health Report"
+        >
+          <span class="seller-home__nav-recent-label">Q3 Pipeline Health Report</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-04"
+          data-sh-nav-noroute
+          
+          title="Enterprise Renewal Opportunity Status"
+        >
+          <span class="seller-home__nav-recent-label">Enterprise Renewal Opportunity Status</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-05"
+          data-sh-nav-noroute
+          
+          title="Sales performance Q1"
+        >
+          <span class="seller-home__nav-recent-label">Sales performance Q1</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-06"
+          data-sh-nav-noroute
+          
+          title="New product launch strategy"
+        >
+          <span class="seller-home__nav-recent-label">New product launch strategy</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-07"
+          data-sh-nav-noroute
+          
+          title="Marketing campaign overview"
+        >
+          <span class="seller-home__nav-recent-label">Marketing campaign overview</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-08"
+          data-sh-nav-noroute
+          
+          title="Target audience analysis"
+        >
+          <span class="seller-home__nav-recent-label">Target audience analysis</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-09"
+          data-sh-nav-noroute
+          
+          title="Budget allocation strategy"
+        >
+          <span class="seller-home__nav-recent-label">Budget allocation strategy</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-10"
+          data-sh-nav-noroute
+          
+          title="Key performance indicators"
+        >
+          <span class="seller-home__nav-recent-label">Key performance indicators</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-11"
+          data-sh-nav-noroute
+          
+          title="Competitive analysis"
+        >
+          <span class="seller-home__nav-recent-label">Competitive analysis</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-12"
+          data-sh-nav-noroute
+          
+          title="Channel selection and planning"
+        >
+          <span class="seller-home__nav-recent-label">Channel selection and planning</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-13"
+          data-sh-nav-noroute
+          
+          title="Timeline and milestones"
+        >
+          <span class="seller-home__nav-recent-label">Timeline and milestones</span>
+          
+  
+
+        </a>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="seller-home__nav-footer">
+    <div class="seller-home__nav-list seller-home__nav-list--footer" role="list">
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="feedback"
+  data-sh-nav-noroute
+  
+  title="Feedback"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Feedback</span>
+</a>
+
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="settings"
+  data-sh-nav-noroute
+  
+  title="Settings"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#settings"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Settings</span>
+</a>
+
+      
+    </div>
+  </div>
+</aside>
+
+
+<script src="/scripts/left_nav_augment.js"></script>
+
+
+    
+    <div
+      class="seller-home__knowledge seller-home__skills"
+      role="main"
+      aria-label="Skills"
+      tabindex="-1"
+      data-sh-skills-root
+    >
+      
+      <header
+        class="seller-home__knowledge-header"
+        data-sh-skills-header
+      >
+        <h1 class="seller-home__knowledge-header-title">Skills</h1>
+        <button
+          type="button"
+          class="slds-button slds-button_neutral seller-home__skills-new"
+          data-sh-skills-create
+        >
+          <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+          </svg>
+          Create Skill
+        </button>
+      </header>
+
+      
+      <section
+        class="seller-home__knowledge-body"
+        aria-label="Skills"
+      >
+        <div class="seller-home__knowledge-body-inner">
+          
+          
+            
+            
+            
+
+
+
+<section
+  class="seller-home__banner seller-home__banner_skills"
+  role="region"
+  aria-labelledby="seller-home-skills-banner-heading"
+  data-sh-seller-home-banner
+  
+  
+  style="background-image: url('/assets/images/skills-banner.jpg');"
+  
+>
+  <div class="seller-home__banner-copy">
+    <h2
+      id="seller-home-skills-banner-heading"
+      class="seller-home__banner-title"
+    >Turn your regular tasks into reusable skills</h2>
+    <p class="seller-home__banner-description">Let Agentforce Coworker take on the work, like meeting prep or project updates. Create skills for yourself or the whole team.</p>
+  </div>
+</section>
+
+          
+
+          
+          <div
+            class="seller-home__skills-toolbar"
+            data-sh-skills-toolbar
+          >
+            
+            <div
+              class="seller-home__skills-tabs"
+              role="radiogroup"
+              aria-label="Filter skills by collection"
+              data-sh-skills-tabs
+            >
+              
+                
+                
+              
+                
+                
+                
+                
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                
+                <button
+                  type="button"
+                  class="seller-home__skills-tab is-active"
+                  role="radio"
+                  aria-checked="true"
+                  aria-controls="seller-home-skills-list"
+                  data-sh-skills-tab="my_skills"
+                  data-sh-skills-tab-ownerships="mine"
+                  
+                  tabindex="0"
+                >
+                  <span class="seller-home__skills-tab-label">Your Skills</span>
+                  <span
+                    class="seller-home__skills-tab-count"
+                    data-sh-skills-tab-count
+                    aria-hidden="true"
+                  >6</span>
+                  
+                  <span class="slds-assistive-text">
+                    6 skills
+                  </span>
+                </button>
+                
+              
+                
+                
+              
+                
+                
+                
+                
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                
+                <button
+                  type="button"
+                  class="seller-home__skills-tab"
+                  role="radio"
+                  aria-checked="false"
+                  aria-controls="seller-home-skills-list"
+                  data-sh-skills-tab="shared_with_me"
+                  data-sh-skills-tab-ownerships="shared"
+                  
+                  tabindex="-1"
+                >
+                  <span class="seller-home__skills-tab-label">Shared with you</span>
+                  <span
+                    class="seller-home__skills-tab-count"
+                    data-sh-skills-tab-count
+                    aria-hidden="true"
+                  >0</span>
+                  
+                  <span class="slds-assistive-text">
+                    0 skills
+                  </span>
+                </button>
+                
+              
+            </div>
+
+            
+            <button
+              type="button"
+              class="slds-button slds-button_icon slds-button_icon-border seller-home__skills-filter"
+              data-sh-skills-filter
+              title="Filter skills"
+              aria-label="Filter skills"
+            >
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#filterList"></use>
+              </svg>
+              <span class="slds-assistive-text">Filter skills</span>
+            </button>
+          </div>
+
+          
+          <div
+            id="seller-home-skills-status"
+            class="slds-assistive-text"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            data-sh-skills-status
+          ></div>
+
+          
+          <div
+            id="seller-home-skills-list"
+            data-sh-skills-list-region
+          >
+            
+
+
+
+
+
+
+
+
+
+<ul
+  class="seller-home__skill-list"
+  data-sh-skill-grid
+>
+  
+    
+      
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+
+  <li
+    class="seller-home__skill-item"
+    data-sh-skill-item
+    data-sh-skill-id="sk-daily-pipeline-snapshot"
+    data-sh-skill-ownership="mine"
+  >
+    
+      
+      <a
+        class="seller-home__skill-row"
+        href="/skill_detail.html?id=sk-daily-pipeline-snapshot"
+        aria-label="Open skill, Daily Pipeline Snapshot, Sales"
+        data-sh-skill-open
+      >
+    
+      <div class="seller-home__skill-body">
+        
+        <span class="seller-home__skill-title-row">
+          <span class="seller-home__skill-title">Daily Pipeline Snapshot</span>
+          
+            <span class="slds-badge seller-home__skill-agent-badge seller-home__skill-agent-badge--sales">Sales</span>
+          
+        </span>
+
+        
+        <p
+          class="seller-home__skill-description"
+          title="Get a prioritized daily view of pipeline changes, at-risk deals, and the actions most likely to move them forward."
+        >Get a prioritized daily view of pipeline changes, at-risk deals, and the actions most likely to move them forward.</p>
+      </div>
+
+      
+      
+      
+      
+        
+        
+        <span class="seller-home__skill-uses-wrap">
+          <span
+            class="seller-home__skill-uses-link"
+            data-sh-skill-uses
+            tabindex="0"
+            aria-describedby="skill-sk-daily-pipeline-snapshot-uses-popover"
+          >Referred 3 other skills</span>
+
+          
+          <div
+            class="slds-popover slds-nubbin_top-right seller-home__skill-uses-popover"
+            role="tooltip"
+            id="skill-sk-daily-pipeline-snapshot-uses-popover"
+            data-sh-skill-uses-popover
+            hidden
+          >
+            <div class="slds-popover__body seller-home__skill-uses-popover-body">
+              <p class="seller-home__skill-uses-popover-title">This skill uses</p>
+              <ul class="seller-home__skill-uses-popover-list">
+                
+                  <li class="seller-home__skill-uses-popover-item">Review Deal Health</li>
+                
+                  <li class="seller-home__skill-uses-popover-item">Identify Pipeline Changes</li>
+                
+                  <li class="seller-home__skill-uses-popover-item">Recommend Next Actions</li>
+                
+              </ul>
+            </div>
+          </div>
+        </span>
+      
+
+      
+      
+        <span class="seller-home__skill-chevron" aria-hidden="true">
+          <svg class="seller-home__skill-chevron-glyph" focusable="false">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+          </svg>
+        </span>
+      
+    </a>
+
+    
+    
+      <div
+        class="seller-home__skill-menu"
+        data-sh-skill-menu
+        data-sh-skill-stop
+      >
+        <button
+          type="button"
+          class="slds-button slds-button_icon slds-button_icon-bare seller-home__skill-menu-trigger"
+          data-sh-skill-menu-trigger
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="skill-sk-daily-pipeline-snapshot-menu"
+          aria-label="More actions for Daily Pipeline Snapshot"
+          title="More actions"
+        >
+          <svg class="slds-button__icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+          </svg>
+          <span class="slds-assistive-text">More actions</span>
+        </button>
+
+        <div
+          class="seller-home__skill-menu-list"
+          id="skill-sk-daily-pipeline-snapshot-menu"
+          role="menu"
+          aria-label="Daily Pipeline Snapshot actions"
+          data-sh-skill-menu-list
+          hidden
+        >
+          <ul class="seller-home__skill-menu-items" role="none">
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="edit"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Edit</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="schedule"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Schedule</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="duplicate"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Duplicate</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="share"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Share</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row seller-home__skill-menu-row--destructive"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item seller-home__skill-menu-item--destructive"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="delete"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Delete</span>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+  </li>
+
+    
+  
+    
+      
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+
+  <li
+    class="seller-home__skill-item"
+    data-sh-skill-item
+    data-sh-skill-id="sk-daily-deal-summary"
+    data-sh-skill-ownership="mine"
+  >
+    
+      
+      <a
+        class="seller-home__skill-row"
+        href="/skill_detail.html?id=sk-daily-deal-summary"
+        aria-label="Open skill, Daily Deal Summary, Sales"
+        data-sh-skill-open
+      >
+    
+      <div class="seller-home__skill-body">
+        
+        <span class="seller-home__skill-title-row">
+          <span class="seller-home__skill-title">Daily Deal Summary</span>
+          
+            <span class="slds-badge seller-home__skill-agent-badge seller-home__skill-agent-badge--sales">Sales</span>
+          
+        </span>
+
+        
+        <p
+          class="seller-home__skill-description"
+          title="Summarizes important deal activity, changes, risks, and recommended next steps."
+        >Summarizes important deal activity, changes, risks, and recommended next steps.</p>
+      </div>
+
+      
+      
+      
+      
+
+      
+      
+        <span class="seller-home__skill-chevron" aria-hidden="true">
+          <svg class="seller-home__skill-chevron-glyph" focusable="false">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+          </svg>
+        </span>
+      
+    </a>
+
+    
+    
+      <div
+        class="seller-home__skill-menu"
+        data-sh-skill-menu
+        data-sh-skill-stop
+      >
+        <button
+          type="button"
+          class="slds-button slds-button_icon slds-button_icon-bare seller-home__skill-menu-trigger"
+          data-sh-skill-menu-trigger
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="skill-sk-daily-deal-summary-menu"
+          aria-label="More actions for Daily Deal Summary"
+          title="More actions"
+        >
+          <svg class="slds-button__icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+          </svg>
+          <span class="slds-assistive-text">More actions</span>
+        </button>
+
+        <div
+          class="seller-home__skill-menu-list"
+          id="skill-sk-daily-deal-summary-menu"
+          role="menu"
+          aria-label="Daily Deal Summary actions"
+          data-sh-skill-menu-list
+          hidden
+        >
+          <ul class="seller-home__skill-menu-items" role="none">
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="edit"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Edit</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="schedule"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Schedule</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="duplicate"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Duplicate</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="share"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Share</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row seller-home__skill-menu-row--destructive"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item seller-home__skill-menu-item--destructive"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="delete"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Delete</span>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+  </li>
+
+    
+  
+    
+      
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+
+  <li
+    class="seller-home__skill-item"
+    data-sh-skill-item
+    data-sh-skill-id="sk-buyer-engage"
+    data-sh-skill-ownership="mine"
+  >
+    
+      
+      <a
+        class="seller-home__skill-row"
+        href="/skill_detail.html?id=sk-buyer-engage"
+        aria-label="Open skill, Buyer Engage, Sales"
+        data-sh-skill-open
+      >
+    
+      <div class="seller-home__skill-body">
+        
+        <span class="seller-home__skill-title-row">
+          <span class="seller-home__skill-title">Buyer Engage</span>
+          
+            <span class="slds-badge seller-home__skill-agent-badge seller-home__skill-agent-badge--sales">Sales</span>
+          
+        </span>
+
+        
+        <p
+          class="seller-home__skill-description"
+          title="Monitors buyer activity and drafts personalized outreach when meaningful engagement signals appear."
+        >Monitors buyer activity and drafts personalized outreach when meaningful engagement signals appear.</p>
+      </div>
+
+      
+      
+      
+      
+
+      
+      
+        <span class="seller-home__skill-chevron" aria-hidden="true">
+          <svg class="seller-home__skill-chevron-glyph" focusable="false">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+          </svg>
+        </span>
+      
+    </a>
+
+    
+    
+      <div
+        class="seller-home__skill-menu"
+        data-sh-skill-menu
+        data-sh-skill-stop
+      >
+        <button
+          type="button"
+          class="slds-button slds-button_icon slds-button_icon-bare seller-home__skill-menu-trigger"
+          data-sh-skill-menu-trigger
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="skill-sk-buyer-engage-menu"
+          aria-label="More actions for Buyer Engage"
+          title="More actions"
+        >
+          <svg class="slds-button__icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+          </svg>
+          <span class="slds-assistive-text">More actions</span>
+        </button>
+
+        <div
+          class="seller-home__skill-menu-list"
+          id="skill-sk-buyer-engage-menu"
+          role="menu"
+          aria-label="Buyer Engage actions"
+          data-sh-skill-menu-list
+          hidden
+        >
+          <ul class="seller-home__skill-menu-items" role="none">
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="edit"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Edit</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="schedule"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Schedule</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="duplicate"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Duplicate</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="share"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Share</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row seller-home__skill-menu-row--destructive"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item seller-home__skill-menu-item--destructive"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="delete"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Delete</span>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+  </li>
+
+    
+  
+    
+      
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+
+  <li
+    class="seller-home__skill-item"
+    data-sh-skill-item
+    data-sh-skill-id="sk-prepare-for-meetings"
+    data-sh-skill-ownership="mine"
+  >
+    
+      
+      <a
+        class="seller-home__skill-row"
+        href="/skill_detail.html?id=sk-prepare-for-meetings"
+        aria-label="Open skill, Prepare for Meetings, Sales"
+        data-sh-skill-open
+      >
+    
+      <div class="seller-home__skill-body">
+        
+        <span class="seller-home__skill-title-row">
+          <span class="seller-home__skill-title">Prepare for Meetings</span>
+          
+            <span class="slds-badge seller-home__skill-agent-badge seller-home__skill-agent-badge--sales">Sales</span>
+          
+        </span>
+
+        
+        <p
+          class="seller-home__skill-description"
+          title="Researches the account, attendees, recent activity, and open opportunities to create a meeting brief."
+        >Researches the account, attendees, recent activity, and open opportunities to create a meeting brief.</p>
+      </div>
+
+      
+      
+      
+      
+
+      
+      
+        <span class="seller-home__skill-chevron" aria-hidden="true">
+          <svg class="seller-home__skill-chevron-glyph" focusable="false">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+          </svg>
+        </span>
+      
+    </a>
+
+    
+    
+      <div
+        class="seller-home__skill-menu"
+        data-sh-skill-menu
+        data-sh-skill-stop
+      >
+        <button
+          type="button"
+          class="slds-button slds-button_icon slds-button_icon-bare seller-home__skill-menu-trigger"
+          data-sh-skill-menu-trigger
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="skill-sk-prepare-for-meetings-menu"
+          aria-label="More actions for Prepare for Meetings"
+          title="More actions"
+        >
+          <svg class="slds-button__icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+          </svg>
+          <span class="slds-assistive-text">More actions</span>
+        </button>
+
+        <div
+          class="seller-home__skill-menu-list"
+          id="skill-sk-prepare-for-meetings-menu"
+          role="menu"
+          aria-label="Prepare for Meetings actions"
+          data-sh-skill-menu-list
+          hidden
+        >
+          <ul class="seller-home__skill-menu-items" role="none">
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="edit"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Edit</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="schedule"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Schedule</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="duplicate"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Duplicate</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="share"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Share</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row seller-home__skill-menu-row--destructive"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item seller-home__skill-menu-item--destructive"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="delete"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Delete</span>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+  </li>
+
+    
+  
+    
+      
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+
+  <li
+    class="seller-home__skill-item"
+    data-sh-skill-item
+    data-sh-skill-id="sk-build-dashboard"
+    data-sh-skill-ownership="mine"
+  >
+    
+      
+      <a
+        class="seller-home__skill-row"
+        href="/skill_detail.html?id=sk-build-dashboard"
+        aria-label="Open skill, Build Dashboard, Tableau"
+        data-sh-skill-open
+      >
+    
+      <div class="seller-home__skill-body">
+        
+        <span class="seller-home__skill-title-row">
+          <span class="seller-home__skill-title">Build Dashboard</span>
+          
+            <span class="slds-badge seller-home__skill-agent-badge seller-home__skill-agent-badge--tableau">Tableau</span>
+          
+        </span>
+
+        
+        <p
+          class="seller-home__skill-description"
+          title="Turns pipeline and activity data into a dashboard with the views, filters, and breakdowns you ask for."
+        >Turns pipeline and activity data into a dashboard with the views, filters, and breakdowns you ask for.</p>
+      </div>
+
+      
+      
+      
+      
+
+      
+      
+        <span class="seller-home__skill-chevron" aria-hidden="true">
+          <svg class="seller-home__skill-chevron-glyph" focusable="false">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+          </svg>
+        </span>
+      
+    </a>
+
+    
+    
+      <div
+        class="seller-home__skill-menu"
+        data-sh-skill-menu
+        data-sh-skill-stop
+      >
+        <button
+          type="button"
+          class="slds-button slds-button_icon slds-button_icon-bare seller-home__skill-menu-trigger"
+          data-sh-skill-menu-trigger
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="skill-sk-build-dashboard-menu"
+          aria-label="More actions for Build Dashboard"
+          title="More actions"
+        >
+          <svg class="slds-button__icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+          </svg>
+          <span class="slds-assistive-text">More actions</span>
+        </button>
+
+        <div
+          class="seller-home__skill-menu-list"
+          id="skill-sk-build-dashboard-menu"
+          role="menu"
+          aria-label="Build Dashboard actions"
+          data-sh-skill-menu-list
+          hidden
+        >
+          <ul class="seller-home__skill-menu-items" role="none">
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="edit"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Edit</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="schedule"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Schedule</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="duplicate"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Duplicate</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="share"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Share</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row seller-home__skill-menu-row--destructive"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item seller-home__skill-menu-item--destructive"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="delete"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Delete</span>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+  </li>
+
+    
+  
+    
+      
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+
+  <li
+    class="seller-home__skill-item"
+    data-sh-skill-item
+    data-sh-skill-id="sk-make-powerpoint"
+    data-sh-skill-ownership="mine"
+  >
+    
+      
+      <a
+        class="seller-home__skill-row"
+        href="/skill_detail.html?id=sk-make-powerpoint"
+        aria-label="Open skill, Make Powerpoint, CoWorker"
+        data-sh-skill-open
+      >
+    
+      <div class="seller-home__skill-body">
+        
+        <span class="seller-home__skill-title-row">
+          <span class="seller-home__skill-title">Make Powerpoint</span>
+          
+            <span class="slds-badge seller-home__skill-agent-badge seller-home__skill-agent-badge--coworker">CoWorker</span>
+          
+        </span>
+
+        
+        <p
+          class="seller-home__skill-description"
+          title="Builds a presentation-ready deck from account context, deal history, and the points you want to land."
+        >Builds a presentation-ready deck from account context, deal history, and the points you want to land.</p>
+      </div>
+
+      
+      
+      
+      
+
+      
+      
+        <span class="seller-home__skill-chevron" aria-hidden="true">
+          <svg class="seller-home__skill-chevron-glyph" focusable="false">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+          </svg>
+        </span>
+      
+    </a>
+
+    
+    
+      <div
+        class="seller-home__skill-menu"
+        data-sh-skill-menu
+        data-sh-skill-stop
+      >
+        <button
+          type="button"
+          class="slds-button slds-button_icon slds-button_icon-bare seller-home__skill-menu-trigger"
+          data-sh-skill-menu-trigger
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="skill-sk-make-powerpoint-menu"
+          aria-label="More actions for Make Powerpoint"
+          title="More actions"
+        >
+          <svg class="slds-button__icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+          </svg>
+          <span class="slds-assistive-text">More actions</span>
+        </button>
+
+        <div
+          class="seller-home__skill-menu-list"
+          id="skill-sk-make-powerpoint-menu"
+          role="menu"
+          aria-label="Make Powerpoint actions"
+          data-sh-skill-menu-list
+          hidden
+        >
+          <ul class="seller-home__skill-menu-items" role="none">
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="edit"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Edit</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="schedule"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Schedule</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="duplicate"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Duplicate</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="share"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Share</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row seller-home__skill-menu-row--destructive"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item seller-home__skill-menu-item--destructive"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="delete"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Delete</span>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+  </li>
+
+    
+  
+    
+      
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+
+  <li
+    class="seller-home__skill-item"
+    data-sh-skill-item
+    data-sh-skill-id="sk-review-deal-health"
+    data-sh-skill-ownership="learned"
+  >
+    
+      
+      <a
+        class="seller-home__skill-row"
+        href="/skill_detail.html?id=sk-review-deal-health"
+        aria-label="Open skill, Review Deal Health"
+        data-sh-skill-open
+      >
+    
+      <div class="seller-home__skill-body">
+        
+        <span class="seller-home__skill-title-row">
+          <span class="seller-home__skill-title">Review Deal Health</span>
+          
+        </span>
+
+        
+        <p
+          class="seller-home__skill-description"
+          title="Scores each open opportunity on the signals that predict close, and flags the ones that need attention."
+        >Scores each open opportunity on the signals that predict close, and flags the ones that need attention.</p>
+      </div>
+
+      
+      
+      
+      
+
+      
+      
+        <span class="seller-home__skill-chevron" aria-hidden="true">
+          <svg class="seller-home__skill-chevron-glyph" focusable="false">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+          </svg>
+        </span>
+      
+    </a>
+
+    
+    
+      <div
+        class="seller-home__skill-menu"
+        data-sh-skill-menu
+        data-sh-skill-stop
+      >
+        <button
+          type="button"
+          class="slds-button slds-button_icon slds-button_icon-bare seller-home__skill-menu-trigger"
+          data-sh-skill-menu-trigger
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="skill-sk-review-deal-health-menu"
+          aria-label="More actions for Review Deal Health"
+          title="More actions"
+        >
+          <svg class="slds-button__icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+          </svg>
+          <span class="slds-assistive-text">More actions</span>
+        </button>
+
+        <div
+          class="seller-home__skill-menu-list"
+          id="skill-sk-review-deal-health-menu"
+          role="menu"
+          aria-label="Review Deal Health actions"
+          data-sh-skill-menu-list
+          hidden
+        >
+          <ul class="seller-home__skill-menu-items" role="none">
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="edit"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Edit</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="schedule"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Schedule</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="duplicate"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Duplicate</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="share"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Share</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row seller-home__skill-menu-row--destructive"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item seller-home__skill-menu-item--destructive"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="delete"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Delete</span>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+  </li>
+
+    
+  
+    
+      
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+
+  <li
+    class="seller-home__skill-item"
+    data-sh-skill-item
+    data-sh-skill-id="sk-identify-pipeline-changes"
+    data-sh-skill-ownership="learned"
+  >
+    
+      
+      <a
+        class="seller-home__skill-row"
+        href="/skill_detail.html?id=sk-identify-pipeline-changes"
+        aria-label="Open skill, Identify Pipeline Changes"
+        data-sh-skill-open
+      >
+    
+      <div class="seller-home__skill-body">
+        
+        <span class="seller-home__skill-title-row">
+          <span class="seller-home__skill-title">Identify Pipeline Changes</span>
+          
+        </span>
+
+        
+        <p
+          class="seller-home__skill-description"
+          title="Detects meaningful movement across the seller&#39;s pipeline since the last snapshot."
+        >Detects meaningful movement across the seller&#39;s pipeline since the last snapshot.</p>
+      </div>
+
+      
+      
+      
+      
+
+      
+      
+        <span class="seller-home__skill-chevron" aria-hidden="true">
+          <svg class="seller-home__skill-chevron-glyph" focusable="false">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+          </svg>
+        </span>
+      
+    </a>
+
+    
+    
+      <div
+        class="seller-home__skill-menu"
+        data-sh-skill-menu
+        data-sh-skill-stop
+      >
+        <button
+          type="button"
+          class="slds-button slds-button_icon slds-button_icon-bare seller-home__skill-menu-trigger"
+          data-sh-skill-menu-trigger
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="skill-sk-identify-pipeline-changes-menu"
+          aria-label="More actions for Identify Pipeline Changes"
+          title="More actions"
+        >
+          <svg class="slds-button__icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+          </svg>
+          <span class="slds-assistive-text">More actions</span>
+        </button>
+
+        <div
+          class="seller-home__skill-menu-list"
+          id="skill-sk-identify-pipeline-changes-menu"
+          role="menu"
+          aria-label="Identify Pipeline Changes actions"
+          data-sh-skill-menu-list
+          hidden
+        >
+          <ul class="seller-home__skill-menu-items" role="none">
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="edit"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Edit</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="schedule"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Schedule</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="duplicate"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Duplicate</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="share"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Share</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row seller-home__skill-menu-row--destructive"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item seller-home__skill-menu-item--destructive"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="delete"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Delete</span>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+  </li>
+
+    
+  
+    
+      
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+    
+    
+    
+      
+    
+  
+
+  <li
+    class="seller-home__skill-item"
+    data-sh-skill-item
+    data-sh-skill-id="sk-recommend-next-actions"
+    data-sh-skill-ownership="learned"
+  >
+    
+      
+      <a
+        class="seller-home__skill-row"
+        href="/skill_detail.html?id=sk-recommend-next-actions"
+        aria-label="Open skill, Recommend Next Actions"
+        data-sh-skill-open
+      >
+    
+      <div class="seller-home__skill-body">
+        
+        <span class="seller-home__skill-title-row">
+          <span class="seller-home__skill-title">Recommend Next Actions</span>
+          
+        </span>
+
+        
+        <p
+          class="seller-home__skill-description"
+          title="Turns the health + change signals into a specific, prioritized next action per high-impact deal."
+        >Turns the health + change signals into a specific, prioritized next action per high-impact deal.</p>
+      </div>
+
+      
+      
+      
+      
+
+      
+      
+        <span class="seller-home__skill-chevron" aria-hidden="true">
+          <svg class="seller-home__skill-chevron-glyph" focusable="false">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+          </svg>
+        </span>
+      
+    </a>
+
+    
+    
+      <div
+        class="seller-home__skill-menu"
+        data-sh-skill-menu
+        data-sh-skill-stop
+      >
+        <button
+          type="button"
+          class="slds-button slds-button_icon slds-button_icon-bare seller-home__skill-menu-trigger"
+          data-sh-skill-menu-trigger
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="skill-sk-recommend-next-actions-menu"
+          aria-label="More actions for Recommend Next Actions"
+          title="More actions"
+        >
+          <svg class="slds-button__icon" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+          </svg>
+          <span class="slds-assistive-text">More actions</span>
+        </button>
+
+        <div
+          class="seller-home__skill-menu-list"
+          id="skill-sk-recommend-next-actions-menu"
+          role="menu"
+          aria-label="Recommend Next Actions actions"
+          data-sh-skill-menu-list
+          hidden
+        >
+          <ul class="seller-home__skill-menu-items" role="none">
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="edit"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Edit</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="schedule"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#event"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Schedule</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="duplicate"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Duplicate</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="share"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Share</span>
+                </button>
+              </li>
+            
+              
+              
+              <li
+                role="none"
+                class="seller-home__skill-menu-row seller-home__skill-menu-row--destructive"
+              >
+                <button
+                  type="button"
+                  class="seller-home__skill-menu-item seller-home__skill-menu-item--destructive"
+                  role="menuitem"
+                  tabindex="-1"
+                  data-sh-skill-action="delete"
+                >
+                  
+                    <svg class="seller-home__skill-menu-item-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                    </svg>
+                  
+                  <span class="seller-home__skill-menu-item-label">Delete</span>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+  </li>
+
+    
+  
+</ul>
+
+
+<div
+  class="seller-home__skill-empty seller-home__skill-empty--tab"
+  data-sh-skill-empty-tab
+  hidden
+>
+  <p class="seller-home__skill-empty-title">No skills here yet</p>
+  <p class="seller-home__skill-empty-description">Create a skill or add one shared by your team.</p>
+</div>
+
+<div
+  class="seller-home__skill-empty seller-home__skill-empty--filtered"
+  data-sh-skill-empty-filtered
+  hidden
+>
+  <p class="seller-home__skill-empty-title">No skills match these filters</p>
+  <p class="seller-home__skill-empty-description">Adjust or clear your filters to see more skills.</p>
+</div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  
+  
+
+
+<section
+  role="dialog"
+  tabindex="-1"
+  aria-modal="true"
+  aria-labelledby="skills-placeholder-heading"
+  aria-describedby="skills-placeholder-body"
+  class="slds-modal slds-modal_prompt slds-hide"
+  id="skills-placeholder-modal"
+  data-sh-skills-dialog="placeholder"
+>
+  <div class="slds-modal__container">
+    <button
+      type="button"
+      class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+      data-sh-skills-dialog-close
+      aria-label="Cancel and close"
+    >
+      <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+      </svg>
+    </button>
+
+    <div class="slds-modal__header">
+      <h1
+        id="skills-placeholder-heading"
+        class="slds-modal__title slds-hyphenate"
+        data-sh-skills-placeholder-title
+      >
+        Placeholder
+      </h1>
+    </div>
+
+    <div class="slds-modal__content slds-p-around_medium">
+      <p
+        id="skills-placeholder-body"
+        class="seller-home__skills-dialog-body"
+        data-sh-skills-placeholder-body
+      >
+        This prototype doesn't ship this action yet.
+      </p>
+    </div>
+
+    <div class="slds-modal__footer">
+      <button
+        type="button"
+        class="slds-button slds-button_brand"
+        data-sh-skills-dialog-close
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</section>
+<div
+  class="slds-backdrop slds-hide"
+  id="skills-placeholder-backdrop"
+  data-sh-skills-dialog-backdrop="placeholder"
+  role="presentation"
+></div>
+
+
+<section
+  role="alertdialog"
+  tabindex="-1"
+  aria-modal="true"
+  aria-labelledby="skills-discard-heading"
+  aria-describedby="skills-discard-body"
+  class="slds-modal slds-modal_prompt slds-hide"
+  id="skills-discard-modal"
+  data-sh-skills-dialog="discard"
+>
+  <div class="slds-modal__container">
+    <button
+      type="button"
+      class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+      data-sh-skills-dialog-close
+      aria-label="Cancel and close"
+    >
+      <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+      </svg>
+    </button>
+
+    <div class="slds-modal__header">
+      <h1
+        id="skills-discard-heading"
+        class="slds-modal__title slds-hyphenate"
+      >
+        Discard unsaved changes?
+      </h1>
+    </div>
+
+    <div class="slds-modal__content slds-p-around_medium">
+      <p
+        id="skills-discard-body"
+        class="seller-home__skills-dialog-body"
+      >
+        Your edits to this skill will be lost.
+      </p>
+    </div>
+
+    <div class="slds-modal__footer">
+      <button
+        type="button"
+        class="slds-button slds-button_neutral"
+        data-sh-skills-dialog-close
+      >
+        Keep editing
+      </button>
+      <button
+        type="button"
+        class="slds-button slds-button_destructive"
+        data-sh-skills-discard-confirm
+      >
+        Discard changes
+      </button>
+    </div>
+  </div>
+</section>
+<div
+  class="slds-backdrop slds-hide"
+  id="skills-discard-backdrop"
+  data-sh-skills-dialog-backdrop="discard"
+  role="presentation"
+></div>
+
+
+<section
+  role="alertdialog"
+  tabindex="-1"
+  aria-modal="true"
+  aria-labelledby="skills-leave-heading"
+  aria-describedby="skills-leave-body"
+  class="slds-modal slds-modal_prompt slds-hide"
+  id="skills-leave-modal"
+  data-sh-skills-dialog="leave"
+>
+  <div class="slds-modal__container">
+    <button
+      type="button"
+      class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+      data-sh-skills-dialog-close
+      aria-label="Cancel and close"
+    >
+      <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+      </svg>
+    </button>
+
+    <div class="slds-modal__header">
+      <h1
+        id="skills-leave-heading"
+        class="slds-modal__title slds-hyphenate"
+      >
+        Leave without saving?
+      </h1>
+    </div>
+
+    <div class="slds-modal__content slds-p-around_medium">
+      <p
+        id="skills-leave-body"
+        class="seller-home__skills-dialog-body"
+      >
+        You have unsaved changes to this skill.
+      </p>
+    </div>
+
+    <div class="slds-modal__footer">
+      <button
+        type="button"
+        class="slds-button slds-button_neutral"
+        data-sh-skills-dialog-close
+      >
+        Keep editing
+      </button>
+      <button
+        type="button"
+        class="slds-button slds-button_destructive"
+        data-sh-skills-leave-discard
+      >
+        Discard changes
+      </button>
+      <button
+        type="button"
+        class="slds-button slds-button_brand"
+        data-sh-skills-leave-save
+      >
+        Save and leave
+      </button>
+    </div>
+  </div>
+</section>
+<div
+  class="slds-backdrop slds-hide"
+  id="skills-leave-backdrop"
+  data-sh-skills-dialog-backdrop="leave"
+  role="presentation"
+></div>
+
+
+<section
+  role="alertdialog"
+  tabindex="-1"
+  aria-modal="true"
+  aria-labelledby="skills-title-mismatch-heading"
+  aria-describedby="skills-title-mismatch-body"
+  class="slds-modal slds-modal_prompt slds-hide"
+  id="skills-title-mismatch-modal"
+  data-sh-skills-dialog="title-mismatch"
+>
+  <div class="slds-modal__container">
+    <button
+      type="button"
+      class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+      data-sh-skills-dialog-close
+      aria-label="Cancel and close"
+    >
+      <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+      </svg>
+    </button>
+
+    <div class="slds-modal__header">
+      <h1
+        id="skills-title-mismatch-heading"
+        class="slds-modal__title slds-hyphenate"
+      >
+        Save with a different title?
+      </h1>
+    </div>
+
+    <div class="slds-modal__content slds-p-around_medium">
+      <p
+        id="skills-title-mismatch-body"
+        class="seller-home__skills-dialog-body"
+        data-sh-skills-title-mismatch-body
+      >
+        The document&rsquo;s title doesn&rsquo;t match this skill&rsquo;s display name.
+      </p>
+    </div>
+
+    <div class="slds-modal__footer">
+      <button
+        type="button"
+        class="slds-button slds-button_neutral"
+        data-sh-skills-dialog-close
+      >
+        Return to editor
+      </button>
+      <button
+        type="button"
+        class="slds-button slds-button_brand"
+        data-sh-skills-title-mismatch-confirm
+      >
+        Save anyway
+      </button>
+    </div>
+  </div>
+</section>
+<div
+  class="slds-backdrop slds-hide"
+  id="skills-title-mismatch-backdrop"
+  data-sh-skills-dialog-backdrop="title-mismatch"
+  role="presentation"
+></div>
+
+
+<section
+  role="alertdialog"
+  tabindex="-1"
+  aria-modal="true"
+  aria-labelledby="skills-delete-heading"
+  aria-describedby="skills-delete-body"
+  class="slds-modal slds-modal_prompt slds-hide"
+  id="skills-delete-modal"
+  data-sh-skills-dialog="delete"
+>
+  <div class="slds-modal__container">
+    <button
+      type="button"
+      class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+      data-sh-skills-dialog-close
+      aria-label="Cancel and close"
+    >
+      <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+      </svg>
+    </button>
+
+    <div class="slds-modal__header">
+      <h1
+        id="skills-delete-heading"
+        class="slds-modal__title slds-hyphenate"
+      >
+        Delete this skill?
+      </h1>
+    </div>
+
+    <div class="slds-modal__content slds-p-around_medium">
+      <p
+        id="skills-delete-body"
+        class="seller-home__skills-dialog-body"
+      >
+        This removes the skill from your Skills page. This action can&rsquo;t be undone.
+      </p>
+    </div>
+
+    <div class="slds-modal__footer">
+      <button
+        type="button"
+        class="slds-button slds-button_neutral"
+        data-sh-skills-dialog-close
+      >
+        Cancel
+      </button>
+      <button
+        type="button"
+        class="slds-button slds-button_destructive"
+        data-sh-skills-delete-confirm
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</section>
+<div
+  class="slds-backdrop slds-hide"
+  id="skills-delete-backdrop"
+  data-sh-skills-dialog-backdrop="delete"
+  role="presentation"
+></div>
+
+
+  </main>
+  <script src="/scripts/data/accounts.js"></script>
+  <script src="/scripts/data/prospects.js"></script>
+  <script src="/scripts/data/cadences.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/vendor/svg4everybody.min.js"></script>
+  <script>svg4everybody();</script>
+
+  
+  <script src="/scripts/hunter_accounts.js"></script>
+
+  
+  <script src="/scripts/cadence-progress.js"></script>
+  <script src="/scripts/email-preview.js"></script>
+  <script src="/scripts/step_01_preview.js"></script>
+  <script type="module" src="/scripts/aop-editor/js/preview.js"></script>
+  <script src="/scripts/preview-unified.js"></script>
+  
+  
+  <script src="/scripts/home.js"></script>
+
+  <script>
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector('.layout-container');
+        if (el) el.classList.add('is-ready');
+      });
+    });
+  </script>
+</body>
+</html>

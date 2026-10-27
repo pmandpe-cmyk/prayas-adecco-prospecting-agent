@@ -1,0 +1,378 @@
+@charset "UTF-8";
+/*
+ * Getting Started step — first-step form (Agent Name, Language, Company
+ * Website). Layout matches the design spec: ~520px content column, info
+ * tooltips inline with labels, and a website row with a left-side favicon
+ * + clear button + a separate "refresh preview" icon button on the right.
+ *
+ * Imported only by `getting_started.html` (compiled to /styles/getting_started.css).
+ */
+.getting-started-form {
+  max-width: 520px;
+  padding: var(--slds-g-spacing-4, 1rem) 0;
+}
+
+.getting-started-form__field {
+  /* Reset the label gutter so the icon sits flush with the text. */
+}
+.getting-started-form__field .slds-form-element__label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.25rem;
+  font-weight: var(--slds-g-font-weight-6, 590);
+  color: var(--slds-g-color-on-surface-2, #181818);
+  margin-bottom: var(--slds-g-spacing-1, 0.25rem);
+}
+
+/* Tiny info icon next to a label — mutes the SLDS default to a softer grey
+ * so it reads as a passive hint rather than a primary action. */
+.getting-started-form__info {
+  --slds-c-icon-color-foreground: var(--slds-g-color-neutral-base-50, #757575);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  cursor: help;
+}
+
+/* Company website row: text input expands, refresh button hugs the right.
+ * Gap matches SLDS' standard small spacing token. */
+.getting-started-form__website-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+}
+
+.getting-started-form__website-control {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-width: 0;
+}
+
+.getting-started-form__website-refresh {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  /* The SLDS `_icon-border-filled` modifier already provides the
+   * 1.875rem × 1.875rem square look in v2.29; keep height aligned with
+   * the input so they sit on the same baseline. */
+  height: var(--slds-c-input-sizing-height, 1.875rem);
+  width: var(--slds-c-input-sizing-height, 1.875rem);
+}
+
+/* Custom favicon slot: the inline JS swaps the inner <svg> for an <img>
+ * once it resolves the entered URL's favicon. The container reserves the
+ * SLDS icon footprint so the input doesn't reflow during the swap. */
+.getting-started-form__website-favicon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* Match SLDS `slds-input__icon` sizing so the rendered favicon aligns
+   * perfectly with where the SLDS glyph would have lived. */
+  width: 1rem;
+  height: 1rem;
+}
+.getting-started-form__website-favicon img {
+  width: 1rem;
+  height: 1rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 2px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+ * Additional Context (Optional) — file upload section
+ * ─────────────────────────────────────────────────────────────────────
+ *
+ * Section hierarchy (per design spec):
+ *   label  →  helper text  →  "Add Files" button   (empty state)
+ *                          ↓ click
+ *   label  →  helper text  →  [hidden] dropzone + types helper + rows
+ *
+ * Visual chrome reuses the SLDS `.slds-file-selector_files` dropzone
+ * shell (dashed border, label-as-button proxy). Layout + helper-text
+ * type, the supported-types caption, and the per-file row design are
+ * scoped here so the section reads as a soft secondary input — never
+ * competing with the required Agent Name + Company Website fields above.
+ * ───────────────────────────────────────────────────────────────────── */
+/* The Additional Context block uses a <span> for its "label" (not the
+ * SLDS <label for="…"> form-element label, because the section doesn't
+ * have a single focusable target — it has multiple controls inside).
+ * Match the SLDS label typography so the section header reads as a
+ * peer of the input labels above it. */
+.getting-started-form__additional-label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: var(--slds-g-font-weight-6, 590);
+  color: var(--slds-g-color-on-surface-2, #181818);
+  margin-bottom: var(--slds-g-spacing-1, 0.25rem);
+}
+
+/* Helper text below the section label. Smaller scale + muted color
+ * keeps it secondary to the field labels above. `max-width` is
+ * intentionally narrow to keep the descriptive copy readable instead
+ * of stretching all the way across the 520px column. */
+.getting-started-form__helper-text {
+  font-size: var(--slds-g-font-scale-neg-1, 13px);
+  color: var(--slds-g-color-on-surface-1, #5c5c5c);
+  margin: 0 0 var(--slds-g-spacing-3, 0.75rem) 0;
+  line-height: 1.45;
+  max-width: 480px;
+}
+
+/* Upload region — always visible (the dashed dropzone IS the empty
+ * state). `gap` separates the dropzone from the supported-types
+ * helper and from the file list below. */
+.getting-started-form__upload-region {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+}
+
+/* Override SLDS's tiny default 0.125rem dropzone padding so the
+ * dropzone reads as a generous, "drop something here" surface. Border
+ * stays the SLDS dashed style — we just darken it slightly so the
+ * dashed edge is visible against the page's white background. The
+ * `_files` modifier left-aligns the body row by default; we center
+ * the children so the button + helper sit in the middle of the
+ * surface, matching the Figma reference. */
+.getting-started-form__dropzone {
+  padding: var(--slds-g-spacing-4, 1rem);
+  border-color: var(--slds-g-color-border-1, #c9c9c9);
+  background-color: var(--slds-g-color-surface-container-1, #fafafa);
+  -webkit-transition: background-color 150ms ease-out, border-color 150ms ease-out;
+  transition: background-color 150ms ease-out, border-color 150ms ease-out;
+  /* The SLDS `_files` variant lays out the button + helper as a row,
+   * which is what the design spec calls for. We just nudge alignment
+   * + padding so the dropzone reads as a comfortable click target,
+   * not a tight inline group. */
+}
+.getting-started-form__dropzone.slds-has-drag-over {
+  background-color: var(--slds-g-color-info-container-1, #d8e6fe);
+  border-color: var(--slds-g-color-accent-1, #066afe);
+  border-style: solid;
+}
+
+.getting-started-form__dropzone-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--slds-g-spacing-3, 0.75rem);
+  margin: 0;
+  /* SLDS labels carry default UA margin */
+  cursor: pointer;
+}
+
+/* No per-page override on `.slds-file-selector__button` — the SLDS2
+ * `.slds-button.slds-button_neutral` token chain (`--slds-c-button-*`)
+ * gives us the canonical neutral look (surface-container-1 bg,
+ * border-2 border, default block/inline spacing, slds-radius-border-2
+ * corner). The `<span>` element receives those rules the same way a
+ * `<button>` would because the SLDS button styles are class-based,
+ * not element-based. Focus state is handled by SLDS itself via
+ * `.slds-file-selector__input:focus-visible ~ .slds-file-selector__body > .slds-file-selector__button`. */
+.getting-started-form__dropzone-helper {
+  font-size: var(--slds-g-font-scale-neg-1, 13px);
+  color: var(--slds-g-color-on-surface-1, #5c5c5c);
+  margin: 0;
+}
+
+/* "Supported file types: …" caption below the dropzone. Same muted
+ * grey + small scale as the section helper text so the two pieces of
+ * supplementary copy match visually. */
+.getting-started-form__upload-types-helper {
+  font-size: var(--slds-g-font-scale-neg-2, 12px);
+  color: var(--slds-g-color-on-surface-1, #5c5c5c);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Uploaded-files list — empty by default; rows are appended by the JS.
+ * Zero default UL chrome (no bullets, no padding) so each row looks
+ * like a stand-alone card rather than a list item. */
+.getting-started-form__uploaded-files {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+}
+.getting-started-form__uploaded-files:empty {
+  display: none;
+}
+
+/* A single uploaded-file row.
+ *   [doctype icon] | [name + badge + progress + status] | [× remove] */
+.getting-started-form__uploaded-file {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-3, 0.75rem);
+  padding: var(--slds-g-spacing-2, 0.5rem) var(--slds-g-spacing-3, 0.75rem);
+  border: 1px solid var(--slds-g-color-border-1, #e5e5e5);
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+  background-color: var(--slds-g-color-neutral-base-100, #fff);
+}
+
+/* Doctype icon container — fixed width so all rows align even when
+ * the icons (pdf vs csv vs unknown) have slightly different intrinsic
+ * widths. SLDS's `.slds-icon_small` is 1.5rem × 1.5rem. */
+.getting-started-form__file-icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+/* Middle column: name + badge on one row, progress bar + status text
+ * stacked below. `min-width: 0` lets the file name truncate instead
+ * of overflowing the row. */
+.getting-started-form__file-info {
+  min-width: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2px;
+}
+
+.getting-started-form__file-info-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--slds-g-spacing-2, 0.5rem);
+  min-width: 0;
+}
+
+.getting-started-form__file-name {
+  font-size: var(--slds-g-font-size-base, 14px);
+  font-weight: var(--slds-g-font-weight-6, 590);
+  color: var(--slds-g-color-on-surface-2, #181818);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Small uppercase badge showing the file type (e.g. "PDF"). Optional —
+ * the JS only sets it for recognised types; for everything else the
+ * badge stays empty and `:empty` hides it so the row doesn't show a
+ * floating pill with no content. */
+.getting-started-form__file-badge {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  padding: 0 var(--slds-g-spacing-2, 0.5rem);
+  border-radius: var(--slds-g-radius-border-circle, 999px);
+  background-color: var(--slds-g-color-surface-container-2, #f3f3f3);
+  color: var(--slds-g-color-on-surface-1, #5c5c5c);
+  font-size: var(--slds-g-font-scale-neg-2, 12px);
+  font-weight: var(--slds-g-font-weight-7, 700);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+.getting-started-form__file-badge:empty {
+  display: none;
+}
+
+/* Thin progress track + bar shown while the mocked upload is in
+ * flight. After the bar reaches 100% the JS sets [data-file-progress
+ * hidden] on the track and flips the status text to "Uploaded" —
+ * which CSS reveals via [data-file-status]:not([data-status="uploading"])
+ * (see below). */
+.getting-started-form__file-progress {
+  height: 4px;
+  border-radius: var(--slds-g-radius-border-circle, 999px);
+  background-color: var(--slds-g-color-surface-container-2, #f3f3f3);
+  overflow: hidden;
+  margin-top: 4px;
+}
+.getting-started-form__file-progress[hidden] {
+  display: none;
+}
+
+.getting-started-form__file-progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--slds-g-color-accent-1, #066afe);
+  border-radius: inherit;
+  -webkit-transition: width 120ms linear;
+  transition: width 120ms linear;
+}
+
+/* "Uploading…" / "Uploaded" caption below the progress bar.
+ * Hidden by default — JS reveals the row's status copy as the
+ * upload mock advances. */
+.getting-started-form__file-status {
+  font-size: var(--slds-g-font-scale-neg-2, 12px);
+  color: var(--slds-g-color-on-surface-1, #5c5c5c);
+  line-height: 1.4;
+}
+.getting-started-form__file-status[hidden] {
+  display: none;
+}
+
+.getting-started-form__file-remove {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  --slds-c-button-color-background: transparent;
+}
+/*# sourceMappingURL=getting_started.css.map */

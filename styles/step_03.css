@@ -1,0 +1,85 @@
+.prospect-row-item {
+  margin-bottom: 1rem;
+}
+
+.prospect-row-item:last-child {
+  margin-bottom: 0;
+}
+
+.prospect-preview-record-name {
+  font-weight: 590;
+}
+
+.slds-badge_new-contact {
+  background-color: var(--slds-g-color-palette-cloud-blue-90);
+  color: var(--slds-g-color-on-surface-3);
+}
+/* Find Prospects: fill-height layout for content + preview */
+
+/* Lock the wrapper so children can't overflow — forces fill-height */
+.app-wrapper {
+  overflow: hidden;
+}
+.layout-container {
+  overflow: hidden;
+}
+.main-container {
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+
+/* Content side: card fills, editor scrolls */
+.content-container {
+  overflow: hidden;
+}
+#body-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#body-content .aop-editor-embed,
+#body-content .aop-main,
+#body-content .aop-main > div,
+#body-content .aop-main > div > div,
+#body-content .editor-section,
+#body-content .editor-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+#body-content .editor-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+#body-content .editor-panel {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+#body-content .editor-panel .editor-content {
+  min-height: 0;
+}
+
+/* Preview side: fill height, body scrolls */
+.preview-panel {
+  overflow: hidden;
+}
+.preview-panel .preview-panel__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.preview-panel .pu-mode--live {
+  min-height: 0;
+  overflow: hidden;
+}
+.preview-panel .pu-mode--live .pu-live-content,
+.preview-panel .pu-mode--live [data-aop-root] {
+  overflow-y: auto;
+}
+/*# sourceMappingURL=step_03.css.map */

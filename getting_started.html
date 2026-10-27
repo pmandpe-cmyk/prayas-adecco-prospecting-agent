@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Prototype styles -->
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/slds2_agentic.css" />
+  <link rel="stylesheet" href="/styles/gc.css" />
+  
+  <link rel="stylesheet" href="/styles/getting_started.css" />
+
+</head>
+<body>
+
+  
+  <script>
+    (function () {
+      try {
+        if (window.self !== window.top) {
+          document.body.setAttribute('data-embedded', 'salesforce');
+        }
+      } catch (e) {
+        // Cross-origin frame access can throw; that's ALSO a signal we're embedded.
+        document.body.setAttribute('data-embedded', 'salesforce');
+      }
+    })();
+  </script>
+
+  <header class="slds-global-header_container">
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Navigation</a>
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Main Content</a>
+      <div class="slds-global-header slds-grid slds-grid_align-spread">
+        <div class="slds-global-header__item">
+          <div class="slds-global-header__logo">
+            <img src="/assets/images/logo-noname.svg" style= "width: 12.5rem;height: 2.5rem;background-size: contain;background-repeat: no-repeat;background-position: left center;"alt="Salesforce Logo" />
+          </div>
+        </div>
+        
+        <div class="slds-global-header__item slds-global-header__item_search slds-subtheme-agentic app-global-search">
+          <div class="slds-form-element app-global-search__input">
+            <label class="slds-form-element__label slds-assistive-text" for="app-global-search-input">Search or ask anything</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+              <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left" aria-hidden="true">
+                <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                </svg>
+              </span>
+              <input
+                type="search"
+                id="app-global-search-input"
+                class="slds-input"
+                placeholder="Search or ask anything..."
+                aria-label="Search or ask anything"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button type="button" class="slds-button slds-button_neutral app-global-search__ask">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkles"></use>
+            </svg>
+            <span>Ask</span>
+          </button>
+        </div>
+        
+        <div class="slds-global-header__item">
+          <ul class="slds-global-actions">
+            <li class="slds-global-actions__item">
+              <div class="slds-global-actions__favorites slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-button-group">
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-action slds-button_icon slds-button_icon-border slds-button_icon-small" aria-pressed="false" title="Toggle Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle Favorite</span>
+                  </button>
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-more slds-button_icon slds-button_icon-border slds-button_icon-small" title="View Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true" style="height:12px;width:12px;">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                    <span class="slds-assistive-text">View Favorites</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__task slds-global-actions__item-action" aria-haspopup="true" title="Global Actions">
+                  <svg class="slds-button__icon" aria-hidden="true" style="fill:white;">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Global Actions</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__help slds-global-actions__item-action" aria-haspopup="true" title="Help and Training">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help and Training</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__setup slds-global-actions__item-action" aria-haspopup="true" title="Setup">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Setup</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__notifications slds-global-actions__item-action" title="no new notifications" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use>
+                  </svg>
+                  <span class="slds-assistive-text">no new notifications</span>
+                </button>
+                <span aria-hidden="true" class="slds-notification-badge">0</span>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action" title="person name" aria-haspopup="true">
+                  <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                    <img alt="Person name" src="/assets/images/user-avatar.png" title="User avatar" />
+                  </span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+
+ 
+  <div class="app-header-placeholder"></div>
+
+
+  <div style="height: 16rem;">
+      <div class="slds-context-bar" style="padding-left: 0px;">
+        <div class="slds-context-bar__primary">
+          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+            <div class="slds-context-bar__icon-action">
+              <button class="slds-button slds-icon-waffle_container slds-context-bar__button" title="Description of the icon when needed">
+                <span class="slds-icon-waffle">
+                  <span class="slds-r1"></span>
+                  <span class="slds-r2"></span>
+                  <span class="slds-r3"></span>
+                  <span class="slds-r4"></span>
+                  <span class="slds-r5"></span>
+                  <span class="slds-r6"></span>
+                  <span class="slds-r7"></span>
+                  <span class="slds-r8"></span>
+                  <span class="slds-r9"></span>
+                </span>
+                <span class="slds-assistive-text">Open App Launcher</span>
+              </button>
+            </div>
+            <span class="slds-context-bar__label-action slds-context-bar__app-name">
+              <span class="slds-truncate" title="App Name">Sales</span>
+            </span>
+          </div>
+        </div>
+        <nav class="slds-context-bar__secondary" role="navigation">
+          <ul class="slds-grid">
+            
+            <li class="slds-context-bar__item">
+              <a href="/home.html" class="slds-context-bar__label-action" title="Home">
+                <span class="slds-assistive-text">Current Page:</span>
+                <span class="slds-truncate" title="Home">Home</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/prospect_list.html" class="slds-context-bar__label-action" title="Prospecting">
+                <span class="slds-truncate" title="Prospecting">Prospecting</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item slds-is-active">
+              <a href="/index.html" class="slds-context-bar__label-action" title="Agent Builder">
+                <span class="slds-truncate" title="Agent Builder">Agent Builder</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Leads</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Accounts</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/agent_monitoring.html" class="slds-context-bar__label-action" title="Agent Monitoring">
+                <span class="slds-truncate" title="Agent Monitoring">Agent Monitoring</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  <main class="app-wrapper slds-template_default">
+    
+
+<div class="layout-container">
+
+  
+
+
+
+
+
+
+
+
+<nav class="left-nav" id="left-nav">
+  <div class="navigation-panel-container">
+
+    
+    <div class="nav-top-row">
+      <a class="nav-home-link" href="/index.html">
+        <span class="slds-icon_container slds-icon-text-default" title="Home">
+          <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#home"></use>
+          </svg>
+        </span>
+        <span class="nav-home-label">Home</span>
+      </a>
+      <button class="nav-collapse-icon-btn" id="nav-collapse-btn" onclick="toggleNav()" title="Collapse">
+        
+        <span class="slds-icon_container slds-icon-text-default">
+          <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+            <use id="nav-collapse-icon" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#side_list"></use>
+          </svg>
+        </span>
+        <span class="slds-assistive-text" id="nav-collapse-label">Collapse</span>
+      </button>
+    </div>
+
+    
+    <div class="agent-identity-card">
+      <div class="agent-identity-card__avatar" aria-hidden="true">
+        
+        <img src="/assets/images/agent-avatars/orb.png" alt="" />
+      </div>
+      <div class="agent-identity-card__body">
+        <div class="agent-identity-card__name">Jarvis Rocket</div>
+        <div class="agent-identity-card__meta">Version 1 (Draft)</div>
+        <div class="agent-identity-card__topic">Buyer Engagement</div>
+      </div>
+    </div>
+
+    <div class="navigation-steps-container">
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/getting_started.html" class="step-item" aria-current="step">
+        
+  <div class="step-indicator">
+    
+    <div class="slds-progress-ring slds-progress-ring_active-step">
+      <div class="slds-progress-ring__progress">
+        <svg viewBox="-1 -1 2 2">
+          <path class="slds-progress-ring__path" d="M 1 0 A 1 1 0 1 0 1 2.4492935982947064e-16 L 0 0"></path>
+        </svg>
+      </div>
+      <div class="slds-progress-ring__content"></div>
+      <div class="slds-progress-ring__progress-head">
+        <svg viewBox="-1 -1 2 2"></svg>
+      </div>
+    </div>
+    
+  </div>
+
+        <div class="step-label active">Getting Started</div>
+      </a>
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_01_select_accounts.html" class="step-item" >
+        
+  <div class="step-indicator">
+    
+    <div class="dot"></div>
+    
+  </div>
+
+        <div class="step-label ">Select Accounts</div>
+      </a>
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_02_account_research.html" class="step-item has-sub-steps-below"  data-step-num="3">
+        
+  <div class="step-indicator">
+    
+    <div class="dot"></div>
+    
+  </div>
+
+        <div class="step-label ">Account Research</div>
+      </a>
+      <div class="sub-steps" id="sub-steps-3" data-step-href="/step_02_account_research.html">
+        <div class="sub-step-item" role="button" tabindex="0">
+          <div class="step-label">Default</div>
+        </div>
+      </div>
+
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_03_find_prospects.html" class="step-item has-sub-steps-above has-sub-steps-below"  data-step-num="4">
+        
+  <div class="step-indicator">
+    
+    <div class="dot"></div>
+    
+  </div>
+
+        <div class="step-label ">Find Prospects</div>
+      </a>
+      <div class="sub-steps" id="sub-steps-4" data-step-href="/step_03_find_prospects.html">
+        <div class="sub-step-item" role="button" tabindex="0">
+          <div class="step-label">Default</div>
+        </div>
+      </div>
+
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_04_write_messaging.html" class="step-item has-sub-steps-above" >
+        
+  <div class="step-indicator">
+    
+    <div class="dot"></div>
+    
+  </div>
+
+        <div class="step-label ">Write Messaging</div>
+      </a>
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_05_prospect_assignment.html" class="step-item" >
+        
+  <div class="step-indicator">
+    
+    <div class="dot"></div>
+    
+  </div>
+
+        <div class="step-label ">Automated Assignments</div>
+      </a>
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      <a href="/step_06_review_activate.html" class="step-item" >
+        
+  <div class="step-indicator">
+    
+    <div class="dot"></div>
+    
+  </div>
+
+        <div class="step-label ">Review and Activate</div>
+      </a>
+      
+
+      
+    </div>
+
+    
+    <div class="nav-bottom-row">
+      <a class="nav-bottom-link nav-knowledge-link "
+         href="/knowledge.html"
+         >
+        <span class="slds-icon_container slds-icon-text-default" title="Knowledge">
+          <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notebook"></use>
+          </svg>
+        </span>
+        <span class="nav-bottom-link__label">Knowledge</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  function applyNavState(collapsed) {
+    var layoutContainer = document.querySelector('.layout-container');
+    var icon = document.getElementById('nav-collapse-icon');
+    var label = document.getElementById('nav-collapse-label');
+    layoutContainer.classList.toggle('layout-container--nav-collapsed', collapsed);
+    if (icon) icon.setAttribute('xlink:href', '/assets/icons/utility-sprite/svg/symbols.svg#side_list');
+    if (label) label.textContent = collapsed ? 'Expand' : 'Collapse';
+  }
+
+  function toggleNav() {
+    var isCollapsed = !document.querySelector('.layout-container').classList.contains('layout-container--nav-collapsed');
+    localStorage.setItem('navCollapsed', isCollapsed);
+    applyNavState(isCollapsed);
+  }
+
+  applyNavState(localStorage.getItem('navCollapsed') === 'true');
+</script>
+
+<script>
+  (function () {
+    
+    var STEP_MAP = { account_research: 3, find_prospects: 4 };
+    var NUM_TO_KEY = { 3: 'account_research', 4: 'find_prospects' };
+
+    function getStepNum() {
+      return STEP_MAP[window.CURRENT_STEP];
+    }
+
+    function setActive(container, tabId) {
+      var items = container.querySelectorAll('.sub-step-item');
+      for (var i = 0; i < items.length; i++) {
+        var isActive = items[i].getAttribute('data-tab-id') === tabId;
+        items[i].classList.toggle('sub-active', isActive);
+        var label = items[i].querySelector('.step-label');
+        if (label) label.classList.toggle('active', isActive);
+      }
+    }
+
+    function buildSubSteps(container, tabsList, activeId, href, isCurrentStep) {
+      container.innerHTML = '';
+      tabsList.forEach(function (tab) {
+        var item = document.createElement('div');
+        var isActive = isCurrentStep && tab.id === activeId;
+        item.className = 'sub-step-item' + (isActive ? ' sub-active' : '');
+        item.setAttribute('data-tab-id', tab.id);
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+
+        var label = document.createElement('div');
+        label.className = 'step-label' + (isActive ? ' active' : '');
+        label.textContent = tab.name;
+        item.appendChild(label);
+
+        item.addEventListener('click', function () {
+          var stepNum = parseInt(container.id.replace('sub-steps-', ''), 10);
+          if (getStepNum() === stepNum) {
+            setActive(container, tab.id);
+            document.dispatchEvent(new CustomEvent('aop-tab-activate', {
+              detail: { tabId: tab.id }
+            }));
+          } else {
+            var storageKey = 'aop-tabs-' + (NUM_TO_KEY[stepNum] || 'default');
+            try {
+              var raw = sessionStorage.getItem(storageKey);
+              if (raw) {
+                var data = JSON.parse(raw);
+                data.activeTabId = tab.id;
+                sessionStorage.setItem(storageKey, JSON.stringify(data));
+              }
+            } catch (_) {}
+            window.location.href = href;
+          }
+        });
+
+        container.appendChild(item);
+      });
+    }
+
+    function loadPersistedTabs(stepNum) {
+      var key = 'aop-tabs-' + (NUM_TO_KEY[stepNum] || 'default');
+      try {
+        var raw = sessionStorage.getItem(key);
+        if (raw) {
+          var data = JSON.parse(raw);
+          if (data.tabs && data.tabs.length) {
+            return data.tabs.map(function (t) { return { id: t.id, name: t.name }; });
+          }
+        }
+      } catch (_) {}
+      return null;
+    }
+
+    function wireStaticSubSteps(container, href) {
+      var items = container.querySelectorAll('.sub-step-item');
+      for (var i = 0; i < items.length; i++) {
+        (function (item) {
+          item.addEventListener('click', function () {
+            window.location.href = href;
+          });
+        })(items[i]);
+      }
+    }
+
+    function initSubStepsForStep(stepNum) {
+      var container = document.getElementById('sub-steps-' + stepNum);
+      if (!container) return;
+      var href = container.getAttribute('data-step-href') || '#';
+      var tabsList = loadPersistedTabs(stepNum);
+      if (!tabsList || (tabsList.length === 1 && tabsList[0].name === 'Default')) {
+        wireStaticSubSteps(container, href);
+        return;
+      }
+      buildSubSteps(container, tabsList, null, href, false);
+    }
+
+    [3, 4].forEach(function (num) {
+      initSubStepsForStep(num);
+    });
+
+    // Clicking an AOP step label resets to the Default (first) tab before navigating
+    document.querySelectorAll('.step-item[data-step-num]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var stepNum = parseInt(el.getAttribute('data-step-num'), 10);
+        var storageKey = 'aop-tabs-' + (NUM_TO_KEY[stepNum] || 'default');
+        try {
+          var raw = sessionStorage.getItem(storageKey);
+          if (raw) {
+            var data = JSON.parse(raw);
+            if (data.tabs && data.tabs.length) {
+              data.activeTabId = data.tabs[0].id;
+              sessionStorage.setItem(storageKey, JSON.stringify(data));
+            }
+          }
+        } catch (_) {}
+      });
+    });
+
+    var lastRenderedKey = '';
+    document.addEventListener('aop-tabs-changed', function (e) {
+      var currentStepNum = getStepNum();
+      if (!currentStepNum) return;
+      var container = document.getElementById('sub-steps-' + currentStepNum);
+      if (!container) return;
+
+      var structureKey = e.detail.tabs.map(function (t) { return t.id + ':' + t.name; }).join('|');
+      if (structureKey !== lastRenderedKey) {
+        lastRenderedKey = structureKey;
+        var href = container.getAttribute('data-step-href') || '#';
+        buildSubSteps(container, e.detail.tabs, e.detail.activeTabId, href, true);
+      } else {
+        setActive(container, e.detail.activeTabId);
+      }
+    });
+  })();
+</script>
+
+
+  <div class="main-container main-container--no-preview">
+    <main class="content-container">
+      <header class="body-header">
+        <h1 class="h1-title">Getting Started</h1>
+        <p class="description slds-m-top_xx-small">Set your agent&#39;s internal name for reporting and dashboards, and choose the primary language it will use to communicate with customers.</p>
+      </header>
+
+      <section class="body-content body-content--padded" id="body-content">
+        <form class="getting-started-form" autocomplete="off" novalidate>
+
+          
+          <div class="slds-form-element slds-m-bottom_medium getting-started-form__field">
+            <label class="slds-form-element__label" for="gs-agent-name">
+              <abbr class="slds-required" title="required" aria-hidden="true">*&nbsp;</abbr>Agent Name (Internal)
+              <span class="slds-icon_container slds-icon-utility-info getting-started-form__info" title="The internal name shown in reports, dashboards, and admin tools. Customers never see this label.">
+                <svg class="slds-icon slds-icon-text-default slds-icon_xx-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                </svg>
+                <span class="slds-assistive-text">The internal name shown in reports, dashboards, and admin tools. Customers never see this label.</span>
+              </span>
+            </label>
+            <div class="slds-form-element__control">
+              <input
+                type="text"
+                id="gs-agent-name"
+                name="agentName"
+                class="slds-input"
+                value="Jarvis Rocket"
+                placeholder="e.g. Outbound Prospecting Agent"
+                required
+              />
+            </div>
+          </div>
+
+          
+          <div class="slds-form-element slds-m-bottom_medium getting-started-form__field">
+            <label class="slds-form-element__label" for="gs-language">
+              Language
+              <span class="slds-icon_container slds-icon-utility-info getting-started-form__info" title="The primary language the agent uses when generating outbound copy and replies.">
+                <svg class="slds-icon slds-icon-text-default slds-icon_xx-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                </svg>
+                <span class="slds-assistive-text">The primary language the agent uses when generating outbound copy and replies.</span>
+              </span>
+            </label>
+            <div class="slds-form-element__control">
+              <div class="slds-select_container">
+                <select id="gs-language" name="language" class="slds-select">
+                  
+                  <option value="English" selected>English</option>
+                  
+                  <option value="Spanish">Spanish</option>
+                  
+                  <option value="French">French</option>
+                  
+                  <option value="German">German</option>
+                  
+                  <option value="Portuguese">Portuguese</option>
+                  
+                  <option value="Japanese">Japanese</option>
+                  
+                </select>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="slds-form-element slds-m-bottom_medium getting-started-form__field">
+            <label class="slds-form-element__label" for="gs-company-website">
+              Company Website
+              <span class="slds-icon_container slds-icon-utility-info getting-started-form__info" title="The agent uses this URL to ground its understanding of your business when researching prospects.">
+                <svg class="slds-icon slds-icon-text-default slds-icon_xx-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                </svg>
+                <span class="slds-assistive-text">The agent uses this URL to ground its understanding of your business when researching prospects.</span>
+              </span>
+            </label>
+
+            <div class="getting-started-form__website-row">
+              <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left-right getting-started-form__website-control">
+                
+                <span class="slds-icon_container slds-input__icon slds-input__icon_left getting-started-form__website-favicon" id="gs-website-favicon">
+                  <svg class="slds-icon slds-icon-text-default slds-icon_xx-small" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#world"></use>
+                  </svg>
+                </span>
+                <input
+                  type="url"
+                  id="gs-company-website"
+                  name="companyWebsite"
+                  class="slds-input"
+                  value="https://www.welo.com"
+                  placeholder="https://example.com"
+                />
+                <button type="button" class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" id="gs-website-clear" title="Clear" aria-label="Clear company website">
+                  <svg class="slds-button__icon slds-icon-text-light" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#clear"></use>
+                  </svg>
+                </button>
+              </div>
+              <button type="button" class="slds-button slds-button_icon slds-button_icon-border-filled getting-started-form__website-refresh" id="gs-website-refresh" title="Refresh preview" aria-label="Refresh website preview">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#refresh"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          
+          <div class="slds-form-element slds-m-bottom_medium getting-started-form__field getting-started-form__additional">
+            <span class="slds-form-element__label getting-started-form__additional-label">
+              Additional Context (Optional)
+            </span>
+            <p class="getting-started-form__helper-text">
+              Upload documents, spreadsheets, or other files to provide additional context about your company, products, customers, or business.
+            </p>
+
+            
+            <div class="getting-started-form__upload-region" id="gs-upload-region">
+              <div class="slds-file-selector slds-file-selector_files">
+                <div class="slds-file-selector__dropzone getting-started-form__dropzone" id="gs-dropzone">
+                  
+                  <input type="file"
+                         class="slds-file-selector__input slds-assistive-text"
+                         id="gs-file-input"
+                         aria-labelledby="gs-file-selector-cta"
+                         multiple
+                         accept=".pdf,.csv,.xls,.xlsx,.doc,.docx,.txt" />
+                  <label class="slds-file-selector__body getting-started-form__dropzone-body" for="gs-file-input">
+                    <span class="slds-file-selector__button slds-button slds-button_neutral"
+                          id="gs-file-selector-cta">
+                      <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+                      </svg>
+                      Upload Files
+                    </span>
+                    <span class="slds-file-selector__text getting-started-form__dropzone-helper">
+                      Or drop files
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <p class="getting-started-form__upload-types-helper">
+                Supported file types: PDF, CSV, Excel, Word, and Text files.
+              </p>
+
+              
+              <ul class="getting-started-form__uploaded-files" id="gs-uploaded-files" aria-live="polite"></ul>
+            </div>
+          </div>
+
+          
+          <template id="gs-uploaded-file-template">
+            <li class="getting-started-form__uploaded-file" data-uploaded-file>
+              <span class="getting-started-form__file-icon">
+                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                  <use data-file-icon-use xlink:href=""></use>
+                </svg>
+              </span>
+              <div class="getting-started-form__file-info">
+                <div class="getting-started-form__file-info-row">
+                  <span class="getting-started-form__file-name" data-file-name></span>
+                  <span class="getting-started-form__file-badge" data-file-badge></span>
+                </div>
+                <div class="getting-started-form__file-progress" data-file-progress>
+                  <div class="getting-started-form__file-progress-bar" data-file-progress-bar></div>
+                </div>
+                <span class="getting-started-form__file-status" data-file-status>Uploading&hellip;</span>
+              </div>
+              <button type="button" class="slds-button slds-button_icon getting-started-form__file-remove"
+                      data-file-remove aria-label="Remove file">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+              </button>
+            </li>
+          </template>
+
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <footer class="action-footer">
+    <div class="footer-container">
+      <button class="slds-button slds-button_neutral slds-m-right_medium" onclick="window.location.href='/index.html'"> Back</button>
+      <button class="slds-button slds-button_brand" id="gs-save-continue" onclick="window.location.href='/step_01_select_accounts.html'"> Save and Continue</button>
+    </div>
+  </footer>
+</div>
+
+
+  </main>
+  <script src="/scripts/data/accounts.js"></script>
+  <script src="/scripts/data/prospects.js"></script>
+  <script src="/scripts/data/cadences.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/vendor/svg4everybody.min.js"></script>
+  <script>svg4everybody();</script>
+
+  
+  <script src="/scripts/hunter_accounts.js"></script>
+
+  
+  <script src="/scripts/cadence-progress.js"></script>
+  <script src="/scripts/email-preview.js"></script>
+  <script src="/scripts/step_01_preview.js"></script>
+  <script type="module" src="/scripts/aop-editor/js/preview.js"></script>
+  <script src="/scripts/preview-unified.js"></script>
+  
+<script>
+  // Light wiring for the Getting Started form:
+  //  - Clear button blanks the website field and resets the favicon.
+  //  - Typing in the website field swaps the left-side favicon icon to
+  //    Google's S2 favicon service for the entered hostname. Falls back
+  //    to the SLDS globe glyph if the request fails or the URL is invalid.
+  //  - Save and Continue is just a navigation; no validation gate yet.
+  (function () {
+    var input = document.getElementById('gs-company-website');
+    var clearBtn = document.getElementById('gs-website-clear');
+    var faviconHost = document.getElementById('gs-website-favicon');
+    var refreshBtn = document.getElementById('gs-website-refresh');
+
+    var GLOBE_SVG =
+      '<svg class="slds-icon slds-icon-text-default slds-icon_xx-small" aria-hidden="true">' +
+      '<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#world"></use></svg>';
+
+    function setGlobe() { faviconHost.innerHTML = GLOBE_SVG; }
+
+    function setFaviconForUrl(rawUrl) {
+      if (!rawUrl) { setGlobe(); return; }
+      var hostname;
+      try {
+        hostname = new URL(rawUrl).hostname;
+      } catch (_) {
+        // If the input isn't a fully-qualified URL yet, try prepending https://
+        try { hostname = new URL('https://' + rawUrl).hostname; } catch (__) { setGlobe(); return; }
+      }
+      if (!hostname) { setGlobe(); return; }
+      var img = new Image();
+      img.width = 16; img.height = 16;
+      img.alt = '';
+      img.onload = function () {
+        faviconHost.innerHTML = '';
+        faviconHost.appendChild(img);
+      };
+      img.onerror = setGlobe;
+      img.src = 'https://www.google.com/s2/favicons?sz=32&domain=' + encodeURIComponent(hostname);
+    }
+
+    if (input && clearBtn) {
+      // Initial favicon for the prefilled value.
+      setFaviconForUrl(input.value);
+
+      clearBtn.addEventListener('click', function () {
+        input.value = '';
+        setGlobe();
+        input.focus();
+      });
+
+      var debounce;
+      input.addEventListener('input', function () {
+        clearTimeout(debounce);
+        debounce = setTimeout(function () { setFaviconForUrl(input.value); }, 300);
+      });
+    }
+
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', function () {
+        setFaviconForUrl(input ? input.value : '');
+      });
+    }
+  })();
+
+  // ─────────────────────────────────────────────────────────────────────
+  // Additional Context (Optional) — mocked file upload flow
+  // ─────────────────────────────────────────────────────────────────────
+  //
+  // Behaviour summary:
+  //   1. Picker click OR drag-drop on the dropzone → append a file row
+  //      per File (multiple supported), each kicking off a ~600ms mocked
+  //      progress bar animation that flips the row's status text from
+  //      "Uploading…" to "Uploaded" once it reaches 100%.
+  //   2. Click the row's × → remove the file row.
+  //
+  // No backend integration — this is prototype-only. The file objects
+  // are kept in a local Map keyed by a monotonically-increasing id so
+  // the remove buttons can target a specific row without relying on
+  // dataset round-trips.
+  (function () {
+    var dropzone      = document.getElementById('gs-dropzone');
+    var fileInput     = document.getElementById('gs-file-input');
+    var listEl        = document.getElementById('gs-uploaded-files');
+    var template      = document.getElementById('gs-uploaded-file-template');
+    if (!dropzone || !fileInput || !listEl || !template) return;
+
+    // File extension → { sprite, badge } map. `sprite` is the SLDS
+    // doctype sprite symbol id; `badge` is the small uppercase pill
+    // text shown next to the file name. Anything not in this map
+    // falls back to the generic "unknown" doctype icon and an empty
+    // badge (which `:empty` hides via the SCSS rule).
+    var FILE_TYPE_MAP = {
+      pdf:  { sprite: 'pdf',     badge: 'PDF'  },
+      csv:  { sprite: 'csv',     badge: 'CSV'  },
+      xls:  { sprite: 'excel',   badge: 'XLS'  },
+      xlsx: { sprite: 'excel',   badge: 'XLSX' },
+      doc:  { sprite: 'word',    badge: 'DOC'  },
+      docx: { sprite: 'word',    badge: 'DOCX' },
+      txt:  { sprite: 'txt',     badge: 'TXT'  }
+    };
+    var DOCTYPE_SPRITE = '/assets/icons/doctype-sprite/svg/symbols.svg';
+
+    var uid = 0;
+    var rows = new Map(); // id (number) → <li> element
+
+    // Native file picker — user clicks "Upload Files" pill (which
+    // proxies through to the hidden <input type="file"> via the
+    // wrapping <label>) and confirms a selection.
+    fileInput.addEventListener('change', function (e) {
+      handleFiles(e.target.files);
+      // Reset so picking the same file again still fires `change`.
+      fileInput.value = '';
+    });
+
+    // Drag-and-drop on the dropzone. SLDS toggles `.slds-has-drag-over`
+    // for the highlighted state; we mirror that with the modifier
+    // class so our `.getting-started-form__dropzone.slds-has-drag-over`
+    // override (border/bg change) kicks in.
+    ['dragenter', 'dragover'].forEach(function (evt) {
+      dropzone.addEventListener(evt, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.add('slds-has-drag-over');
+      });
+    });
+    ['dragleave', 'drop'].forEach(function (evt) {
+      dropzone.addEventListener(evt, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        // `dragleave` fires when the pointer crosses into a CHILD of the
+        // dropzone too — guard so we only drop the highlight when the
+        // cursor truly leaves the dropzone (not just hovers a child).
+        if (evt === 'dragleave' && dropzone.contains(e.relatedTarget)) return;
+        dropzone.classList.remove('slds-has-drag-over');
+      });
+    });
+    dropzone.addEventListener('drop', function (e) {
+      var dt = e.dataTransfer;
+      if (!dt || !dt.files || !dt.files.length) return;
+      handleFiles(dt.files);
+    });
+
+    function handleFiles(fileList) {
+      Array.prototype.forEach.call(fileList || [], function (file) { addRow(file); });
+    }
+
+    // Build a new file row from the <template> and append it to the
+    // list. Kicks off the mocked progress animation immediately so the
+    // user sees the bar fill + status text flip without any explicit
+    // "upload" action.
+    function addRow(file) {
+      var id = ++uid;
+      var fragment = template.content.cloneNode(true);
+      var li       = fragment.querySelector('[data-uploaded-file]');
+      var nameEl   = fragment.querySelector('[data-file-name]');
+      var badgeEl  = fragment.querySelector('[data-file-badge]');
+      var iconUse  = fragment.querySelector('[data-file-icon-use]');
+      var bar      = fragment.querySelector('[data-file-progress-bar]');
+      var progress = fragment.querySelector('[data-file-progress]');
+      var status   = fragment.querySelector('[data-file-status]');
+      var removeBtn= fragment.querySelector('[data-file-remove]');
+      if (!li || !nameEl || !iconUse || !bar || !progress || !status || !removeBtn) return;
+
+      var ext = (file.name.split('.').pop() || '').toLowerCase();
+      var meta = FILE_TYPE_MAP[ext] || { sprite: 'unknown', badge: '' };
+
+      nameEl.textContent = file.name;
+      badgeEl.textContent = meta.badge;
+      iconUse.setAttribute('xlink:href', DOCTYPE_SPRITE + '#' + meta.sprite);
+      li.dataset.fileId = String(id);
+
+      removeBtn.addEventListener('click', function () {
+        var current = rows.get(id);
+        if (current && current.parentNode) current.parentNode.removeChild(current);
+        rows.delete(id);
+      });
+
+      listEl.appendChild(fragment);
+      var attached = listEl.querySelector('[data-uploaded-file][data-file-id="' + id + '"]');
+      if (attached) rows.set(id, attached);
+
+      // Mocked upload — animate the bar from 0 → 100 in ~600ms, then
+      // hide the track and flip the status text to "Uploaded". The
+      // requestAnimationFrame double-RAF dance ensures the initial
+      // `width: 0%` paints before the transition target is set, so
+      // the bar actually animates (instead of jumping straight to 100%).
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { bar.style.width = '100%'; });
+      });
+      window.setTimeout(function () {
+        progress.hidden = true;
+        status.textContent = 'Uploaded';
+      }, 650);
+    }
+  })();
+</script>
+
+  <script>
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector('.layout-container');
+        if (el) el.classList.add('is-ready');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Prototype styles -->
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/slds2_agentic.css" />
+  <link rel="stylesheet" href="/styles/gc.css" />
+  
+  <link rel="stylesheet" href="/styles/home.css" />
+
+</head>
+<body>
+
+  
+  <script>
+    (function () {
+      try {
+        if (window.self !== window.top) {
+          document.body.setAttribute('data-embedded', 'salesforce');
+        }
+      } catch (e) {
+        // Cross-origin frame access can throw; that's ALSO a signal we're embedded.
+        document.body.setAttribute('data-embedded', 'salesforce');
+      }
+    })();
+  </script>
+
+  <header class="slds-global-header_container">
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Navigation</a>
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Main Content</a>
+      <div class="slds-global-header slds-grid slds-grid_align-spread">
+        <div class="slds-global-header__item">
+          <div class="slds-global-header__logo">
+            <img src="/assets/images/logo-noname.svg" style= "width: 12.5rem;height: 2.5rem;background-size: contain;background-repeat: no-repeat;background-position: left center;"alt="Salesforce Logo" />
+          </div>
+        </div>
+        
+        <div class="slds-global-header__item slds-global-header__item_search slds-subtheme-agentic app-global-search">
+          <div class="slds-form-element app-global-search__input">
+            <label class="slds-form-element__label slds-assistive-text" for="app-global-search-input">Search or ask anything</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+              <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left" aria-hidden="true">
+                <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                </svg>
+              </span>
+              <input
+                type="search"
+                id="app-global-search-input"
+                class="slds-input"
+                placeholder="Search or ask anything..."
+                aria-label="Search or ask anything"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button type="button" class="slds-button slds-button_neutral app-global-search__ask">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkles"></use>
+            </svg>
+            <span>Ask</span>
+          </button>
+        </div>
+        
+        <div class="slds-global-header__item">
+          <ul class="slds-global-actions">
+            <li class="slds-global-actions__item">
+              <div class="slds-global-actions__favorites slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-button-group">
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-action slds-button_icon slds-button_icon-border slds-button_icon-small" aria-pressed="false" title="Toggle Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle Favorite</span>
+                  </button>
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-more slds-button_icon slds-button_icon-border slds-button_icon-small" title="View Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true" style="height:12px;width:12px;">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                    <span class="slds-assistive-text">View Favorites</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__task slds-global-actions__item-action" aria-haspopup="true" title="Global Actions">
+                  <svg class="slds-button__icon" aria-hidden="true" style="fill:white;">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Global Actions</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__help slds-global-actions__item-action" aria-haspopup="true" title="Help and Training">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help and Training</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__setup slds-global-actions__item-action" aria-haspopup="true" title="Setup">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Setup</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__notifications slds-global-actions__item-action" title="no new notifications" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use>
+                  </svg>
+                  <span class="slds-assistive-text">no new notifications</span>
+                </button>
+                <span aria-hidden="true" class="slds-notification-badge">0</span>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action" title="person name" aria-haspopup="true">
+                  <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                    <img alt="Person name" src="/assets/images/user-avatar.png" title="User avatar" />
+                  </span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+
+ 
+  <div class="app-header-placeholder"></div>
+
+
+  <div style="height: 16rem;">
+      <div class="slds-context-bar" style="padding-left: 0px;">
+        <div class="slds-context-bar__primary">
+          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+            <div class="slds-context-bar__icon-action">
+              <button class="slds-button slds-icon-waffle_container slds-context-bar__button" title="Description of the icon when needed">
+                <span class="slds-icon-waffle">
+                  <span class="slds-r1"></span>
+                  <span class="slds-r2"></span>
+                  <span class="slds-r3"></span>
+                  <span class="slds-r4"></span>
+                  <span class="slds-r5"></span>
+                  <span class="slds-r6"></span>
+                  <span class="slds-r7"></span>
+                  <span class="slds-r8"></span>
+                  <span class="slds-r9"></span>
+                </span>
+                <span class="slds-assistive-text">Open App Launcher</span>
+              </button>
+            </div>
+            <span class="slds-context-bar__label-action slds-context-bar__app-name">
+              <span class="slds-truncate" title="App Name">Sales</span>
+            </span>
+          </div>
+        </div>
+        <nav class="slds-context-bar__secondary" role="navigation">
+          <ul class="slds-grid">
+            
+            <li class="slds-context-bar__item slds-is-active">
+              <a href="/home.html" class="slds-context-bar__label-action" title="Home">
+                <span class="slds-assistive-text">Current Page:</span>
+                <span class="slds-truncate" title="Home">Home</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/prospect_list.html" class="slds-context-bar__label-action" title="Prospecting">
+                <span class="slds-truncate" title="Prospecting">Prospecting</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="/index.html" class="slds-context-bar__label-action" title="Agent Builder">
+                <span class="slds-truncate" title="Agent Builder">Agent Builder</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Leads</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Accounts</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/agent_monitoring.html" class="slds-context-bar__label-action" title="Agent Monitoring">
+                <span class="slds-truncate" title="Agent Monitoring">Agent Monitoring</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  <main class="app-wrapper slds-template_default">
+    
+  
+  <div class="seller-home seller-home--knowledge seller-home--scheduled" data-sh-root>
+    
+    
+
+
+
+
+
+
+
+
+
+
+<aside
+  class="seller-home__nav"
+  aria-label="Seller Home navigation"
+  data-sh-nav-root
+>
+  
+  <div class="seller-home__nav-top">
+    <div class="seller-home__nav-topbar">
+      <button
+        type="button"
+        class="seller-home__nav-toggle"
+        data-sh-nav-toggle
+        aria-label="Collapse navigation"
+        aria-expanded="true"
+        aria-controls="seller-home-nav-body"
+      >
+        <svg width="20" height="20" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_left"></use>
+        </svg>
+      </button>
+    </div>
+
+    
+    <div class="slds-form-element seller-home__nav-search" data-sh-nav-search>
+      <label
+        class="slds-form-element__label slds-assistive-text"
+        for="seller-home-nav-search-input"
+      >Search navigation</label>
+      <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+        <span
+          class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left"
+          aria-hidden="true"
+        >
+          <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+          </svg>
+        </span>
+        <input
+          type="search"
+          id="seller-home-nav-search-input"
+          class="slds-input seller-home__nav-search-input"
+          placeholder="Search..."
+          aria-label="Search navigation"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <div class="seller-home__nav-list seller-home__nav-list--primary" role="list">
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="new_chat"
+  data-sh-nav-noroute
+  
+  title="New chat"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">New chat</span>
+</a>
+
+      
+        
+
+<a
+  href="/scheduled.html"
+  class="seller-home__nav-item is-active"
+  role="listitem"
+  data-sh-nav="schedules"
+  
+  aria-current="page"
+  title="Scheduled"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#date_time"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Scheduled</span>
+</a>
+
+      
+        
+
+<a
+  href="/skills.html"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="skills"
+  
+  
+  title="Skills"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <img
+        class="seller-home__nav-icon-image"
+        src="/assets/images/nav-icons/workflows.png"
+        alt=""
+        width="20"
+        height="20"
+        aria-hidden="true"
+      />
+    
+  </span>
+  <span class="seller-home__nav-label">Skills</span>
+</a>
+
+      
+        
+
+<a
+  href="/knowledge.html"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="knowledge"
+  
+  
+  title="Knowledge"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#knowledge_base"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Knowledge</span>
+</a>
+
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="tools"
+  data-sh-nav-noroute
+  
+  title="Tools"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#custom_apps"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Tools</span>
+</a>
+
+      
+    </div>
+  </div>
+
+  
+  <div
+    class="seller-home__nav-scroll"
+    id="seller-home-nav-body"
+    tabindex="0"
+    aria-label="Recent conversations"
+  >
+    <div class="seller-home__nav-section">
+      <div class="seller-home__nav-section-header" role="heading" aria-level="2">
+        <span class="seller-home__nav-icon" aria-hidden="true">
+          <svg width="20" height="20" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#clock"></use>
+          </svg>
+        </span>
+        <span class="seller-home__nav-label">Recents</span>
+      </div>
+
+      
+      <div
+        class="seller-home__nav-list seller-home__nav-list--recents"
+        role="list"
+        data-sh-recents-list
+      >
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent seller-home__nav-recent--running"
+          role="listitem"
+          data-sh-recent="rec-daily-deal-priorities"
+          data-sh-nav-noroute
+          data-sh-recent-run-status="running"
+          title="Daily Deal Priorities"
+        >
+          <span class="seller-home__nav-recent-label">Daily Deal Priorities</span>
+          
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      <span
+        class="seller-home__nav-recent-ring seller-home__nav-recent-ring--running"
+        role="progressbar"
+        aria-label="Daily Deal Priorities is running, 25 percent complete."
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
+          <circle class="seller-home__nav-recent-ring-track" cx="10" cy="10" r="8"></circle>
+          <circle
+            class="seller-home__nav-recent-ring-fill"
+            cx="10" cy="10" r="8"
+            stroke-dasharray="50.2654 50.2654"
+            stroke-dashoffset="37.69905"
+          ></circle>
+        </svg>
+      </span>
+    
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="/home_conversation.html?id=conv-001"
+          class="seller-home__nav-recent seller-home__nav-recent--linked"
+          role="listitem"
+          data-sh-recent="rec-conv-001"
+          data-sh-recent-conv="conv-001"
+          
+          title="Prospect outreach review"
+        >
+          <span class="seller-home__nav-recent-label">Prospect outreach review</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="/home_conversation.html?id=conv-daily-pipeline-snapshot"
+          class="seller-home__nav-recent seller-home__nav-recent--linked"
+          role="listitem"
+          data-sh-recent="rec-conv-daily-pipeline-snapshot"
+          data-sh-recent-conv="conv-daily-pipeline-snapshot"
+          
+          title="Daily Pipeline Snapshot"
+        >
+          <span class="seller-home__nav-recent-label">Daily Pipeline Snapshot</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-01"
+          data-sh-nav-noroute
+          
+          title="Acme Inc Prospecting"
+        >
+          <span class="seller-home__nav-recent-label">Acme Inc Prospecting</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-02"
+          data-sh-nav-noroute
+          
+          title="Top Account Resolutions Chart"
+        >
+          <span class="seller-home__nav-recent-label">Top Account Resolutions Chart</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-03"
+          data-sh-nav-noroute
+          
+          title="Q3 Pipeline Health Report"
+        >
+          <span class="seller-home__nav-recent-label">Q3 Pipeline Health Report</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-04"
+          data-sh-nav-noroute
+          
+          title="Enterprise Renewal Opportunity Status"
+        >
+          <span class="seller-home__nav-recent-label">Enterprise Renewal Opportunity Status</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-05"
+          data-sh-nav-noroute
+          
+          title="Sales performance Q1"
+        >
+          <span class="seller-home__nav-recent-label">Sales performance Q1</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-06"
+          data-sh-nav-noroute
+          
+          title="New product launch strategy"
+        >
+          <span class="seller-home__nav-recent-label">New product launch strategy</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-07"
+          data-sh-nav-noroute
+          
+          title="Marketing campaign overview"
+        >
+          <span class="seller-home__nav-recent-label">Marketing campaign overview</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-08"
+          data-sh-nav-noroute
+          
+          title="Target audience analysis"
+        >
+          <span class="seller-home__nav-recent-label">Target audience analysis</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-09"
+          data-sh-nav-noroute
+          
+          title="Budget allocation strategy"
+        >
+          <span class="seller-home__nav-recent-label">Budget allocation strategy</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-10"
+          data-sh-nav-noroute
+          
+          title="Key performance indicators"
+        >
+          <span class="seller-home__nav-recent-label">Key performance indicators</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-11"
+          data-sh-nav-noroute
+          
+          title="Competitive analysis"
+        >
+          <span class="seller-home__nav-recent-label">Competitive analysis</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-12"
+          data-sh-nav-noroute
+          
+          title="Channel selection and planning"
+        >
+          <span class="seller-home__nav-recent-label">Channel selection and planning</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-13"
+          data-sh-nav-noroute
+          
+          title="Timeline and milestones"
+        >
+          <span class="seller-home__nav-recent-label">Timeline and milestones</span>
+          
+  
+
+        </a>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="seller-home__nav-footer">
+    <div class="seller-home__nav-list seller-home__nav-list--footer" role="list">
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="feedback"
+  data-sh-nav-noroute
+  
+  title="Feedback"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Feedback</span>
+</a>
+
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="settings"
+  data-sh-nav-noroute
+  
+  title="Settings"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#settings"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Settings</span>
+</a>
+
+      
+    </div>
+  </div>
+</aside>
+
+
+<script src="/scripts/left_nav_augment.js"></script>
+
+
+    
+    <div
+      class="seller-home__knowledge seller-home__scheduled"
+      role="main"
+      aria-label="Scheduled"
+      tabindex="-1"
+      data-sh-scheduled-root
+    >
+      
+      <header
+        class="seller-home__knowledge-header"
+        data-sh-scheduled-header
+      >
+        <h1 class="seller-home__knowledge-header-title">Scheduled</h1>
+      </header>
+
+      
+      <section
+        class="seller-home__knowledge-body"
+        aria-label="Scheduled"
+      >
+        <div class="seller-home__knowledge-body-inner">
+          
+          
+            
+            
+            
+
+
+
+<section
+  class="seller-home__banner seller-home__banner_scheduled"
+  role="region"
+  aria-labelledby="seller-home-scheduled-banner-heading"
+  data-sh-seller-home-banner
+  
+  
+  style="background-image: url('/assets/images/skills-banner.jpg');"
+  
+>
+  <div class="seller-home__banner-copy">
+    <h2
+      id="seller-home-scheduled-banner-heading"
+      class="seller-home__banner-title"
+    >Put your recurring tasks on a schedule</h2>
+    <p class="seller-home__banner-description">Let Agentforce Coworker handle recurring work, like daily pipeline summaries or weekly project updates. Choose what runs and when, then share schedules with your team.</p>
+  </div>
+</section>
+
+          
+
+          
+          <div
+            class="seller-home__scheduled-toolbar"
+            data-sh-scheduled-toolbar
+          >
+            
+            <div
+              class="seller-home__scheduled-tabs"
+              role="radiogroup"
+              aria-label="Filter workflows by status"
+              data-sh-scheduled-tabs
+            >
+              
+                
+                
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                
+                <button
+                  type="button"
+                  class="seller-home__scheduled-tab is-active"
+                  role="radio"
+                  aria-checked="true"
+                  aria-controls="seller-home-scheduled-list"
+                  data-sh-scheduled-tab="all"
+                  data-sh-scheduled-tab-statuses=""
+                  
+                  tabindex="0"
+                >
+                  <span class="seller-home__scheduled-tab-label">All</span>
+                  <span
+                    class="seller-home__scheduled-tab-count"
+                    data-sh-scheduled-tab-count
+                    aria-hidden="true"
+                  >6</span>
+                  
+                  <span class="slds-assistive-text">
+                    6 workflows
+                  </span>
+                </button>
+              
+                
+                
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                
+                <button
+                  type="button"
+                  class="seller-home__scheduled-tab"
+                  role="radio"
+                  aria-checked="false"
+                  aria-controls="seller-home-scheduled-list"
+                  data-sh-scheduled-tab="need_attention"
+                  data-sh-scheduled-tab-statuses="needs_approval"
+                  
+                  tabindex="-1"
+                >
+                  <span class="seller-home__scheduled-tab-label">Need attention</span>
+                  <span
+                    class="seller-home__scheduled-tab-count"
+                    data-sh-scheduled-tab-count
+                    aria-hidden="true"
+                  >1</span>
+                  
+                  <span class="slds-assistive-text">
+                    1 workflow
+                  </span>
+                </button>
+              
+                
+                
+                
+                  
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                  
+                    
+                  
+                
+                
+                <button
+                  type="button"
+                  class="seller-home__scheduled-tab"
+                  role="radio"
+                  aria-checked="false"
+                  aria-controls="seller-home-scheduled-list"
+                  data-sh-scheduled-tab="scheduled"
+                  data-sh-scheduled-tab-statuses="scheduled"
+                  
+                  tabindex="-1"
+                >
+                  <span class="seller-home__scheduled-tab-label">Scheduled</span>
+                  <span
+                    class="seller-home__scheduled-tab-count"
+                    data-sh-scheduled-tab-count
+                    aria-hidden="true"
+                  >4</span>
+                  
+                  <span class="slds-assistive-text">
+                    4 workflows
+                  </span>
+                </button>
+              
+                
+                
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                      
+                    
+                  
+                
+                
+                <button
+                  type="button"
+                  class="seller-home__scheduled-tab"
+                  role="radio"
+                  aria-checked="false"
+                  aria-controls="seller-home-scheduled-list"
+                  data-sh-scheduled-tab="paused"
+                  data-sh-scheduled-tab-statuses="paused"
+                  
+                  tabindex="-1"
+                >
+                  <span class="seller-home__scheduled-tab-label">Paused</span>
+                  <span
+                    class="seller-home__scheduled-tab-count"
+                    data-sh-scheduled-tab-count
+                    aria-hidden="true"
+                  >1</span>
+                  
+                  <span class="slds-assistive-text">
+                    1 workflow
+                  </span>
+                </button>
+              
+            </div>
+
+            
+            <button
+              type="button"
+              class="slds-button slds-button_icon slds-button_icon-bare seller-home__scheduled-filter"
+              data-sh-scheduled-filter
+              title="Filter workflows"
+              aria-label="Filter workflows"
+            >
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#filterList"></use>
+              </svg>
+              <span class="slds-assistive-text">Filter workflows</span>
+            </button>
+          </div>
+
+          
+          <div
+            id="seller-home-scheduled-status"
+            class="slds-assistive-text"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            data-sh-scheduled-status
+          ></div>
+
+          
+          <div
+            id="seller-home-scheduled-list"
+            data-sh-scheduled-list-region
+          >
+            
+
+
+
+
+
+
+
+
+
+<ul
+  class="seller-home__scheduled-workflow-list"
+  data-sh-scheduled-workflow-list
+>
+  
+    
+      
+  
+  
+  
+  
+    
+  
+  
+  <li
+    class="seller-home__scheduled-workflow-item"
+    data-sh-workflow-item
+    data-sh-workflow-id="wf-daily-pipeline-snapshot"
+    data-sh-workflow-status="needs_approval"
+  >
+    
+      <a
+        class="seller-home__scheduled-workflow-row"
+        href="/home_conversation.html?id=conv-daily-pipeline-snapshot"
+        title="Daily Pipeline Snapshot"
+        aria-label="Open workflow, Daily Pipeline Snapshot, Needs approval"
+        data-sh-workflow-open
+      >
+    
+      
+  
+    <span
+      class="seller-home__scheduled-status seller-home__scheduled-status--dot seller-home__scheduled-status--yellow"
+      aria-hidden="true"
+    ></span>
+  
+
+
+      <span class="seller-home__scheduled-workflow-body">
+        <span class="seller-home__scheduled-workflow-title">Daily Pipeline Snapshot</span>
+        <span class="seller-home__scheduled-workflow-meta">Daily at 9:00 AM PST</span>
+        
+        
+      </span>
+
+      
+      <span class="seller-home__scheduled-workflow-chevron" aria-hidden="true">
+        <svg class="seller-home__scheduled-workflow-chevron-glyph" focusable="false">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+        </svg>
+      </span>
+    </a>
+
+    
+    
+    <div
+      class="seller-home__scheduled-workflow-menu"
+      data-sh-workflow-menu
+      data-sh-workflow-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__scheduled-workflow-menu-trigger"
+        data-sh-workflow-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="workflow-wf-daily-pipeline-snapshot-menu"
+        aria-label="More actions for Daily Pipeline Snapshot"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__scheduled-workflow-menu-list"
+        id="workflow-wf-daily-pipeline-snapshot-menu"
+        role="menu"
+        aria-label="Workflow actions"
+        data-sh-workflow-menu-list
+        hidden
+      >
+        <ul class="seller-home__scheduled-workflow-menu-items" role="none">
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="edit"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Edit</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="pause"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pause"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Pause</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="resume"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#play"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Resume</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="duplicate"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Duplicate</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="delete"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Delete</span>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </li>
+
+    
+  
+    
+      
+  
+  
+  
+  
+    
+  
+  
+  <li
+    class="seller-home__scheduled-workflow-item"
+    data-sh-workflow-item
+    data-sh-workflow-id="wf-daily-deal-summary"
+    data-sh-workflow-status="scheduled"
+  >
+    
+      
+      <div
+        class="seller-home__scheduled-workflow-row seller-home__scheduled-workflow-row--unlinked"
+        title="Daily Deal Summary"
+      >
+    
+      
+  
+    <span
+      class="seller-home__scheduled-status seller-home__scheduled-status--dot seller-home__scheduled-status--green"
+      aria-hidden="true"
+    ></span>
+  
+
+
+      <span class="seller-home__scheduled-workflow-body">
+        <span class="seller-home__scheduled-workflow-title">Daily Deal Summary</span>
+        <span class="seller-home__scheduled-workflow-meta">Daily at 9:30 AM PST</span>
+        
+        
+          <span class="slds-assistive-text">Status: Scheduled</span>
+        
+      </span>
+
+      
+      <span class="seller-home__scheduled-workflow-chevron" aria-hidden="true">
+        <svg class="seller-home__scheduled-workflow-chevron-glyph" focusable="false">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+        </svg>
+      </span>
+    </div>
+
+    
+    
+    <div
+      class="seller-home__scheduled-workflow-menu"
+      data-sh-workflow-menu
+      data-sh-workflow-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__scheduled-workflow-menu-trigger"
+        data-sh-workflow-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="workflow-wf-daily-deal-summary-menu"
+        aria-label="More actions for Daily Deal Summary"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__scheduled-workflow-menu-list"
+        id="workflow-wf-daily-deal-summary-menu"
+        role="menu"
+        aria-label="Workflow actions"
+        data-sh-workflow-menu-list
+        hidden
+      >
+        <ul class="seller-home__scheduled-workflow-menu-items" role="none">
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="edit"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Edit</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="pause"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pause"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Pause</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="resume"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#play"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Resume</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="duplicate"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Duplicate</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="delete"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Delete</span>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </li>
+
+    
+  
+    
+      
+  
+  
+  
+  
+    
+  
+  
+  <li
+    class="seller-home__scheduled-workflow-item"
+    data-sh-workflow-item
+    data-sh-workflow-id="wf-buyer-engage"
+    data-sh-workflow-status="scheduled"
+  >
+    
+      
+      <div
+        class="seller-home__scheduled-workflow-row seller-home__scheduled-workflow-row--unlinked"
+        title="Buyer Engage"
+      >
+    
+      
+  
+    <span
+      class="seller-home__scheduled-status seller-home__scheduled-status--dot seller-home__scheduled-status--green"
+      aria-hidden="true"
+    ></span>
+  
+
+
+      <span class="seller-home__scheduled-workflow-body">
+        <span class="seller-home__scheduled-workflow-title">Buyer Engage</span>
+        <span class="seller-home__scheduled-workflow-meta">Daily at 9:30 AM PST</span>
+        
+        
+          <span class="slds-assistive-text">Status: Scheduled</span>
+        
+      </span>
+
+      
+      <span class="seller-home__scheduled-workflow-chevron" aria-hidden="true">
+        <svg class="seller-home__scheduled-workflow-chevron-glyph" focusable="false">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+        </svg>
+      </span>
+    </div>
+
+    
+    
+    <div
+      class="seller-home__scheduled-workflow-menu"
+      data-sh-workflow-menu
+      data-sh-workflow-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__scheduled-workflow-menu-trigger"
+        data-sh-workflow-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="workflow-wf-buyer-engage-menu"
+        aria-label="More actions for Buyer Engage"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__scheduled-workflow-menu-list"
+        id="workflow-wf-buyer-engage-menu"
+        role="menu"
+        aria-label="Workflow actions"
+        data-sh-workflow-menu-list
+        hidden
+      >
+        <ul class="seller-home__scheduled-workflow-menu-items" role="none">
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="edit"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Edit</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="pause"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pause"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Pause</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="resume"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#play"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Resume</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="duplicate"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Duplicate</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="delete"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Delete</span>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </li>
+
+    
+  
+    
+      
+  
+  
+  
+  
+    
+  
+  
+  <li
+    class="seller-home__scheduled-workflow-item"
+    data-sh-workflow-item
+    data-sh-workflow-id="wf-prepare-for-meetings"
+    data-sh-workflow-status="scheduled"
+  >
+    
+      
+      <div
+        class="seller-home__scheduled-workflow-row seller-home__scheduled-workflow-row--unlinked"
+        title="Prepare for Meetings"
+      >
+    
+      
+  
+    <span
+      class="seller-home__scheduled-status seller-home__scheduled-status--dot seller-home__scheduled-status--green"
+      aria-hidden="true"
+    ></span>
+  
+
+
+      <span class="seller-home__scheduled-workflow-body">
+        <span class="seller-home__scheduled-workflow-title">Prepare for Meetings</span>
+        <span class="seller-home__scheduled-workflow-meta">Daily at 9:30 AM PST</span>
+        
+        
+          <span class="slds-assistive-text">Status: Scheduled</span>
+        
+      </span>
+
+      
+      <span class="seller-home__scheduled-workflow-chevron" aria-hidden="true">
+        <svg class="seller-home__scheduled-workflow-chevron-glyph" focusable="false">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+        </svg>
+      </span>
+    </div>
+
+    
+    
+    <div
+      class="seller-home__scheduled-workflow-menu"
+      data-sh-workflow-menu
+      data-sh-workflow-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__scheduled-workflow-menu-trigger"
+        data-sh-workflow-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="workflow-wf-prepare-for-meetings-menu"
+        aria-label="More actions for Prepare for Meetings"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__scheduled-workflow-menu-list"
+        id="workflow-wf-prepare-for-meetings-menu"
+        role="menu"
+        aria-label="Workflow actions"
+        data-sh-workflow-menu-list
+        hidden
+      >
+        <ul class="seller-home__scheduled-workflow-menu-items" role="none">
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="edit"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Edit</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="pause"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pause"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Pause</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="resume"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#play"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Resume</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="duplicate"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Duplicate</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="delete"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Delete</span>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </li>
+
+    
+  
+    
+      
+  
+  
+  
+  
+    
+  
+  
+  <li
+    class="seller-home__scheduled-workflow-item"
+    data-sh-workflow-item
+    data-sh-workflow-id="wf-cold-prospecting"
+    data-sh-workflow-status="scheduled"
+  >
+    
+      
+      <div
+        class="seller-home__scheduled-workflow-row seller-home__scheduled-workflow-row--unlinked"
+        title="Cold Prospecting"
+      >
+    
+      
+  
+    <span
+      class="seller-home__scheduled-status seller-home__scheduled-status--dot seller-home__scheduled-status--green"
+      aria-hidden="true"
+    ></span>
+  
+
+
+      <span class="seller-home__scheduled-workflow-body">
+        <span class="seller-home__scheduled-workflow-title">Cold Prospecting</span>
+        <span class="seller-home__scheduled-workflow-meta">Daily at 9:30 AM PST</span>
+        
+        
+          <span class="slds-assistive-text">Status: Scheduled</span>
+        
+      </span>
+
+      
+      <span class="seller-home__scheduled-workflow-chevron" aria-hidden="true">
+        <svg class="seller-home__scheduled-workflow-chevron-glyph" focusable="false">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+        </svg>
+      </span>
+    </div>
+
+    
+    
+    <div
+      class="seller-home__scheduled-workflow-menu"
+      data-sh-workflow-menu
+      data-sh-workflow-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__scheduled-workflow-menu-trigger"
+        data-sh-workflow-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="workflow-wf-cold-prospecting-menu"
+        aria-label="More actions for Cold Prospecting"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__scheduled-workflow-menu-list"
+        id="workflow-wf-cold-prospecting-menu"
+        role="menu"
+        aria-label="Workflow actions"
+        data-sh-workflow-menu-list
+        hidden
+      >
+        <ul class="seller-home__scheduled-workflow-menu-items" role="none">
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="edit"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Edit</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="pause"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pause"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Pause</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="resume"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#play"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Resume</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="duplicate"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Duplicate</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="delete"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Delete</span>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </li>
+
+    
+  
+    
+      
+  
+  
+  
+  
+    
+  
+  
+  <li
+    class="seller-home__scheduled-workflow-item"
+    data-sh-workflow-item
+    data-sh-workflow-id="wf-stay-in-touch-outreach"
+    data-sh-workflow-status="paused"
+  >
+    
+      
+      <div
+        class="seller-home__scheduled-workflow-row seller-home__scheduled-workflow-row--unlinked"
+        title="Stay in Touch Outreach"
+      >
+    
+      
+  
+    <span
+      class="seller-home__scheduled-status seller-home__scheduled-status--icon seller-home__scheduled-status--paused"
+      aria-hidden="true"
+    >
+      <svg class="seller-home__scheduled-status-icon" focusable="false">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#play"></use>
+      </svg>
+    </span>
+  
+
+
+      <span class="seller-home__scheduled-workflow-body">
+        <span class="seller-home__scheduled-workflow-title">Stay in Touch Outreach</span>
+        <span class="seller-home__scheduled-workflow-meta">Paused</span>
+        
+        
+          <span class="slds-assistive-text">Status: Paused</span>
+        
+      </span>
+
+      
+      <span class="seller-home__scheduled-workflow-chevron" aria-hidden="true">
+        <svg class="seller-home__scheduled-workflow-chevron-glyph" focusable="false">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
+        </svg>
+      </span>
+    </div>
+
+    
+    
+    <div
+      class="seller-home__scheduled-workflow-menu"
+      data-sh-workflow-menu
+      data-sh-workflow-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__scheduled-workflow-menu-trigger"
+        data-sh-workflow-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="workflow-wf-stay-in-touch-outreach-menu"
+        aria-label="More actions for Stay in Touch Outreach"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__scheduled-workflow-menu-list"
+        id="workflow-wf-stay-in-touch-outreach-menu"
+        role="menu"
+        aria-label="Workflow actions"
+        data-sh-workflow-menu-list
+        hidden
+      >
+        <ul class="seller-home__scheduled-workflow-menu-items" role="none">
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="edit"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Edit</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="pause"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#pause"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Pause</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="resume"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#play"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Resume</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="duplicate"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#copy"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Duplicate</span>
+              </button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__scheduled-workflow-menu-item"
+                role="menuitem"
+                data-sh-workflow-action="delete"
+              >
+                
+                  <svg class="seller-home__scheduled-workflow-menu-item-icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                  </svg>
+                
+                <span class="seller-home__scheduled-workflow-menu-item-label">Delete</span>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </li>
+
+    
+  
+</ul>
+
+
+<div
+  class="seller-home__scheduled-empty"
+  data-sh-scheduled-empty
+  hidden
+>
+  <p class="seller-home__scheduled-empty-title">No workflows match this filter</p>
+  <p class="seller-home__scheduled-empty-description">Switch to another tab to see workflows in a different state.</p>
+</div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  </main>
+  <script src="/scripts/data/accounts.js"></script>
+  <script src="/scripts/data/prospects.js"></script>
+  <script src="/scripts/data/cadences.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/vendor/svg4everybody.min.js"></script>
+  <script>svg4everybody();</script>
+
+  
+  <script src="/scripts/hunter_accounts.js"></script>
+
+  
+  <script src="/scripts/cadence-progress.js"></script>
+  <script src="/scripts/email-preview.js"></script>
+  <script src="/scripts/step_01_preview.js"></script>
+  <script type="module" src="/scripts/aop-editor/js/preview.js"></script>
+  <script src="/scripts/preview-unified.js"></script>
+  
+  
+  <script src="/scripts/home.js"></script>
+
+  <script>
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector('.layout-container');
+        if (el) el.classList.add('is-ready');
+      });
+    });
+  </script>
+</body>
+</html>

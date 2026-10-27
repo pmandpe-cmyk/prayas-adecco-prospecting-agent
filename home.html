@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Prototype styles -->
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/slds2_agentic.css" />
+  <link rel="stylesheet" href="/styles/gc.css" />
+  
+  <link rel="stylesheet" href="/styles/home.css" />
+
+</head>
+<body>
+
+  
+  <script>
+    (function () {
+      try {
+        if (window.self !== window.top) {
+          document.body.setAttribute('data-embedded', 'salesforce');
+        }
+      } catch (e) {
+        // Cross-origin frame access can throw; that's ALSO a signal we're embedded.
+        document.body.setAttribute('data-embedded', 'salesforce');
+      }
+    })();
+  </script>
+
+  <header class="slds-global-header_container">
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Navigation</a>
+      <a href="javascript:void(0);" class="slds-assistive-text slds-assistive-text_focus">Skip to Main Content</a>
+      <div class="slds-global-header slds-grid slds-grid_align-spread">
+        <div class="slds-global-header__item">
+          <div class="slds-global-header__logo">
+            <img src="/assets/images/logo-noname.svg" style= "width: 12.5rem;height: 2.5rem;background-size: contain;background-repeat: no-repeat;background-position: left center;"alt="Salesforce Logo" />
+          </div>
+        </div>
+        
+        <div class="slds-global-header__item slds-global-header__item_search slds-subtheme-agentic app-global-search">
+          <div class="slds-form-element app-global-search__input">
+            <label class="slds-form-element__label slds-assistive-text" for="app-global-search-input">Search or ask anything</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+              <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left" aria-hidden="true">
+                <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                </svg>
+              </span>
+              <input
+                type="search"
+                id="app-global-search-input"
+                class="slds-input"
+                placeholder="Search or ask anything..."
+                aria-label="Search or ask anything"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button type="button" class="slds-button slds-button_neutral app-global-search__ask">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#sparkles"></use>
+            </svg>
+            <span>Ask</span>
+          </button>
+        </div>
+        
+        <div class="slds-global-header__item">
+          <ul class="slds-global-actions">
+            <li class="slds-global-actions__item">
+              <div class="slds-global-actions__favorites slds-dropdown-trigger slds-dropdown-trigger_click">
+                <div class="slds-button-group">
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-action slds-button_icon slds-button_icon-border slds-button_icon-small" aria-pressed="false" title="Toggle Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle Favorite</span>
+                  </button>
+                  <button class="slds-button slds-button_icon slds-global-actions__favorites-more slds-button_icon slds-button_icon-border slds-button_icon-small" title="View Favorites">
+                    <svg class="slds-button__icon" aria-hidden="true" style="height:12px;width:12px;">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                    <span class="slds-assistive-text">View Favorites</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__task slds-global-actions__item-action" aria-haspopup="true" title="Global Actions">
+                  <svg class="slds-button__icon" aria-hidden="true" style="fill:white;">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Global Actions</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__help slds-global-actions__item-action" aria-haspopup="true" title="Help and Training">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help and Training</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__setup slds-global-actions__item-action" aria-haspopup="true" title="Setup">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Setup</span>
+                </button>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__notifications slds-global-actions__item-action" title="no new notifications" aria-live="assertive" aria-atomic="true">
+                  <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use>
+                  </svg>
+                  <span class="slds-assistive-text">no new notifications</span>
+                </button>
+                <span aria-hidden="true" class="slds-notification-badge">0</span>
+              </div>
+            </li>
+            <li class="slds-global-actions__item">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action" title="person name" aria-haspopup="true">
+                  <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                    <img alt="Person name" src="/assets/images/user-avatar.png" title="User avatar" />
+                  </span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+
+ 
+  <div class="app-header-placeholder"></div>
+
+
+  <div style="height: 16rem;">
+      <div class="slds-context-bar" style="padding-left: 0px;">
+        <div class="slds-context-bar__primary">
+          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+            <div class="slds-context-bar__icon-action">
+              <button class="slds-button slds-icon-waffle_container slds-context-bar__button" title="Description of the icon when needed">
+                <span class="slds-icon-waffle">
+                  <span class="slds-r1"></span>
+                  <span class="slds-r2"></span>
+                  <span class="slds-r3"></span>
+                  <span class="slds-r4"></span>
+                  <span class="slds-r5"></span>
+                  <span class="slds-r6"></span>
+                  <span class="slds-r7"></span>
+                  <span class="slds-r8"></span>
+                  <span class="slds-r9"></span>
+                </span>
+                <span class="slds-assistive-text">Open App Launcher</span>
+              </button>
+            </div>
+            <span class="slds-context-bar__label-action slds-context-bar__app-name">
+              <span class="slds-truncate" title="App Name">Sales</span>
+            </span>
+          </div>
+        </div>
+        <nav class="slds-context-bar__secondary" role="navigation">
+          <ul class="slds-grid">
+            
+            <li class="slds-context-bar__item slds-is-active">
+              <a href="/home.html" class="slds-context-bar__label-action" title="Home">
+                <span class="slds-assistive-text">Current Page:</span>
+                <span class="slds-truncate" title="Home">Home</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/prospect_list.html" class="slds-context-bar__label-action" title="Prospecting">
+                <span class="slds-truncate" title="Prospecting">Prospecting</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="/index.html" class="slds-context-bar__label-action" title="Agent Builder">
+                <span class="slds-truncate" title="Agent Builder">Agent Builder</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Leads</span>
+              </a>
+            </li>
+            <li class="slds-context-bar__item">
+              <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item">Accounts</span>
+              </a>
+            </li>
+
+            
+            <li class="slds-context-bar__item">
+              <a href="/agent_monitoring.html" class="slds-context-bar__label-action" title="Agent Monitoring">
+                <span class="slds-truncate" title="Agent Monitoring">Agent Monitoring</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  <main class="app-wrapper slds-template_default">
+    
+  <div class="seller-home" data-sh-root>
+    
+    <div class="seller-home__god-rays" data-sh-god-rays aria-hidden="true"></div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+<aside
+  class="seller-home__nav"
+  aria-label="Seller Home navigation"
+  data-sh-nav-root
+>
+  
+  <div class="seller-home__nav-top">
+    <div class="seller-home__nav-topbar">
+      <button
+        type="button"
+        class="seller-home__nav-toggle"
+        data-sh-nav-toggle
+        aria-label="Collapse navigation"
+        aria-expanded="true"
+        aria-controls="seller-home-nav-body"
+      >
+        <svg width="20" height="20" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrow_left"></use>
+        </svg>
+      </button>
+    </div>
+
+    
+    <div class="slds-form-element seller-home__nav-search" data-sh-nav-search>
+      <label
+        class="slds-form-element__label slds-assistive-text"
+        for="seller-home-nav-search-input"
+      >Search navigation</label>
+      <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+        <span
+          class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left"
+          aria-hidden="true"
+        >
+          <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+          </svg>
+        </span>
+        <input
+          type="search"
+          id="seller-home-nav-search-input"
+          class="slds-input seller-home__nav-search-input"
+          placeholder="Search..."
+          aria-label="Search navigation"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <div class="seller-home__nav-list seller-home__nav-list--primary" role="list">
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item is-active"
+  role="listitem"
+  data-sh-nav="new_chat"
+  data-sh-nav-noroute
+  aria-current="page"
+  title="New chat"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">New chat</span>
+</a>
+
+      
+        
+
+<a
+  href="/scheduled.html"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="schedules"
+  
+  
+  title="Scheduled"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#date_time"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Scheduled</span>
+</a>
+
+      
+        
+
+<a
+  href="/skills.html"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="skills"
+  
+  
+  title="Skills"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <img
+        class="seller-home__nav-icon-image"
+        src="/assets/images/nav-icons/workflows.png"
+        alt=""
+        width="20"
+        height="20"
+        aria-hidden="true"
+      />
+    
+  </span>
+  <span class="seller-home__nav-label">Skills</span>
+</a>
+
+      
+        
+
+<a
+  href="/knowledge.html"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="knowledge"
+  
+  
+  title="Knowledge"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#knowledge_base"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Knowledge</span>
+</a>
+
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="tools"
+  data-sh-nav-noroute
+  
+  title="Tools"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#custom_apps"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Tools</span>
+</a>
+
+      
+    </div>
+  </div>
+
+  
+  <div
+    class="seller-home__nav-scroll"
+    id="seller-home-nav-body"
+    tabindex="0"
+    aria-label="Recent conversations"
+  >
+    <div class="seller-home__nav-section">
+      <div class="seller-home__nav-section-header" role="heading" aria-level="2">
+        <span class="seller-home__nav-icon" aria-hidden="true">
+          <svg width="20" height="20" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#clock"></use>
+          </svg>
+        </span>
+        <span class="seller-home__nav-label">Recents</span>
+      </div>
+
+      
+      <div
+        class="seller-home__nav-list seller-home__nav-list--recents"
+        role="list"
+        data-sh-recents-list
+      >
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent seller-home__nav-recent--running"
+          role="listitem"
+          data-sh-recent="rec-daily-deal-priorities"
+          data-sh-nav-noroute
+          data-sh-recent-run-status="running"
+          title="Daily Deal Priorities"
+        >
+          <span class="seller-home__nav-recent-label">Daily Deal Priorities</span>
+          
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      <span
+        class="seller-home__nav-recent-ring seller-home__nav-recent-ring--running"
+        role="progressbar"
+        aria-label="Daily Deal Priorities is running, 25 percent complete."
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
+          <circle class="seller-home__nav-recent-ring-track" cx="10" cy="10" r="8"></circle>
+          <circle
+            class="seller-home__nav-recent-ring-fill"
+            cx="10" cy="10" r="8"
+            stroke-dasharray="50.2654 50.2654"
+            stroke-dashoffset="37.69905"
+          ></circle>
+        </svg>
+      </span>
+    
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="/home_conversation.html?id=conv-001"
+          class="seller-home__nav-recent seller-home__nav-recent--linked"
+          role="listitem"
+          data-sh-recent="rec-conv-001"
+          data-sh-recent-conv="conv-001"
+          
+          title="Prospect outreach review"
+        >
+          <span class="seller-home__nav-recent-label">Prospect outreach review</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="/home_conversation.html?id=conv-daily-pipeline-snapshot"
+          class="seller-home__nav-recent seller-home__nav-recent--linked"
+          role="listitem"
+          data-sh-recent="rec-conv-daily-pipeline-snapshot"
+          data-sh-recent-conv="conv-daily-pipeline-snapshot"
+          
+          title="Daily Pipeline Snapshot"
+        >
+          <span class="seller-home__nav-recent-label">Daily Pipeline Snapshot</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-01"
+          data-sh-nav-noroute
+          
+          title="Acme Inc Prospecting"
+        >
+          <span class="seller-home__nav-recent-label">Acme Inc Prospecting</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-02"
+          data-sh-nav-noroute
+          
+          title="Top Account Resolutions Chart"
+        >
+          <span class="seller-home__nav-recent-label">Top Account Resolutions Chart</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-03"
+          data-sh-nav-noroute
+          
+          title="Q3 Pipeline Health Report"
+        >
+          <span class="seller-home__nav-recent-label">Q3 Pipeline Health Report</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-04"
+          data-sh-nav-noroute
+          
+          title="Enterprise Renewal Opportunity Status"
+        >
+          <span class="seller-home__nav-recent-label">Enterprise Renewal Opportunity Status</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-05"
+          data-sh-nav-noroute
+          
+          title="Sales performance Q1"
+        >
+          <span class="seller-home__nav-recent-label">Sales performance Q1</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-06"
+          data-sh-nav-noroute
+          
+          title="New product launch strategy"
+        >
+          <span class="seller-home__nav-recent-label">New product launch strategy</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-07"
+          data-sh-nav-noroute
+          
+          title="Marketing campaign overview"
+        >
+          <span class="seller-home__nav-recent-label">Marketing campaign overview</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-08"
+          data-sh-nav-noroute
+          
+          title="Target audience analysis"
+        >
+          <span class="seller-home__nav-recent-label">Target audience analysis</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-09"
+          data-sh-nav-noroute
+          
+          title="Budget allocation strategy"
+        >
+          <span class="seller-home__nav-recent-label">Budget allocation strategy</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-10"
+          data-sh-nav-noroute
+          
+          title="Key performance indicators"
+        >
+          <span class="seller-home__nav-recent-label">Key performance indicators</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-11"
+          data-sh-nav-noroute
+          
+          title="Competitive analysis"
+        >
+          <span class="seller-home__nav-recent-label">Competitive analysis</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-12"
+          data-sh-nav-noroute
+          
+          title="Channel selection and planning"
+        >
+          <span class="seller-home__nav-recent-label">Channel selection and planning</span>
+          
+  
+
+        </a>
+        
+        
+        
+        
+        <a
+          href="#"
+          class="seller-home__nav-recent"
+          role="listitem"
+          data-sh-recent="rec-13"
+          data-sh-nav-noroute
+          
+          title="Timeline and milestones"
+        >
+          <span class="seller-home__nav-recent-label">Timeline and milestones</span>
+          
+  
+
+        </a>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="seller-home__nav-footer">
+    <div class="seller-home__nav-list seller-home__nav-list--footer" role="list">
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="feedback"
+  data-sh-nav-noroute
+  
+  title="Feedback"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#share"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Feedback</span>
+</a>
+
+      
+        
+
+<a
+  href="#"
+  class="seller-home__nav-item"
+  role="listitem"
+  data-sh-nav="settings"
+  data-sh-nav-noroute
+  
+  title="Settings"
+>
+  <span class="seller-home__nav-icon" aria-hidden="true">
+    
+      
+      <svg width="20" height="20" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#settings"></use>
+      </svg>
+    
+  </span>
+  <span class="seller-home__nav-label">Settings</span>
+</a>
+
+      
+    </div>
+  </div>
+</aside>
+
+
+<script src="/scripts/left_nav_augment.js"></script>
+
+
+    
+    <main
+      class="seller-home__main"
+      role="main"
+      aria-label="Seller Home"
+      tabindex="-1"
+    >
+      <div class="seller-home__main-inner">
+        
+        
+        <section
+          class="seller-home__briefing"
+          aria-label="Daily briefing"
+          data-sh-briefing-root
+        >
+          <h1 class="seller-home__briefing-heading">
+            Good morning, Carmen.
+          </h1>
+          
+          <p class="seller-home__briefing-text">
+            You’ve closed
+            
+            <button type="button" class="seller-home__briefing-link" data-sh-briefing-topic="quota">$19M of your $25M quota</button>
+            with 30 days left in the quarter. Here’s what to do to hit your goal of President’s Club.
+          </p>
+
+          
+          
+          <div class="seller-home__briefing-popovers" data-sh-briefing-popovers>
+            
+              
+
+
+<div
+  class="seller-home__briefing-popover"
+  id="seller-home-briefing-popover-at_risk_deals"
+  role="dialog"
+  aria-modal="false"
+  aria-label="At-risk deals"
+  data-sh-briefing-popover
+  data-sh-briefing-popover-for="at_risk_deals"
+  hidden
+>
+  
+  <span class="seller-home__briefing-popover-nub" aria-hidden="true"></span>
+
+  <div class="seller-home__briefing-popover-body">
+    
+    <div class="seller-home__briefing-popover-content">
+      <p class="seller-home__briefing-popover-description">These deals have slipped past their expected close dates but continue to show engagement.</p>
+
+      
+      <ul class="seller-home__briefing-popover-items">
+        
+        <li class="seller-home__briefing-popover-item">
+          <strong class="seller-home__briefing-popover-item-name">Ramp</strong>
+          <span class="seller-home__briefing-popover-item-detail"> · $135K · No response in 12 days</span>
+          
+        </li>
+        
+        <li class="seller-home__briefing-popover-item">
+          <strong class="seller-home__briefing-popover-item-name">Deel</strong>
+          <span class="seller-home__briefing-popover-item-detail"> · $180K · Legal review stalled</span>
+          
+        </li>
+        
+        <li class="seller-home__briefing-popover-item">
+          <strong class="seller-home__briefing-popover-item-name">Podium</strong>
+          <span class="seller-home__briefing-popover-item-detail"> · $105K · Pricing concern</span>
+          
+        </li>
+        
+      </ul>
+      
+    </div>
+
+    
+    <button
+      type="button"
+      class="slds-button slds-button_icon slds-button_icon-bare seller-home__briefing-popover-close"
+      data-sh-briefing-popover-close
+      aria-label="Close at-risk deals preview"
+      title="Close"
+    >
+      <svg class="slds-button__icon" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+      </svg>
+      <span class="slds-assistive-text">Close at-risk deals preview</span>
+    </button>
+  </div>
+
+  
+  
+  <div class="seller-home__briefing-popover-footer">
+    
+    <button
+      type="button"
+      class="seller-home__briefing-popover-action seller-home__briefing-popover-action--secondary"
+      data-sh-briefing-popover-action="setup_workflow"
+    >Set up a workflow</button>
+    
+    
+    <button
+      type="button"
+      class="seller-home__briefing-popover-action seller-home__briefing-popover-action--primary"
+      data-sh-briefing-popover-action="review_deals"
+    >Review Deals</button>
+    
+  </div>
+  
+</div>
+
+            
+          </div>
+          
+        </section>
+
+        
+        
+<section
+  class="seller-home__composer"
+  aria-label="Ask Agentforce"
+  data-sh-composer-root
+>
+  <form class="seller-home__composer-form" data-sh-composer-form novalidate>
+    <div class="seller-home__composer-editor">
+      <div class="seller-home__composer-content">
+        <label for="seller-home-composer-input" class="slds-assistive-text">Ask Agentforce</label>
+        
+        <textarea
+          id="seller-home-composer-input"
+          class="seller-home__composer-textarea"
+          data-sh-composer-textarea
+          data-sh-composer-prompts="[&quot;Try “Who should I follow up with?”&quot;,&quot;Try “Draft an outreach for Acme.”&quot;,&quot;Try “Summarize this week’s pipeline.”&quot;,&quot;Try “Which deals are at risk?”&quot;,&quot;Try “Find prospects like Northwind.”&quot;]"
+          placeholder="Try “Who should I follow up with?”"
+          rows="3"
+          aria-label="Ask Agentforce"
+          aria-describedby="seller-home-composer-hint"
+        ></textarea>
+        
+        <span id="seller-home-composer-hint" class="slds-assistive-text">
+          Press Enter to send. Press Shift plus Enter to insert a new line.
+        </span>
+      </div>
+
+      <div class="seller-home__composer-toolbar" role="toolbar" aria-label="Composer actions">
+        <div class="seller-home__composer-slot seller-home__composer-slot--start" role="group" aria-label="Attach and augment">
+          
+            <button
+              type="button"
+              class="slds-button slds-button_icon slds-button_icon-bare seller-home__composer-btn"
+              data-sh-composer-action="add"
+              title="Add"
+              aria-label="Add"
+            >
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+              </svg>
+              <span class="slds-assistive-text">Add</span>
+            </button>
+          
+            <button
+              type="button"
+              class="slds-button slds-button_icon slds-button_icon-bare seller-home__composer-btn"
+              data-sh-composer-action="quick_action"
+              title="Quick action"
+              aria-label="Quick action"
+            >
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#fallback"></use>
+              </svg>
+              <span class="slds-assistive-text">Quick action</span>
+            </button>
+          
+            <button
+              type="button"
+              class="slds-button slds-button_icon slds-button_icon-bare seller-home__composer-btn"
+              data-sh-composer-action="skills"
+              title="Skills and tools"
+              aria-label="Skills and tools"
+            >
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#apps"></use>
+              </svg>
+              <span class="slds-assistive-text">Skills and tools</span>
+            </button>
+          
+        </div>
+
+        <div class="seller-home__composer-slot seller-home__composer-slot--end" role="group" aria-label="Voice and send">
+          
+            <button
+              type="button"
+              class="slds-button slds-button_icon slds-button_icon-bare seller-home__composer-btn"
+              data-sh-composer-action="voice"
+              title="Voice input"
+              aria-label="Voice input"
+            >
+              <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#unmuted"></use>
+              </svg>
+              <span class="slds-assistive-text">Voice input</span>
+            </button>
+          
+
+          
+          <button
+            type="submit"
+            class="slds-button slds-button_icon slds-button_icon-bare seller-home__composer-btn seller-home__composer-send"
+            data-sh-composer-send
+            title="Send message"
+            aria-label="Send message"
+            disabled
+          >
+            <svg class="slds-button__icon" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#send"></use>
+            </svg>
+            <span class="slds-assistive-text">Send message</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+
+
+        
+        
+
+
+
+
+
+
+
+
+
+<section
+  class="seller-home__ready"
+  aria-labelledby="seller-home-ready-heading"
+  data-sh-ready-root
+>
+  <div class="seller-home__ready-header">
+    
+    <div class="seller-home__ready-title-row">
+      <h2 id="seller-home-ready-heading" class="seller-home__ready-heading">
+        Your Path to Quota
+      </h2>
+      
+        <span class="seller-home__ready-date">Mon July 13</span>
+      
+    </div>
+
+    
+    <div class="seller-home__ready-overflow" data-sh-ready-overflow>
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__ready-overflow-trigger"
+        data-sh-ready-overflow-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="seller-home-ready-overflow-menu"
+        title="More actions"
+        aria-label="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__ready-overflow-menu"
+        id="seller-home-ready-overflow-menu"
+        role="menu"
+        aria-label="More actions"
+        data-sh-ready-overflow-menu
+        hidden
+      >
+        <ul class="seller-home__ready-overflow-list" role="none">
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__ready-overflow-item"
+                role="menuitem"
+                data-sh-ready-overflow-action="view_all"
+              >View all</button>
+            </li>
+          
+            <li role="none">
+              <button
+                type="button"
+                class="seller-home__ready-overflow-item"
+                role="menuitem"
+                data-sh-ready-overflow-action="review_settings"
+              >Review settings</button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  
+  
+    
+    <div
+      class="seller-home__ready-panel is-visible"
+      id="seller-home-ready-panel-ready"
+      data-sh-ready-panel="ready"
+    >
+      <ul class="seller-home__ready-list" role="list">
+        
+          <li class="seller-home__ready-list-item" data-sh-ready-list-item>
+            
+
+
+
+
+
+
+
+
+<article
+  class="seller-home__review-row seller-home__review-row--has-outputs seller-home__review-row--linked"
+  data-sh-review-row="ri-01"
+  data-sh-review-workflow="buyer_engage"
+>
+  
+
+  <div class="seller-home__review-row-body">
+    
+    <a
+      href="/home_conversation.html?id=conv-001"
+      class="seller-home__review-row-title"
+      id="seller-home-ready-panel-ready-ri-01-title"
+      data-sh-review-row-link="ri-01"
+      aria-label="12 hot prospects, workflow: Buyer Engage"
+      aria-describedby="seller-home-ready-panel-ready-ri-01-desc"
+      title="12 hot prospects"
+    >12 hot prospects</a>
+    <p
+      class="seller-home__review-row-desc"
+      id="seller-home-ready-panel-ready-ri-01-desc"
+      title="Sales Agent found strong-fit contacts at priority accounts, but outreach requires your approval."
+    >Sales Agent found strong-fit contacts at priority accounts, but outreach requires your approval.</p>
+
+    
+    
+      <div class="seller-home__review-row-outputs" aria-hidden="true">
+        
+          
+          
+
+<span
+  class="slds-badge slds-badge_lightest seller-home__review-row-output-pill"
+  title="12 prospects"
+>
+  
+    
+      
+      <svg class="seller-home__review-row-output-pill-glyph" aria-hidden="true">
+        <use xlink:href="/assets/icons/doctype-sprite/svg/symbols.svg#gsheet"></use>
+      </svg>
+    
+  
+  <span class="seller-home__review-row-output-pill-label">12 prospects</span>
+</span>
+
+        
+          
+          
+
+<span
+  class="slds-badge slds-badge_lightest seller-home__review-row-output-pill"
+  title="12 drafts"
+>
+  
+    
+      
+      <svg class="seller-home__review-row-output-pill-glyph" aria-hidden="true">
+        <use xlink:href="/assets/icons/doctype-sprite/svg/symbols.svg#txt"></use>
+      </svg>
+    
+  
+  <span class="seller-home__review-row-output-pill-label">12 drafts</span>
+</span>
+
+        
+      </div>
+    
+  </div>
+
+  
+  <div class="seller-home__review-row-workflow-slot">
+    
+      <span
+        class="slds-badge seller-home__review-row-workflow"
+        title="Buyer Engage"
+        aria-hidden="true"
+      >Buyer Engage</span>
+    
+
+    
+    
+    <div
+      class="seller-home__review-row-menu"
+      data-sh-review-row-menu
+      data-sh-review-row-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__review-row-menu-trigger"
+        data-sh-review-row-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="seller-home-ready-panel-ready-ri-01-menu"
+        aria-label="More actions"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__review-row-menu-list"
+        id="seller-home-ready-panel-ready-ri-01-menu"
+        role="menu"
+        aria-label="More actions"
+        data-sh-review-row-menu-list
+        hidden
+      >
+        <ul class="seller-home__review-row-menu-items" role="none">
+          
+          <li role="none">
+            <button
+              type="button"
+              class="seller-home__review-row-menu-item"
+              role="menuitem"
+              data-sh-review-row-menu-action="dismiss"
+            >
+              
+              <svg class="seller-home__review-row-menu-item-icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+              </svg>
+              
+              <span class="seller-home__review-row-menu-item-label">Dismiss</span>
+            </button>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </li>
+        
+          <li class="seller-home__ready-list-item" data-sh-ready-list-item>
+            
+
+
+
+
+
+
+
+
+<article
+  class="seller-home__review-row seller-home__review-row--has-outputs"
+  data-sh-review-row="ri-02"
+  data-sh-review-workflow="prepare_for_meetings"
+>
+  
+
+  <div class="seller-home__review-row-body">
+    
+    <a
+      href="#"
+      class="seller-home__review-row-title"
+      id="seller-home-ready-panel-ready-ri-02-title"
+      data-sh-review-row-link="ri-02"
+      aria-label="Prepare for 3 meetings, workflow: Prepare for Meetings"
+      aria-describedby="seller-home-ready-panel-ready-ri-02-desc"
+      title="Prepare for 3 meetings"
+    >Prepare for 3 meetings</a>
+    <p
+      class="seller-home__review-row-desc"
+      id="seller-home-ready-panel-ready-ri-02-desc"
+      title="Two meetings involve new stakeholders, and one account has an unresolved pricing concern."
+    >Two meetings involve new stakeholders, and one account has an unresolved pricing concern.</p>
+
+    
+    
+      <div class="seller-home__review-row-outputs" aria-hidden="true">
+        
+          
+          
+
+<span
+  class="slds-badge slds-badge_lightest seller-home__review-row-output-pill"
+  title="3 meeting briefs"
+>
+  
+    
+      <img
+        class="seller-home__review-row-output-pill-glyph seller-home__review-row-output-pill-glyph--image"
+        src="/assets/images/output-icons/doc.png"
+        alt=""
+        aria-hidden="true"
+      />
+    
+  
+  <span class="seller-home__review-row-output-pill-label">3 meeting briefs</span>
+</span>
+
+        
+      </div>
+    
+  </div>
+
+  
+  <div class="seller-home__review-row-workflow-slot">
+    
+      <span
+        class="slds-badge seller-home__review-row-workflow"
+        title="Prepare for Meetings"
+        aria-hidden="true"
+      >Prepare for Meetings</span>
+    
+
+    
+    
+    <div
+      class="seller-home__review-row-menu"
+      data-sh-review-row-menu
+      data-sh-review-row-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__review-row-menu-trigger"
+        data-sh-review-row-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="seller-home-ready-panel-ready-ri-02-menu"
+        aria-label="More actions"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__review-row-menu-list"
+        id="seller-home-ready-panel-ready-ri-02-menu"
+        role="menu"
+        aria-label="More actions"
+        data-sh-review-row-menu-list
+        hidden
+      >
+        <ul class="seller-home__review-row-menu-items" role="none">
+          
+          <li role="none">
+            <button
+              type="button"
+              class="seller-home__review-row-menu-item"
+              role="menuitem"
+              data-sh-review-row-menu-action="dismiss"
+            >
+              
+              <svg class="seller-home__review-row-menu-item-icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+              </svg>
+              
+              <span class="seller-home__review-row-menu-item-label">Dismiss</span>
+            </button>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </li>
+        
+          <li class="seller-home__ready-list-item" data-sh-ready-list-item>
+            
+
+
+
+
+
+
+
+
+<article
+  class="seller-home__review-row seller-home__review-row--has-outputs"
+  data-sh-review-row="ri-03"
+  data-sh-review-workflow="manage_opportunities"
+>
+  
+
+  <div class="seller-home__review-row-body">
+    
+    <a
+      href="#"
+      class="seller-home__review-row-title"
+      id="seller-home-ready-panel-ready-ri-03-title"
+      data-sh-review-row-link="ri-03"
+      aria-label="Acme follow-up, workflow: Manage Opportunities"
+      aria-describedby="seller-home-ready-panel-ready-ri-03-desc"
+      title="Acme follow-up"
+    >Acme follow-up</a>
+    <p
+      class="seller-home__review-row-desc"
+      id="seller-home-ready-panel-ready-ri-03-desc"
+      title="Acme has had no activity for 14 days and the close date is approaching."
+    >Acme has had no activity for 14 days and the close date is approaching.</p>
+
+    
+    
+      <div class="seller-home__review-row-outputs" aria-hidden="true">
+        
+          
+          
+
+<span
+  class="slds-badge slds-badge_lightest seller-home__review-row-output-pill"
+  title="1 next step"
+>
+  
+    
+      <img
+        class="seller-home__review-row-output-pill-glyph seller-home__review-row-output-pill-glyph--image"
+        src="/assets/images/output-icons/doc.png"
+        alt=""
+        aria-hidden="true"
+      />
+    
+  
+  <span class="seller-home__review-row-output-pill-label">1 next step</span>
+</span>
+
+        
+          
+          
+
+<span
+  class="slds-badge slds-badge_lightest seller-home__review-row-output-pill"
+  title="1 draft"
+>
+  
+    
+      
+      <svg class="seller-home__review-row-output-pill-glyph" aria-hidden="true">
+        <use xlink:href="/assets/icons/doctype-sprite/svg/symbols.svg#txt"></use>
+      </svg>
+    
+  
+  <span class="seller-home__review-row-output-pill-label">1 draft</span>
+</span>
+
+        
+      </div>
+    
+  </div>
+
+  
+  <div class="seller-home__review-row-workflow-slot">
+    
+      <span
+        class="slds-badge seller-home__review-row-workflow"
+        title="Manage Opportunities"
+        aria-hidden="true"
+      >Manage Opportunities</span>
+    
+
+    
+    
+    <div
+      class="seller-home__review-row-menu"
+      data-sh-review-row-menu
+      data-sh-review-row-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__review-row-menu-trigger"
+        data-sh-review-row-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="seller-home-ready-panel-ready-ri-03-menu"
+        aria-label="More actions"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__review-row-menu-list"
+        id="seller-home-ready-panel-ready-ri-03-menu"
+        role="menu"
+        aria-label="More actions"
+        data-sh-review-row-menu-list
+        hidden
+      >
+        <ul class="seller-home__review-row-menu-items" role="none">
+          
+          <li role="none">
+            <button
+              type="button"
+              class="seller-home__review-row-menu-item"
+              role="menuitem"
+              data-sh-review-row-menu-action="dismiss"
+            >
+              
+              <svg class="seller-home__review-row-menu-item-icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+              </svg>
+              
+              <span class="seller-home__review-row-menu-item-label">Dismiss</span>
+            </button>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </li>
+        
+          <li class="seller-home__ready-list-item" data-sh-ready-list-item>
+            
+
+
+
+
+
+
+
+
+<article
+  class="seller-home__review-row seller-home__review-row--has-outputs"
+  data-sh-review-row="ri-04"
+  
+>
+  
+
+  <div class="seller-home__review-row-body">
+    
+    <a
+      href="#"
+      class="seller-home__review-row-title"
+      id="seller-home-ready-panel-ready-ri-04-title"
+      data-sh-review-row-link="ri-04"
+      aria-label="2 inbound buyers showing renewed interest"
+      aria-describedby="seller-home-ready-panel-ready-ri-04-desc"
+      title="2 inbound buyers showing renewed interest"
+    >2 inbound buyers showing renewed interest</a>
+    <p
+      class="seller-home__review-row-desc"
+      id="seller-home-ready-panel-ready-ri-04-desc"
+      title="These replies contain questions or objections that require a personalized response."
+    >These replies contain questions or objections that require a personalized response.</p>
+
+    
+    
+      <div class="seller-home__review-row-outputs" aria-hidden="true">
+        
+          
+          
+
+<span
+  class="slds-badge slds-badge_lightest seller-home__review-row-output-pill"
+  title="2 response drafts"
+>
+  
+    
+      
+      <svg class="seller-home__review-row-output-pill-glyph" aria-hidden="true">
+        <use xlink:href="/assets/icons/doctype-sprite/svg/symbols.svg#txt"></use>
+      </svg>
+    
+  
+  <span class="seller-home__review-row-output-pill-label">2 response drafts</span>
+</span>
+
+        
+      </div>
+    
+  </div>
+
+  
+  <div class="seller-home__review-row-workflow-slot">
+    
+      
+      <span aria-hidden="true"></span>
+    
+
+    
+    
+    <div
+      class="seller-home__review-row-menu"
+      data-sh-review-row-menu
+      data-sh-review-row-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__review-row-menu-trigger"
+        data-sh-review-row-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="seller-home-ready-panel-ready-ri-04-menu"
+        aria-label="More actions"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__review-row-menu-list"
+        id="seller-home-ready-panel-ready-ri-04-menu"
+        role="menu"
+        aria-label="More actions"
+        data-sh-review-row-menu-list
+        hidden
+      >
+        <ul class="seller-home__review-row-menu-items" role="none">
+          
+          <li role="none">
+            <button
+              type="button"
+              class="seller-home__review-row-menu-item"
+              role="menuitem"
+              data-sh-review-row-menu-action="dismiss"
+            >
+              
+              <svg class="seller-home__review-row-menu-item-icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+              </svg>
+              
+              <span class="seller-home__review-row-menu-item-label">Dismiss</span>
+            </button>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </li>
+        
+          <li class="seller-home__ready-list-item" data-sh-ready-list-item>
+            
+
+
+
+
+
+
+
+
+<article
+  class="seller-home__review-row seller-home__review-row--has-outputs"
+  data-sh-review-row="ri-05"
+  
+>
+  
+
+  <div class="seller-home__review-row-body">
+    
+    <a
+      href="#"
+      class="seller-home__review-row-title"
+      id="seller-home-ready-panel-ready-ri-05-title"
+      data-sh-review-row-link="ri-05"
+      aria-label="3 deals at risk"
+      aria-describedby="seller-home-ready-panel-ready-ri-05-desc"
+      title="3 deals at risk"
+    >3 deals at risk</a>
+    <p
+      class="seller-home__review-row-desc"
+      id="seller-home-ready-panel-ready-ri-05-desc"
+      title="No buyer activity for 14+ days · $420K closing this month"
+    >No buyer activity for 14+ days · $420K closing this month</p>
+
+    
+    
+      <div class="seller-home__review-row-outputs" aria-hidden="true">
+        
+          
+          
+
+<span
+  class="slds-badge slds-badge_lightest seller-home__review-row-output-pill"
+  title="1 risk report"
+>
+  
+    
+      
+      <svg class="seller-home__review-row-output-pill-glyph" aria-hidden="true">
+        <use xlink:href="/assets/icons/doctype-sprite/svg/symbols.svg#pdf"></use>
+      </svg>
+    
+  
+  <span class="seller-home__review-row-output-pill-label">1 risk report</span>
+</span>
+
+        
+      </div>
+    
+  </div>
+
+  
+  <div class="seller-home__review-row-workflow-slot">
+    
+      
+      <span aria-hidden="true"></span>
+    
+
+    
+    
+    <div
+      class="seller-home__review-row-menu"
+      data-sh-review-row-menu
+      data-sh-review-row-stop
+    >
+      <button
+        type="button"
+        class="slds-button slds-button_icon slds-button_icon-bare seller-home__review-row-menu-trigger"
+        data-sh-review-row-menu-trigger
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="seller-home-ready-panel-ready-ri-05-menu"
+        aria-label="More actions"
+        title="More actions"
+      >
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#threedots_vertical"></use>
+        </svg>
+        <span class="slds-assistive-text">More actions</span>
+      </button>
+
+      <div
+        class="seller-home__review-row-menu-list"
+        id="seller-home-ready-panel-ready-ri-05-menu"
+        role="menu"
+        aria-label="More actions"
+        data-sh-review-row-menu-list
+        hidden
+      >
+        <ul class="seller-home__review-row-menu-items" role="none">
+          
+          <li role="none">
+            <button
+              type="button"
+              class="seller-home__review-row-menu-item"
+              role="menuitem"
+              data-sh-review-row-menu-action="dismiss"
+            >
+              
+              <svg class="seller-home__review-row-menu-item-icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+              </svg>
+              
+              <span class="seller-home__review-row-menu-item-label">Dismiss</span>
+            </button>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </li>
+        
+      </ul>
+    </div>
+  
+</section>
+
+      </div>
+    </main>
+  </div>
+
+  </main>
+  <script src="/scripts/data/accounts.js"></script>
+  <script src="/scripts/data/prospects.js"></script>
+  <script src="/scripts/data/cadences.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/vendor/svg4everybody.min.js"></script>
+  <script>svg4everybody();</script>
+
+  
+  <script src="/scripts/hunter_accounts.js"></script>
+
+  
+  <script src="/scripts/cadence-progress.js"></script>
+  <script src="/scripts/email-preview.js"></script>
+  <script src="/scripts/step_01_preview.js"></script>
+  <script type="module" src="/scripts/aop-editor/js/preview.js"></script>
+  <script src="/scripts/preview-unified.js"></script>
+  
+  <script src="/scripts/home.js"></script>
+
+  
+  <script type="module">
+    import {
+      ShaderMount,
+      godRaysFragmentShader,
+      getShaderColorFromString as toVec4,
+      getShaderNoiseTexture,
+      ShaderFitOptions,
+    } from 'https://cdn.jsdelivr.net/npm/@paper-design/shaders@0.0.77/+esm';
+
+    // Frozen shader + mask tuning — matches the "Copy" output of
+    // Issa's tuner file. Do NOT mutate at runtime; a tuning-panel
+    // rebuild would go into a separate dev-only page rather than
+    // mutating this constant.
+    const DEFAULTS = {
+      colors:      ['#148effa6', '#c3defebf', '#c380d1', '#33fff5', '#7ad8fa'],
+      colorsCount: 5,
+      colorBack:   '#ffffff',
+      colorBloom:  '#ffa8f3',
+      bloom: 0, intensity: 0.38, density: 0.03, spotty: 0.31,
+      midSize: 0.25, midIntensity: 0.18,
+      scale: 2.01, rotation: 116, offsetX: 0, offsetY: 0,
+      speed: 0.75, blur: 0,
+      wedge: 20, feather: 22,     // conic bowtie mask, degrees
+      hole: 16, holeFeather: 14,  // radial center-hole mask, vmin
+    };
+
+    // Guard: no-op if the shader host isn't in the DOM (e.g., the
+    // page is being extended into a test harness that stripped it).
+    // `return` isn't legal at module top level, so gate the whole
+    // body on the host's presence via an early `if`.
+    const bg = document.querySelector('[data-sh-god-rays]');
+    if (bg) try {
+      // ShaderMount rejects a still-decoding texture, so wait for
+      // the noise image to have real bytes before mounting.
+      let noise;
+      try { noise = getShaderNoiseTexture(document); }
+      catch { noise = getShaderNoiseTexture(); }
+      if (!(noise.complete && noise.naturalWidth)) {
+        if (typeof noise.decode === 'function') {
+          await noise.decode();
+        } else {
+          await new Promise((ok, no) => {
+            noise.addEventListener('load', ok, { once: true });
+            noise.addEventListener('error', no, { once: true });
+          });
+        }
+      }
+
+      const uniforms = {
+        u_noiseTexture: noise,
+        // Shader declares vec4 u_colors[5]; always send 5 slots
+        // and let u_colorsCount decide how many are painted.
+        u_colors:       DEFAULTS.colors.map(toVec4),
+        u_colorsCount:  DEFAULTS.colorsCount,
+        u_colorBack:    toVec4(DEFAULTS.colorBack),
+        u_colorBloom:   toVec4(DEFAULTS.colorBloom),
+        u_fit:          ShaderFitOptions.cover,
+        u_originX: 0.5, u_originY: 0.5,
+        u_worldWidth: 0, u_worldHeight: 0,
+        u_intensity:    DEFAULTS.intensity,
+        u_density:      DEFAULTS.density,
+        u_spotty:       DEFAULTS.spotty,
+        u_midSize:      DEFAULTS.midSize,
+        u_midIntensity: DEFAULTS.midIntensity,
+        u_bloom:        DEFAULTS.bloom,
+        u_scale:        DEFAULTS.scale,
+        u_rotation:     DEFAULTS.rotation,
+        u_offsetX:      DEFAULTS.offsetX,
+        u_offsetY:      DEFAULTS.offsetY,
+      };
+
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+      const mount = new ShaderMount(
+        bg, godRaysFragmentShader, uniforms, undefined,
+        reduce.matches ? 0 : DEFAULTS.speed, 0,
+        DEFAULTS.blur > 0 ? 1 : 2  // minPixelRatio — cheaper when blur is on
+      );
+
+      // Apply the two-layer mask (conic bowtie ∩ radial center hole).
+      // Conic keeps rays within ±wedge° of horizontal; radial punches
+      // a soft hole in the center so the rays never resolve into a
+      // visible convergence point. Masking (not overlay) keeps the
+      // element transparent so the shader can composite over the
+      // fallback surface color.
+      const applyMask = () => {
+        const layers = [];
+        const w = Math.min(DEFAULTS.wedge, 89);
+        const f = Math.min(DEFAULTS.feather, 89 - w);
+        if (w < 89) {
+          layers.push('conic-gradient(at 50% 50%, ' + [
+            [0, 'transparent'],
+            [90 - w - f, 'transparent'], [90 - w, '#000'], [90 + w, '#000'], [90 + w + f, 'transparent'],
+            [270 - w - f, 'transparent'], [270 - w, '#000'], [270 + w, '#000'], [270 + w + f, 'transparent'],
+            [360, 'transparent'],
+          ].map(([d, c]) => `${c} ${d}deg`).join(', ') + ')');
+        }
+        if (DEFAULTS.hole > 0) {
+          const r = DEFAULTS.hole;
+          const hf = Math.max(DEFAULTS.holeFeather, 0.1);
+          layers.push(
+            'radial-gradient(circle at 50% 50%, transparent 0, transparent ' +
+            r + 'vmin, #000 ' + (r + hf) + 'vmin)'
+          );
+        }
+        const img = layers.length ? layers.join(', ') : 'none';
+        bg.style.maskImage = img;
+        bg.style.webkitMaskImage = img;
+        // Two layers must intersect. Safari wants the legacy keyword.
+        bg.style.maskComposite = layers.length > 1 ? 'intersect' : 'add';
+        bg.style.webkitMaskComposite = layers.length > 1 ? 'source-in' : 'source-over';
+      };
+
+      bg.style.filter = 'blur(' + DEFAULTS.blur + 'px)';
+      applyMask();
+
+      // Respect a live change to the reduced-motion setting — pin
+      // the shader speed to 0 when the OS toggles on
+      // reduced-motion mid-session; restore on toggle-off.
+      reduce.addEventListener('change', () => {
+        mount.setSpeed(reduce.matches ? 0 : DEFAULTS.speed);
+      });
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.warn('[seller-home] god-rays shader failed to init:', e);
+    }
+  </script>
+
+  <script>
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector('.layout-container');
+        if (el) el.classList.add('is-ready');
+      });
+    });
+  </script>
+</body>
+</html>
