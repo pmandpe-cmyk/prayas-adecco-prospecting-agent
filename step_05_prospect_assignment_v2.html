@@ -747,11 +747,28 @@
     <main class="content-container">
       <header class="body-header">
         <h1 class="h1-title">Assign Prospects</h1>
-        <p class="description slds-m-top_xx-small">Define how the agent distributes prospects and assigns their ownership. <a href="javascript:void(0);" id="advanced-settings-link" style="color: var(--sdr-guided-config-color-accent-2); text-decoration: underline; font-weight: var(--sdr-guided-config-font-weight-6);">Advanced Prospecting Settings</a></p>
+        <p class="description slds-m-top_xx-small">Define how the agent distributes prospects and assigns their ownership.</p>
       </header>
       <section class="body-content body-content--padded" id="body-content">
+
+<!-- SLDS 2 Tabs -->
+<div class="slds-tabs_default" id="assign-prospects-tabs">
+  <ul class="slds-tabs_default__nav" role="tablist">
+    <li class="slds-tabs_default__item slds-is-active" title="Assign Prospects" role="presentation">
+      <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-assign-prospects" id="tab-assign-prospects__item" data-tab-trigger>Assign Prospects</a>
+    </li>
+    <li class="slds-tabs_default__item" title="Advanced Prospecting Settings" role="presentation">
+      <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-adv-settings" id="tab-adv-settings__item" data-tab-trigger>Advanced Prospecting Settings</a>
+    </li>
+  </ul>
+
+  <div id="tab-assign-prospects" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-assign-prospects__item">
         
 <style>
+#assign-prospects-tabs > .slds-tabs_default__nav {
+    width: fit-content;
+}
+
 .section-number {
     display: inline-flex;
     align-items: center;
@@ -775,6 +792,13 @@
 .section-description {
     margin-left: calc(var(--slds-g-sizing-7, 1.5rem) + var(--slds-g-spacing-x-small, 0.5rem));
     margin-top: var(--slds-g-spacing-xx-small, 0.25rem);
+}
+
+#assign-prospects-tabs .slds-tabs_default__content .slds-card {
+    border-width: var(--slds-c-card-sizing-border, var(--slds-g-sizing-border-1));
+    border-style: solid;
+    border-color: var(--slds-c-card-color-border, var(--slds-g-color-border-1));
+    box-shadow: var(--slds-c-card-shadow, var(--slds-s-container-shadow, var(--slds-g-shadow-2)));
 }
 
 .radio-card, .radio-card-full {
@@ -1893,11 +1917,11 @@
     cursor: not-allowed;
 }
 
-/* Radio cards inside Advanced Prospecting Settings modal —
+/* Radio cards inside Advanced Prospecting Settings accordion —
    re-apply slds2_agentic.css radio styles with ID specificity
    to override conflicting index.css rules */
-#advanced-settings-modal .slds-radio .slds-radio_faux,
-#advanced-settings-modal .slds-radio .slds-radio--faux {
+#advanced-settings-accordion .slds-radio .slds-radio_faux,
+#advanced-settings-accordion .slds-radio .slds-radio--faux {
     width: var(--slds-g-sizing-5);
     height: var(--slds-g-sizing-5);
     display: inline-block;
@@ -1913,7 +1937,7 @@
     box-shadow: var(--slds-c-radio-shadow, var(--slds-s-input-shadow));
     transition: border 0.1s linear, background-color 0.1s linear;
 }
-#advanced-settings-modal .slds-radio [type=radio] {
+#advanced-settings-accordion .slds-radio [type=radio] {
     width: 1px;
     height: 1px;
     border: 0;
@@ -1924,13 +1948,13 @@
     position: absolute;
     pointer-events: auto;
 }
-#advanced-settings-modal .slds-radio [type=radio]:checked + .slds-radio__label .slds-radio_faux,
-#advanced-settings-modal .slds-radio [type=radio]:checked ~ .slds-radio_faux {
+#advanced-settings-accordion .slds-radio [type=radio]:checked + .slds-radio__label .slds-radio_faux,
+#advanced-settings-accordion .slds-radio [type=radio]:checked ~ .slds-radio_faux {
     --slds-c-radio-color-background: var(--slds-c-radio-color-background-checked, var(--slds-s-mark-color-background-checked, var(--slds-g-color-surface-container-1)));
     --slds-c-radio-shadow: var(--slds-s-mark-shadow-checked);
 }
-#advanced-settings-modal .slds-radio [type=radio]:checked + .slds-radio__label .slds-radio_faux:after,
-#advanced-settings-modal .slds-radio [type=radio]:checked ~ .slds-radio_faux:after {
+#advanced-settings-accordion .slds-radio [type=radio]:checked + .slds-radio__label .slds-radio_faux:after,
+#advanced-settings-accordion .slds-radio [type=radio]:checked ~ .slds-radio_faux:after {
     width: var(--slds-g-sizing-3);
     height: var(--slds-g-sizing-3);
     content: "";
@@ -1943,18 +1967,43 @@
     background-color: var(--slds-c-radio-color-background-checked, var(--slds-s-mark-color-foreground-checked, var(--slds-g-color-border-accent-2)));
     outline: var(--slds-g-sizing-2) solid transparent;
 }
-#advanced-settings-modal .slds-radio .slds-radio__label {
+#advanced-settings-accordion .slds-radio .slds-radio__label {
     cursor: pointer;
 }
-#advanced-settings-modal .slds-radio .slds-form-element__label {
+#advanced-settings-accordion .slds-radio .slds-form-element__label {
     display: inline;
     vertical-align: middle;
     font-size: var(--slds-s-label-font-size, var(--slds-g-font-scale-neg-2));
     font-weight: 400;
     color: var(--slds-g-color-on-surface-2);
 }
-#advanced-settings-modal .slds-form-element .slds-radio [type=radio] + .slds-radio__label .slds-radio_faux {
+#advanced-settings-accordion .slds-form-element .slds-radio [type=radio] + .slds-radio__label .slds-radio_faux {
     margin-inline-end: var(--slds-g-spacing-2);
+}
+
+.adv-settings-form {
+    max-width: 520px;
+    padding: var(--slds-g-spacing-4, 1rem) 0;
+}
+.adv-settings-form__field .slds-form-element__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: var(--slds-g-font-weight-6, 590);
+    color: var(--slds-g-color-on-surface-2, #181818);
+    margin-bottom: var(--slds-g-spacing-1, 0.25rem);
+}
+.adv-settings-form__helper-text {
+    font-size: var(--slds-g-font-scale-neg-1, 13px);
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+    margin: 0 0 var(--slds-g-spacing-3, 0.75rem) 0;
+    line-height: 1.45;
+    max-width: 480px;
+}
+.adv-settings-form__info {
+    --slds-c-icon-color-foreground: var(--slds-g-color-neutral-base-50, #757575);
+    display: inline-flex;
+    cursor: help;
 }
 
 </style>
@@ -2959,6 +3008,121 @@
 </div>
 
 
+  </div><!-- /tab-assign-prospects -->
+
+  <!-- TAB 2: Advanced Prospecting Settings -->
+  <div id="tab-adv-settings" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-adv-settings__item">
+    <div id="advanced-settings-accordion">
+      <form class="adv-settings-form" autocomplete="off" novalidate>
+
+        <!-- Route Prospects from Additional Account Owners -->
+        <div class="slds-form-element slds-m-bottom_medium adv-settings-form__field">
+          <label class="slds-form-element__label" for="adv-account-owners">
+            Route Prospects from Additional Account Owners
+            <span class="slds-icon_container slds-icon-utility-info adv-settings-form__info" title="Select account owners without Prospecting permissions whose accounts you want the agent to research. Prospects from these accounts are assigned via round-robin to the recipients you select in the ownership step.">
+              <svg class="slds-icon slds-icon-text-default slds-icon_xx-small" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+              </svg>
+              <span class="slds-assistive-text">Select account owners without Prospecting permissions whose accounts you want the agent to research.</span>
+            </span>
+          </label>
+          <p class="adv-settings-form__helper-text">Select account owners without Prospecting permissions whose accounts you want the agent to research. Prospects from these accounts are assigned via round-robin to the recipients you select in the ownership step.</p>
+          <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+            <svg class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+            </svg>
+            <input type="text" id="adv-account-owners" placeholder="Search Users..." class="slds-input" />
+          </div>
+        </div>
+
+        <!-- Process All Accounts -->
+        <div class="slds-form-element slds-m-bottom_medium adv-settings-form__field">
+          <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+            <label class="slds-form-element__label" for="adv-process-all" style="margin-bottom: 0;">
+              Process All Accounts
+              <span class="slds-icon_container slds-icon-utility-info adv-settings-form__info" title="Include every account from the data source in each run, including accounts in cool-down and accounts that were already prospected.">
+                <svg class="slds-icon slds-icon-text-default slds-icon_xx-small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                </svg>
+                <span class="slds-assistive-text">Include every account from the data source in each run.</span>
+              </span>
+            </label>
+            <div class="slds-form-element" style="margin: 0;">
+              <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-assistive-text">Process All Accounts</span>
+                <input type="checkbox" name="process-all-accounts" id="adv-process-all" value="process-all" checked aria-describedby="adv-process-all-desc" />
+                <span id="adv-process-all-desc" class="slds-checkbox_faux_container" aria-live="assertive">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-checkbox_on">Enabled</span>
+                  <span class="slds-checkbox_off">Disabled</span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <p class="adv-settings-form__helper-text">Include every account from the data source in each run, including accounts in cool-down and accounts that were already prospected. Account owner rules still apply.</p>
+        </div>
+
+        <!-- Record Creation -->
+        <div class="slds-form-element slds-m-bottom_medium adv-settings-form__field">
+          <span class="slds-form-element__label">
+            Record Creation
+            <span class="slds-icon_container slds-icon-utility-info adv-settings-form__info" title="Select the Salesforce object to create for new prospects.">
+              <svg class="slds-icon slds-icon-text-default slds-icon_xx-small" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+              </svg>
+              <span class="slds-assistive-text">Select the Salesforce object to create for new prospects.</span>
+            </span>
+          </span>
+          <p class="adv-settings-form__helper-text">Select the Salesforce object to create for new prospects.</p>
+          <div class="slds-form-element__control">
+
+            <!-- Leads option -->
+            <div style="padding: 0.875rem 1rem; border: 1px solid #e5e5e5; border-radius: 0.5rem; background: #fff; margin-bottom: 0.75rem; cursor: pointer;" onclick="document.getElementById('record-leads').checked=true;">
+              <span class="slds-radio">
+                <input type="radio" id="record-leads" name="record-creation" value="leads" />
+                <label class="slds-radio__label" for="record-leads">
+                  <span class="slds-radio_faux"></span>
+                  <span class="slds-form-element__label">Leads</span>
+                </label>
+              </span>
+            </div>
+
+            <!-- Contacts & Accounts option (selected) -->
+            <div style="padding: 0.875rem 1rem; border: 1px solid #e5e5e5; border-radius: 0.5rem; background: #fff; margin-bottom: 0.75rem; display: flex; align-items: center; cursor: pointer;" onclick="document.getElementById('record-contacts').checked=true;">
+              <span class="slds-radio" style="flex: 1;">
+                <input type="radio" id="record-contacts" name="record-creation" value="contacts" checked />
+                <label class="slds-radio__label" for="record-contacts">
+                  <span class="slds-radio_faux"></span>
+                  <span class="slds-form-element__label">Contacts &amp; Accounts</span>
+                </label>
+              </span>
+              <span class="slds-badge" style="background-color: #acf3e4; color: #0b5850; font-size: 0.75rem; font-weight: 600;">Recommended</span>
+            </div>
+
+            <!-- Prospects option -->
+            <div style="padding: 0.875rem 1rem; border: 1px solid #e5e5e5; border-radius: 0.5rem; background: #fff; cursor: pointer;" onclick="document.getElementById('record-prospects').checked=true;">
+              <span class="slds-radio">
+                <input type="radio" id="record-prospects" name="record-creation" value="prospects" />
+                <label class="slds-radio__label" for="record-prospects">
+                  <span class="slds-radio_faux"></span>
+                  <span class="slds-form-element__label">Prospects</span>
+                </label>
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Set to Default -->
+        <div class="slds-m-top_medium">
+          <button class="slds-button" type="button" style="color: var(--sdr-guided-config-color-accent-2); font-weight: var(--sdr-guided-config-font-weight-6); padding-left: 0;">Set to Default</button>
+        </div>
+
+      </form>
+    </div>
+  </div><!-- /tab-adv-settings -->
+
+</div><!-- /slds-tabs_default -->
 
       </section>
     </main>
@@ -3008,147 +3172,27 @@
     })();
   </script>
 
-  <!-- Advanced Prospecting Settings Modal -->
-  <section id="advanced-settings-modal" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="advanced-settings-heading" class="slds-modal" style="display:none;">
-    <div class="slds-modal__container" style="max-width: 48rem;">
-      <button class="slds-button slds-button_icon slds-modal__close" id="advanced-settings-close">
-        <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
-          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
-        </svg>
-        <span class="slds-assistive-text">Cancel and close</span>
-      </button>
-
-      <div class="slds-modal__header" style="border-bottom: 2px solid var(--slds-g-color-brand-base-50, #0176d3);">
-        <h1 id="advanced-settings-heading" class="slds-modal__title slds-hyphenate" style="color: var(--sdr-guided-config-blue-15);" tabindex="-1">Advanced Prospecting Settings</h1>
-      </div>
-
-      <div class="slds-modal__content slds-p-horizontal_large slds-p-vertical_large">
-
-        <!-- Route Prospects from Additional Account Owners -->
-        <div class="slds-m-bottom_medium">
-          <h3 class="slds-text-heading_small slds-m-bottom_xx-small" style="color: var(--sdr-guided-config-blue-15); font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-scale-2);">Route Prospects from Additional Account Owners</h3>
-          <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_medium" style="line-height: var(--sdr-guided-config-font-line-height-4);">Select account owners without Prospecting permissions whose accounts you want the agent to research. Prospects from these accounts are assigned via round-robin to the recipients you select in the ownership step.</p>
-
-          <div class="slds-form-element">
-            <label class="slds-form-element__label" for="adv-account-owners" style="font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-base); color: var(--sdr-guided-config-color-on-surface-2);">Select Account Owners</label>
-            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
-              <svg class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default slds-icon_x-small" aria-hidden="true">
-                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
-              </svg>
-              <input type="text" id="adv-account-owners" placeholder="Search Users..." class="slds-input" />
-            </div>
-          </div>
-        </div>
-
-        <div class="slds-border_top slds-m-vertical_medium"></div>
-
-        <!-- Process All Accounts -->
-        <div class="slds-m-bottom_medium">
-          <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-m-bottom_xx-small">
-            <h3 class="slds-text-heading_small" style="color: var(--sdr-guided-config-color-accent-2); font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-scale-2);">Process All Accounts</h3>
-            <div class="slds-form-element" style="margin: 0;">
-              <label class="slds-checkbox_toggle slds-grid">
-                <span class="slds-form-element__label slds-assistive-text">Process All Accounts</span>
-                <input type="checkbox" name="process-all-accounts" id="adv-process-all" value="process-all" checked aria-describedby="adv-process-all-desc" />
-                <span id="adv-process-all-desc" class="slds-checkbox_faux_container" aria-live="assertive">
-                  <span class="slds-checkbox_faux"></span>
-                  <span class="slds-checkbox_on">Enabled</span>
-                  <span class="slds-checkbox_off">Disabled</span>
-                </span>
-              </label>
-            </div>
-          </div>
-          <p class="slds-text-body_small slds-text-color_weak" style="line-height: var(--sdr-guided-config-font-line-height-4);">Include every account from the data source in each run, including accounts in cool-down and accounts that were already prospected. Account owner rules still apply.</p>
-        </div>
-
-        <div class="slds-border_top slds-m-vertical_medium"></div>
-
-        <!-- Record Creation -->
-        <div>
-          <h3 class="slds-text-heading_small slds-m-bottom_xx-small" style="color: var(--sdr-guided-config-color-accent-2); font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-scale-2);">Record Creation</h3>
-          <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_medium" style="line-height: var(--sdr-guided-config-font-line-height-4);">Select the Salesforce object to create for new prospects.</p>
-
-          <div class="slds-form-element">
-            <div class="slds-form-element__control">
-
-              <!-- Leads option -->
-              <div style="padding: 0.875rem 1rem; border: 1px solid #e5e5e5; border-radius: 0.5rem; background: #fff; margin-bottom: 0.75rem; cursor: pointer;" onclick="document.getElementById('record-leads').checked=true;">
-                <span class="slds-radio">
-                  <input type="radio" id="record-leads" name="record-creation" value="leads" />
-                  <label class="slds-radio__label" for="record-leads">
-                    <span class="slds-radio_faux"></span>
-                    <span class="slds-form-element__label">Leads</span>
-                  </label>
-                </span>
-              </div>
-
-              <!-- Contacts & Accounts option (selected) -->
-              <div style="padding: 0.875rem 1rem; border: 1px solid #e5e5e5; border-radius: 0.5rem; background: #fff; margin-bottom: 0.75rem; display: flex; align-items: center; cursor: pointer;" onclick="document.getElementById('record-contacts').checked=true;">
-                <span class="slds-radio" style="flex: 1;">
-                  <input type="radio" id="record-contacts" name="record-creation" value="contacts" checked />
-                  <label class="slds-radio__label" for="record-contacts">
-                    <span class="slds-radio_faux"></span>
-                    <span class="slds-form-element__label">Contacts &amp; Accounts</span>
-                  </label>
-                </span>
-                <span class="slds-badge" style="background-color: #acf3e4; color: #0b5850; font-size: 0.75rem; font-weight: 600;">Recommended</span>
-              </div>
-
-              <!-- Prospects option -->
-              <div style="padding: 0.875rem 1rem; border: 1px solid #e5e5e5; border-radius: 0.5rem; background: #fff; margin-bottom: 0.75rem; cursor: pointer;" onclick="document.getElementById('record-prospects').checked=true;">
-                <span class="slds-radio">
-                  <input type="radio" id="record-prospects" name="record-creation" value="prospects" />
-                  <label class="slds-radio__label" for="record-prospects">
-                    <span class="slds-radio_faux"></span>
-                    <span class="slds-form-element__label">Prospects</span>
-                  </label>
-                </span>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="slds-modal__footer" style="display: flex; justify-content: space-between; align-items: center;">
-        <button class="slds-button" style="color: var(--sdr-guided-config-color-accent-2); font-weight: var(--sdr-guided-config-font-weight-6); padding-left: 0;">Set to Default</button>
-        <div>
-          <button class="slds-button slds-button_neutral" id="advanced-settings-cancel">Cancel</button>
-          <button class="slds-button slds-button_brand slds-m-left_x-small" id="advanced-settings-save">Save</button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div id="advanced-settings-backdrop" class="slds-backdrop" role="presentation" style="display:none;"></div>
-
+  <!-- Tab switching for Assign Prospects / Advanced Prospecting Settings -->
   <script>
     (function() {
-      var link = document.getElementById('advanced-settings-link');
-      var modal = document.getElementById('advanced-settings-modal');
-      var backdrop = document.getElementById('advanced-settings-backdrop');
-      var closeBtn = document.getElementById('advanced-settings-close');
-      var cancelBtn = document.getElementById('advanced-settings-cancel');
-
-      function openModal() {
-        modal.style.display = '';
-        backdrop.style.display = '';
-        modal.classList.add('slds-fade-in-open');
-        backdrop.classList.add('slds-backdrop_open');
-      }
-      function closeModal() {
-        modal.classList.remove('slds-fade-in-open');
-        backdrop.classList.remove('slds-backdrop_open');
-        setTimeout(function() { modal.style.display = 'none'; backdrop.style.display = 'none'; }, 200);
-      }
-
-      var saveBtn = document.getElementById('advanced-settings-save');
-
-      if (link) link.addEventListener('click', openModal);
-      if (closeBtn) closeBtn.addEventListener('click', closeModal);
-      if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
-      if (saveBtn) saveBtn.addEventListener('click', closeModal);
-
+      var tabs = document.querySelectorAll('#assign-prospects-tabs [data-tab-trigger]');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function(e) {
+          e.preventDefault();
+          tabs.forEach(function(t) {
+            t.setAttribute('aria-selected', 'false');
+            t.setAttribute('tabindex', '-1');
+            t.parentElement.classList.remove('slds-is-active');
+            var panel = document.getElementById(t.getAttribute('aria-controls'));
+            if (panel) { panel.classList.remove('slds-show'); panel.classList.add('slds-hide'); }
+          });
+          tab.setAttribute('aria-selected', 'true');
+          tab.setAttribute('tabindex', '0');
+          tab.parentElement.classList.add('slds-is-active');
+          var activePanel = document.getElementById(tab.getAttribute('aria-controls'));
+          if (activePanel) { activePanel.classList.remove('slds-hide'); activePanel.classList.add('slds-show'); }
+        });
+      });
     })();
   </script>
 
