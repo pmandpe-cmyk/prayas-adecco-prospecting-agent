@@ -69,46 +69,6 @@
         </div>
         
         <div class="slds-global-header__item slds-grid slds-grid_vertical-align-center">
-          <div class="slds-dropdown-trigger slds-dropdown-trigger_click slds-m-right_medium" id="iteration-switcher" style="position: relative;">
-            <button class="slds-button slds-button_neutral" style="font-size: 0.8125rem; font-weight: 600; padding: 0 1rem; height: 2rem; border-radius: 1rem; display: flex; align-items: center; gap: 0.375rem;" onclick="document.getElementById('iteration-dropdown').classList.toggle('slds-is-open');">
-              <svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true" style="width: 0.875rem; height: 0.875rem;">
-                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#layers"></use>
-              </svg>
-              V1
-              <svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true" style="width: 0.625rem; height: 0.625rem;">
-                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-              </svg>
-            </button>
-            <div id="iteration-dropdown" class="slds-dropdown slds-dropdown_left slds-dropdown_small" style="min-width: 10rem; margin-top: 0.25rem;">
-              <ul class="slds-dropdown__list" role="menu">
-                <li class="slds-dropdown__item slds-is-selected" role="presentation">
-                  <a href="/step_05_prospect_assignment.html" role="menuitemradio" aria-checked="true">
-                    <span class="slds-truncate" title="V1">
-                      <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-m-right_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use></svg>
-                      V1
-                    </span>
-                  </a>
-                </li>
-                <li class="slds-dropdown__item" role="presentation">
-                  <a href="/step_05_prospect_assignment_v2.html" role="menuitemradio" aria-checked="false">
-                    <span class="slds-truncate" title="V2">
-                      <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-m-right_x-small" aria-hidden="true" style="visibility: hidden;"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use></svg>
-                      V2
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <script>
-            document.addEventListener('click', function(e) {
-              var switcher = document.getElementById('iteration-switcher');
-              var dropdown = document.getElementById('iteration-dropdown');
-              if (switcher && dropdown && !switcher.contains(e.target)) {
-                dropdown.classList.remove('slds-is-open');
-              }
-            });
-          </script>
           <ul class="slds-global-actions">
             <li class="slds-global-actions__item">
               <div class="slds-global-actions__favorites slds-dropdown-trigger slds-dropdown-trigger_click">
@@ -750,7 +710,8 @@
         <p class="description slds-m-top_xx-small">Define how the agent distributes prospects and assigns their ownership. <a href="javascript:void(0);" id="advanced-settings-link" style="color: var(--sdr-guided-config-color-accent-2); text-decoration: underline; font-weight: var(--sdr-guided-config-font-weight-6);">Advanced Prospecting Settings</a></p>
       </header>
       <section class="body-content body-content--padded" id="body-content">
-        
+
+
 <style>
 .section-number {
     display: inline-flex;
@@ -776,6 +737,7 @@
     margin-left: calc(var(--slds-g-sizing-7, 1.5rem) + var(--slds-g-spacing-x-small, 0.5rem));
     margin-top: var(--slds-g-spacing-xx-small, 0.25rem);
 }
+
 
 .radio-card, .radio-card-full {
     cursor: pointer;
@@ -1957,6 +1919,7 @@
     margin-inline-end: var(--slds-g-spacing-2);
 }
 
+
 </style>
 
 <div id="step-1-content" class="slds-p-vertical_medium slds-p-horizontal_medium slds-m-bottom_medium">
@@ -3026,7 +2989,7 @@
 
         <!-- Route Prospects from Additional Account Owners -->
         <div class="slds-m-bottom_medium">
-          <h3 class="slds-text-heading_small slds-m-bottom_xx-small" style="color: var(--sdr-guided-config-blue-15); font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-scale-2);">Route Prospects from Additional Account Owners</h3>
+          <h3 class="slds-text-heading_small slds-m-bottom_xx-small" style="color: #001E5B; font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-scale-2);">Route Prospects from Additional Account Owners</h3>
           <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_medium" style="line-height: var(--sdr-guided-config-font-line-height-4);">Select account owners without Prospecting permissions whose accounts you want the agent to research. Prospects from these accounts are assigned via round-robin to the recipients you select in the ownership step.</p>
 
           <div class="slds-form-element">
@@ -3042,14 +3005,14 @@
 
         <div class="slds-border_top slds-m-vertical_medium"></div>
 
-        <!-- Process All Accounts -->
+        <!-- Research All Accounts on Every Run -->
         <div class="slds-m-bottom_medium">
           <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-m-bottom_xx-small">
-            <h3 class="slds-text-heading_small" style="color: var(--sdr-guided-config-color-accent-2); font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-scale-2);">Process All Accounts</h3>
+            <h3 class="slds-text-heading_small" style="color: #001E5B; font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-scale-2);">Research All Accounts on Every Run</h3>
             <div class="slds-form-element" style="margin: 0;">
               <label class="slds-checkbox_toggle slds-grid">
-                <span class="slds-form-element__label slds-assistive-text">Process All Accounts</span>
-                <input type="checkbox" name="process-all-accounts" id="adv-process-all" value="process-all" checked aria-describedby="adv-process-all-desc" />
+                <span class="slds-form-element__label slds-assistive-text">Research All Accounts on Every Run</span>
+                <input type="checkbox" name="process-all-accounts" id="adv-process-all" value="process-all" aria-describedby="adv-process-all-desc" />
                 <span id="adv-process-all-desc" class="slds-checkbox_faux_container" aria-live="assertive">
                   <span class="slds-checkbox_faux"></span>
                   <span class="slds-checkbox_on">Enabled</span>
@@ -3058,15 +3021,15 @@
               </label>
             </div>
           </div>
-          <p class="slds-text-body_small slds-text-color_weak" style="line-height: var(--sdr-guided-config-font-line-height-4);">Include every account from the data source in each run, including accounts in cool-down and accounts that were already prospected. Account owner rules still apply.</p>
+          <p class="slds-text-body_small slds-text-color_weak" style="line-height: var(--sdr-guided-config-font-line-height-4);">Include every account from the data source in every run, even if it's in a cool-down period or was already researched.</p>
         </div>
 
         <div class="slds-border_top slds-m-vertical_medium"></div>
 
         <!-- Record Creation -->
         <div>
-          <h3 class="slds-text-heading_small slds-m-bottom_xx-small" style="color: var(--sdr-guided-config-color-accent-2); font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-scale-2);">Record Creation</h3>
-          <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_medium" style="line-height: var(--sdr-guided-config-font-line-height-4);">Select the Salesforce object to create for new prospects.</p>
+          <h3 class="slds-text-heading_small slds-m-bottom_xx-small" style="color: #001E5B; font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-scale-2);">Record Creation</h3>
+          <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_medium" style="line-height: var(--sdr-guided-config-font-line-height-4);">Choose how the agent saves new prospects.</p>
 
           <div class="slds-form-element">
             <div class="slds-form-element__control">
@@ -3082,10 +3045,10 @@
                 </span>
               </div>
 
-              <!-- Contacts & Accounts option (selected) -->
+              <!-- Contacts & Accounts option -->
               <div style="padding: 0.875rem 1rem; border: 1px solid #e5e5e5; border-radius: 0.5rem; background: #fff; margin-bottom: 0.75rem; display: flex; align-items: center; cursor: pointer;" onclick="document.getElementById('record-contacts').checked=true;">
                 <span class="slds-radio" style="flex: 1;">
-                  <input type="radio" id="record-contacts" name="record-creation" value="contacts" checked />
+                  <input type="radio" id="record-contacts" name="record-creation" value="contacts" />
                   <label class="slds-radio__label" for="record-contacts">
                     <span class="slds-radio_faux"></span>
                     <span class="slds-form-element__label">Contacts &amp; Accounts</span>
@@ -3094,15 +3057,16 @@
                 <span class="slds-badge" style="background-color: #acf3e4; color: #0b5850; font-size: 0.75rem; font-weight: 600;">Recommended</span>
               </div>
 
-              <!-- Prospects option -->
+              <!-- Staged Prospects option (selected) -->
               <div style="padding: 0.875rem 1rem; border: 1px solid #e5e5e5; border-radius: 0.5rem; background: #fff; margin-bottom: 0.75rem; cursor: pointer;" onclick="document.getElementById('record-prospects').checked=true;">
                 <span class="slds-radio">
-                  <input type="radio" id="record-prospects" name="record-creation" value="prospects" />
+                  <input type="radio" id="record-prospects" name="record-creation" value="prospects" checked />
                   <label class="slds-radio__label" for="record-prospects">
                     <span class="slds-radio_faux"></span>
-                    <span class="slds-form-element__label">Prospects</span>
+                    <span class="slds-form-element__label">Staged Prospects</span>
                   </label>
                 </span>
+                <p style="margin: 0.25rem 0 0 1.75rem; font-size: 0.8125rem; color: #706e6b;">Hold new prospects for review before the agent saves them as leads or contacts.</p>
               </div>
 
             </div>
@@ -3148,7 +3112,6 @@
       if (closeBtn) closeBtn.addEventListener('click', closeModal);
       if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
       if (saveBtn) saveBtn.addEventListener('click', closeModal);
-
     })();
   </script>
 
