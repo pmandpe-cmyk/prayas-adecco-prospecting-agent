@@ -1561,6 +1561,21 @@ tr.is-removing {
   width: auto;
 }
 
+.agent-log-table_run-detail thead th.agent-log-th_total-cost,
+.agent-log-table_run-detail tbody td.agent-log-cell_total-cost {
+  min-width: 220px;
+  max-width: 280px;
+  width: auto;
+}
+
+.agent-log-table_run-detail tbody td.agent-log-cell_total-cost .agent-log-cost-text {
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-size: 12px;
+  color: #3e3e3c;
+}
+
 .agent-log-table_run-detail thead th.agent-log-th_owner,
 .agent-log-table_run-detail tbody td.agent-log-cell_owner {
   min-width: 140px;
