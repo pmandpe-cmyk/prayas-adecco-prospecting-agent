@@ -537,6 +537,8 @@
 
     var titleEl = popover.querySelector('.js-rationale-popover-title')
     var listEl = popover.querySelector('.js-rationale-popover-list')
+    var matchWrap = popover.querySelector('.js-rationale-popover-match')
+    var matchListEl = popover.querySelector('.js-rationale-popover-match-list')
     var closeBtn = popover.querySelector('.js-rationale-popover-close')
     var hideTimer = null
     var activeCell = null
@@ -551,6 +553,11 @@
       }
     }
 
+    var statusSymbol = { met: '✓', 'not-met': '✗', 'no-data': '—' }
+    var statusLabel = { met: 'Met', 'not-met': 'Not met', 'no-data': 'No data' }
+    var statusColor = { met: '#2e7d32', 'not-met': '#c62828', 'no-data': '#9e9e9e' }
+    var statusBg = { met: '#e8f5e9', 'not-met': '#fbe9e7', 'no-data': '#f5f5f5' }
+
     function populate (cell) {
       titleEl.textContent = cell.getAttribute('data-rationale-title') || ''
       listEl.innerHTML = ''
@@ -560,6 +567,39 @@
         li.textContent = text
         listEl.appendChild(li)
       })
+
+      var matchItems = parseDetails(cell.getAttribute('data-rationale-match'))
+      if (matchListEl) matchListEl.innerHTML = ''
+      if (matchWrap) {
+        if (matchItems.length > 0) {
+          matchWrap.style.display = ''
+          matchItems.forEach(function (m) {
+            var row = document.createElement('div')
+            row.style.cssText = 'display:flex;align-items:center;gap:6px;font-size:12px;line-height:1.6;'
+            var ind = document.createElement('span')
+            ind.style.cssText = 'display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;font-size:10px;font-weight:700;flex-shrink:0;background:' + (statusBg[m.status] || '#f5f5f5') + ';color:' + (statusColor[m.status] || '#9e9e9e') + ';'
+            ind.textContent = statusSymbol[m.status] || '—'
+            row.appendChild(ind)
+            var lbl = document.createElement('span')
+            lbl.style.cssText = 'color:#3e3e3c;'
+            lbl.textContent = (statusLabel[m.status] || 'No data') + ' · ' + m.criterion
+            row.appendChild(lbl)
+            var cat = document.createElement('span')
+            cat.style.cssText = 'color:#706e6b;font-style:italic;'
+            cat.textContent = '(' + m.category + ')'
+            row.appendChild(cat)
+            if (m.source) {
+              var src = document.createElement('span')
+              src.style.cssText = 'color:#706e6b;font-size:11px;margin-left:auto;white-space:nowrap;'
+              src.textContent = m.source
+              row.appendChild(src)
+            }
+            matchListEl.appendChild(row)
+          })
+        } else {
+          matchWrap.style.display = 'none'
+        }
+      }
     }
 
     // Placement priority per spec:

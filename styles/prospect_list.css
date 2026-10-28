@@ -1135,9 +1135,72 @@ tr.is-removing {
    300px width per design spec, a higher z-index than SLDS's default 6000,
    a navy title color, and the dynamically-positioned caret. */
 .agent-log-table tbody td.agent-log-cell_rationale {
-  /* No native tooltip / question-mark cursor — the rich popover is the
-     only hover affordance. */
   cursor: pointer;
+  vertical-align: top;
+}
+
+.match-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.match-details__criteria {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+.match-details__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.match-details__indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.match-details__indicator_met {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+.match-details__indicator_not-met {
+  background: #fbe9e7;
+  color: #c62828;
+}
+.match-details__indicator_no-data {
+  background: #f5f5f5;
+  color: #9e9e9e;
+}
+.match-details__label {
+  color: #3e3e3c;
+  white-space: nowrap;
+}
+.match-details__category {
+  color: #706e6b;
+  font-style: italic;
+}
+.match-details__source {
+  color: #706e6b;
+  font-size: 11px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.match-details__explanation {
+  color: #3e3e3c;
+  font-size: 12px;
+  line-height: 1.5;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 4px;
+  margin-top: 2px;
 }
 
 .agent-log-table tbody td.agent-log-cell_rationale:focus {
@@ -1151,7 +1214,7 @@ tr.is-removing {
   /* SLDS sets `position: relative` on .slds-popover, but we anchor to the
      viewport via JS so the popover escapes the scrollable card. */
   position: fixed;
-  width: 300px;
+  width: 380px;
   /* SLDS 2's default popover z-index is 6000; raise it so we sit above
      sticky table headers and any inline overlays. */
   z-index: 10000;
@@ -1427,6 +1490,12 @@ tr.is-removing {
   width: auto;
 }
 
+.agent-log-table_run-list thead th.agent-log-th_enrich-calls,
+.agent-log-table_run-list tbody td.agent-log-cell_enrich-calls {
+  min-width: 120px;
+  width: auto;
+}
+
 .agent-log-table_run-list thead th.agent-log-th_duration,
 .agent-log-table_run-list tbody td.agent-log-cell_duration {
   min-width: 110px;
@@ -1469,6 +1538,26 @@ tr.is-removing {
 .agent-log-table_run-detail thead th.agent-log-th_rationale,
 .agent-log-table_run-detail tbody td.agent-log-cell_rationale {
   min-width: 240px;
+  max-width: 360px;
+  width: auto;
+}
+.agent-log-table_run-detail tbody td.agent-log-cell_rationale .agent-log-rationale-text {
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-size: 12px;
+  color: #3e3e3c;
+}
+
+.agent-log-table_run-detail thead th.agent-log-th_enrich-calls,
+.agent-log-table_run-detail tbody td.agent-log-cell_enrich-calls {
+  min-width: 130px;
+  width: auto;
+}
+
+.agent-log-table_run-detail thead th.agent-log-th_flex-credits,
+.agent-log-table_run-detail tbody td.agent-log-cell_flex-credits {
+  min-width: 130px;
   width: auto;
 }
 
