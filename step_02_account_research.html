@@ -710,6 +710,63 @@
                   aria-multiline="true"
                 ></div>
               </div>
+
+              <!-- Settings section — inside the same card (mirrors Find Prospects).
+                   Adecco 264.11 · PRD Tab 1 #5: agent-level paid enrichment toggle on the
+                   Account Research step. Off by default. Gated in product. -->
+              <div class="slds-border_top slds-p-around_medium">
+
+                <!-- Third-Party Enrichment (Accounts) -->
+                <p style="font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-scale-2); color: var(--sdr-guided-config-color-on-surface-2); margin-bottom: var(--sdr-guided-config-spacing-1);">Third-Party Enrichment</p>
+                <p style="font-size: var(--sdr-guided-config-font-size-base); color: var(--sdr-guided-config-color-on-surface-1); margin-bottom: var(--sdr-guided-config-spacing-3);">Let the agent pay to enrich accounts with ZoomInfo. When this is off, the agent still researches accounts with your Salesforce data, web research, and ZoomInfo Search, which doesn't use credits.</p>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border: 1px solid var(--sdr-guided-config-color-border-1); border-radius: var(--sdr-guided-config-border-radius-2); background: var(--sdr-guided-config-color-surface-2);">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <img src="/assets/images/zoominfo-logo.svg" alt="ZoomInfo" width="32" height="32" style="flex-shrink: 0; border-radius: var(--sdr-guided-config-border-radius-1);" />
+                    <div>
+                      <p style="font-weight: var(--sdr-guided-config-font-weight-6); font-size: var(--sdr-guided-config-font-size-base); color: var(--sdr-guided-config-color-on-surface-2); line-height: 1.25;">Enrich Accounts with ZoomInfo</p>
+                      <p style="font-size: var(--sdr-guided-config-font-size-scale-neg-1); color: var(--sdr-guided-config-color-on-surface-1); line-height: 1.3;">Get full company details from ZoomInfo before the agent checks your criteria</p>
+                    </div>
+                  </div>
+                  <div class="slds-form-element" style="margin: 0;">
+                    <label class="slds-checkbox_toggle slds-grid">
+                      <span class="slds-form-element__label slds-assistive-text">Enrich Accounts with ZoomInfo</span>
+                      <input type="checkbox" name="enrichment-zoominfo-accounts" id="enrich-zoominfo-accounts" value="zoominfo" aria-describedby="enrich-zoominfo-accounts-desc" />
+                      <span id="enrich-zoominfo-accounts-desc" class="slds-checkbox_faux_container" aria-live="assertive">
+                        <span class="slds-checkbox_faux"></span>
+                        <span class="slds-checkbox_on">Enabled</span>
+                        <span class="slds-checkbox_off">Disabled</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Cost warning — shown only when enrichment is on (PRD Tab 1 #5) -->
+                <div id="enrich-zoominfo-accounts-warning" class="slds-scoped-notification slds-media slds-media_center slds-theme_warning slds-m-top_small slds-hide" role="status">
+                  <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-utility-warning" title="Warning">
+                      <svg class="slds-icon slds-icon_small slds-icon-text-default" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Warning</span>
+                    </span>
+                  </div>
+                  <div class="slds-media__body">
+                    <p>Enriching can improve matching, but each enriched account uses a ZoomInfo credit.</p>
+                  </div>
+                </div>
+                <script>
+                  (function () {
+                    var toggle = document.getElementById('enrich-zoominfo-accounts');
+                    var warning = document.getElementById('enrich-zoominfo-accounts-warning');
+                    if (!toggle || !warning) return;
+                    toggle.addEventListener('change', function () {
+                      warning.classList.toggle('slds-hide', !toggle.checked);
+                    });
+                  })();
+                </script>
+
+              </div>
             </div>
 
             <div id="tools-library-popover" class="popover hidden">

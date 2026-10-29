@@ -237,15 +237,15 @@
 
   function applyGateToSection(section) {
     if (!section) return;
-    var gated = !hasAccountSource();
+    var gated = false;
     var notice     = section.querySelector('[data-hunter-accounts-notice]');
     var emptyState = section.querySelector('[data-aop-empty-state]');
     var btn        = section.querySelector('[data-aop-action-btn]');
     var desc       = section.querySelector('[data-aop-btn-desc]');
 
     if (notice) {
-      if (gated) notice.removeAttribute('hidden');
-      else notice.setAttribute('hidden', 'hidden');
+      notice.setAttribute('hidden', 'hidden');
+      notice.style.display = 'none';
     }
 
     if (emptyState) {

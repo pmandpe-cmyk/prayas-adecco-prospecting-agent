@@ -1640,6 +1640,10 @@ body:has(.hunter-builder) main.app-wrapper {
   display: none;
 }
 
+[data-hunter-accounts-notice] {
+  display: none !important;
+}
+
 .hunter-accounts-notice.slds-media_center {
   -webkit-box-align: start;
       -ms-flex-align: start;
